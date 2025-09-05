@@ -1,0 +1,367 @@
+2025-09-05 00:17:08:178 [[31merror[39m]: [31munhandledRejection: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.[39m
+[31mMaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.[39m
+[31m    at Socket.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\ioredis\built\redis\event_handler.js:182:37)[39m
+[31m    at Object.onceWrapper (node:events:634:26)[39m
+[31m    at Socket.emit (node:events:519:28)[39m
+[31m    at TCP.<anonymous> (node:net:346:12)[39m {
+  "error": {},
+  "stack": "MaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to \"maxRetriesPerRequest\" option for details.\n    at Socket.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js:182:37)\n    at Object.onceWrapper (node:events:634:26)\n    at Socket.emit (node:events:519:28)\n    at TCP.<anonymous> (node:net:346:12)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 00:17:08 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 18764,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 23588864,
+      "heapTotal": 44437504,
+      "heapUsed": 42380640,
+      "external": 20975131,
+      "arrayBuffers": 18441868
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 25302.187
+  },
+  "trace": [
+    {
+      "column": 37,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js",
+      "function": null,
+      "line": 182,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "node:events",
+      "function": "Object.onceWrapper",
+      "line": 634,
+      "method": "onceWrapper",
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "Socket.emit",
+      "line": 519,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": null,
+      "line": 346,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-09-05 00:23:25:2325 [[31merror[39m]: [31munhandledRejection: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.[39m
+[31mMaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.[39m
+[31m    at Socket.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\ioredis\built\redis\event_handler.js:182:37)[39m
+[31m    at Object.onceWrapper (node:events:634:26)[39m
+[31m    at Socket.emit (node:events:519:28)[39m
+[31m    at TCP.<anonymous> (node:net:346:12)[39m {
+  "error": {},
+  "stack": "MaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to \"maxRetriesPerRequest\" option for details.\n    at Socket.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js:182:37)\n    at Object.onceWrapper (node:events:634:26)\n    at Socket.emit (node:events:519:28)\n    at TCP.<anonymous> (node:net:346:12)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 00:23:25 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 19500,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 38928384,
+      "heapTotal": 45486080,
+      "heapUsed": 42362168,
+      "external": 20972901,
+      "arrayBuffers": 18439638
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 25679.062
+  },
+  "trace": [
+    {
+      "column": 37,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js",
+      "function": null,
+      "line": 182,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "node:events",
+      "function": "Object.onceWrapper",
+      "line": 634,
+      "method": "onceWrapper",
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "Socket.emit",
+      "line": 519,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": null,
+      "line": 346,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-09-05 00:47:37:4737 [[31merror[39m]: [31munhandledRejection: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.[39m
+[31mMaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.[39m
+[31m    at Socket.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\ioredis\built\redis\event_handler.js:182:37)[39m
+[31m    at Object.onceWrapper (node:events:634:26)[39m
+[31m    at Socket.emit (node:events:519:28)[39m
+[31m    at TCP.<anonymous> (node:net:346:12)[39m {
+  "error": {},
+  "stack": "MaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to \"maxRetriesPerRequest\" option for details.\n    at Socket.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js:182:37)\n    at Object.onceWrapper (node:events:634:26)\n    at Socket.emit (node:events:519:28)\n    at TCP.<anonymous> (node:net:346:12)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 00:47:37 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 13356,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 23162880,
+      "heapTotal": 45223936,
+      "heapUsed": 41881008,
+      "external": 20971399,
+      "arrayBuffers": 18364528
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 27131.203
+  },
+  "trace": [
+    {
+      "column": 37,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js",
+      "function": null,
+      "line": 182,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "node:events",
+      "function": "Object.onceWrapper",
+      "line": 634,
+      "method": "onceWrapper",
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "Socket.emit",
+      "line": 519,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": null,
+      "line": 346,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-09-05 01:17:31:1731 [[31merror[39m]: [31munhandledRejection: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.[39m
+[31mMaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.[39m
+[31m    at Socket.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\ioredis\built\redis\event_handler.js:182:37)[39m
+[31m    at Object.onceWrapper (node:events:634:26)[39m
+[31m    at Socket.emit (node:events:519:28)[39m
+[31m    at TCP.<anonymous> (node:net:346:12)[39m {
+  "error": {},
+  "stack": "MaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to \"maxRetriesPerRequest\" option for details.\n    at Socket.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js:182:37)\n    at Object.onceWrapper (node:events:634:26)\n    at Socket.emit (node:events:519:28)\n    at TCP.<anonymous> (node:net:346:12)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 01:17:31 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 17372,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 24027136,
+      "heapTotal": 45223936,
+      "heapUsed": 42325776,
+      "external": 20970719,
+      "arrayBuffers": 18437456
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 28925.25
+  },
+  "trace": [
+    {
+      "column": 37,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js",
+      "function": null,
+      "line": 182,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "node:events",
+      "function": "Object.onceWrapper",
+      "line": 634,
+      "method": "onceWrapper",
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "Socket.emit",
+      "line": 519,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": null,
+      "line": 346,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2025-09-05 05:07:42:742 [[31merror[39m]: [31munhandledRejection: EC520000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:c:\ws\deps\openssl\openssl\ssl\record\rec_layer_s3.c:1605:SSL alert number 80[39m
+
+[31mMongoServerSelectionError: EC520000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:c:\ws\deps\openssl\openssl\ssl\record\rec_layer_s3.c:1605:SSL alert number 80[39m
+
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "ReplicaSetNoPrimary",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": "atlas-127wx1-shard-0",
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: EC520000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:c:\\ws\\deps\\openssl\\openssl\\ssl\\record\\rec_layer_s3.c:1605:SSL alert number 80\n\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 05:07:42 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 25692,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 90165248,
+      "heapTotal": 37879808,
+      "heapUsed": 35196240,
+      "external": 20719396,
+      "arrayBuffers": 18265719
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 42736.906
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}

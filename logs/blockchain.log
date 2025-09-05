@@ -1,0 +1,356 @@
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 00:13:12:1312"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 00:13:12:1312"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 00:13:12:1312"}
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 00:19:30:1930"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 00:19:30:1930"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 00:19:30:1930"}
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 00:43:42:4342"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 00:43:42:4342"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 00:43:42:4342"}
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 01:13:36:1336"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 01:13:36:1336"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 01:13:37:1337"}
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 01:58:48:5848"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 01:58:48:5848"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 01:58:49:5849"}
+
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 02:04:00:40"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 02:04:00:40"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 02:04:01:41"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 02:12:20:1220"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 02:12:21:1221"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 02:12:21:1221"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 02:40:34:4034"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 02:40:34:4034"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 02:40:35:4035"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 03:48:38:4838"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 03:48:38:4838"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 03:48:38:4838"}
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 03:48:46:4846"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 03:48:47:4847"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 03:48:47:4847"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 03:49:11:4911"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 03:49:11:4911"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 03:49:12:4912"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 03:53:17:5317"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 03:53:17:5317"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 03:53:17:5317"}
+
+
+
+
+
+
+
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 04:46:48:4648"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 04:46:48:4648"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 04:46:49:4649"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 04:51:11:5111"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 04:51:12:5112"}
+
+
+
+
+
+{"message":"\u001b[32m   ✅ IPFS service initialized\u001b[39m","level":"\u001b[32minfo\u001b[39m","timestamp":"2025-09-05 04:51:12:5112"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 04:51:24:5124"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 04:51:25:5125"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 05:05:48:548"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 05:05:49:549"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 05:07:12:712"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 05:07:12:712"}
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 05:10:32:1032"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 05:10:33:1033"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 05:14:43:1443"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 05:14:44:1444"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 05:16:26:1626"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 05:16:26:1626"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 05:17:47:1747"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 05:17:47:1747"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 05:18:39:1839"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 05:18:39:1839"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 07:45:52:4552"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 07:45:52:4552"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 07:47:39:4739"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 07:47:39:4739"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 07:51:22:5122"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 07:51:22:5122"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 08:25:55:2555"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 08:25:55:2555"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 08:33:38:3338"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 08:33:38:3338"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 08:42:21:4221"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 08:42:21:4221"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 08:51:22:5122"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 08:51:23:5123"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 08:51:45:5145"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 08:51:46:5146"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 08:52:00:520"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Runtime._execModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1439:24)\n    at Runtime._loadModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1022:12)\n    at Runtime.requireModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:882:12)\n    at Runtime.requireModuleOrMock (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1048:21)\n    at Object.require (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\projects.js:8:27)\n    at Runtime._execModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1439:24)\n    at Runtime._loadModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1022:12)\n    at Runtime.requireModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:882:12)\n    at Runtime.requireModuleOrMock (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1048:21)\n    at Object.require (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\test-app.js:45:19)\n    at Runtime._execModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1439:24)\n    at Runtime._loadModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1022:12)\n    at Runtime.requireModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:882:12)\n    at Runtime.requireModuleOrMock (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1048:21)\n    at Object.require (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\tests\\server.test.js:3:13)\n    at Runtime._execModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1439:24)\n    at Runtime._loadModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:1022:12)\n    at Runtime.requireModule (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runtime\\build\\index.js:882:12)\n    at jestAdapter (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapter.js:77:13)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at runTestInternal (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runner\\build\\runTest.js:367:16)\n    at runTest (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\jest-runner\\build\\runTest.js:444:34)","timestamp":"2025-09-05 08:52:00:520"}
+
+
+
+
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 08:55:28:5528"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 08:55:29:5529"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 08:59:32:5932"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 08:59:33:5933"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 09:29:03:293"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 09:29:03:293"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 09:46:49:4649"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 09:46:50:4650"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 10:11:24:1124"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 10:11:24:1124"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 10:18:59:1859"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 10:18:59:1859"}
+
+
+
+
+{"message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","level":"\u001b[33mwarn\u001b[39m","timestamp":"2025-09-05 10:31:29:3129"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mFailed to initialize blockchain service: INFURA_PROJECT_ID not configured\u001b[39m","stack":"Error: INFURA_PROJECT_ID not configured\n    at BlockchainService.init (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:20:15)\n    at new BlockchainService (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:13:10)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\services\\blockchainService.js:522:27)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)","timestamp":"2025-09-05 10:31:30:3130"}
+
+
+
+
