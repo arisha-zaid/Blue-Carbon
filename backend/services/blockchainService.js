@@ -17,7 +17,9 @@ class BlockchainService {
     try {
       // Check if required environment variables are set
       if (!process.env.INFURA_PROJECT_ID || process.env.INFURA_PROJECT_ID === 'your_infura_project_id') {
-        throw new Error('INFURA_PROJECT_ID not configured');
+        logger.warn('INFURA_PROJECT_ID not configured, blockchain features disabled');
+        this.isInitialized = false;
+        return; // Exit early without error
       }
       
       // Initialize provider
@@ -47,7 +49,7 @@ class BlockchainService {
       this.isInitialized = true;
       logger.info('Blockchain service initialized successfully');
     } catch (error) {
-      logger.error('Failed to initialize blockchain service:', error);
+      logger.warn('Blockchain service initialization issue:', error.message);
       // Don't throw error, just log it and continue
       logger.warn('Blockchain service will run in limited mode');
     }
