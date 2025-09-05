@@ -10,7 +10,7 @@ class BlockchainService {
     this.contracts = {};
     this.isInitialized = false;
     
-    this.init();
+    // Don't auto-initialize, let the server call init() explicitly
   }
   
   async init() {

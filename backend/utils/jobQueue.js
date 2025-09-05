@@ -1,289 +1,254 @@
-const Queue = require('bull');
-const redis = require('redis');
 const logger = require('./logger');
 
-// Redis client configuration
+// Check if Redis is configured
+const isRedisConfigured = process.env.REDIS_URL || process.env.REDIS_HOST;
 
-const redisConfig = {
-  redis: {
-    port: process.env.REDIS_PORT || 6379,
-    host: process.env.REDIS_HOST || "localhost",
-    username: process.env.REDIS_USERNAME || "default",   // 👈 added this line
-    password: process.env.REDIS_PASSWORD || undefined,
-    db: 0,
-  },
-};
+let Queue, blockchainQueue, emailQueue, ipfsQueue, analyticsQueue;
 
-
-// Create job queues
-const blockchainQueue = new Queue('blockchain operations', redisConfig);
-const emailQueue = new Queue('email notifications', redisConfig);
-const ipfsQueue = new Queue('ipfs operations', redisConfig);
-const analyticsQueue = new Queue('analytics processing', redisConfig);
-
-// Blockchain operations processor
-blockchainQueue.process('sync_complaint', 5, async (job) => {
-  const { complaintId, complaintData } = job.data;
-  
+if (isRedisConfigured) {
   try {
-    const blockchainService = require('../services/blockchainService');
+    Queue = require('bull');
     
-    if (!blockchainService.isConnected()) {
-      throw new Error('Blockchain service not available');
+    // Redis client configuration
+    const redisConfig = {
+      redis: {
+        port: process.env.REDIS_PORT || 6379,
+        host: process.env.REDIS_HOST || "localhost",
+        username: process.env.REDIS_USERNAME || "default",
+        password: process.env.REDIS_PASSWORD || undefined,
+        db: 0,
+      },
+    };
+
+    // Create job queues
+    blockchainQueue = new Queue('blockchain operations', redisConfig);
+    emailQueue = new Queue('email notifications', redisConfig);
+    ipfsQueue = new Queue('ipfs operations', redisConfig);
+    analyticsQueue = new Queue('analytics processing', redisConfig);
+    
+    logger.info('Job queues initialized with Redis');
+    
+    // Set up queue processors and event handlers
+    setupQueueProcessors();
+    setupEventHandlers();
+    
+  } catch (error) {
+    logger.warn('Failed to initialize Redis queues, running without job queue:', error.message);
+    isRedisConfigured = false;
+  }
+} else {
+  logger.warn('Redis not configured, job queue features disabled');
+}
+
+function setupQueueProcessors() {
+  if (!blockchainQueue) return;
+  
+  // Blockchain operations processor
+  blockchainQueue.process('sync_complaint', 5, async (job) => {
+    const { complaintId, complaintData } = job.data;
+    
+    try {
+      const blockchainService = require('../services/blockchainService');
+      
+      if (!blockchainService.isConnected()) {
+        throw new Error('Blockchain service not available');
+      }
+      
+      // Submit complaint to blockchain
+      const result = await blockchainService.submitComplaint(complaintData);
+      
+      // Update database with blockchain data
+      const Complaint = require('../models/Complaint');
+      await Complaint.findByIdAndUpdate(complaintId, {
+        'blockchainData.complaintId': result.complaintId,
+        'blockchainData.txHash': result.txHash,
+        'blockchainData.blockNumber': result.blockNumber,
+        'blockchainData.isOnChain': true,
+        'blockchainData.lastSyncedAt': new Date()
+      });
+      
+      logger.info('Blockchain sync_complaint completed', {
+        complaintId: result.complaintId,
+        dbId: complaintId,
+        txHash: result.txHash
+      });
+      
+      return result;
+      
+    } catch (error) {
+      logger.error('Blockchain sync_complaint failed:', error, { complaintId });
+      throw error;
     }
-    
-    // Submit complaint to blockchain
-    const result = await blockchainService.submitComplaint(complaintData);
-    
-    // Update database with blockchain data
-    const Complaint = require('../models/Complaint');
-    await Complaint.findByIdAndUpdate(complaintId, {
-      'blockchainData.complaintId': result.complaintId,
-      'blockchainData.txHash': result.txHash,
-      'blockchainData.blockNumber': result.blockNumber,
-      'blockchainData.isOnChain': true,
-      'blockchainData.lastSyncedAt': new Date()
-    });
-    
-    logger.blockchain.transaction(result.txHash, 'sync_complaint', {
-      complaintId: result.complaintId,
-      dbId: complaintId,
-      gasUsed: result.gasUsed
-    });
-    
-    return result;
-    
-  } catch (error) {
-    logger.blockchain.error('sync_complaint', error, { complaintId });
-    throw error;
-  }
-});
+  });
 
-blockchainQueue.process('sync_project', 3, async (job) => {
-  const { projectId, projectData } = job.data;
-  
-  try {
-    const blockchainService = require('../services/blockchainService');
+  blockchainQueue.process('sync_project', 3, async (job) => {
+    const { projectId, projectData } = job.data;
     
-    if (!blockchainService.isConnected()) {
-      throw new Error('Blockchain service not available');
+    try {
+      const blockchainService = require('../services/blockchainService');
+      
+      if (!blockchainService.isConnected()) {
+        throw new Error('Blockchain service not available');
+      }
+      
+      // Register project on blockchain
+      const result = await blockchainService.registerProject(projectData);
+      
+      // Update database with blockchain data
+      const Project = require('../models/Project');
+      await Project.findByIdAndUpdate(projectId, {
+        'blockchain.projectId': result.projectId,
+        'blockchain.txHash': result.txHash,
+        'blockchain.blockNumber': result.blockNumber,
+        'blockchain.isOnChain': true,
+        'blockchain.lastSyncedAt': new Date()
+      });
+      
+      logger.info('Blockchain sync_project completed', {
+        projectId: result.projectId,
+        dbId: projectId,
+        txHash: result.txHash
+      });
+      
+      return result;
+      
+    } catch (error) {
+      logger.error('Blockchain sync_project failed:', error, { projectId });
+      throw error;
     }
-    
-    // Register project on blockchain
-    const result = await blockchainService.registerProject(projectData);
-    
-    // Update database with blockchain data
-    const Project = require('../models/Project');
-    await Project.findByIdAndUpdate(projectId, {
-      'blockchain.projectId': result.projectId,
-      'blockchain.txHash': result.txHash,
-      'blockchain.blockNumber': result.blockNumber,
-      'blockchain.isOnChain': true,
-      'blockchain.lastSyncedAt': new Date()
-    });
-    
-    logger.blockchain.transaction(result.txHash, 'sync_project', {
-      projectId: result.projectId,
-      dbId: projectId,
-      gasUsed: result.gasUsed
-    });
-    
-    return result;
-    
-  } catch (error) {
-    logger.blockchain.error('sync_project', error, { projectId });
-    throw error;
-  }
-});
+  });
 
-blockchainQueue.process('issue_credits', 2, async (job) => {
-  const { creditData } = job.data;
-  
-  try {
-    const blockchainService = require('../services/blockchainService');
-    
-    if (!blockchainService.isConnected()) {
-      throw new Error('Blockchain service not available');
-    }
-    
-    const result = await blockchainService.issueCredits(creditData);
-    
-    logger.blockchain.transaction(result.txHash, 'issue_credits', {
-      to: creditData.to,
-      amount: creditData.amount,
-      projectId: creditData.projectId,
-      gasUsed: result.gasUsed
-    });
-    
-    return result;
-    
-  } catch (error) {
-    logger.blockchain.error('issue_credits', error, { creditData });
-    throw error;
-  }
-});
-
-// Email notifications processor
-emailQueue.process('send_notification', 10, async (job) => {
-  const { to, subject, template, data } = job.data;
-  
-  try {
-    const emailService = require('./emailService');
-    
-    const result = await emailService.sendEmail({
-      to,
-      subject,
-      template,
-      data
-    });
-    
-    logger.info(`Email notification sent to ${to}: ${subject}`);
-    
-    return result;
-    
-  } catch (error) {
-    logger.error('Failed to send email notification:', error, { to, subject });
-    throw error;
-  }
-});
-
-emailQueue.process('send_bulk_notification', 2, async (job) => {
-  const { recipients, subject, template, data } = job.data;
-  
-  try {
-    const emailService = require('./emailService');
-    
-    const results = [];
-    for (const recipient of recipients) {
+  // Email notifications processor
+  if (emailQueue) {
+    emailQueue.process('send_notification', 10, async (job) => {
+      const { to, subject, template, data } = job.data;
+      
       try {
+        const emailService = require('./emailService');
+        
         const result = await emailService.sendEmail({
-          to: recipient.email,
+          to,
           subject,
           template,
-          data: { ...data, ...recipient.data }
+          data
         });
-        results.push({ email: recipient.email, success: true, result });
+        
+        logger.info(`Email notification sent to ${to}: ${subject}`);
+        
+        return result;
+        
       } catch (error) {
-        results.push({ email: recipient.email, success: false, error: error.message });
-        logger.warn(`Failed to send email to ${recipient.email}:`, error.message);
+        logger.error('Failed to send email notification:', error, { to, subject });
+        throw error;
       }
-    }
-    
-    logger.info(`Bulk email completed: ${results.filter(r => r.success).length}/${results.length} sent`);
-    
-    return results;
-    
-  } catch (error) {
-    logger.error('Failed to send bulk email notification:', error);
-    throw error;
+    });
   }
-});
 
-// IPFS operations processor
-ipfsQueue.process('upload_file', 10, async (job) => {
-  const { data, metadata } = job.data;
-  
-  try {
-    const ipfsService = require('../services/ipfsService');
-    
-    const result = await ipfsService.uploadFile(Buffer.from(data, 'base64'), metadata);
-    
-    logger.ipfs.upload(result.hash, result.size, metadata.filename);
-    
-    return result;
-    
-  } catch (error) {
-    logger.ipfs.error('upload_file', error, { metadata });
-    throw error;
-  }
-});
-
-ipfsQueue.process('pin_file', 5, async (job) => {
-  const { hash } = job.data;
-  
-  try {
-    const ipfsService = require('../services/ipfsService');
-    
-    const result = await ipfsService.pinFile(hash);
-    
-    logger.ipfs.pin(hash, 'pin');
-    
-    return result;
-    
-  } catch (error) {
-    logger.ipfs.error('pin_file', error, { hash });
-    throw error;
-  }
-});
-
-// Analytics processor
-analyticsQueue.process('update_statistics', 1, async (job) => {
-  const { type } = job.data;
-  
-  try {
-    let stats;
-    
-    switch (type) {
-      case 'complaints':
-        const Complaint = require('../models/Complaint');
-        stats = await Complaint.getStatistics();
-        break;
+  // IPFS operations processor
+  if (ipfsQueue) {
+    ipfsQueue.process('upload_file', 10, async (job) => {
+      const { data, metadata } = job.data;
+      
+      try {
+        const ipfsService = require('../services/ipfsService');
         
-      case 'projects':
-        const Project = require('../models/Project');
-        stats = await Project.getStatistics();
-        break;
+        const result = await ipfsService.uploadFile(Buffer.from(data, 'base64'), metadata);
         
-      default:
-        throw new Error(`Unknown statistics type: ${type}`);
-    }
-    
-    // Cache statistics (you could use Redis here)
-    logger.info(`Statistics updated for ${type}:`, stats);
-    
-    return stats;
-    
-  } catch (error) {
-    logger.error('Failed to update statistics:', error, { type });
-    throw error;
+        logger.info('IPFS upload completed', { hash: result.hash, size: result.size });
+        
+        return result;
+        
+      } catch (error) {
+        logger.error('IPFS upload failed:', error, { metadata });
+        throw error;
+      }
+    });
   }
-});
 
-// Event handlers
-blockchainQueue.on('completed', (job, result) => {
-  logger.info(`Blockchain job ${job.id} completed:`, result);
-});
+  // Analytics processor
+  if (analyticsQueue) {
+    analyticsQueue.process('update_statistics', 1, async (job) => {
+      const { type } = job.data;
+      
+      try {
+        let stats;
+        
+        switch (type) {
+          case 'complaints':
+            const Complaint = require('../models/Complaint');
+            stats = await Complaint.getStatistics();
+            break;
+            
+          case 'projects':
+            const Project = require('../models/Project');
+            stats = await Project.getStatistics();
+            break;
+            
+          default:
+            throw new Error(`Unknown statistics type: ${type}`);
+        }
+        
+        logger.info(`Statistics updated for ${type}:`, stats);
+        
+        return stats;
+        
+      } catch (error) {
+        logger.error('Failed to update statistics:', error, { type });
+        throw error;
+      }
+    });
+  }
+}
 
-blockchainQueue.on('failed', (job, err) => {
-  logger.error(`Blockchain job ${job.id} failed:`, err);
-});
+function setupEventHandlers() {
+  if (blockchainQueue) {
+    blockchainQueue.on('completed', (job, result) => {
+      logger.info(`Blockchain job ${job.id} completed`);
+    });
 
-emailQueue.on('completed', (job, result) => {
-  logger.info(`Email job ${job.id} completed`);
-});
+    blockchainQueue.on('failed', (job, err) => {
+      logger.error(`Blockchain job ${job.id} failed:`, err);
+    });
+  }
 
-emailQueue.on('failed', (job, err) => {
-  logger.error(`Email job ${job.id} failed:`, err);
-});
+  if (emailQueue) {
+    emailQueue.on('completed', (job, result) => {
+      logger.info(`Email job ${job.id} completed`);
+    });
 
-ipfsQueue.on('completed', (job, result) => {
-  logger.info(`IPFS job ${job.id} completed:`, result.hash);
-});
+    emailQueue.on('failed', (job, err) => {
+      logger.error(`Email job ${job.id} failed:`, err);
+    });
+  }
 
-ipfsQueue.on('failed', (job, err) => {
-  logger.error(`IPFS job ${job.id} failed:`, err);
-});
+  if (ipfsQueue) {
+    ipfsQueue.on('completed', (job, result) => {
+      logger.info(`IPFS job ${job.id} completed`);
+    });
 
-analyticsQueue.on('completed', (job, result) => {
-  logger.info(`Analytics job ${job.id} completed`);
-});
+    ipfsQueue.on('failed', (job, err) => {
+      logger.error(`IPFS job ${job.id} failed:`, err);
+    });
+  }
 
-analyticsQueue.on('failed', (job, err) => {
-  logger.error(`Analytics job ${job.id} failed:`, err);
-});
+  if (analyticsQueue) {
+    analyticsQueue.on('completed', (job, result) => {
+      logger.info(`Analytics job ${job.id} completed`);
+    });
+
+    analyticsQueue.on('failed', (job, err) => {
+      logger.error(`Analytics job ${job.id} failed:`, err);
+    });
+  }
+}
 
 // Queue management functions
 const addJob = async (queueName, jobType, data, options = {}) => {
+  if (!isRedisConfigured) {
+    logger.warn(`Job queue not available, skipping job: ${queueName}/${jobType}`);
+    return null;
+  }
+  
   const queues = {
     blockchain: blockchainQueue,
     email: emailQueue,
@@ -314,6 +279,10 @@ const addJob = async (queueName, jobType, data, options = {}) => {
 };
 
 const getQueueStats = async (queueName) => {
+  if (!isRedisConfigured) {
+    return { error: 'Redis not configured' };
+  }
+  
   const queues = {
     blockchain: blockchainQueue,
     email: emailQueue,
@@ -342,6 +311,10 @@ const getQueueStats = async (queueName) => {
 };
 
 const getAllQueueStats = async () => {
+  if (!isRedisConfigured) {
+    return { error: 'Redis not configured' };
+  }
+  
   const stats = {};
   
   for (const queueName of ['blockchain', 'email', 'ipfs', 'analytics']) {
@@ -355,58 +328,16 @@ const getAllQueueStats = async () => {
   return stats;
 };
 
-const clearQueue = async (queueName, state = 'completed') => {
-  const queues = {
+// Export functions
+module.exports = {
+  addJob,
+  getQueueStats,
+  getAllQueueStats,
+  isRedisConfigured,
+  queues: {
     blockchain: blockchainQueue,
     email: emailQueue,
     ipfs: ipfsQueue,
     analytics: analyticsQueue
-  };
-  
-  const queue = queues[queueName];
-  if (!queue) {
-    throw new Error(`Unknown queue: ${queueName}`);
   }
-  
-  await queue.clean(0, state);
-  logger.info(`Cleared ${state} jobs from ${queueName} queue`);
-};
-
-// Periodic statistics update
-const schedulePeriodicJobs = () => {
-  // Update complaint statistics every hour
-  const complaintStatsJob = {
-    repeat: { cron: '0 * * * *' }, // Every hour
-    removeOnComplete: 1,
-    removeOnFail: 1
-  };
-  
-  analyticsQueue.add('update_statistics', { type: 'complaints' }, complaintStatsJob);
-  
-  // Update project statistics every 6 hours
-  const projectStatsJob = {
-    repeat: { cron: '0 */6 * * *' }, // Every 6 hours
-    removeOnComplete: 1,
-    removeOnFail: 1
-  };
-  
-  analyticsQueue.add('update_statistics', { type: 'projects' }, projectStatsJob);
-  
-  logger.info('Scheduled periodic analytics jobs');
-};
-
-// Initialize periodic jobs
-setTimeout(() => {
-  schedulePeriodicJobs();
-}, 5000); // Wait 5 seconds after startup
-
-module.exports = {
-  blockchainQueue,
-  emailQueue,
-  ipfsQueue,
-  analyticsQueue,
-  addJob,
-  getQueueStats,
-  getAllQueueStats,
-  clearQueue
 };

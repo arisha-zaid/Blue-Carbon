@@ -375,3 +375,131 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 10:31:30:3130"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 10:31:30:3130"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 10:31:32:3132"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:21:00:210"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:21:01:211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:21:01:211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:21:01:211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:21:03:213"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:28:53:2853"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:28:53:2853"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:28:53:2853"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:28:53:2853"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:28:55:2855"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:33:16:3316"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:33:16:3316"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:33:16:3316"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:33:17:3317"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:33:19:3319"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:39:10:3910"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:39:11:3911"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:39:11:3911"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:39:11:3911"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:39:13:3913"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:42:36:4236"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:42:36:4236"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:42:36:4236"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:42:36:4236"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:42:40:4240"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:43:55:4355"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:43:55:4355"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:43:55:4355"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:43:55:4355"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:43:57:4357"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:44:50:4450"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:44:51:4451"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:44:51:4451"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:44:51:4451"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:44:52:4452"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:45:35:4535"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:45:35:4535"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:45:35:4535"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:45:35:4535"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:45:36:4536"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:46:54:4654"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:46:54:4654"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:46:55:4655"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:46:55:4655"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:46:56:4656"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:49:30:4930"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:49:30:4930"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:49:30:4930"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:49:30:4930"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:49:31:4931"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:50:53:5053"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:50:54:5054"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:50:54:5054"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:50:54:5054"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:50:55:5055"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 11:52:43:5243"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 11:52:44:5244"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 11:52:44:5244"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 11:52:44:5244"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 11:52:46:5246"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:17:33:1733"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 12:17:33:1733"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:17:33:1733"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:17:33:1733"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31m❌ MongoDB connection error: getaddrinfo ENOTFOUND ac-v1zbl1x-shard-00-01.ypgfbuu.mongodb.net\u001b[39m","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":30,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-127wx1-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"stack":"MongooseServerSelectionError: getaddrinfo ENOTFOUND ac-v1zbl1x-shard-00-01.ypgfbuu.mongodb.net\n    at _handleConnectionErrors (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js:805:11)\n    at NativeConnection.openUri (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js:780:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05 12:18:09:189"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:32:46:3246"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 12:32:46:3246"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:32:47:3247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:32:47:3247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:32:47:3247"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:34:37:3437"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 12:34:38:3438"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:34:38:3438"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:34:38:3438"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:34:38:3438"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:34:42:3442"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 12:34:42:3442"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:34:42:3442"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:34:42:3442"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:34:43:3443"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:35:17:3517"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 12:35:18:3518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:35:18:3518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:35:18:3518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:35:18:3518"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:36:03:363"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 12:36:03:363"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:36:03:363"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:36:03:363"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:36:03:363"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:42:59:4259"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 12:42:59:4259"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:42:59:4259"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:42:59:4259"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:42:59:4259"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:44:12:4412"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mINFURA_PROJECT_ID not configured, blockchain features disabled\u001b[39m","timestamp":"2025-09-05 12:44:12:4412"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:44:12:4412"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:44:12:4412"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:44:12:4412"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:46:20:4620"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:46:20:4620"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:46:20:4620"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:46:20:4620"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:47:49:4749"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:49:46:4946"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ All route modules loaded successfully\u001b[39m","timestamp":"2025-09-05 12:49:46:4946"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Passport configuration loaded\u001b[39m","timestamp":"2025-09-05 12:49:46:4946"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m✅ Connected to MongoDB\u001b[39m","timestamp":"2025-09-05 12:49:46:4946"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:51:48:5148"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:53:46:5346"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:56:20:5620"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:58:14:5814"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:59:44:5944"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 12:59:47:5947"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 13:06:50:650"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 13:11:14:1114"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 13:11:24:1124"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 13:11:55:1155"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 13:13:35:1335"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 13:14:53:1453"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 13:15:27:1527"}
+{"date":"Fri Sep 05 2025 13:15:52 GMT+0530 (India Standard Time)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Connection.prototype.close() no longer accepts a callback\u001b[39m\n\u001b[31mMongooseError: Connection.prototype.close() no longer accepts a callback\u001b[39m\n\u001b[31m    at NativeConnection.close (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js:845:11)\u001b[39m\n\u001b[31m    at process.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js:230:23)\u001b[39m\n\u001b[31m    at process.emit (node:events:519:28)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":72026.578},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"],"cwd":"C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18275278,"external":20737152,"heapTotal":34734080,"heapUsed":32118648,"rss":72478720},"pid":17152,"uid":null,"version":"v22.19.0"},"rejection":true,"stack":"MongooseError: Connection.prototype.close() no longer accepts a callback\n    at NativeConnection.close (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js:845:11)\n    at process.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js:230:23)\n    at process.emit (node:events:519:28)","timestamp":"2025-09-05 13:15:52:1552","trace":[{"column":11,"file":"C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js","function":"NativeConnection.close","line":845,"method":"close","native":false},{"column":23,"file":"C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js","function":null,"line":230,"method":null,"native":false},{"column":28,"file":"node:events","function":"process.emit","line":519,"method":"emit","native":false}]}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 13:16:42:1642"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 14:33:36:3336"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 15:03:29:329"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33mIPFS client not available, running in fallback mode\u001b[39m","timestamp":"2025-09-05 15:20:20:2020"}
+{"date":"Fri Sep 05 2025 15:44:57 GMT+0530 (India Standard Time)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Connection.prototype.close() no longer accepts a callback\u001b[39m\n\u001b[31mMongooseError: Connection.prototype.close() no longer accepts a callback\u001b[39m\n\u001b[31m    at NativeConnection.close (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js:845:11)\u001b[39m\n\u001b[31m    at process.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js:230:23)\u001b[39m\n\u001b[31m    at process.emit (node:events:519:28)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":80971.296},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"],"cwd":"C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18388000,"external":20823686,"heapTotal":39190528,"heapUsed":37119152,"rss":15949824},"pid":23316,"uid":null,"version":"v22.19.0"},"rejection":true,"stack":"MongooseError: Connection.prototype.close() no longer accepts a callback\n    at NativeConnection.close (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js:845:11)\n    at process.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js:230:23)\n    at process.emit (node:events:519:28)","timestamp":"2025-09-05 15:44:57:4457","trace":[{"column":11,"file":"C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js","function":"NativeConnection.close","line":845,"method":"close","native":false},{"column":23,"file":"C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js","function":null,"line":230,"method":null,"native":false},{"column":28,"file":"node:events","function":"process.emit","line":519,"method":"emit","native":false}]}

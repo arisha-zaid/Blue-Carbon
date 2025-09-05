@@ -227,40 +227,58 @@ router.post(
   }
 );
 
-// @route   GET /api/auth/google
-// @desc    Initiate Google OAuth
-// @access  Public
-router.get(
-  "/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
+// Google OAuth routes (only if configured)
+if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+  // @route   GET /api/auth/google
+  // @desc    Initiate Google OAuth
+  // @access  Public
+  router.get(
+    "/google",
+    passport.authenticate("google", { scope: ["profile", "email"] })
+  );
 
-// @route   GET /api/auth/google/callback
-// @desc    Google OAuth callback
-// @access  Public
-router.get(
-  "/google/callback",
-  passport.authenticate("google", { failureRedirect: "/login" }),
-  (req, res) => {
-    try {
-      // Generate JWT token
-      const token = generateToken(req.user);
+  // @route   GET /api/auth/google/callback
+  // @desc    Google OAuth callback
+  // @access  Public
+  router.get(
+    "/google/callback",
+    passport.authenticate("google", { failureRedirect: "/login" }),
+    (req, res) => {
+      try {
+        // Generate JWT token
+        const token = generateToken(req.user);
 
-      // Redirect to frontend with token
-      const redirectUrl = `${
-        process.env.FRONTEND_URL || "http://localhost:3000"
-      }/oauth/callback?token=${token}&role=${req.user.role}`;
-      res.redirect(redirectUrl);
-    } catch (error) {
-      console.error("Google OAuth callback error:", error);
-      res.redirect(
-        `${
+        // Redirect to frontend with token
+        const redirectUrl = `${
           process.env.FRONTEND_URL || "http://localhost:3000"
-        }/login?error=oauth_failed`
-      );
+        }/oauth/callback?token=${token}&role=${req.user.role}`;
+        res.redirect(redirectUrl);
+      } catch (error) {
+        console.error("Google OAuth callback error:", error);
+        res.redirect(
+          `${
+            process.env.FRONTEND_URL || "http://localhost:3000"
+          }/login?error=oauth_failed`
+        );
+      }
     }
-  }
-);
+  );
+} else {
+  // Fallback routes when Google OAuth is not configured
+  router.get("/google", (req, res) => {
+    res.status(501).json({
+      success: false,
+      message: "Google OAuth is not configured on this server"
+    });
+  });
+
+  router.get("/google/callback", (req, res) => {
+    res.status(501).json({
+      success: false,
+      message: "Google OAuth is not configured on this server"
+    });
+  });
+}
 
 // @route   POST /api/auth/refresh
 // @desc    Refresh JWT token

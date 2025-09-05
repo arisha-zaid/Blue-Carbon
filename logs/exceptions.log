@@ -5328,3 +5328,2871 @@
     }
   ]
 }
+2025-09-05 11:21:01:211 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:21:01 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 25932,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97251328,
+      "heapTotal": 63152128,
+      "heapUsed": 41014344,
+      "external": 20596109,
+      "arrayBuffers": 18266537
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 65135.718
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:28:53:2853 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:28:53 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 19444,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97529856,
+      "heapTotal": 63414272,
+      "heapUsed": 41380072,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 65607.734
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:33:17:3317 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:33:17 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 12796,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97439744,
+      "heapTotal": 62889984,
+      "heapUsed": 40879536,
+      "external": 20596109,
+      "arrayBuffers": 18266537
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 65871.171
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:39:11:3911 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:39:11 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 10484,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 100691968,
+      "heapTotal": 63152128,
+      "heapUsed": 41036600,
+      "external": 20596109,
+      "arrayBuffers": 18266537
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 66225.656
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:42:36:4236 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:42:36 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 13056,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97755136,
+      "heapTotal": 63414272,
+      "heapUsed": 41357008,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 66430.89
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:43:55:4355 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:43:55 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 18388,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97701888,
+      "heapTotal": 63676416,
+      "heapUsed": 41230792,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 66509.609
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:44:51:4451 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:44:51 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 17628,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97284096,
+      "heapTotal": 63414272,
+      "heapUsed": 41281632,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 66565.484
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:45:35:4535 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:45:35 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 25612,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97771520,
+      "heapTotal": 63414272,
+      "heapUsed": 41236336,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 66609.718
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:46:55:4655 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:46:55 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 26280,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 96112640,
+      "heapTotal": 63414272,
+      "heapUsed": 41515120,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 66689.156
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:49:30:4930 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:49:30 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 15544,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97435648,
+      "heapTotal": 63414272,
+      "heapUsed": 41200888,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 66844.546
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:50:54:5054 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:50:54 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 2136,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 96104448,
+      "heapTotal": 63152128,
+      "heapUsed": 41663984,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 66928.281
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 11:52:44:5244 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 11:52:44 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 19664,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97742848,
+      "heapTotal": 63676416,
+      "heapUsed": 41439952,
+      "external": 20720350,
+      "arrayBuffers": 18266713
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 67038.625
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:17:33:1733 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:17:33 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 13116,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95105024,
+      "heapTotal": 63152128,
+      "heapUsed": 40991984,
+      "external": 20596109,
+      "arrayBuffers": 18266537
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 68528.015
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:32:47:3247 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:32:47 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 25176,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95752192,
+      "heapTotal": 63832064,
+      "heapUsed": 41442536,
+      "external": 20709148,
+      "arrayBuffers": 18266405
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 69441.156
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:34:38:3438 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:34:38 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 20620,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 96202752,
+      "heapTotal": 63569920,
+      "heapUsed": 41699592,
+      "external": 20709150,
+      "arrayBuffers": 18266407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 69552.5
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:34:42:3442 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:34:42 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 9784,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 96182272,
+      "heapTotal": 63569920,
+      "heapUsed": 41694280,
+      "external": 20709150,
+      "arrayBuffers": 18266407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 69556.89
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:35:18:3518 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:35:18 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 18212,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97177600,
+      "heapTotal": 63569920,
+      "heapUsed": 41787616,
+      "external": 20709150,
+      "arrayBuffers": 18266407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 69592.406
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:36:03:363 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:36:03 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24988,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95776768,
+      "heapTotal": 63569920,
+      "heapUsed": 41426512,
+      "external": 20584909,
+      "arrayBuffers": 18266231
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 69637.671
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:42:59:4259 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:42:59 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 15148,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95350784,
+      "heapTotal": 63569920,
+      "heapUsed": 41264800,
+      "external": 20584909,
+      "arrayBuffers": 18266231
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 70053.812
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:44:12:4412 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:44:12 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 16228,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97828864,
+      "heapTotal": 63569920,
+      "heapUsed": 41542872,
+      "external": 20709150,
+      "arrayBuffers": 18266407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 70126.734
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:46:20:4620 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:46:20 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 9004,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 98099200,
+      "heapTotal": 63569920,
+      "heapUsed": 41522280,
+      "external": 20584909,
+      "arrayBuffers": 18266231
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 70254.812
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:49:46:4946 [[31merror[39m]: [31muncaughtException: Route.get() requires a callback function but got a [object Undefined][39m
+[31mError: Route.get() requires a callback function but got a [object Undefined][39m
+[31m    at Route.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\route.js:216:15)[39m
+[31m    at proto.<computed> [as get] (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\router\index.js:521:19)[39m
+[31m    at Object.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\routes\industry.js:8:8)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1706:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1839:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1441:32)[39m
+[31m    at Function._load (node:internal/modules/cjs/loader:1263:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1463:12)[39m {
+  "error": {},
+  "stack": "Error: Route.get() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js:216:15)\n    at proto.<computed> [as get] (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js:8:8)\n    at Module._compile (node:internal/modules/cjs/loader:1706:14)\n    at Object..js (node:internal/modules/cjs/loader:1839:10)\n    at Module.load (node:internal/modules/cjs/loader:1441:32)\n    at Function._load (node:internal/modules/cjs/loader:1263:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:49:46 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 4588,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97701888,
+      "heapTotal": 63569920,
+      "heapUsed": 41408944,
+      "external": 20584909,
+      "arrayBuffers": 18266231
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 70460.703
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "Route.<computed> [as get]",
+      "line": 216,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\router\\index.js",
+      "function": "proto.<computed> [as get]",
+      "line": 521,
+      "method": "<computed> [as get]",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\routes\\industry.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1706,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1839,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1441,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Function._load",
+      "line": 1263,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 322,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 237,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1463,
+      "method": "require",
+      "native": false
+    }
+  ]
+}
+2025-09-05 12:53:47:5347 [[31merror[39m]: [31muncaughtException: listen EADDRINUSE: address already in use :::5000[39m
+[31mError: listen EADDRINUSE: address already in use :::5000[39m
+[31m    at Server.setupListenHandle [as _listen2] (node:net:1940:16)[39m
+[31m    at listenInCluster (node:net:1997:12)[39m
+[31m    at Server.listen (node:net:2102:7)[39m
+[31m    at Function.listen (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\express\lib\application.js:635:24)[39m
+[31m    at C:\Users\Himanshi Pal\Blue-Carbon\backend\server.js:130:9[39m
+[31m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -4091,
+    "syscall": "listen",
+    "address": "::",
+    "port": 5000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::5000\n    at Server.setupListenHandle [as _listen2] (node:net:1940:16)\n    at listenInCluster (node:net:1997:12)\n    at Server.listen (node:net:2102:7)\n    at Function.listen (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js:130:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "exception": true,
+  "date": "Fri Sep 05 2025 12:53:47 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 18932,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 94257152,
+      "heapTotal": 69599232,
+      "heapUsed": 31698792,
+      "external": 20728816,
+      "arrayBuffers": 18266942
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 70701.375
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle [as _listen2]",
+      "line": 1940,
+      "method": "setupListenHandle [as _listen2]",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1997,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2102,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\express\\lib\\application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 9,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js",
+      "function": null,
+      "line": 130,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/process/task_queues",
+      "function": "process.processTicksAndRejections",
+      "line": 105,
+      "method": "processTicksAndRejections",
+      "native": false
+    }
+  ]
+}
