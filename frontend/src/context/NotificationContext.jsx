@@ -6,24 +6,25 @@ const NotificationContext = createContext();
 export function NotificationProvider({ children }) {
   const [notifications, setNotifications] = useState([]);
 
-  const addNotification = useCallback((messageOrObj, type = "info") => {
-    // Normalize input: support addNotification("msg", "success") and addNotification({ message, type })
-    const id = Date.now() + Math.random();
-    const notification =
-      typeof messageOrObj === "string"
-        ? { message: messageOrObj, type }
-        : { ...messageOrObj };
-
-    setNotifications((prev) => [
-      ...prev,
-      { id, ...notification },
-    ]);
-
-    // Auto-dismiss after 4s
-    setTimeout(() => {
-      setNotifications((prev) => prev.filter((n) => n.id !== id));
-    }, 4000);
-  }, []);
+  const addNotification = useCallback(
+    (msgOrConfig, type = "info", duration = 3000) => {
+      // Support both signatures:
+      // - addNotification("text", "success", 3000)
+      // - addNotification({ message: "text", type: "success", duration: 3000 })
+      let message = msgOrConfig;
+      if (typeof msgOrConfig === "object" && msgOrConfig !== null) {
+        message = msgOrConfig.message;
+        type = msgOrConfig.type ?? "info";
+        duration = msgOrConfig.duration ?? 3000;
+      }
+      const id = Date.now() + Math.random();
+      setNotifications((prev) => [...prev, { id, message, type }]);
+      setTimeout(() => {
+        setNotifications((prev) => prev.filter((n) => n.id !== id));
+      }, duration);
+    },
+    []
+  );
 
   return (
     <NotificationContext.Provider value={{ notifications, addNotification }}>

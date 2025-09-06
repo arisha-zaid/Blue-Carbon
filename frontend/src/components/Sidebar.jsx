@@ -111,4 +111,5 @@ export default function Sidebar({ role, isOpen, onClose }) {
       </div>
     </aside>
   );
+  
 }
