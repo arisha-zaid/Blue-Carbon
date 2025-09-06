@@ -124,9 +124,12 @@ router.post(
       });
     } catch (error) {
       console.error("Registration error:", error);
+      // Provide more details in development to help diagnose why writes fail
+      const isProd = (process.env.NODE_ENV || 'development') === 'production';
       res.status(500).json({
         success: false,
-        message: "Server error during registration",
+        message: isProd ? "Server error during registration" : (error.message || "Registration failed"),
+        ...(isProd ? {} : { code: error.code, name: error.name, stack: error.stack })
       });
     }
   }

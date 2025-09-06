@@ -30,6 +30,13 @@ export default function AddProject() {
   const [type, setType] = useState("Mangroves");
   const [sizeHa, setSizeHa] = useState("");
   const [description, setDescription] = useState("");
+  
+  // Location detection and suggestions
+  const [coordinates, setCoordinates] = useState({ latitude: null, longitude: null });
+  const [detectedLocation, setDetectedLocation] = useState("");
+  const [isDetectingLocation, setIsDetectingLocation] = useState(false);
+  const [locationSuggestions, setLocationSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   // Step 2: Files
   const [files, setFiles] = useState([]);
@@ -67,6 +74,162 @@ export default function AddProject() {
     setFiles((prev) => prev.filter((_, i) => i !== idx));
   };
 
+  // Location detection using browser's geolocation API
+  const detectCurrentLocation = () => {
+    if (!navigator.geolocation) {
+      addNotification("Geolocation is not supported by this browser.", "error");
+      return;
+    }
+
+    setIsDetectingLocation(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setCoordinates({ latitude, longitude });
+        
+        // Reverse geocoding to get address (using a mock implementation)
+        reverseGeocode(latitude, longitude)
+          .then((address) => {
+            setDetectedLocation(address);
+            setLocation(address);
+            addNotification("Location detected successfully!", "success");
+          })
+          .catch(() => {
+            addNotification("Failed to get address from coordinates.", "error");
+          })
+          .finally(() => {
+            setIsDetectingLocation(false);
+          });
+      },
+      (error) => {
+        setIsDetectingLocation(false);
+        let message = "Failed to detect location.";
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            message = "Location access denied by user.";
+            break;
+          case error.POSITION_UNAVAILABLE:
+            message = "Location information is unavailable.";
+            break;
+          case error.TIMEOUT:
+            message = "Location request timed out.";
+            break;
+        }
+        addNotification(message, "error");
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 60000
+      }
+    );
+  };
+
+  // Reverse geocoding using backend API
+  const reverseGeocode = async (lat, lng) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/locations/reverse-geocode?latitude=${lat}&longitude=${lng}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
+      
+      if (!response.ok) {
+        throw new Error('Failed to reverse geocode');
+      }
+      
+      const data = await response.json();
+      return data.data.address;
+    } catch (error) {
+      console.error('Reverse geocoding error:', error);
+      // Fallback to simple coordinate display
+      return `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+    }
+  };
+
+  // Generate location suggestions based on project type using backend API
+  const getLocationSuggestions = async (projectType, searchQuery = '') => {
+    try {
+      const typeMap = {
+        'Mangroves': 'mangroves',
+        'Seagrass': 'seagrass', 
+        'Wetlands': 'wetlands',
+        'Agroforestry': 'agroforestry'
+      };
+      
+      const apiType = typeMap[projectType] || 'wetlands';
+      const url = new URL('http://localhost:5000/api/locations/suggestions');
+      url.searchParams.append('type', apiType);
+      if (searchQuery) {
+        url.searchParams.append('search', searchQuery);
+      }
+      url.searchParams.append('limit', '10');
+      
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch suggestions');
+      }
+      
+      const data = await response.json();
+      return data.data.map(location => location.fullName);
+    } catch (error) {
+      console.error('Error fetching location suggestions:', error);
+      // Fallback to hardcoded suggestions
+      const fallbackSuggestions = {
+        Mangroves: [
+          "Sundarbans National Park, West Bengal",
+          "Bhitarkanika Wildlife Sanctuary, Odisha", 
+          "Pichavaram Mangrove Forest, Tamil Nadu"
+        ],
+        Seagrass: [
+          "Gulf of Mannar, Tamil Nadu",
+          "Palk Bay, Tamil Nadu",
+          "Chilika Lake, Odisha"
+        ],
+        Wetlands: [
+          "Chilika Lake, Odisha",
+          "Pulicat Lake, Tamil Nadu",
+          "Vembanad Lake, Kerala"
+        ],
+        Agroforestry: [
+          "Western Ghats region, Karnataka",
+          "Nilgiri Hills, Tamil Nadu",
+          "Satpura Range, Madhya Pradesh"
+        ]
+      };
+      
+      return fallbackSuggestions[projectType] || [];
+    }
+  };
+
+  // Handle location input change and show suggestions
+  const handleLocationChange = async (value) => {
+    setLocation(value);
+    if (value.length > 2) {
+      try {
+        const suggestions = await getLocationSuggestions(type, value);
+        setLocationSuggestions(suggestions);
+        setShowSuggestions(suggestions.length > 0);
+      } catch (error) {
+        console.error('Error getting suggestions:', error);
+        setShowSuggestions(false);
+      }
+    } else {
+      setShowSuggestions(false);
+    }
+  };
+
+  // Select a suggestion
+  const selectSuggestion = (suggestion) => {
+    setLocation(suggestion);
+    setShowSuggestions(false);
+    setLocationSuggestions([]);
+  };
+
   // progress bar width
   const progress = useMemo(() => (step - 1) * 50, [step]); // 0, 50, 100
 
@@ -84,6 +247,10 @@ export default function AddProject() {
       id: Date.now(),
       name,
       location,
+      coordinates: coordinates.latitude && coordinates.longitude ? {
+        latitude: coordinates.latitude,
+        longitude: coordinates.longitude
+      } : null,
       type,
       sizeHa: parseFloat(sizeHa),
       description,
@@ -102,6 +269,36 @@ export default function AddProject() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [step]);
+
+  // Close suggestions when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.location-input-container')) {
+        setShowSuggestions(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
+  // Update suggestions when project type changes
+  useEffect(() => {
+    const updateSuggestions = async () => {
+      if (location.length > 2) {
+        try {
+          const suggestions = await getLocationSuggestions(type, location);
+          setLocationSuggestions(suggestions);
+          setShowSuggestions(suggestions.length > 0);
+        } catch (error) {
+          console.error('Error updating suggestions:', error);
+          setShowSuggestions(false);
+        }
+      }
+    };
+    
+    updateSuggestions();
+  }, [type]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#F3F4F6] to-white">
@@ -162,16 +359,81 @@ export default function AddProject() {
                   />
                 </div>
 
-                <div>
+                <div className="relative location-input-container">
                   <label className="block text-sm text-gray-600 mb-1">
                     Location
                   </label>
-                  <input
-                    className="w-full border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
-                    placeholder="e.g., Alappuzha, Kerala"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                  />
+                  <div className="flex gap-2">
+                    <input
+                      className="flex-1 border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                      placeholder="e.g., Alappuzha, Kerala"
+                      value={location}
+                      onChange={(e) => handleLocationChange(e.target.value)}
+                      onFocus={async () => {
+                        if (location.length > 2) {
+                          try {
+                            const suggestions = await getLocationSuggestions(type, location);
+                            setLocationSuggestions(suggestions);
+                            setShowSuggestions(true);
+                          } catch (error) {
+                            console.error('Error getting suggestions on focus:', error);
+                          }
+                        } else {
+                          // Show all suggestions for the project type when no search query
+                          try {
+                            const suggestions = await getLocationSuggestions(type);
+                            setLocationSuggestions(suggestions);
+                            setShowSuggestions(true);
+                          } catch (error) {
+                            console.error('Error getting all suggestions:', error);
+                          }
+                        }
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={detectCurrentLocation}
+                      disabled={isDetectingLocation}
+                      className="px-4 py-2 bg-[#16A34A] text-white rounded-xl hover:bg-green-600 disabled:bg-gray-400 transition-colors flex items-center gap-2"
+                      title="Detect current location"
+                    >
+                      {isDetectingLocation ? (
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      ) : (
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      )}
+                      {isDetectingLocation ? "Detecting..." : "Detect"}
+                    </button>
+                  </div>
+                  
+                  {/* Location Suggestions Dropdown */}
+                  {showSuggestions && locationSuggestions.length > 0 && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border rounded-xl shadow-lg z-10 max-h-48 overflow-y-auto">
+                      <div className="p-2">
+                        <div className="text-xs text-gray-500 mb-2">Suggested locations for {type} projects:</div>
+                        {locationSuggestions.map((suggestion, index) => (
+                          <button
+                            key={index}
+                            type="button"
+                            onClick={() => selectSuggestion(suggestion)}
+                            className="w-full text-left px-3 py-2 hover:bg-blue-50 rounded-lg transition-colors text-sm"
+                          >
+                            {suggestion}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Show detected coordinates */}
+                  {coordinates.latitude && coordinates.longitude && (
+                    <div className="mt-2 text-xs text-gray-500">
+                      📍 Coordinates: {coordinates.latitude.toFixed(6)}, {coordinates.longitude.toFixed(6)}
+                    </div>
+                  )}
                 </div>
 
                 <div>

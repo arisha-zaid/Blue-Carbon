@@ -1,7 +1,10 @@
 const logger = require('./logger');
 
+// Feature flag: enable Redis queues only if explicitly enabled
+const QUEUES_ENABLED = process.env.QUEUES_ENABLED === 'true';
+
 // Check if Redis is configured
-const isRedisConfigured = process.env.REDIS_URL || process.env.REDIS_HOST;
+let isRedisConfigured = (process.env.REDIS_URL || process.env.REDIS_HOST) && QUEUES_ENABLED;
 
 let Queue, blockchainQueue, emailQueue, ipfsQueue, analyticsQueue;
 

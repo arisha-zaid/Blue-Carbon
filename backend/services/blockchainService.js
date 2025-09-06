@@ -15,9 +15,16 @@ class BlockchainService {
   
   async init() {
     try {
+      // In test environment, do not initialize blockchain to avoid network calls
+      if (process.env.NODE_ENV === 'test') {
+        logger.info('Test environment detected: skipping blockchain initialization');
+        this.isInitialized = false;
+        return;
+      }
+
       // Check if required environment variables are set
       if (!process.env.INFURA_PROJECT_ID || process.env.INFURA_PROJECT_ID === 'your_infura_project_id') {
-        logger.warn('INFURA_PROJECT_ID not configured, blockchain features disabled');
+        logger.info('INFURA_PROJECT_ID not configured, blockchain features disabled');
         this.isInitialized = false;
         return; // Exit early without error
       }

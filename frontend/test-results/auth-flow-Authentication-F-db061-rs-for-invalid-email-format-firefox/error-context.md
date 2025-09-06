@@ -1,0 +1,138 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - img "Blue Carbon Background" [ref=e6]
+      - generic [ref=e7]:
+        - heading "Blockchain- Powered Blue Carbon Registry" [level=1] [ref=e8]:
+          - generic [ref=e9]: Blockchain-
+          - generic [ref=e10]: Powered
+          - generic [ref=e11]: Blue Carbon Registry
+        - paragraph [ref=e12]: Transform coastal ecosystems into verified carbon credits. Register, monitor, and trade blue carbon projects with blockchain transparency.
+        - button "Login / Register" [ref=e13]
+        - button "Watch Demo" [ref=e14]
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - heading "Live Dashboard" [level=3] [ref=e18]
+          - generic [ref=e19]: ● Live
+        - paragraph [ref=e20]: Latest Verification
+        - paragraph [ref=e21]: "Mangrove Project #127"
+        - paragraph [ref=e22]: "TxID: 0x7f3a9b..."
+        - generic [ref=e24]:
+          - paragraph [ref=e25]: Credit Value
+          - paragraph [ref=e26]: $24.50/ton
+          - paragraph [ref=e27]: +12.3% today
+        - paragraph [ref=e28]: Project Verification
+        - paragraph [ref=e31]: 85%
+    - generic [ref=e32]:
+      - img "Background"
+      - generic [ref=e33]:
+        - heading "🌟 Key Features" [level=2] [ref=e34]
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - img [ref=e37]
+            - heading "AI Estimator" [level=3] [ref=e40]
+            - paragraph [ref=e41]: Predict CO₂ absorption with accuracy.
+          - generic [ref=e42]:
+            - img [ref=e43]
+            - heading "Blockchain Registry" [level=3] [ref=e46]
+            - paragraph [ref=e47]: Immutable verification of carbon credits.
+          - generic [ref=e48]:
+            - img [ref=e49]
+            - heading "Gamification" [level=3] [ref=e52]
+            - paragraph [ref=e53]: Earn badges & rewards for impact.
+          - generic [ref=e54]:
+            - img [ref=e55]
+            - heading "Analytics" [level=3] [ref=e60]
+            - paragraph [ref=e61]: Track performance with live data.
+      - generic [ref=e62]:
+        - heading "📊 Registry Insights" [level=2] [ref=e63]
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - heading "Project Distribution" [level=3] [ref=e66]
+            - application [ref=e69]:
+              - generic [ref=e78]:
+                - generic [ref=e82]: "45"
+                - generic [ref=e86]: "30"
+                - generic [ref=e90]: "25"
+          - generic [ref=e91]:
+            - heading "Yearly Growth" [level=3] [ref=e92]
+            - application [ref=e95]:
+              - generic [ref=e98]:
+                - generic [ref=e102]: "2021"
+                - generic [ref=e106]: "2022"
+                - generic [ref=e110]: "2023"
+                - generic [ref=e114]: "2024"
+              - generic [ref=e117]:
+                - generic [ref=e121]: "0"
+                - generic [ref=e125]: "300"
+                - generic [ref=e129]: "600"
+                - generic [ref=e133]: "900"
+                - generic [ref=e137]: "1200"
+      - generic [ref=e149]:
+        - heading "🏆 Top Performers" [level=2] [ref=e150]
+        - generic [ref=e151]:
+          - generic [ref=e152]:
+            - img [ref=e153]
+            - heading "Mangrove Guardians" [level=3] [ref=e160]
+            - paragraph [ref=e161]: 1200 CO₂ credits
+            - paragraph [ref=e162]: Community-led mangrove restoration project.
+          - generic [ref=e163]:
+            - img [ref=e164]
+            - heading "Seagrass Protectors" [level=3] [ref=e171]
+            - paragraph [ref=e172]: 950 CO₂ credits
+            - paragraph [ref=e173]: Youth group conserving seagrass meadows.
+          - generic [ref=e174]:
+            - img [ref=e175]
+            - heading "Coastal Green Warriors" [level=3] [ref=e182]
+            - paragraph [ref=e183]: 780 CO₂ credits
+            - paragraph [ref=e184]: NGO-led initiative for wetland conservation.
+      - generic [ref=e185]:
+        - heading "👥 Our Stakeholders" [level=2] [ref=e186]
+        - generic [ref=e187]:
+          - generic [ref=e188]:
+            - img [ref=e189]
+            - heading "Community & NGOs" [level=3] [ref=e194]
+            - paragraph [ref=e195]: Grassroot organizations driving coastal restoration projects.
+          - generic [ref=e196]:
+            - img [ref=e197]
+            - heading "Corporates" [level=3] [ref=e205]
+            - paragraph [ref=e206]: Companies offsetting carbon footprint via verified credits.
+          - generic [ref=e207]:
+            - img [ref=e208]
+            - heading "Government" [level=3] [ref=e213]
+            - paragraph [ref=e214]: Authorities ensuring compliance & policy support.
+          - generic [ref=e215]:
+            - img [ref=e216]
+            - heading "Investors" [level=3] [ref=e218]
+            - paragraph [ref=e219]: Impact investors funding sustainable blue carbon projects.
+      - generic [ref=e220]:
+        - heading "💡 Why Choose Us?" [level=2] [ref=e221]
+        - generic [ref=e222]:
+          - generic [ref=e223]:
+            - heading "100% Transparency" [level=3] [ref=e224]
+            - paragraph [ref=e225]: Every credit is backed by blockchain verification.
+          - generic [ref=e226]:
+            - heading "AI-Driven Insights" [level=3] [ref=e227]
+            - paragraph [ref=e228]: Accurate CO₂ predictions for reliable impact reporting.
+          - generic [ref=e229]:
+            - heading "Global Recognition" [level=3] [ref=e230]
+            - paragraph [ref=e231]: Trusted by communities, corporates & policymakers worldwide.
+      - generic [ref=e232]:
+        - heading "❓ Frequently Asked Questions" [level=2] [ref=e233]
+        - generic [ref=e234]:
+          - heading "🌊 What is Blue Carbon? +" [level=3] [ref=e236] [cursor=pointer]:
+            - text: 🌊 What is Blue Carbon?
+            - generic [ref=e237] [cursor=pointer]: +
+          - heading "🔗 How does blockchain help? +" [level=3] [ref=e239] [cursor=pointer]:
+            - text: 🔗 How does blockchain help?
+            - generic [ref=e240] [cursor=pointer]: +
+          - heading "🤖 What role does AI play? +" [level=3] [ref=e242] [cursor=pointer]:
+            - text: 🤖 What role does AI play?
+            - generic [ref=e243] [cursor=pointer]: +
+    - contentinfo [ref=e244]:
+      - paragraph [ref=e245]: © 2025 Blue Carbon Registry. All rights reserved.
+  - generic [ref=e246]: "0"
+```

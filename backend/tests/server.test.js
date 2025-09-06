@@ -1,14 +1,16 @@
 const request = require('supertest');
 const mongoose = require('mongoose');
-const app = require('../test-app'); // We'll create a test app
+const app = require('../test-app');
 
 describe('Server Health', () => {
   beforeAll(async () => {
     // Connect to test database
     if (mongoose.connection.readyState === 0) {
-      await mongoose.connect(process.env.MONGODB_URI_TEST || 'mongodb://localhost:27017/blue_carbon_test', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+      const uri = (process.env.MONGODB_URI_TEST || 'mongodb://127.0.0.1:27017/blue_carbon_test').replace('localhost', '127.0.0.1');
+      await mongoose.connect(uri, {
+        serverSelectionTimeoutMS: 5000,
+        socketTimeoutMS: 20000,
+        family: 4,
       });
     }
   });

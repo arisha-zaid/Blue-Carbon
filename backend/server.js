@@ -1,6 +1,12 @@
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, ".env"), override: true });
 const express = require("express");
 const mongoose = require("mongoose");
+mongoose.set("strictQuery", true);
+// Enable Mongoose debug logs in development to trace DB operations
+if ((process.env.NODE_ENV || 'development') !== 'production') {
+  mongoose.set('debug', true);
+}
 const cors = require("cors");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
@@ -10,6 +16,18 @@ const passport = require("passport");
 
 // Import passport configuration
 require("./config/passport");
+
+// Prefer IPv4 for DNS and handle Mongo URI (local vs Atlas SRV)
+const dns = require("dns");
+try { dns.setDefaultResultOrder("ipv4first"); } catch (e) {}
+const DEFAULT_LOCAL_MONGO = "mongodb://127.0.0.1:27017/blue_carbon";
+const getMongoUri = () => {
+  const envUri = (process.env.MONGODB_URI || '').trim();
+  // If Atlas/local URI is provided, use it exactly as-is
+  if (envUri) return envUri;
+  // Fallback to local default only when no env var is set
+  return DEFAULT_LOCAL_MONGO;
+};
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -30,7 +48,8 @@ const checkPortAvailable = (port) => {
 console.log("🚀 Starting Blue Carbon Backend Server...");
 console.log(`📊 Environment: ${process.env.NODE_ENV || "development"}`);
 console.log(`🔌 Target Port: ${PORT}`);
-console.log(`🗄️  MongoDB URI: ${process.env.MONGODB_URI ? "Configured" : "Using default localhost"}`);
+console.log(`🗄️  MongoDB URI: ${process.env.MONGODB_URI ? (process.env.MONGODB_URI.startsWith('mongodb+srv://') ? 'Atlas SRV (configured)' : 'Custom (configured)') : 'Default localhost'}`);
+console.log(`🔗 Effective Mongo URI: ${getMongoUri().startsWith('mongodb+srv://') ? 'mongodb+srv://<hidden>@<cluster>/<db>' : getMongoUri()}`);
 console.log(`🌐 Frontend URL: ${process.env.FRONTEND_URL || "http://localhost:5173"}`);
 console.log("⏰ Timestamp:", new Date().toISOString());
 
@@ -59,7 +78,16 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.MONGODB_URI || "mongodb://localhost:27017/blue_carbon",
+    mongoUrl: getMongoUri(),
+    mongoOptions: {
+      serverSelectionTimeoutMS: 15000,
+      socketTimeoutMS: 30000,
+      family: 4,
+      tls: getMongoUri().startsWith('mongodb+srv://') ? true : undefined,
+      retryWrites: true,
+      w: 'majority'
+    },
+    collectionName: 'sessions'
   }),
   cookie: {
     secure: process.env.NODE_ENV === "production",
@@ -126,10 +154,36 @@ try {
   console.warn("⚠️ Project routes failed to load:", error.message);
 }
 
+try {
+  const locationRoutes = require("./routes/locations");
+  app.use("/api/locations", locationRoutes);
+  console.log("✅ Location routes loaded");
+} catch (error) {
+  console.warn("⚠️ Location routes failed to load:", error.message);
+}
+
+try {
+  const communityRoutes = require("./routes/community");
+  app.use("/api/community", communityRoutes);
+  console.log("✅ Community routes loaded");
+} catch (error) {
+  console.warn("⚠️ Community routes failed to load:", error.message);
+}
+
+try {
+  const adminRoutes = require("./routes/admin");
+  app.use("/api/admin", adminRoutes);
+  console.log("✅ Admin routes loaded");
+} catch (error) {
+  console.warn("⚠️ Admin routes failed to load:", error.message);
+}
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error("Error:", err);
-  res.status(500).json({
+  const status = err.status || 500;
+  res.status(status).json({
+    success: false,
     error: "Internal server error",
     message: process.env.NODE_ENV === "development" ? err.message : "Something went wrong"
   });
@@ -163,14 +217,44 @@ const startServer = async () => {
     
     // Connect to MongoDB
     console.log("🔄 Connecting to MongoDB...");
-    await mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/blue_carbon", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    const mongoUri = getMongoUri();
+
+    // Connection event logs
+    mongoose.connection.on('connecting', () => console.log('🟡 MongoDB: connecting...'));
+    mongoose.connection.on('connected', () => console.log('🟢 MongoDB: connected'));
+    mongoose.connection.on('reconnected', () => console.log('🟢 MongoDB: reconnected'));
+    mongoose.connection.on('disconnected', () => console.log('🛑 MongoDB: disconnected'));
+    mongoose.connection.on('error', (err) => console.error('❌ MongoDB error:', err.message));
+
+    await mongoose.connect(mongoUri, {
+      // Connection tuning for reliability
+      serverSelectionTimeoutMS: 15000,
+      socketTimeoutMS: 30000,
+      maxPoolSize: 10,
+      minPoolSize: 0,
+      family: 4, // Prefer IPv4
+      // Atlas SRV support
+      tls: mongoUri.startsWith('mongodb+srv://') ? true : undefined,
+      retryWrites: true,
+      w: 'majority'
     });
     
     console.log("✅ Connected to MongoDB");
     console.log(`📊 Database: ${mongoose.connection.name}`);
     console.log(`🔗 Connection State: ${mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected'}`);
+
+    // Quick write check to detect permission issues early
+    try {
+      const diagnostics = mongoose.connection.db.collection('diagnostics');
+      const testDoc = { _t: 'startup-write-check', ts: new Date() };
+      await diagnostics.insertOne(testDoc);
+      await diagnostics.deleteOne({ _id: testDoc._id });
+      console.log('🧪 DB write check: OK (insert/delete succeeded)');
+    } catch (e) {
+      console.warn('⚠️ DB write check failed:', e && (e.message || e));
+      console.warn('   ➜ Your MongoDB user may not have write permissions on this database.');
+      console.warn('   ➜ Ensure the user has at least the "readWrite" role on the target DB:', mongoose.connection.name);
+    }
     
     // Start server
     console.log(`🔄 Starting server on port ${PORT}...`);

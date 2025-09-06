@@ -90,7 +90,11 @@ class ApiService {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+        const err = new Error(errorData.message || `HTTP error! status: ${response.status}`);
+        // Attach status and error data for caller to handle (e.g., 404)
+        err.status = response.status;
+        err.data = errorData;
+        throw err;
       }
 
       const data = await response.json();
@@ -220,6 +224,41 @@ class ApiService {
 
   async getUserStats() {
     return await this.request('/users/stats/overview');
+  }
+
+  // Community profile methods
+  async getMyCommunityProfile() {
+    return await this.request('/community/my-profile');
+  }
+
+  async getCommunityProfileById(id) {
+    return await this.request(`/community/profile/${id}`);
+  }
+
+  async listCommunityProfiles(params = {}) {
+    const queryString = new URLSearchParams(params).toString();
+    const endpoint = `/community/profiles${queryString ? `?${queryString}` : ''}`;
+    return await this.request(endpoint);
+  }
+
+  async createCommunityProfile(payload) {
+    return await this.request('/community/profile', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  async updateCommunityProfile(payload) {
+    return await this.request('/community/profile', {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  async submitCommunityProfile() {
+    return await this.request('/community/profile/submit', {
+      method: 'POST',
+    });
   }
 
   // Project methods (placeholder for future implementation)

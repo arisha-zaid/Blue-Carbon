@@ -20,5 +20,5 @@ export default function RoleBasedRedirect() {
     else navigate("/community");
   }, [role, navigate]);
 
-  return <div>Redirecting...</div>; // safe fallback
+  return <div className="p-6 text-gray-600">Redirecting...</div>; // safe fallback
 }

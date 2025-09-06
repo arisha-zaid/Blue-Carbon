@@ -36,6 +36,10 @@ import AuditProjects from "./pages/government/AuditProjects";
 import Policies from "./pages/government/Policies";
 import GovernmentSettings from "./pages/government/Settings";
 
+// Community sub-pages
+import ProfileSetup from "./pages/community/ProfileSetup";
+import CommunityProfile from "./pages/community/Profile";
+
 // // Admin sub-pages
 // import AddProject from "./pages/dashboard/AddProject";
 // import Certificates from "./pages/dashboard/Certificates";
@@ -49,8 +53,10 @@ import AddProject from "./pages/AddProject";
 import Certificates from "./pages/Certificates";
 import Leaderboard from "./pages/Leaderboard";
 import ProjectDetails from "./pages/ProjectDetails";
+import DashboardSettings from "./pages/dashboard/Settings";
 
 import RoleBasedRedirect from "./components/RoleBasedRedirect";
+import ProjectMap from "./components/ProjectMap";
 
 export default function App() {
   return (
@@ -256,6 +262,42 @@ export default function App() {
               </Layout>
             }
           />
+          <Route
+            path="/projects/map"
+            element={
+              <Layout showSidebar={true}>
+                <ProjectMap />
+              </Layout>
+            }
+          />
+          <Route
+            path="/dashboard/settings"
+            element={
+              <Layout showSidebar={true}>
+                <DashboardSettings />
+              </Layout>
+            }
+          />
+          {/* Community profile setup */}
+          <Route
+            path="/community/profile-setup"
+            element={
+              <Layout showSidebar={true}>
+                <ProfileSetup />
+              </Layout>
+            }
+          />
+
+          {/* Community profile view */}
+          <Route
+            path="/community/profile"
+            element={
+              <Layout showSidebar={true}>
+                <CommunityProfile />
+              </Layout>
+            }
+          />
+
           <Route
             path="/project/:id"
             element={

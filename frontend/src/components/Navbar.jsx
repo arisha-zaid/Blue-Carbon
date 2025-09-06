@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiSearch, FiBell, FiSettings, FiMenu } from "react-icons/fi";
 import { Waves } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar({ onSidebarToggle, isAdmin }) {
   const [username, setUsername] = useState("User");
@@ -10,6 +10,7 @@ export default function Navbar({ onSidebarToggle, isAdmin }) {
   );
 
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -75,7 +76,11 @@ export default function Navbar({ onSidebarToggle, isAdmin }) {
           <button className="p-2 rounded-full hover:bg-gray-100 transition">
             <FiBell className="text-gray-600 hover:text-gray-900" size={20} />
           </button>
-          <button className="p-2 rounded-full hover:bg-gray-100 transition">
+          <button
+            className="p-2 rounded-full hover:bg-gray-100 transition"
+            onClick={() => navigate("/dashboard/settings")}
+            aria-label="Open settings"
+          >
             <FiSettings
               className="text-gray-600 hover:text-gray-900"
               size={20}

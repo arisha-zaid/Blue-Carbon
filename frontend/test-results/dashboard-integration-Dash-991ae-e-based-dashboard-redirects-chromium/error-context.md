@@ -1,0 +1,200 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: Blue Carbon
+      - navigation [ref=e6]:
+        - link "Dashboard" [ref=e7] [cursor=pointer]:
+          - /url: /industry
+          - img [ref=e8] [cursor=pointer]
+          - text: Dashboard
+        - link "Marketplace" [ref=e11] [cursor=pointer]:
+          - /url: /industry/marketplace
+          - img [ref=e12] [cursor=pointer]
+          - text: Marketplace
+        - link "Transactions" [ref=e14] [cursor=pointer]:
+          - /url: /industry/transactions
+          - img [ref=e15] [cursor=pointer]
+          - text: Transactions
+        - link "Wallet" [ref=e18] [cursor=pointer]:
+          - /url: /industry/wallet
+          - img [ref=e19] [cursor=pointer]
+          - text: Wallet
+        - link "Reports" [ref=e22] [cursor=pointer]:
+          - /url: /industry/reports
+          - img [ref=e23] [cursor=pointer]
+          - text: Reports
+        - link "Settings" [ref=e24] [cursor=pointer]:
+          - /url: /industry/settings
+          - img [ref=e25] [cursor=pointer]
+          - text: Settings
+      - button "Logout" [ref=e29]:
+        - img [ref=e30]
+        - text: Logout
+    - generic [ref=e33]:
+      - generic [ref=e34]: Blue Carbon Registry
+      - main [ref=e35]:
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - generic [ref=e38]:
+              - heading "Industry Dashboard" [level=1] [ref=e39]
+              - paragraph [ref=e40]: Buy, manage, and monitor your carbon credits portfolio in real time.
+            - generic [ref=e41]:
+              - link "Go to Marketplace" [ref=e42] [cursor=pointer]:
+                - /url: /industry/marketplace
+                - img [ref=e43] [cursor=pointer]
+                - text: Go to Marketplace
+              - link "Open Wallet" [ref=e47] [cursor=pointer]:
+                - /url: /industry/wallet
+                - img [ref=e48] [cursor=pointer]
+                - text: Open Wallet
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - generic [ref=e53]:
+                - generic [ref=e54]: Wallet Balance (tCO₂)
+                - img [ref=e56]
+              - generic [ref=e59]: 1,420
+              - generic [ref=e60]:
+                - img [ref=e61]
+                - text: +4.6%
+            - generic [ref=e64]:
+              - generic [ref=e65]:
+                - generic [ref=e66]: Market Price ($/t)
+                - img [ref=e68]
+              - generic [ref=e71]: "31.70"
+              - generic [ref=e72]:
+                - img [ref=e73]
+                - text: +5.1% MoM
+            - generic [ref=e76]:
+              - generic [ref=e77]:
+                - generic [ref=e78]: This Week Purchases
+                - img [ref=e80]
+              - generic [ref=e84]: 970 t
+              - generic [ref=e85]:
+                - img [ref=e86]
+                - text: +12% WoW
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - generic [ref=e91]: Vendors Onboarded
+                - img [ref=e93]
+              - generic [ref=e97]: "54"
+              - generic [ref=e98]:
+                - img [ref=e99]
+                - text: +6 new
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e104]:
+                - heading "Market Price – Blue Carbon Credits ($/t)" [level=3] [ref=e105]:
+                  - img [ref=e106]
+                  - text: Market Price – Blue Carbon Credits ($/t)
+                - generic [ref=e108]: Last 12 months
+              - application [ref=e111]:
+                - generic [ref=e116]:
+                  - generic [ref=e119]: Jan
+                  - generic [ref=e122]: Feb
+                  - generic [ref=e125]: Mar
+                  - generic [ref=e128]: Apr
+                  - generic [ref=e131]: May
+                  - generic [ref=e134]: Jun
+                  - generic [ref=e137]: Jul
+                  - generic [ref=e140]: Aug
+                  - generic [ref=e143]: Sep
+                  - generic [ref=e146]: Oct
+                  - generic [ref=e149]: Nov
+                  - generic [ref=e152]: Dec
+                - generic [ref=e154]:
+                  - generic [ref=e157]: "19.4"
+                  - generic [ref=e160]: "23.4"
+                  - generic [ref=e163]: "27.4"
+                  - generic [ref=e166]: "31.4"
+                  - generic [ref=e169]: "33.7"
+            - generic [ref=e172]:
+              - generic [ref=e173]:
+                - heading "Weekly Purchases (tCO₂)" [level=3] [ref=e174]
+                - generic [ref=e175]: This week
+              - application [ref=e178]:
+                - generic [ref=e180]:
+                  - generic [ref=e183]: Tue
+                  - generic [ref=e186]: Thu
+                  - generic [ref=e189]: Fri
+                  - generic [ref=e192]: Sun
+                - generic [ref=e194]:
+                  - generic [ref=e197]: "0"
+                  - generic [ref=e200]: "55"
+                  - generic [ref=e203]: "110"
+                  - generic [ref=e206]: "165"
+                  - generic [ref=e209]: "220"
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - heading "Wallet Snapshot" [level=3] [ref=e229]
+              - generic [ref=e230]:
+                - generic [ref=e231]:
+                  - generic [ref=e232]: Balance
+                  - generic [ref=e233]: 1,420 tCO₂
+                - generic [ref=e234]:
+                  - generic [ref=e235]: Est. Value
+                  - generic [ref=e236]: $45,014
+                - generic [ref=e237]:
+                  - generic [ref=e238]: 7-day Change
+                  - generic [ref=e239]:
+                    - img [ref=e240]
+                    - text: 4.6%
+              - generic [ref=e243]:
+                - link "View Transactions" [ref=e244] [cursor=pointer]:
+                  - /url: /industry/transactions
+                - link "Buy Credits" [ref=e245] [cursor=pointer]:
+                  - /url: /industry/marketplace
+            - generic [ref=e246]:
+              - generic [ref=e247]:
+                - heading "Recent Transactions" [level=3] [ref=e248]
+                - link "See all" [ref=e249] [cursor=pointer]:
+                  - /url: /industry/transactions
+              - table [ref=e251]:
+                - rowgroup [ref=e252]:
+                  - row "Tx ID Type Amount Price ($/t) Date" [ref=e253]:
+                    - cell "Tx ID" [ref=e254]
+                    - cell "Type" [ref=e255]
+                    - cell "Amount" [ref=e256]
+                    - cell "Price ($/t)" [ref=e257]
+                    - cell "Date" [ref=e258]
+                - rowgroup [ref=e259]:
+                  - row "TX-88421 Buy 450 t $27.30 2025-09-01" [ref=e260]:
+                    - cell "TX-88421" [ref=e261]
+                    - cell "Buy" [ref=e262]:
+                      - generic [ref=e263]:
+                        - text: Buy
+                        - img [ref=e264]
+                    - cell "450 t" [ref=e267]
+                    - cell "$27.30" [ref=e268]
+                    - cell "2025-09-01" [ref=e269]
+                  - row "TX-88402 Buy 250 t $26.80 2025-08-28" [ref=e270]:
+                    - cell "TX-88402" [ref=e271]
+                    - cell "Buy" [ref=e272]:
+                      - generic [ref=e273]:
+                        - text: Buy
+                        - img [ref=e274]
+                    - cell "250 t" [ref=e277]
+                    - cell "$26.80" [ref=e278]
+                    - cell "2025-08-28" [ref=e279]
+                  - row "TX-88377 Sell 120 t $26.40 2025-08-22" [ref=e280]:
+                    - cell "TX-88377" [ref=e281]
+                    - cell "Sell" [ref=e282]:
+                      - generic [ref=e283]:
+                        - text: Sell
+                        - img [ref=e284]
+                    - cell "120 t" [ref=e287]
+                    - cell "$26.40" [ref=e288]
+                    - cell "2025-08-22" [ref=e289]
+                  - row "TX-88321 Buy 300 t $25.90 2025-08-14" [ref=e290]:
+                    - cell "TX-88321" [ref=e291]
+                    - cell "Buy" [ref=e292]:
+                      - generic [ref=e293]:
+                        - text: Buy
+                        - img [ref=e294]
+                    - cell "300 t" [ref=e297]
+                    - cell "$25.90" [ref=e298]
+                    - cell "2025-08-14" [ref=e299]
+  - generic [ref=e300]: "0"
+```

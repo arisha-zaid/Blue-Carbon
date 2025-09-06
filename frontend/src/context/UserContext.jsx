@@ -4,16 +4,13 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [role, setRole] = useState("industry");
+  const [role, setRole] = useState(null);
 
   // Load role from localStorage on mount
   useEffect(() => {
     const storedRole = localStorage.getItem("role");
     if (storedRole) {
       setRole(storedRole);
-    } else {
-      // Set default role in localStorage if none exists
-      localStorage.setItem("role", "industry");
     }
   }, []);
 

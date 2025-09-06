@@ -491,3 +491,1760 @@
     }
   ]
 }
+2025-09-05 17:43:06:436 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 17:43:06 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 18660,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97562624,
+      "heapTotal": 69443584,
+      "heapUsed": 31943840,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 88060.078
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 17:48:14:4814 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 17:48:14 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24804,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95756288,
+      "heapTotal": 69181440,
+      "heapUsed": 31959224,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 88368.312
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 17:51:48:5148 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 17:51:48 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 5888,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95555584,
+      "heapTotal": 69443584,
+      "heapUsed": 31980320,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 88583
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 17:54:16:5416 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 17:54:16 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 12564,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 97918976,
+      "heapTotal": 69443584,
+      "heapUsed": 31957792,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 88730.406
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 17:55:31:5531 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 17:55:31 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 23680,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95068160,
+      "heapTotal": 68919296,
+      "heapUsed": 32013960,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 88806.031
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:01:34:134 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:01:34 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 11840,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 100982784,
+      "heapTotal": 69181440,
+      "heapUsed": 31962592,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 96368.187
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:09:20:920 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:09:20 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 16528,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 99069952,
+      "heapTotal": 69181440,
+      "heapUsed": 31943240,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 96834.281
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:22:09:229 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:22:09 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 2508,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95535104,
+      "heapTotal": 69967872,
+      "heapUsed": 31883112,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 97603.578
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:37:45:3745 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:37:45 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 17192,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 94728192,
+      "heapTotal": 69181440,
+      "heapUsed": 31757048,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 98539.515
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:38:37:3837 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:38:37 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 27376,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95453184,
+      "heapTotal": 69705728,
+      "heapUsed": 31867760,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 98591.609
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:46:30:4630 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:46:30 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 19368,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 93196288,
+      "heapTotal": 69443584,
+      "heapUsed": 31895384,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99064.406
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:52:03:523 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:52:03 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 16880,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95916032,
+      "heapTotal": 69705728,
+      "heapUsed": 31906088,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99397.281
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:52:11:5211 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:52:11 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 16208,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95277056,
+      "heapTotal": 69443584,
+      "heapUsed": 31987168,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99405.125
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:52:11:5211 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:52:11 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 17632,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95166464,
+      "heapTotal": 69181440,
+      "heapUsed": 32028120,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99405.171
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:52:31:5231 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:52:31 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 12204,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 94629888,
+      "heapTotal": 69705728,
+      "heapUsed": 31979296,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99425.703
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:52:31:5231 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:52:31 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 12876,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95440896,
+      "heapTotal": 69705728,
+      "heapUsed": 31985864,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99425.843
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:53:11:5311 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:53:11 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 2944,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 72540160,
+      "heapTotal": 35364864,
+      "heapUsed": 31548424,
+      "external": 20727569,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99465.875
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:54:14:5414 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:54:14 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 25576,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 96878592,
+      "heapTotal": 69181440,
+      "heapUsed": 32480192,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99528.531
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:57:44:5744 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:57:44 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 26344,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 94945280,
+      "heapTotal": 69443584,
+      "heapUsed": 31827040,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99738.953
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:57:52:5752 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:57:52 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 13880,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95363072,
+      "heapTotal": 69705728,
+      "heapUsed": 31946968,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99746.078
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:57:52:5752 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:57:52 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 5836,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95879168,
+      "heapTotal": 69443584,
+      "heapUsed": 31885080,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99746.093
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-05 20:58:35:5835 [[31merror[39m]: [31munhandledRejection: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31mMongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017[39m
+[31m    at Timeout._onTimeout (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongodb\lib\sdam\topology.js:278:38)[39m
+[31m    at listOnTimeout (node:internal/timers:588:17)[39m
+[31m    at process.processTimers (node:internal/timers:523:7)[39m {
+  "error": {
+    "reason": {
+      "type": "Unknown",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  },
+  "stack": "MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at Timeout._onTimeout (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)",
+  "rejection": true,
+  "date": "Fri Sep 05 2025 20:58:35 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 22728,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 95641600,
+      "heapTotal": 69181440,
+      "heapUsed": 31925576,
+      "external": 20727967,
+      "arrayBuffers": 18265695
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 99789.515
+  },
+  "trace": [
+    {
+      "column": 38,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongodb\\lib\\sdam\\topology.js",
+      "function": "Timeout._onTimeout",
+      "line": 278,
+      "method": "_onTimeout",
+      "native": false
+    },
+    {
+      "column": 17,
+      "file": "node:internal/timers",
+      "function": "listOnTimeout",
+      "line": 588,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:internal/timers",
+      "function": "process.processTimers",
+      "line": 523,
+      "method": "processTimers",
+      "native": false
+    }
+  ]
+}
+2025-09-06 21:04:22:422 [[31merror[39m]: [31munhandledRejection: Connection.prototype.close() no longer accepts a callback[39m
+[31mMongooseError: Connection.prototype.close() no longer accepts a callback[39m
+[31m    at NativeConnection.close (C:\Users\Himanshi Pal\Blue-Carbon\backend\node_modules\mongoose\lib\connection.js:845:11)[39m
+[31m    at process.<anonymous> (C:\Users\Himanshi Pal\Blue-Carbon\backend\server.js:314:23)[39m
+[31m    at process.emit (node:events:519:28)[39m {
+  "error": {},
+  "stack": "MongooseError: Connection.prototype.close() no longer accepts a callback\n    at NativeConnection.close (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js:845:11)\n    at process.<anonymous> (C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js:314:23)\n    at process.emit (node:events:519:28)",
+  "rejection": true,
+  "date": "Sat Sep 06 2025 21:04:22 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 3936,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v22.19.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 18137088,
+      "heapTotal": 37879808,
+      "heapUsed": 34794384,
+      "external": 20767858,
+      "arrayBuffers": 18332172
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 186536.671
+  },
+  "trace": [
+    {
+      "column": 11,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\node_modules\\mongoose\\lib\\connection.js",
+      "function": "NativeConnection.close",
+      "line": 845,
+      "method": "close",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "C:\\Users\\Himanshi Pal\\Blue-Carbon\\backend\\server.js",
+      "function": null,
+      "line": 314,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "process.emit",
+      "line": 519,
+      "method": "emit",
+      "native": false
+    }
+  ]
+}

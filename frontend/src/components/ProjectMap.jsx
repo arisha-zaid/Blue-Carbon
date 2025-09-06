@@ -4,13 +4,11 @@ import { getProjects } from "../store/projects";
 import { useEffect, useState } from "react";
 import L from "leaflet";
 
-// Fix default icon
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
-});
+// Fix default marker icons for Vite/ESM (avoid require in browser)
+const iconRetinaUrl = new URL("leaflet/dist/images/marker-icon-2x.png", import.meta.url).toString();
+const iconUrl = new URL("leaflet/dist/images/marker-icon.png", import.meta.url).toString();
+const shadowUrl = new URL("leaflet/dist/images/marker-shadow.png", import.meta.url).toString();
+L.Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl });
 
 export default function ProjectMap() {
   const [projects, setProjects] = useState([]);
