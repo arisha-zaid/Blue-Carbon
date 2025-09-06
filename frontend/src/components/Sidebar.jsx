@@ -58,7 +58,6 @@ export default function Sidebar({ role, isOpen, onClose }) {
     ],
   };
 
-  // Use centralized role mapping
   const effectiveRole = mapRole(role);
   const roleLinks = links[effectiveRole] || links["community"];
 
@@ -76,7 +75,6 @@ export default function Sidebar({ role, isOpen, onClose }) {
           aria-label="Close sidebar"
           className="p-2 rounded-md hover:bg-gray-100"
         >
-          {/* X icon */}
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>

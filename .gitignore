@@ -5,8 +5,11 @@ frontend/node_modules/
 
 # Environment variables
 .env
+<<<<<<< HEAD
 backend/.env
 frontend/.env
+=======
+>>>>>>> 14d0e911a23d93330f551ef9db9469d873e41345
 
 # Build output
 dist/
