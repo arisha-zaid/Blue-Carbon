@@ -41,55 +41,228 @@ const Transactions = () => {
   const filteredData = filter === 'All' ? transactionData : transactionData.filter(item => item.status === filter || item.type === filter);
 
   return (
-    <div className="transactions-container">
-      <TransactionsStyles />
+    // <div className="transactions-container">
+    //   <TransactionsStyles />
 
-      <div className="transactions-header">
-        <h2>Transaction History</h2>
-        <p>All your marketplace transactions are listed below.</p>
-      </div>
+    //   <div className="transactions-header">
+    //     <h2>Transaction History</h2>
+    //     <p>All your marketplace transactions are listed below.</p>
+    //   </div>
 
-      <div className="transaction-filters">
-        {filters.map(f => (
-          <button
-            key={f}
-            className={`filter-button ${filter===f?'active':''}`}
-            onClick={() => setFilter(f)}
-          >
-            {f}
-          </button>
-        ))}
-      </div>
+    //   <div className="transaction-filters">
+    //     {filters.map(f => (
+    //       <button
+    //         key={f}
+    //         className={`filter-button ${filter===f?'active':''}`}
+    //         onClick={() => setFilter(f)}
+    //       >
+    //         {f}
+    //       </button>
+    //     ))}
+    //   </div>
 
-      <table className="transactions-table">
-        <thead>
-          <tr>
-            <th>Transaction ID</th>
-            <th>Type</th>
-            <th>Project</th>
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map(txn => (
-            <tr key={txn.id}>
-              <td>{txn.id}</td>
-              <td>{txn.type}</td>
-              <td>{txn.project}</td>
-              <td>{txn.date}</td>
-              <td>{txn.amount}</td>
-              <td>
-                <span className={`transactions-status status-${txn.status.toLowerCase()}`}>
+    //   <table className="transactions-table">
+    //     <thead>
+    //       <tr>
+    //         <th>Transaction ID</th>
+    //         <th>Type</th>
+    //         <th>Project</th>
+    //         <th>Date</th>
+    //         <th>Amount</th>
+    //         <th>Status</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {filteredData.map(txn => (
+    //         <tr key={txn.id}>
+    //           <td>{txn.id}</td>
+    //           <td>{txn.type}</td>
+    //           <td>{txn.project}</td>
+    //           <td>{txn.date}</td>
+    //           <td>{txn.amount}</td>
+    //           <td>
+    //             <span className={`transactions-status status-${txn.status.toLowerCase()}`}>
+    //               {txn.status}
+    //             </span>
+    //           </td>
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </table>
+    // </div>
+//     <div className="transactions-container bg-[#1a1a1a] text-white rounded-2xl shadow-lg p-6 space-y-6">
+//   {/* Header */}
+//   <div className="transactions-header">
+//     <h2 className="text-2xl font-bold">Transaction History</h2>
+//     <p className="text-gray-400 mt-1">All your marketplace transactions are listed below.</p>
+//   </div>
+
+//   {/* Filters */}
+//   <div className="transaction-filters flex flex-wrap gap-3">
+//     {filters.map((f) => (
+//       <button
+//         key={f}
+//         onClick={() => setFilter(f)}
+//         className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+//           filter === f
+//             ? "bg-teal-600 text-white"
+//             : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+//         }`}
+//       >
+//         {f}
+//       </button>
+//     ))}
+//   </div>
+
+//   {/* Table */}
+//   <div className="overflow-x-auto rounded-lg shadow-inner">
+//     <table className="w-full table-auto border-collapse">
+//       <thead className="bg-gray-800 text-gray-400 text-left">
+//         <tr>
+//           <th className="px-4 py-2 text-sm">Transaction ID</th>
+//           <th className="px-4 py-2 text-sm">Type</th>
+//           <th className="px-4 py-2 text-sm">Project</th>
+//           <th className="px-4 py-2 text-sm">Date</th>
+//           <th className="px-4 py-2 text-sm">Amount</th>
+//           <th className="px-4 py-2 text-sm">Status</th>
+//         </tr>
+//       </thead>
+//       <tbody className="divide-y divide-gray-700">
+//         {filteredData.map((txn) => (
+//           <tr key={txn.id} className="hover:bg-gray-900 transition-colors">
+//             <td className="px-4 py-2 text-sm text-gray-300">{txn.id}</td>
+//             <td className="px-4 py-2 text-sm text-gray-300">{txn.type}</td>
+//             <td className="px-4 py-2 text-sm text-gray-300">{txn.project}</td>
+//             <td className="px-4 py-2 text-sm text-gray-300">{txn.date}</td>
+//             <td className="px-4 py-2 text-sm text-gray-300">{txn.amount}</td>
+//             <td className="px-4 py-2 text-sm">
+//               <span
+//                 className={`px-2 py-1 rounded-full text-xs font-semibold ${
+//                   txn.status.toLowerCase() === "completed"
+//                     ? "bg-teal-600 text-white"
+//                     : txn.status.toLowerCase() === "pending"
+//                     ? "bg-yellow-500 text-black"
+//                     : "bg-red-600 text-white"
+//                 }`}
+//               >
+//                 {txn.status}
+//               </span>
+//             </td>
+//           </tr>
+//         ))}
+//       </tbody>
+//     </table>
+//   </div>
+// </div>
+
+<div className="transactions-container bg-[#1a1a1a] text-white rounded-2xl shadow-lg p-6 space-y-6">
+  {/* Header */}
+  <div className="transactions-header">
+    <h2 className="text-2xl font-bold">Transaction History</h2>
+    <p className="text-gray-400 mt-1">All your marketplace transactions are listed below.</p>
+  </div>
+
+  {/* Filters */}
+  <div className="transaction-filters flex flex-wrap gap-3">
+    {filters.map((f) => (
+      <button
+        key={f}
+        onClick={() => setFilter(f)}
+        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+          filter === f
+            ? "bg-teal-600 text-white"
+            : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+        }`}
+      >
+        {f}
+      </button>
+    ))}
+  </div>
+
+  {/* Table */}
+  <div className="overflow-x-auto rounded-lg shadow-inner">
+    <table className="w-full table-auto border-collapse">
+      <thead className="bg-gray-800 text-gray-400 text-left">
+        <tr>
+          <th className="px-4 py-2 text-sm">Transaction ID</th>
+          <th className="px-4 py-2 text-sm">Type</th>
+          <th className="px-4 py-2 text-sm">Project</th>
+          <th className="px-4 py-2 text-sm">Date</th>
+          <th className="px-4 py-2 text-sm">Amount</th>
+          <th className="px-4 py-2 text-sm">Status</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-gray-700">
+        {/* {filteredData.map((txn) => {
+          let borderClass = "";
+          let hoverClass = "";
+          switch (txn.status.toLowerCase()) {
+            case "buy":
+              borderClass = "border-blue-500 text-blue-400";
+              hoverClass = "hover:bg-blue-500 hover:text-white";
+              break;
+            case "sell":
+              borderClass = "border-emerald-500 text-emerald-400";
+              hoverClass = "hover:bg-emerald-500 hover:text-white";
+              break;
+            case "failed":
+              borderClass = "border-rose-500 text-rose-400";
+              hoverClass = "hover:bg-rose-500 hover:text-white";
+              break;
+            case "pending":
+              borderClass = "border-text-yellow-300 text-yellow-300";
+              hoverClass = "hover:bg-yellow-300 hover:text-black";
+              break;
+            default:
+              borderClass = "border-gray-500 text-gray-300";
+              hoverClass = "hover:bg-gray-500 hover:text-white";
+          }
+
+          return (
+            <tr key={txn.id} className={`hover:bg-${hoverClass}-900 transition-colors`}>
+              <td className="px-4 py-2 text-sm text-gray-300">{txn.id}</td>
+              <td className="px-4 py-2 text-sm text-gray-300">{txn.type}</td>
+              <td className="px-4 py-2 text-sm text-gray-300">{txn.project}</td>
+              <td className="px-4 py-2 text-sm text-gray-300">{txn.date}</td>
+              <td className="px-4 py-2 text-sm text-gray-300">{txn.amount}</td>
+              <td className="px-4 py-2 text-sm">
+                <span
+                  className={`inline-block w-20 text-center rounded-full border px-2 py-1 text-xs font-semibold transition-all duration-200 ${borderClass} ${hoverClass}`}
+                >
                   {txn.status}
                 </span>
               </td>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          );
+        })} */}
+      {filteredData.map((txn) => (
+  <tr key={txn.id} className="transition-colors">
+    <td className="px-4 py-2 text-sm text-gray-300">{txn.id}</td>
+    <td className="px-4 py-2 text-sm text-gray-300">{txn.type}</td>
+    <td className="px-4 py-2 text-sm text-gray-300">{txn.project}</td>
+    <td className="px-4 py-2 text-sm text-gray-300">{txn.date}</td>
+    <td className="px-4 py-2 text-sm text-gray-300">{txn.amount}</td>
+    <td className="px-4 py-2 text-sm">
+      <span
+        className={`
+          inline-block w-24 text-center rounded-full border px-2 py-1 text-xs font-semibold transition-all duration-200
+          ${txn.status.toLowerCase() === "buy" ? "border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white" : ""}
+          ${txn.status.toLowerCase() === "sell" ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white" : ""}
+          ${txn.status.toLowerCase() === "failed" ? "border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white" : ""}
+          ${txn.status.toLowerCase() === "pending" ? "border-yellow-300 text-yellow-300 hover:bg-yellow-300 hover:text-black" : ""}
+        `}
+      >
+        {txn.status}
+      </span>
+    </td>
+  </tr>
+))}
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
   );
 };
 

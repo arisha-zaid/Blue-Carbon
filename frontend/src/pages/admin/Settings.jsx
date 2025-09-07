@@ -132,7 +132,8 @@ export default function AdminSettings() {
   };
 
   return (
-    <div className="space-y-8">
+    // <div className="space-y-8">
+    <div className="space-y-8 bg-[#121110] text-gray-200 p-8 rounded-2xl shadow-lg">
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold">Admin Settings</h1>
@@ -142,7 +143,8 @@ export default function AdminSettings() {
 
       <form onSubmit={save} className="space-y-8">
         {/* Platform Controls */}
-        <Section title="Platform Controls" icon={<Wrench className="w-5 h-5 text-emerald-600" />}>
+        <Section title="Platform Controls" icon={<Wrench className="w-5 h-5 text-emerald-600" /> }
+        className="bg-[#121110]  p-6 rounded-2xl shadow-lg">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <ToggleField
               label="Maintenance Mode"
@@ -167,6 +169,8 @@ export default function AdminSettings() {
             />
           </div>
         </Section>
+   
+
 
         {/* Security */}
         <Section title="Security" icon={<ShieldCheck className="w-5 h-5 text-emerald-600" />}>
@@ -218,7 +222,7 @@ export default function AdminSettings() {
                   value={form.sendTestEmailTo}
                   onChange={(e) => update({ sendTestEmailTo: e.target.value })}
                   placeholder="name@company.com"
-                  className="flex-1 px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+                  className="flex-1 px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 hover:border-teal-500 transition"
                 />
                 <button
                   type="button"
@@ -236,9 +240,10 @@ export default function AdminSettings() {
         <Section title="Roles & Permissions (Preview)" icon={<KeyRound className="w-5 h-5 text-emerald-600" />}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {Object.entries(form.roleMatrix).map(([role, perms]) => (
-              <div key={role} className="rounded-2xl border p-4">
-                <div className="font-semibold text-gray-900 mb-2">{role}</div>
-                <ul className="text-sm text-gray-700 list-disc pl-5 space-y-1">
+              <div key={role} className="rounded-2xl border p-4 hover:border-teal-600 transition
+              text-gray-500 hover:text-teal-600">
+                <div className="font-semibold  mb-2 ">{role}</div>
+                <ul className="text-sm list-disc pl-5 space-y-1 ">
                   {perms.map((p) => (
                     <li key={p}>{p}</li>
                   ))}
@@ -246,7 +251,7 @@ export default function AdminSettings() {
               </div>
             ))}
           </div>
-          <p className="text-xs text-gray-500 mt-2">
+          <p className="text-xs mt-2 ">
             This is a preview for demonstration. In production, manage granular permissions per role.
           </p>
         </Section>
@@ -297,7 +302,7 @@ export default function AdminSettings() {
                 value={revealKey ? form.apiKey : maskedKey}
                 onChange={(e) => update({ apiKey: e.target.value })}
                 placeholder="••••••••••••"
-                className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+                className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 hover:border-teal-500 transition"
               />
               <p className="text-xs text-gray-500 mt-1">Do not store API keys client-side in production.</p>
 
@@ -306,7 +311,7 @@ export default function AdminSettings() {
                   type="button"
                   onClick={testConnection}
                   disabled={testing}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700 hover:bg-gray-100 disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700  disabled:opacity-60 hover:border-blue-400 hover:text-blue-400 transition"
                 >
                   <TestTube2 className="w-4 h-4" /> {testing ? "Testing..." : "Test Connection"}
                 </button>
@@ -320,14 +325,16 @@ export default function AdminSettings() {
           <button
             type="submit"
             disabled={saving}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110 disabled:opacity-60"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-emerald-500 border 
+            border-emerald-600 
+            hover:bg-emerald-600 hover:text-white  disabled:opacity-60 "
           >
             <Save className="w-4 h-4" /> {saving ? "Saving..." : "Save Settings"}
           </button>
           <button
             type="button"
             onClick={resetDefaults}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700 hover:bg-gray-100"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700   hover:border-rose-500 hover:text-rose-600 transition"
           >
             <RotateCcw className="w-4 h-4" /> Reset to Defaults
           </button>
@@ -338,10 +345,21 @@ export default function AdminSettings() {
 }
 
 /* Reusable UI */
+// function Section({ title, icon, children }) {
+//   return (
+//     <section className="rounded-2xl border border-gray-700 bg-[#1a1a1a] p-6">
+//       <h3 className="font-semibold text-gray-900 mb-4 inline-flex items-center gap-2">
+//         {icon} {title}
+//       </h3>
+//       {children}
+//     </section>
+//   );
+// }
 function Section({ title, icon, children }) {
   return (
-    <section className="bg-white rounded-2xl shadow p-6">
-      <h3 className="font-semibold text-gray-900 mb-4 inline-flex items-center gap-2">
+    <section className="rounded-2xl border border-gray-700 bg-[#1a1a1a] p-6
+                       ">
+      <h3 className="font-semibold text-white mb-4 inline-flex items-center gap-2">
         {icon} {title}
       </h3>
       {children}
@@ -349,14 +367,18 @@ function Section({ title, icon, children }) {
   );
 }
 
+
 function ToggleField({ label, description, checked, onChange, icon }) {
   return (
-    <label className="flex items-start justify-between p-4 rounded-xl border hover:bg-gray-50 cursor-pointer">
-      <span className="text-sm text-gray-700 inline-flex flex-col">
+    <label className="flex items-start justify-between p-4 rounded-xl border hover:border-teal-600 transition cursor-pointer">
+      <span className="text-sm  inline-flex flex-col">
         <span className="inline-flex items-center gap-2">{icon} {label}</span>
         {description ? <span className="mt-1 text-xs text-gray-500">{description}</span> : null}
       </span>
-      <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} />
+      <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} 
+      className="w-full px-3 py-2 rounded-lg bg-[#1a1a1a] border border-gray-700 
+             text-gray-200 placeholder-gray-500 
+             focus:ring-2 focus:ring-teal-500 focus:border-teal-500 hover:border-teal-500 transition"/>
     </label>
   );
 }
@@ -364,12 +386,15 @@ function ToggleField({ label, description, checked, onChange, icon }) {
 function NumberField({ label, value, onChange }) {
   return (
     <div>
-      <label className="block text-sm text-gray-600 mb-1">{label}</label>
+      <label className="block text-sm text-gray-400 mb-1">{label}</label>
       <input
         type="number"
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+        // className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+       className="w-full px-3 py-2 rounded-lg bg-[#1a1a1a] border border-gray-700 
+             text-gray-200 placeholder-gray-500 
+             focus:ring-2 focus:ring-teal-500 focus:border-teal-500 hover:border-teal-500 transition"
       />
     </div>
   );
@@ -378,12 +403,15 @@ function NumberField({ label, value, onChange }) {
 function TextField({ label, value, onChange, placeholder }) {
   return (
     <div>
-      <label className="block text-sm text-gray-600 mb-1">{label}</label>
+      <label className="block text-sm text-gray-300 mb-1">{label}</label>
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+       className="w-full px-3 py-2 rounded-lg bg-[#1a1a1a] border border-gray-700 
+             text-gray-200 placeholder-gray-500 
+             focus:ring-2 focus:ring-teal-500 focus:border-teal-500 hover:border-teal-500 transition"
+        // className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
       />
     </div>
   );
