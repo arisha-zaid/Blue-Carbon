@@ -1,26 +1,20 @@
 // src/components/Layout.jsx
-<<<<<<< HEAD
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { useUser } from "../context/UserContext";
 import { MoreVertical } from "lucide-react";
-=======
-import React from "react";
-import Sidebar from "./Sidebar";
-import { useUser } from "../context/UserContext";
->>>>>>> 14d0e911a23d93330f551ef9db9469d873e41345
 
 export default function Layout({
   children,
   showSidebar = true,
-<<<<<<< HEAD
+  hideNavbar = true, // navbar hidden by default; enable per-page by passing hideNavbar={false}
 }) {
   const { role } = useUser();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gray-50 relative">
-      {/* Kebab (3-dots) button to open sidebar */}
+    <div className="flex min-h-screen bg-black relative">
+      {/* Kebab (3-dots) button to open sidebar on small screens */}
       {showSidebar && role && (
         <button
           type="button"
@@ -32,7 +26,7 @@ export default function Layout({
         </button>
       )}
 
-      {/* Sidebar - fixed, overlays content, content does not shift */}
+      {/* Sidebar - overlays content; main content does not shift */}
       {showSidebar && role ? (
         <Sidebar
           role={role}
@@ -52,28 +46,13 @@ export default function Layout({
 
       {/* Main content */}
       <div className="flex-1 flex flex-col">
-=======
-  hideNavbar = false,
-}) {
-  const { role } = useUser();
-
-  // Always render children, sidebar only if role exists
-  return (
-    <div className="flex min-h-screen bg-gray-50">
-      {showSidebar && role ? <Sidebar role={role} /> : null}
-      <div className="flex-1 flex flex-col">
         {!hideNavbar && (
           <div className="h-16 bg-white shadow flex items-center px-6 font-semibold">
             Blue Carbon Registry
           </div>
         )}
->>>>>>> 14d0e911a23d93330f551ef9db9469d873e41345
         <main className="flex-1 p-6">{children}</main>
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 14d0e911a23d93330f551ef9db9469d873e41345
