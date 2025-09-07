@@ -98,223 +98,458 @@ export default function UserManagement() {
   };
 
   return (
+    // <div className="space-y-6">
+    //   {/* Header */}
+    //   <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    //     <div>
+    //       <h1 className="text-3xl font-bold">User Management</h1>
+    //       <p className="text-gray-600 mt-1">Manage roles, status, and invites across the registry.</p>
+    //     </div>
+    //     <div className="flex items-center gap-3">
+    //       <button
+    //         onClick={openInvite}
+    //         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110"
+    //       >
+    //         <UserPlus className="w-4 h-4" /> Invite User
+    //       </button>
+    //       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700">
+    //         <Shield className="w-4 h-4" /> Admin Tools
+    //       </div>
+    //     </div>
+    //   </header>
+
+    //   {/* Toolbar */}
+    //   <div className="bg-white rounded-2xl shadow p-4 flex flex-col md:flex-row md:items-center gap-3">
+    //     <div className="relative flex-1">
+    //       <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+    //       <input
+    //         value={query}
+    //         onChange={(e) => setQuery(e.target.value)}
+    //         placeholder="Search name or email"
+    //         className="w-full pl-9 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //       />
+    //     </div>
+
+    //     <div className="flex items-center gap-2">
+    //       <Filter className="w-4 h-4 text-gray-600" />
+    //       <select
+    //         value={roleFilter}
+    //         onChange={(e) => setRoleFilter(e.target.value)}
+    //         className="py-2 px-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //       >
+    //         {ROLES.map((r) => (
+    //           <option key={r} value={r}>
+    //             {r}
+    //           </option>
+    //         ))}
+    //       </select>
+    //     </div>
+
+    //     <div className="flex items-center gap-2">
+    //       <button
+    //         onClick={bulkBlock}
+    //         className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border text-gray-700 hover:bg-gray-100"
+    //       >
+    //         <Ban className="w-4 h-4" /> Block Selected
+    //       </button>
+    //       <button
+    //         onClick={bulkUnblock}
+    //         className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border text-gray-700 hover:bg-gray-100"
+    //       >
+    //         <Unlock className="w-4 h-4" /> Unblock Selected
+    //       </button>
+    //     </div>
+    //   </div>
+
+    //   {/* Table/Grid */}
+    //   <div className="bg-white rounded-2xl shadow overflow-hidden">
+    //     <table className="w-full text-left">
+    //       <thead className="bg-gray-50 text-gray-600 text-sm">
+    //         <tr>
+    //           <th className="py-3 px-4">
+    //             <input
+    //               type="checkbox"
+    //               checked={selectedIds.length === filtered.length && filtered.length > 0}
+    //               onChange={toggleSelectAll}
+    //             />
+    //           </th>
+    //           <th className="py-3 px-4">User</th>
+    //           <th className="py-3 px-4">Role</th>
+    //           <th className="py-3 px-4">Status</th>
+    //           <th className="py-3 px-4">Joined</th>
+    //           <th className="py-3 px-4 text-right">Actions</th>
+    //         </tr>
+    //       </thead>
+    //       <tbody>
+    //         {filtered.length === 0 ? (
+    //           <tr>
+    //             <td colSpan={6} className="py-10 text-center text-gray-500">
+    //               No users found.
+    //             </td>
+    //           </tr>
+    //         ) : (
+    //           filtered.map((u) => (
+    //             <tr key={u.id} className="border-t">
+    //               <td className="py-3 px-4">
+    //                 <input
+    //                   type="checkbox"
+    //                   checked={selectedIds.includes(u.id)}
+    //                   onChange={() => toggleSelect(u.id)}
+    //                 />
+    //               </td>
+    //               <td className="py-3 px-4">
+    //                 <div className="font-semibold text-gray-900">{u.name}</div>
+    //                 <div className="text-xs text-gray-500">{u.email}</div>
+    //               </td>
+    //               <td className="py-3 px-4">
+    //                 <div className="inline-flex items-center gap-2">
+    //                   <UserCog className="w-4 h-4 text-emerald-600" />
+    //                   <select
+    //                     value={u.role}
+    //                     onChange={(e) => changeRole(u.id, e.target.value)}
+    //                     className="text-sm border rounded px-2 py-1 focus:ring-2 focus:ring-emerald-500"
+    //                   >
+    //                     {ROLES.filter((r) => r !== "All").map((r) => (
+    //                       <option key={r} value={r}>
+    //                         {r}
+    //                       </option>
+    //                     ))}
+    //                   </select>
+    //                 </div>
+    //               </td>
+    //               <td className="py-3 px-4">
+    //                 <span
+    //                   className={`px-2 py-1 rounded-full text-xs ${
+    //                     u.blocked ? "bg-rose-50 text-rose-700" : "bg-emerald-50 text-emerald-700"
+    //                   }`}
+    //                 >
+    //                   {u.blocked ? "Blocked" : "Active"}
+    //                 </span>
+    //               </td>
+    //               <td className="py-3 px-4">{u.joined}</td>
+    //               <td className="py-3 px-4">
+    //                 <div className="flex items-center gap-2 justify-end">
+    //                   <button
+    //                     onClick={() =>
+    //                       addNotification(`Email sent to ${u.email}`, "success")
+    //                     }
+    //                     className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border text-gray-700 hover:bg-gray-100 text-sm"
+    //                     title="Email user"
+    //                   >
+    //                     <Mail className="w-4 h-4" /> Email
+    //                   </button>
+    //                   {u.blocked ? (
+    //                     <button
+    //                       onClick={() => unblockUser(u.id)}
+    //                       className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-sm hover:brightness-110"
+    //                       title="Unblock"
+    //                     >
+    //                       <CheckCircle2 className="w-4 h-4" /> Unblock
+    //                     </button>
+    //                   ) : (
+    //                     <button
+    //                       onClick={() => blockUser(u.id)}
+    //                       className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-rose-600 text-white text-sm hover:brightness-110"
+    //                       title="Block"
+    //                     >
+    //                       <UserMinus className="w-4 h-4" /> Block
+    //                     </button>
+    //                   )}
+    //                 </div>
+    //               </td>
+    //             </tr>
+    //           ))
+    //         )}
+    //       </tbody>
+    //     </table>
+    //   </div>
+
+    //   {/* Invite Modal */}
+    //   {inviteOpen ? (
+    //     <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
+    //       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+    //         <div className="p-4 border-b flex items-center justify-between">
+    //           <h3 className="font-semibold">Invite User</h3>
+    //           <button onClick={() => setInviteOpen(false)} className="text-gray-600">✕</button>
+    //         </div>
+    //         <form onSubmit={sendInvite} className="p-4 space-y-4">
+    //           <div>
+    //             <label className="block text-sm text-gray-600 mb-1">Email</label>
+    //             <input
+    //               value={invite.email}
+    //               onChange={(e) => setInvite((f) => ({ ...f, email: e.target.value }))}
+    //               placeholder="name@company.com"
+    //               className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //             />
+    //           </div>
+    //           <div>
+    //             <label className="block text-sm text-gray-600 mb-1">Role</label>
+    //             <select
+    //               value={invite.role}
+    //               onChange={(e) => setInvite((f) => ({ ...f, role: e.target.value }))}
+    //               className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //             >
+    //               {ROLES.filter((r) => r !== "All").map((r) => (
+    //                 <option key={r} value={r}>
+    //                   {r}
+    //                 </option>
+    //               ))}
+    //             </select>
+    //           </div>
+    //           <div className="flex items-center justify-end gap-3 pt-2">
+    //             <button
+    //               type="button"
+    //               onClick={() => setInviteOpen(false)}
+    //               className="px-4 py-2 rounded-lg border hover:bg-gray-100"
+    //             >
+    //               Cancel
+    //             </button>
+    //             <button
+    //               type="submit"
+    //               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110"
+    //             >
+    //               <UserPlus className="w-4 h-4" /> Send Invite
+    //             </button>
+    //           </div>
+    //         </form>
+    //       </div>
+    //     </div>
+    //   ) : null}
+    // </div>
     <div className="space-y-6">
-      {/* Header */}
-      <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold">User Management</h1>
-          <p className="text-gray-600 mt-1">Manage roles, status, and invites across the registry.</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={openInvite}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110"
-          >
-            <UserPlus className="w-4 h-4" /> Invite User
-          </button>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700">
-            <Shield className="w-4 h-4" /> Admin Tools
-          </div>
-        </div>
-      </header>
-
-      {/* Toolbar */}
-      <div className="bg-white rounded-2xl shadow p-4 flex flex-col md:flex-row md:items-center gap-3">
-        <div className="relative flex-1">
-          <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search name or email"
-            className="w-full pl-9 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
-          />
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-gray-600" />
-          <select
-            value={roleFilter}
-            onChange={(e) => setRoleFilter(e.target.value)}
-            className="py-2 px-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
-          >
-            {ROLES.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={bulkBlock}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border text-gray-700 hover:bg-gray-100"
-          >
-            <Ban className="w-4 h-4" /> Block Selected
-          </button>
-          <button
-            onClick={bulkUnblock}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border text-gray-700 hover:bg-gray-100"
-          >
-            <Unlock className="w-4 h-4" /> Unblock Selected
-          </button>
-        </div>
+  {/* Header */}
+  <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <h1 className="text-3xl font-bold text-white">User Management</h1>
+      <p className="text-gray-400 mt-1">
+        Manage roles, status, and invites across the registry.
+      </p>
+    </div>
+    <div className="flex items-center gap-3">
+      <button
+        onClick={openInvite}
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110"
+      >
+        <UserPlus className="w-4 h-4" /> Invite User
+      </button>
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-[#1a1a1a] text-gray-300">
+        <Shield className="w-4 h-4 text-emerald-400" /> Admin Tools
       </div>
+    </div>
+  </header>
 
-      {/* Table/Grid */}
-      <div className="bg-white rounded-2xl shadow overflow-hidden">
-        <table className="w-full text-left">
-          <thead className="bg-gray-50 text-gray-600 text-sm">
-            <tr>
-              <th className="py-3 px-4">
+  {/* Toolbar */}
+  <div className="bg-[#1a1a1a] rounded-2xl shadow p-4 flex flex-col md:flex-row md:items-center gap-3 border border-gray-800">
+    <div className="relative flex-1">
+      <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search name or email"
+        className="w-full pl-9 pr-3 py-2 rounded-lg bg-[#121110] text-gray-200 border border-gray-700 focus:ring-2 focus:ring-emerald-500"
+      />
+    </div>
+
+    <div className="flex items-center gap-2">
+      <Filter className="w-4 h-4 text-gray-400" />
+      <select
+        value={roleFilter}
+        onChange={(e) => setRoleFilter(e.target.value)}
+        className="py-2 px-3 rounded-lg bg-[#121110] text-gray-200 border border-gray-700 focus:ring-2 focus:ring-emerald-500"
+      >
+        {ROLES.map((r) => (
+          <option key={r} value={r}>
+            {r}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    <div className="flex items-center gap-2">
+      <button
+        onClick={bulkBlock}
+        className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-700 bg-[#1a1a1a] text-gray-300 hover:bg-[#2a2a2a]"
+      >
+        <Ban className="w-4 h-4 text-rose-400" /> Block Selected
+      </button>
+      <button
+        onClick={bulkUnblock}
+        className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-700 bg-[#1a1a1a] text-gray-300 hover:bg-[#2a2a2a]"
+      >
+        <Unlock className="w-4 h-4 text-emerald-400" /> Unblock Selected
+      </button>
+    </div>
+  </div>
+
+  {/* Table/Grid */}
+  <div className="bg-[#1a1a1a] rounded-2xl shadow overflow-hidden border border-gray-800">
+    <table className="w-full text-left">
+      <thead className="bg-[#121110] text-gray-400 text-sm">
+        <tr>
+          <th className="py-3 px-4">
+            <input
+              type="checkbox"
+              checked={selectedIds.length === filtered.length && filtered.length > 0}
+              onChange={toggleSelectAll}
+            />
+          </th>
+          <th className="py-3 px-4">User</th>
+          <th className="py-3 px-4">Role</th>
+          <th className="py-3 px-4">Status</th>
+          <th className="py-3 px-4">Joined</th>
+          <th className="py-3 px-4 text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {filtered.length === 0 ? (
+          <tr>
+            <td colSpan={6} className="py-10 text-center text-gray-500">
+              No users found.
+            </td>
+          </tr>
+        ) : (
+          filtered.map((u) => (
+            <tr
+             key={u.id}
+             className="border border-gray-800 hover:border-teal-500 hover:shadow-[0_0_8px_#14b8a6] transition">
+              <td className="py-3 px-4">
                 <input
                   type="checkbox"
-                  checked={selectedIds.length === filtered.length && filtered.length > 0}
-                  onChange={toggleSelectAll}
+                  checked={selectedIds.includes(u.id)}
+                  onChange={() => toggleSelect(u.id)}
                 />
-              </th>
-              <th className="py-3 px-4">User</th>
-              <th className="py-3 px-4">Role</th>
-              <th className="py-3 px-4">Status</th>
-              <th className="py-3 px-4">Joined</th>
-              <th className="py-3 px-4 text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.length === 0 ? (
-              <tr>
-                <td colSpan={6} className="py-10 text-center text-gray-500">
-                  No users found.
-                </td>
-              </tr>
-            ) : (
-              filtered.map((u) => (
-                <tr key={u.id} className="border-t">
-                  <td className="py-3 px-4">
-                    <input
-                      type="checkbox"
-                      checked={selectedIds.includes(u.id)}
-                      onChange={() => toggleSelect(u.id)}
-                    />
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="font-semibold text-gray-900">{u.name}</div>
-                    <div className="text-xs text-gray-500">{u.email}</div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="inline-flex items-center gap-2">
-                      <UserCog className="w-4 h-4 text-emerald-600" />
-                      <select
-                        value={u.role}
-                        onChange={(e) => changeRole(u.id, e.target.value)}
-                        className="text-sm border rounded px-2 py-1 focus:ring-2 focus:ring-emerald-500"
-                      >
-                        {ROLES.filter((r) => r !== "All").map((r) => (
-                          <option key={r} value={r}>
-                            {r}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs ${
-                        u.blocked ? "bg-rose-50 text-rose-700" : "bg-emerald-50 text-emerald-700"
-                      }`}
+              </td>
+              <td className="py-3 px-4">
+                <div className="font-semibold text-white">{u.name}</div>
+                <div className="text-xs text-gray-500">{u.email}</div>
+              </td>
+              <td className="py-3 px-4">
+                <div className="inline-flex items-center gap-2">
+                  <UserCog className="w-4 h-4 text-emerald-400" />
+                  <select
+                    value={u.role}
+                    onChange={(e) => changeRole(u.id, e.target.value)}
+                    className="text-sm border border-gray-700 bg-[#121110] text-gray-200 rounded px-2 py-1 focus:ring-2 focus:ring-emerald-500"
+                  >
+                    {ROLES.filter((r) => r !== "All").map((r) => (
+                      <option key={r} value={r}>
+                        {r}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </td>
+              <td className="py-3 px-4">
+                <span
+                  className={`inline-flex items-center justify-center whitespace-nowrap min-w-[100px] px-3 py-1 rounded-full text-xs ${
+                    u.blocked
+                      ? "bg-rose-900/40 text-rose-400"
+                      : "bg-emerald-900/40 text-emerald-400"
+                  }`}
+                >
+                  {u.blocked ? "Blocked" : "Active"}
+                </span>
+              </td>
+              <td className="py-3 px-4 text-gray-300">{u.joined}</td>
+              <td className="py-3 px-4">
+                <div className="flex items-center gap-2 justify-end">
+                  <button
+                    onClick={() =>
+                      addNotification(`Email sent to ${u.email}`, "success")
+                    }
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-gray-700 bg-[#1a1a1a] text-gray-300 hover:bg-[#2a2a2a] text-sm"
+                    title="Email user"
+                  >
+                    <Mail className="w-4 h-4 text-emerald-400" /> Email
+                  </button>
+                  {u.blocked ? (
+                    <button
+                      onClick={() => unblockUser(u.id)}
+                      className="inline-flex items-center gap-1 px-4 py-1 rounded-lg 
+                     border border-gray-700 text-emerald-600 text-sm 
+                     hover:shadow-[0_0_10px_#059669] transition"
+                      title="Unblock"
                     >
-                      {u.blocked ? "Blocked" : "Active"}
-                    </span>
-                  </td>
-                  <td className="py-3 px-4">{u.joined}</td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center gap-2 justify-end">
-                      <button
-                        onClick={() =>
-                          addNotification(`Email sent to ${u.email}`, "success")
-                        }
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border text-gray-700 hover:bg-gray-100 text-sm"
-                        title="Email user"
-                      >
-                        <Mail className="w-4 h-4" /> Email
-                      </button>
-                      {u.blocked ? (
-                        <button
-                          onClick={() => unblockUser(u.id)}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-sm hover:brightness-110"
-                          title="Unblock"
-                        >
-                          <CheckCircle2 className="w-4 h-4" /> Unblock
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() => blockUser(u.id)}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-rose-600 text-white text-sm hover:brightness-110"
-                          title="Block"
-                        >
-                          <UserMinus className="w-4 h-4" /> Block
-                        </button>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
+                      <CheckCircle2 className="w-4 h-4" /> Unblock
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => blockUser(u.id)}
+                      className="inline-flex items-center gap-1 px-4 py-1 rounded-lg 
+                     border border-gray-700 text-rose-400 text-sm 
+                     hover:shadow-[0_0_10px_#e11d48] transition"
+                      title="Block"
+                    >
+                      <UserMinus className="w-4 h-4" /> Block
+                    </button>
+                  )}
+                </div>
+              </td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
+  </div>
 
-      {/* Invite Modal */}
-      {inviteOpen ? (
-        <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
-            <div className="p-4 border-b flex items-center justify-between">
-              <h3 className="font-semibold">Invite User</h3>
-              <button onClick={() => setInviteOpen(false)} className="text-gray-600">✕</button>
-            </div>
-            <form onSubmit={sendInvite} className="p-4 space-y-4">
-              <div>
-                <label className="block text-sm text-gray-600 mb-1">Email</label>
-                <input
-                  value={invite.email}
-                  onChange={(e) => setInvite((f) => ({ ...f, email: e.target.value }))}
-                  placeholder="name@company.com"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm text-gray-600 mb-1">Role</label>
-                <select
-                  value={invite.role}
-                  onChange={(e) => setInvite((f) => ({ ...f, role: e.target.value }))}
-                  className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
-                >
-                  {ROLES.filter((r) => r !== "All").map((r) => (
-                    <option key={r} value={r}>
-                      {r}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setInviteOpen(false)}
-                  className="px-4 py-2 rounded-lg border hover:bg-gray-100"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110"
-                >
-                  <UserPlus className="w-4 h-4" /> Send Invite
-                </button>
-              </div>
-            </form>
-          </div>
+  {/* Invite Modal */}
+  {inviteOpen ? (
+    <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+      <div className="bg-[#1a1a1a] rounded-2xl shadow-xl w-full max-w-md overflow-hidden border border-gray-800">
+        <div className="p-4 border-b border-gray-800 flex items-center justify-between">
+          <h3 className="font-semibold text-white">Invite User</h3>
+          <button onClick={() => setInviteOpen(false)} className="text-gray-400">
+            ✕
+          </button>
         </div>
-      ) : null}
+        <form onSubmit={sendInvite} className="p-4 space-y-4">
+          <div>
+            <label className="block text-sm text-gray-400 mb-1">Email</label>
+            <input
+              value={invite.email}
+              onChange={(e) =>
+                setInvite((f) => ({ ...f, email: e.target.value }))
+              }
+              placeholder="name@company.com"
+              className="w-full px-3 py-2 rounded-lg bg-[#121110] text-gray-200 border border-gray-700 focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm text-gray-400 mb-1">Role</label>
+            <select
+              value={invite.role}
+              onChange={(e) =>
+                setInvite((f) => ({ ...f, role: e.target.value }))
+              }
+              className="w-full px-3 py-2 rounded-lg bg-[#121110] text-gray-200 border border-gray-700 focus:ring-2 focus:ring-emerald-500"
+            >
+              {ROLES.filter((r) => r !== "All").map((r) => (
+                <option key={r} value={r}>
+                  {r}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="flex items-center justify-end gap-3 pt-2">
+            <button
+              type="button"
+              onClick={() => setInviteOpen(false)}
+              className="px-4 py-2 rounded-lg border border-gray-700 bg-[#1a1a1a] text-gray-300 hover:bg-[#2a2a2a]"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110"
+            >
+              <UserPlus className="w-4 h-4" /> Send Invite
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+  ) : null}
+</div>
+
   );
 }

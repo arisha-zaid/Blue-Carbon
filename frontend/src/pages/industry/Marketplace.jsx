@@ -115,197 +115,417 @@ export default function Marketplace() {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold">Marketplace</h1>
-          <p className="text-gray-600 mt-1">
-            Discover verified blue carbon credits and build your portfolio.
-          </p>
-        </div>
-      </header>
+    // <div className="space-y-6">
+    //   {/* Header */}
+    //   <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    //     <div>
+    //       <h1 className="text-3xl font-bold">Marketplace</h1>
+    //       <p className="text-gray-600 mt-1">
+    //         Discover verified blue carbon credits and build your portfolio.
+    //       </p>
+    //     </div>
+    //   </header>
 
-      {/* Toolbar */}
-      <div className="bg-white rounded-2xl shadow p-4 flex flex-col md:flex-row md:items-center gap-3">
-        <div className="relative flex-1">
-          <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by project, id, or location"
-            className="w-full pl-9 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
-          />
-        </div>
+    //   {/* Toolbar */}
+    //   <div className="bg-white rounded-2xl shadow p-4 flex flex-col md:flex-row md:items-center gap-3">
+    //     <div className="relative flex-1">
+    //       <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+    //       <input
+    //         value={query}
+    //         onChange={(e) => setQuery(e.target.value)}
+    //         placeholder="Search by project, id, or location"
+    //         className="w-full pl-9 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //       />
+    //     </div>
 
-        <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-gray-600" />
-          <select
-            value={type}
-            onChange={(e) => setType(e.target.value)}
-            className="py-2 px-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //     <div className="flex items-center gap-2">
+    //       <Filter className="w-4 h-4 text-gray-600" />
+    //       <select
+    //         value={type}
+    //         onChange={(e) => setType(e.target.value)}
+    //         className="py-2 px-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //       >
+    //         {TYPES.map((t) => (
+    //           <option key={t} value={t}>
+    //             {t}
+    //           </option>
+    //         ))}
+    //       </select>
+    //     </div>
+
+    //     <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+    //       <input
+    //         type="checkbox"
+    //         checked={verifiedOnly}
+    //         onChange={(e) => setVerifiedOnly(e.target.checked)}
+    //       />
+    //       Verified only
+    //     </label>
+
+    //     <div className="flex items-center gap-2">
+    //       <SlidersHorizontal className="w-4 h-4 text-gray-600" />
+    //       <div className="relative">
+    //         <ArrowUpDown className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+    //         <select
+    //           value={sortId}
+    //           onChange={(e) => setSortId(e.target.value)}
+    //           className="pl-9 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //         >
+    //           {SORTS.map((s) => (
+    //             <option key={s.id} value={s.id}>
+    //               {s.label}
+    //             </option>
+    //           ))}
+    //         </select>
+    //       </div>
+    //     </div>
+    //   </div>
+
+    //   {/* Grid */}
+    //   <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+    //     {filtered.length === 0 ? (
+    //       <div className="col-span-full text-center text-gray-500 py-16">
+    //         No listings match your filters.
+    //       </div>
+    //     ) : (
+    //       filtered.map((l) => <ListingCard key={l.id} item={l} onBuy={() => openBuy(l)} />)
+    //     )}
+    //   </section>
+
+    //   {/* Buy modal */}
+    //   {buy.open && buy.item ? (
+    //     <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
+    //       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+    //         <div className="p-4 border-b flex items-center justify-between">
+    //           <h3 className="font-semibold">Quick Purchase</h3>
+    //           <button
+    //             onClick={closeBuy}
+    //             className="p-1 rounded-lg hover:bg-gray-100 text-gray-600"
+    //           >
+    //             <X className="w-4 h-4" />
+    //           </button>
+    //         </div>
+
+    //         <div className="p-4 space-y-4">
+    //           <div className="text-sm text-gray-600">{buy.item.id}</div>
+    //           <div className="font-semibold text-gray-900">{buy.item.name}</div>
+    //           <div className="text-sm text-gray-600 flex items-center gap-2">
+    //             <MapPin className="w-4 h-4" /> {buy.item.location}
+    //           </div>
+    //           <div className="flex items-center justify-between">
+    //             <div className="text-sm text-gray-600">Price</div>
+    //             <div className="font-semibold">${buy.item.price.toFixed(2)} / tCO₂</div>
+    //           </div>
+    //           <div className="flex items-center justify-between">
+    //             <div className="text-sm text-gray-600">Available</div>
+    //             <div className="font-semibold">{buy.item.tonsAvailable.toLocaleString()} t</div>
+    //           </div>
+
+    //           <div>
+    //             <label className="block text-sm text-gray-600 mb-1">Tonnage</label>
+    //             <input
+    //               value={buy.tons}
+    //               onChange={(e) => setBuy((b) => ({ ...b, tons: e.target.value }))}
+    //               placeholder="e.g., 250"
+    //               className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //             />
+    //             {!!parseFloat(buy.tons) && (
+    //               <div className="text-xs text-gray-500 mt-1">
+    //                 Estimated cost: $
+    //                 {(parseFloat(buy.tons) * buy.item.price).toFixed(2)}
+    //               </div>
+    //             )}
+    //           </div>
+    //         </div>
+
+    //         <div className="p-4 border-t flex items-center justify-end gap-3">
+    //           <button onClick={closeBuy} className="px-4 py-2 rounded-lg border hover:bg-gray-100">
+    //             Cancel
+    //           </button>
+    //           <button
+    //             onClick={confirmBuy}
+    //             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110"
+    //           >
+    //             <ShoppingCart className="w-4 h-4" /> Confirm Purchase
+    //           </button>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   ) : null}
+    // </div>
+    <div className="min-h-screen bg-[#121212] text-gray-200 p-6 space-y-6">
+  {/* Header */}
+  <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    <div>
+      <h1 className="text-3xl font-bold text-white">Marketplace</h1>
+      <p className="text-gray-400 mt-1">
+        Discover verified blue carbon credits and build your portfolio.
+      </p>
+    </div>
+  </header>
+
+  {/* Toolbar */}
+  <div className="bg-[#1a1a1a] rounded-2xl shadow p-4 flex flex-col md:flex-row md:items-center gap-3">
+    {/* Search */}
+    <div className="relative flex-1">
+      <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search by project, id, or location"
+        className="w-full pl-9 pr-3 py-2 rounded-lg border border-gray-700 bg-[#1a1a1a] 
+                   text-gray-200 placeholder-gray-500
+                   focus:ring-teal-500 focus:border-teal-500 focus:shadow-[0_0_8px_#14b8a6] 
+                   hover:border-teal-500 hover:shadow-[0_0_6px_#14b8a6] 
+                   transition-all duration-300"
+      />
+    </div>
+
+    {/* Type Filter */}
+    <div className="flex items-center gap-2">
+      <Filter className="w-4 h-4 text-gray-400" />
+      <select
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        className="py-2 px-3 rounded-lg border border-gray-700 bg-[#1a1a1a] text-gray-200
+                   focus:ring-teal-500 focus:border-teal-500 focus:shadow-[0_0_8px_#14b8a6]
+                   hover:border-teal-500 hover:shadow-[0_0_6px_#14b8a6]
+                   transition-all duration-300"
+      >
+        {TYPES.map((t) => (
+          <option key={t} value={t}>
+            {t}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Verified Checkbox */}
+    <label className="inline-flex items-center gap-2 text-sm text-gray-200">
+      <input
+        type="checkbox"
+        checked={verifiedOnly}
+        onChange={(e) => setVerifiedOnly(e.target.checked)}
+        className="accent-teal-500 hover:accent-teal-400"
+      />
+      Verified only
+    </label>
+
+    {/* Sort */}
+    <div className="flex items-center gap-2">
+      <SlidersHorizontal className="w-4 h-4 text-gray-400" />
+      <div className="relative">
+        <ArrowUpDown className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+        <select
+          value={sortId}
+          onChange={(e) => setSortId(e.target.value)}
+          className="pl-9 pr-3 py-2 rounded-lg border border-gray-700 bg-[#1a1a1a] text-gray-200
+                     focus:ring-teal-500 focus:border-teal-500 focus:shadow-[0_0_8px_#14b8a6]
+                     hover:border-teal-500 hover:shadow-[0_0_6px_#14b8a6]
+                     transition-all duration-300"
+        >
+          {SORTS.map((s) => (
+            <option key={s.id} value={s.id}>
+              {s.label}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  </div>
+
+  {/* Grid */}
+  <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+    {filtered.length === 0 ? (
+      <div className="col-span-full text-center text-gray-500 py-16">
+        No listings match your filters.
+      </div>
+    ) : (
+      filtered.map((l) => (
+        <ListingCard
+          key={l.id}
+          item={l}
+          onBuy={() => openBuy(l)}
+          className="bg-[#1a1a1a] hover:shadow-[0_0_8px_#14b8a6] transition-all duration-300"
+        />
+      ))
+    )}
+  </section>
+
+  {/* Buy Modal */}
+  {buy.open && buy.item && (
+    <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
+      <div className="bg-[#1a1a1a] rounded-2xl shadow-xl w-full max-w-md overflow-hidden text-gray-200">
+        <div className="p-4 border-b border-gray-700 flex items-center justify-between">
+          <h3 className="font-semibold">Quick Purchase</h3>
+          <button
+            onClick={closeBuy}
+            className="p-1 rounded-lg hover:bg-gray-800 text-gray-400"
           >
-            {TYPES.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
+            <X className="w-4 h-4" />
+          </button>
         </div>
 
-        <label className="inline-flex items-center gap-2 text-sm text-gray-700">
-          <input
-            type="checkbox"
-            checked={verifiedOnly}
-            onChange={(e) => setVerifiedOnly(e.target.checked)}
-          />
-          Verified only
-        </label>
-
-        <div className="flex items-center gap-2">
-          <SlidersHorizontal className="w-4 h-4 text-gray-600" />
-          <div className="relative">
-            <ArrowUpDown className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
-            <select
-              value={sortId}
-              onChange={(e) => setSortId(e.target.value)}
-              className="pl-9 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
-            >
-              {SORTS.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {s.label}
-                </option>
-              ))}
-            </select>
+        <div className="p-4 space-y-4">
+          <div className="text-sm text-gray-400">{buy.item.id}</div>
+          <div className="font-semibold text-white">{buy.item.name}</div>
+          <div className="text-sm text-gray-400 flex items-center gap-2">
+            <MapPin className="w-4 h-4" /> {buy.item.location}
           </div>
+          <div className="flex items-center justify-between">
+            <div className="text-sm text-gray-400">Price</div>
+            <div className="font-semibold text-white">${buy.item.price.toFixed(2)} / tCO₂</div>
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="text-sm text-gray-400">Available</div>
+            <div className="font-semibold text-white">{buy.item.tonsAvailable.toLocaleString()} t</div>
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-400 mb-1">Tonnage</label>
+            <input
+              value={buy.tons}
+              onChange={(e) => setBuy((b) => ({ ...b, tons: e.target.value }))}
+              placeholder="e.g., 250"
+              className="w-full px-3 py-2 rounded-lg border border-gray-700 bg-[#121212] text-gray-200
+                         focus:ring-teal-500 focus:border-teal-500 focus:shadow-[0_0_8px_#14b8a6]
+                         hover:border-teal-500 hover:shadow-[0_0_6px_#14b8a6]
+                         transition-all duration-300"
+            />
+            {!!parseFloat(buy.tons) && (
+              <div className="text-xs text-gray-400 mt-1">
+                Estimated cost: ${ (parseFloat(buy.tons) * buy.item.price).toFixed(2) }
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="p-4 border-t border-gray-700 flex items-center justify-end gap-3">
+          <button
+            onClick={closeBuy}
+            className="px-4 py-2 rounded-lg border border-gray-600 hover:bg-gray-800"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={confirmBuy}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-600 hover:brightness-110"
+          >
+            <ShoppingCart className="w-4 h-4" /> Confirm Purchase
+          </button>
         </div>
       </div>
-
-      {/* Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {filtered.length === 0 ? (
-          <div className="col-span-full text-center text-gray-500 py-16">
-            No listings match your filters.
-          </div>
-        ) : (
-          filtered.map((l) => <ListingCard key={l.id} item={l} onBuy={() => openBuy(l)} />)
-        )}
-      </section>
-
-      {/* Buy modal */}
-      {buy.open && buy.item ? (
-        <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
-            <div className="p-4 border-b flex items-center justify-between">
-              <h3 className="font-semibold">Quick Purchase</h3>
-              <button
-                onClick={closeBuy}
-                className="p-1 rounded-lg hover:bg-gray-100 text-gray-600"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div className="p-4 space-y-4">
-              <div className="text-sm text-gray-600">{buy.item.id}</div>
-              <div className="font-semibold text-gray-900">{buy.item.name}</div>
-              <div className="text-sm text-gray-600 flex items-center gap-2">
-                <MapPin className="w-4 h-4" /> {buy.item.location}
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-600">Price</div>
-                <div className="font-semibold">${buy.item.price.toFixed(2)} / tCO₂</div>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-600">Available</div>
-                <div className="font-semibold">{buy.item.tonsAvailable.toLocaleString()} t</div>
-              </div>
-
-              <div>
-                <label className="block text-sm text-gray-600 mb-1">Tonnage</label>
-                <input
-                  value={buy.tons}
-                  onChange={(e) => setBuy((b) => ({ ...b, tons: e.target.value }))}
-                  placeholder="e.g., 250"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
-                />
-                {!!parseFloat(buy.tons) && (
-                  <div className="text-xs text-gray-500 mt-1">
-                    Estimated cost: $
-                    {(parseFloat(buy.tons) * buy.item.price).toFixed(2)}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div className="p-4 border-t flex items-center justify-end gap-3">
-              <button onClick={closeBuy} className="px-4 py-2 rounded-lg border hover:bg-gray-100">
-                Cancel
-              </button>
-              <button
-                onClick={confirmBuy}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110"
-              >
-                <ShoppingCart className="w-4 h-4" /> Confirm Purchase
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : null}
     </div>
+  )}
+</div>
+
   );
 }
 
 function ListingCard({ item, onBuy }) {
   return (
-    <div className="bg-white rounded-2xl shadow overflow-hidden group">
-      <div className="relative h-44">
-        <img
-          src={item.thumbnail}
-          alt={item.name}
-          className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform"
-        />
-        <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-black/60 text-white text-xs">
-          <Leaf className="w-3 h-3" /> {item.type}
-        </div>
-        {item.verified && (
-          <div className="absolute top-3 right-3 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-600 text-white text-xs">
-            <ShieldCheck className="w-3 h-3" /> Verified
-          </div>
-        )}
+    // <div className="bg-white rounded-2xl shadow overflow-hidden group">
+    //   <div className="relative h-44">
+    //     <img
+    //       src={item.thumbnail}
+    //       alt={item.name}
+    //       className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform"
+    //     />
+    //     <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-black/60 text-white text-xs">
+    //       <Leaf className="w-3 h-3" /> {item.type}
+    //     </div>
+    //     {item.verified && (
+    //       <div className="absolute top-3 right-3 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-600 text-white text-xs">
+    //         <ShieldCheck className="w-3 h-3" /> Verified
+    //       </div>
+    //     )}
+    //   </div>
+
+    //   <div className="p-4 space-y-3">
+    //     <div className="text-xs text-gray-500">{item.id}</div>
+    //     <div className="font-semibold text-gray-900">{item.name}</div>
+    //     <div className="text-sm text-gray-600 flex items-center gap-2">
+    //       <MapPin className="w-4 h-4" /> {item.location}
+    //     </div>
+
+    //     <div className="grid grid-cols-3 gap-3 text-sm">
+    //       <div>
+    //         <div className="text-xs text-gray-500">Price</div>
+    //         <div className="font-semibold">${item.price.toFixed(2)}/t</div>
+    //       </div>
+    //       <div>
+    //         <div className="text-xs text-gray-500">Available</div>
+    //         <div className="font-semibold">{item.tonsAvailable.toLocaleString()} t</div>
+    //       </div>
+    //       <div>
+    //         <div className="text-xs text-gray-500">Rating</div>
+    //         <div className="font-semibold">{item.rating}★</div>
+    //       </div>
+    //     </div>
+
+    //     <div className="flex items-center justify-end">
+    //       <button
+    //         onClick={onBuy}
+    //         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white hover:opacity-90"
+    //       >
+    //         <ShoppingCart className="w-4 h-4" /> Buy Credits
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden group hover:shadow-[0_0_12px_#14b8a6] transition-shadow duration-300">
+  {/* Image */}
+  <div className="relative h-44">
+    <img
+      src={item.thumbnail}
+      alt={item.name}
+      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+    />
+    <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-black/60 text-white text-xs">
+      <Leaf className="w-3 h-3" /> {item.type}
+    </div>
+    {item.verified && (
+      <div className="absolute top-3 right-3 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-teal-600 text-white text-xs">
+        <ShieldCheck className="w-3 h-3" /> Verified
       </div>
+    )}
+  </div>
 
-      <div className="p-4 space-y-3">
-        <div className="text-xs text-gray-500">{item.id}</div>
-        <div className="font-semibold text-gray-900">{item.name}</div>
-        <div className="text-sm text-gray-600 flex items-center gap-2">
-          <MapPin className="w-4 h-4" /> {item.location}
-        </div>
+  {/* Card content */}
+  <div className="p-4 space-y-3">
+    <div className="text-xs text-gray-400">{item.id}</div>
+    <div className="font-semibold text-white">{item.name}</div>
+    <div className="text-sm text-gray-400 flex items-center gap-2">
+      <MapPin className="w-4 h-4" /> {item.location}
+    </div>
 
-        <div className="grid grid-cols-3 gap-3 text-sm">
-          <div>
-            <div className="text-xs text-gray-500">Price</div>
-            <div className="font-semibold">${item.price.toFixed(2)}/t</div>
-          </div>
-          <div>
-            <div className="text-xs text-gray-500">Available</div>
-            <div className="font-semibold">{item.tonsAvailable.toLocaleString()} t</div>
-          </div>
-          <div>
-            <div className="text-xs text-gray-500">Rating</div>
-            <div className="font-semibold">{item.rating}★</div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-end">
-          <button
-            onClick={onBuy}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white hover:opacity-90"
-          >
-            <ShoppingCart className="w-4 h-4" /> Buy Credits
-          </button>
-        </div>
+    {/* Stats */}
+    <div className="grid grid-cols-3 gap-3 text-sm">
+      <div>
+        <div className="text-xs text-gray-500">Price</div>
+        <div className="font-semibold text-white">${item.price.toFixed(2)}/t</div>
+      </div>
+      <div>
+        <div className="text-xs text-gray-500">Available</div>
+        <div className="font-semibold text-white">{item.tonsAvailable.toLocaleString()} t</div>
+      </div>
+      <div>
+        <div className="text-xs text-gray-500">Rating</div>
+        <div className="font-semibold text-white">{item.rating}★</div>
       </div>
     </div>
+
+    {/* Buy button */}
+    <div className="flex items-center justify-end">
+      <button
+        onClick={onBuy}
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-600 text-white hover:brightness-110 transition-all duration-200"
+      >
+        <ShoppingCart className="w-4 h-4" /> Buy Credits
+      </button>
+    </div>
+  </div>
+</div>
+
   );
 }

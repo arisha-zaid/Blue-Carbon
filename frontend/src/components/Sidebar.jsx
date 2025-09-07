@@ -62,53 +62,120 @@ export default function Sidebar({ role, isOpen, onClose }) {
   const roleLinks = links[effectiveRole] || links["community"];
 
   return (
-    <aside
-      className={`fixed left-0 top-0 h-screen w-64 bg-white shadow-lg z-40 transform transition-transform duration-300 ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      }`}
-      aria-hidden={!isOpen}
+    // <aside
+    //   className={`fixed left-0 top-0 h-screen w-64 bg-white shadow-lg z-40 transform transition-transform duration-300 ${
+    //     isOpen ? "translate-x-0" : "-translate-x-full"
+    //   }`}
+    //   aria-hidden={!isOpen}
+    // >
+    //   <div className="flex items-center justify-between p-4 border-b border-gray-200">
+    //     <div className="text-xl font-bold text-green-700">Blue Carbon</div>
+    //     <button
+    //       onClick={onClose}
+    //       aria-label="Close sidebar"
+    //       className="p-2 rounded-md hover:bg-gray-100"
+    //     >
+    //       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    //     </button>
+    //   </div>
+
+    //   <nav className="flex-1 p-4 space-y-2 overflow-y-auto h-[calc(100vh-120px)]">
+    //     {roleLinks.map((link) => (
+    //       <Link
+    //         key={link.name}
+    //         to={link.path}
+    //         className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium ${
+    //           location.pathname === link.path
+    //             ? "bg-teal-600 text-white"
+    //             : "text-gray-700 hover:bg-gray-100"
+    //         }`}
+    //         onClick={onClose}
+    //       >
+    //         {link.icon}
+    //         {link.name}
+    //       </Link>
+    //     ))}
+    //   </nav>
+
+    //   <div className="p-4 border-t border-gray-200">
+    //     <button
+    //       className="w-full flex items-center gap-2 px-4 py-3 rounded-lg border font-medium text-gray-700 hover:bg-gray-100"
+    //       onClick={async () => {
+    //         await apiService.logout();
+    //         navigate("/login");
+    //         onClose && onClose();
+    //       }}
+    //     >
+    //       <LogOut size={18} /> Logout
+    //     </button>
+    //   </div>
+    // </aside>
+   <aside
+  className={`fixed left-0 top-0 h-screen w-64 bg-[#121110] shadow-lg z-40 transform transition-transform duration-300 ${
+    isOpen ? "translate-x-0" : "-translate-x-full"
+  }`}
+  aria-hidden={!isOpen}
+>
+  {/* Header */}
+  <div className="flex items-center justify-between p-4 border-b border-gray-800">
+    <div className="text-xl font-bold text-teal-400">Blue Carbon</div>
+    <button
+      onClick={onClose}
+      aria-label="Close sidebar"
+      className="p-2 rounded-md hover:bg-[#1a1a1a]"
     >
-      <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <div className="text-xl font-bold text-green-700">Blue Carbon</div>
-        <button
-          onClick={onClose}
-          aria-label="Close sidebar"
-          className="p-2 rounded-md hover:bg-gray-100"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
-      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5 text-gray-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
 
-      <nav className="flex-1 p-4 space-y-2 overflow-y-auto h-[calc(100vh-120px)]">
-        {roleLinks.map((link) => (
-          <Link
-            key={link.name}
-            to={link.path}
-            className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium ${
-              location.pathname === link.path
-                ? "bg-teal-600 text-white"
-                : "text-gray-700 hover:bg-gray-100"
-            }`}
-            onClick={onClose}
-          >
-            {link.icon}
-            {link.name}
-          </Link>
-        ))}
-      </nav>
+  {/* Links */}
+  <nav className="flex-1 p-3 space-y-2 overflow-y-auto h-[calc(100vh-150px)]">
+    {roleLinks.map((link) => (
+      <Link
+        key={link.name}
+        to={link.path}
+        className={`flex items-center gap-3 px-4 py-2 rounded-md font-medium bg-[#1a1a1a] text-gray-300 transition-all duration-300
+          ${
+            location.pathname === link.path
+              ? "border border-teal-500 text-teal-400 shadow-[0_0_6px_#14b8a6]"
+              : "hover:border hover:border-teal-500 hover:shadow-[0_0_6px_#14b8a6]"
+          }`}
+        onClick={onClose}
+      >
+        {link.icon}
+        {link.name}
+      </Link>
+    ))}
+  </nav>
 
-      <div className="p-4 border-t border-gray-200">
-        <button
-          className="w-full flex items-center gap-2 px-4 py-3 rounded-lg border font-medium text-gray-700 hover:bg-gray-100"
-          onClick={async () => {
-            await apiService.logout();
-            navigate("/login");
-            onClose && onClose();
-          }}
-        >
-          <LogOut size={18} /> Logout
-        </button>
-      </div>
-    </aside>
+  {/* Footer */}
+  <div className="p-4 border-t border-gray-800">
+    <button
+      className="w-full flex items-center gap-2 px-4 py-2 rounded-md font-medium bg-[#1a1a1a] text-gray-300 transition-all duration-300 hover:border hover:border-teal-500 hover:shadow-[0_0_6px_#14b8a6]"
+      onClick={async () => {
+        await apiService.logout();
+        navigate("/login");
+        onClose && onClose();
+      }}
+    >
+      <LogOut size={18} /> Logout
+    </button>
+  </div>
+</aside>
+
+   
   );
 }
+
