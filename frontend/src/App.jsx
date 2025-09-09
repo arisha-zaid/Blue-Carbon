@@ -1,4 +1,4 @@
-import './index.css';
+import "./index.css";
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
@@ -27,7 +27,7 @@ import AdminSettings from "./pages/admin/Settings";
 // Industry sub-pages
 import Marketplace from "./pages/industry/Marketplace";
 import IndustryReports from "./pages/industry/Reports";
-import Transactions from "./pages/industry/Transactions";
+import TransactionsEnhanced from "./pages/industry/TransactionsEnhanced";
 import Wallet from "./pages/industry/Wallet";
 import IndustrySettings from "./pages/industry/Settings";
 
@@ -117,7 +117,14 @@ export default function App() {
               </Layout>
             }
           />
-          <Route path="/admin/profile" element={<AdminProfile />} />
+          <Route
+            path="/admin/profile"
+            element={
+              <Layout showSidebar={true}>
+                <AdminProfile />
+              </Layout>
+            }
+          />
 
           <Route
             path="/admin/settings"
@@ -149,7 +156,7 @@ export default function App() {
             path="/industry/transactions"
             element={
               <Layout showSidebar={true}>
-                <Transactions />
+                <TransactionsEnhanced />
               </Layout>
             }
           />

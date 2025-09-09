@@ -1,0 +1,224 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]: Blue Carbon
+        - button "Close sidebar" [ref=e9]:
+          - img [ref=e10]
+      - navigation [ref=e13]:
+        - link "Dashboard" [ref=e14] [cursor=pointer]:
+          - /url: /admin
+          - img [ref=e15] [cursor=pointer]
+          - text: Dashboard
+        - link "Project Approval" [ref=e18] [cursor=pointer]:
+          - /url: /admin/project-approval
+          - img [ref=e19] [cursor=pointer]
+          - text: Project Approval
+        - link "Credit Issuance" [ref=e22] [cursor=pointer]:
+          - /url: /admin/credit-issuance
+          - img [ref=e23] [cursor=pointer]
+          - text: Credit Issuance
+        - link "User Management" [ref=e25] [cursor=pointer]:
+          - /url: /admin/user-management
+          - img [ref=e26] [cursor=pointer]
+          - text: User Management
+        - link "Reports" [ref=e31] [cursor=pointer]:
+          - /url: /admin/reports
+          - img [ref=e32] [cursor=pointer]
+          - text: Reports
+        - link "Projects Map" [ref=e33] [cursor=pointer]:
+          - /url: /projects/map
+          - img [ref=e34] [cursor=pointer]
+          - text: Projects Map
+        - link "Profile" [ref=e35] [cursor=pointer]:
+          - /url: /admin/profile
+          - img [ref=e36] [cursor=pointer]
+          - text: Profile
+        - link "Settings" [ref=e37] [cursor=pointer]:
+          - /url: /admin/settings
+          - img [ref=e38] [cursor=pointer]
+          - text: Settings
+      - button "Logout" [ref=e42]:
+        - img [ref=e43]
+        - text: Logout
+    - main [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - heading "Admin Dashboard" [level=1] [ref=e51]
+            - paragraph [ref=e52]: System health, project approvals, and registry-wide analytics.
+          - generic [ref=e53]:
+            - link "Review Approvals" [ref=e54] [cursor=pointer]:
+              - /url: /admin/project-approval
+              - img [ref=e55] [cursor=pointer]
+              - text: Review Approvals
+            - link "View Reports" [ref=e58] [cursor=pointer]:
+              - /url: /admin/reports
+              - img [ref=e59] [cursor=pointer]
+              - text: View Reports
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - generic [ref=e63]:
+              - generic [ref=e64]: Total Users
+              - img [ref=e66]
+            - generic [ref=e71]: 4,812
+            - generic [ref=e72]:
+              - img [ref=e73]
+              - text: +3.2%
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: Projects Submitted
+              - img [ref=e80]
+            - generic [ref=e83]: 1,274
+            - generic [ref=e84]:
+              - img [ref=e85]
+              - text: +5.1%
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]: Approvals (30d)
+              - img [ref=e92]
+            - generic [ref=e95]: "312"
+            - generic [ref=e96]:
+              - img [ref=e97]
+              - text: +2.4%
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e102]: On-Chain Anchors
+              - img [ref=e104]
+            - generic [ref=e106]: "168"
+            - generic [ref=e107]:
+              - img [ref=e108]
+              - text: +4.0%
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - heading "System Health" [level=3] [ref=e114]:
+                - img [ref=e115]
+                - text: System Health
+              - generic [ref=e117]: "Uptime: 14d 6h"
+            - list [ref=e118]:
+              - listitem [ref=e119]:
+                - generic [ref=e120]: API latency (p95)
+                - generic [ref=e121]: 142 ms
+              - listitem [ref=e122]:
+                - generic [ref=e123]: Approval queue depth
+                - generic [ref=e124]: "7"
+              - listitem [ref=e125]:
+                - generic [ref=e126]:
+                  - img [ref=e127]
+                  - text: Database
+                - generic [ref=e131]: Healthy
+            - generic [ref=e132]:
+              - link "Settings" [ref=e133] [cursor=pointer]:
+                - /url: /admin/settings
+                - img [ref=e134] [cursor=pointer]
+                - text: Settings
+              - link "Manage Users" [ref=e145] [cursor=pointer]:
+                - /url: /admin/user-management
+          - generic [ref=e146]:
+            - generic [ref=e147]:
+              - heading "New Users (7d)" [level=3] [ref=e148]
+              - generic [ref=e149]: Daily signups
+            - application [ref=e152]:
+              - generic [ref=e157]:
+                - generic [ref=e160]: Tue
+                - generic [ref=e163]: Thu
+                - generic [ref=e166]: Fri
+                - generic [ref=e169]: Sun
+              - generic [ref=e171]:
+                - generic [ref=e174]: "0"
+                - generic [ref=e177]: "6"
+                - generic [ref=e180]: "12"
+                - generic [ref=e183]: "18"
+                - generic [ref=e186]: "24"
+          - generic [ref=e197]:
+            - generic [ref=e198]:
+              - heading "Projects Submitted (YTD)" [level=3] [ref=e199]
+              - generic [ref=e200]: Monthly
+            - application [ref=e203]:
+              - generic [ref=e205]:
+                - generic [ref=e208]: Jan
+                - generic [ref=e211]: Mar
+                - generic [ref=e214]: May
+                - generic [ref=e217]: Jul
+                - generic [ref=e220]: Sep
+              - generic [ref=e222]:
+                - generic [ref=e225]: "0"
+                - generic [ref=e228]: "15"
+                - generic [ref=e231]: "30"
+                - generic [ref=e234]: "45"
+                - generic [ref=e237]: "60"
+        - generic [ref=e259]:
+          - generic [ref=e260]:
+            - heading "Pending Project Approvals" [level=3] [ref=e261]:
+              - img [ref=e262]
+              - text: Pending Project Approvals
+            - link "See all" [ref=e265] [cursor=pointer]:
+              - /url: /admin/project-approval
+          - table [ref=e267]:
+            - rowgroup [ref=e268]:
+              - row "Project Owner Submitted Actions" [ref=e269]:
+                - cell "Project" [ref=e270]
+                - cell "Owner" [ref=e271]
+                - cell "Submitted" [ref=e272]
+                - cell "Actions" [ref=e273]
+            - rowgroup [ref=e274]:
+              - row "Mangrove Revival – Bay East PRJ-1107 Alice 2 Sep 2025 Approve Reject View" [ref=e275]:
+                - cell "Mangrove Revival – Bay East PRJ-1107" [ref=e276]:
+                  - generic [ref=e277]: Mangrove Revival – Bay East
+                  - generic [ref=e278]: PRJ-1107
+                - cell "Alice" [ref=e279]
+                - cell "2 Sep 2025" [ref=e280]
+                - cell "Approve Reject View" [ref=e281]:
+                  - generic [ref=e282]:
+                    - button "Approve" [ref=e283]:
+                      - img [ref=e284]
+                      - text: Approve
+                    - button "Reject" [ref=e287]:
+                      - img [ref=e288]
+                      - text: Reject
+                    - link "View" [ref=e292] [cursor=pointer]:
+                      - /url: /project/PRJ-1107
+                      - img [ref=e293] [cursor=pointer]
+                      - text: View
+              - row "Wetland Horizon – Estuary PRJ-1099 David 31 Aug 2025 Approve Reject View" [ref=e296]:
+                - cell "Wetland Horizon – Estuary PRJ-1099" [ref=e297]:
+                  - generic [ref=e298]: Wetland Horizon – Estuary
+                  - generic [ref=e299]: PRJ-1099
+                - cell "David" [ref=e300]
+                - cell "31 Aug 2025" [ref=e301]
+                - cell "Approve Reject View" [ref=e302]:
+                  - generic [ref=e303]:
+                    - button "Approve" [ref=e304]:
+                      - img [ref=e305]
+                      - text: Approve
+                    - button "Reject" [ref=e308]:
+                      - img [ref=e309]
+                      - text: Reject
+                    - link "View" [ref=e313] [cursor=pointer]:
+                      - /url: /project/PRJ-1099
+                      - img [ref=e314] [cursor=pointer]
+                      - text: View
+              - row "Seagrass Bloom – West Coast PRJ-1093 Meera 29 Aug 2025 Approve Reject View" [ref=e317]:
+                - cell "Seagrass Bloom – West Coast PRJ-1093" [ref=e318]:
+                  - generic [ref=e319]: Seagrass Bloom – West Coast
+                  - generic [ref=e320]: PRJ-1093
+                - cell "Meera" [ref=e321]
+                - cell "29 Aug 2025" [ref=e322]
+                - cell "Approve Reject View" [ref=e323]:
+                  - generic [ref=e324]:
+                    - button "Approve" [ref=e325]:
+                      - img [ref=e326]
+                      - text: Approve
+                    - button "Reject" [ref=e329]:
+                      - img [ref=e330]
+                      - text: Reject
+                    - link "View" [ref=e334] [cursor=pointer]:
+                      - /url: /project/PRJ-1093
+                      - img [ref=e335] [cursor=pointer]
+                      - text: View
+  - generic [ref=e338]: "15"
+```
