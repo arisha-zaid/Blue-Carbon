@@ -133,219 +133,433 @@ export default function IndustrySettings() {
   };
 
   return (
+    // <div className="space-y-8">
+    //   <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    //     <div>
+    //       <h1 className="text-3xl font-bold">Industry Settings</h1>
+    //       <p className="text-gray-600 mt-1">
+    //         Configure spending limits, automation rules, vendor preferences, and alerts.
+    //       </p>
+    //     </div>
+    //   </header>
+
+    //   <form onSubmit={save} className="space-y-8">
+    //     {/* Spend & Controls */}
+    //     <section className="bg-white rounded-2xl shadow p-6">
+    //       <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+    //         <CreditCard className="w-5 h-5 text-emerald-600" /> Spend Controls
+    //       </h3>
+    //       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    //         <NumberField
+    //           label="Monthly Cap (USD)"
+    //           value={form.monthlyCapUsd}
+    //           onChange={(v) => update({ monthlyCapUsd: v })}
+    //         />
+    //         <NumberField
+    //           label="Max Order (USD)"
+    //           value={form.maxOrderUsd}
+    //           onChange={(v) => update({ maxOrderUsd: v })}
+    //         />
+    //         <ToggleField
+    //           label="Require 2FA for Orders"
+    //           checked={form.require2FA}
+    //           onChange={(v) => update({ require2FA: v })}
+    //           icon={<ShieldCheck className="w-4 h-4 text-emerald-600" />}
+    //         />
+    //       </div>
+    //     </section>
+
+    //     {/* Auto-purchase */}
+    //     <section className="bg-white rounded-2xl shadow p-6">
+    //       <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+    //         <ToggleRight className="w-5 h-5 text-emerald-600" /> Auto-Purchase Rules
+    //       </h3>
+    //       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+    //         <ToggleField
+    //           label="Enable Auto-Buy"
+    //           checked={form.autoBuyEnabled}
+    //           onChange={(v) => update({ autoBuyEnabled: v })}
+    //         />
+    //         <NumberField
+    //           label="Target Tons (tCO₂)"
+    //           value={form.autoBuyTargetTons}
+    //           onChange={(v) => update({ autoBuyTargetTons: v })}
+    //           disabled={!form.autoBuyEnabled}
+    //         />
+    //         <NumberField
+    //           label="Max Price ($/t)"
+    //           value={form.autoBuyMaxPrice}
+    //           onChange={(v) => update({ autoBuyMaxPrice: v })}
+    //           step="0.1"
+    //           disabled={!form.autoBuyEnabled}
+    //         />
+    //         <div>
+    //           <div className="block text-sm text-gray-600 mb-1">Project Types</div>
+    //           <div className="flex flex-wrap gap-2">
+    //             {PROJECT_TYPES.map((t) => (
+    //               <button
+    //                 key={t}
+    //                 type="button"
+    //                 onClick={() => toggleArrayValue("autoBuyProjectTypes", t)}
+    //                 disabled={!form.autoBuyEnabled}
+    //                 className={`px-3 py-1 rounded-lg text-sm border ${
+    //                   form.autoBuyProjectTypes.includes(t)
+    //                     ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+    //                     : "text-gray-700 hover:bg-gray-100"
+    //                 } disabled:opacity-50`}
+    //               >
+    //                 {t}
+    //               </button>
+    //             ))}
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </section>
+
+    //     {/* Vendor Preferences */}
+    //     <section className="bg-white rounded-2xl shadow p-6">
+    //       <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+    //         <Factory className="w-5 h-5 text-emerald-600" /> Vendor Preferences
+    //       </h3>
+    //       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    //         <ToggleField
+    //           label="Verified Vendors Only"
+    //           checked={form.preferVerifiedOnly}
+    //           onChange={(v) => update({ preferVerifiedOnly: v })}
+    //         />
+    //         <MultiSelect
+    //           label="Preferred Vendors"
+    //           options={KNOWN_VENDORS}
+    //           selected={form.preferredVendors}
+    //           onToggle={(v) => toggleArrayValue("preferredVendors", v)}
+    //         />
+    //         <MultiSelect
+    //           label="Excluded Vendors"
+    //           options={KNOWN_VENDORS}
+    //           selected={form.excludedVendors}
+    //           onToggle={(v) => toggleArrayValue("excludedVendors", v)}
+    //         />
+    //       </div>
+    //     </section>
+
+    //     {/* Notifications */}
+    //     <section className="bg-white rounded-2xl shadow p-6">
+    //       <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+    //         <Bell className="w-5 h-5 text-emerald-600" /> Notifications
+    //       </h3>
+    //       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+    //         <ToggleField
+    //           label="Email Alerts"
+    //           checked={form.emailAlerts}
+    //           onChange={(v) => update({ emailAlerts: v })}
+    //         />
+    //         <ToggleField
+    //           label="SMS Alerts"
+    //           checked={form.smsAlerts}
+    //           onChange={(v) => update({ smsAlerts: v })}
+    //         />
+    //         <ToggleField
+    //           label="Price Alerts"
+    //           checked={form.priceAlertsEnabled}
+    //           onChange={(v) => update({ priceAlertsEnabled: v })}
+    //         />
+    //         <NumberField
+    //           label="Alert Below ($/t)"
+    //           value={form.priceAlertBelow}
+    //           onChange={(v) => update({ priceAlertBelow: v })}
+    //           step="0.1"
+    //           disabled={!form.priceAlertsEnabled}
+    //         />
+    //       </div>
+    //     </section>
+
+    //     {/* Wallet & API */}
+    //     <section className="bg-white rounded-2xl shadow p-6">
+    //       <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+    //         <Globe className="w-5 h-5 text-emerald-600" /> Wallet & API
+    //       </h3>
+    //       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    //         <TextField
+    //           label="Wallet Address"
+    //           value={form.walletAddress}
+    //           onChange={(v) => update({ walletAddress: v })}
+    //           placeholder="0x..."
+    //         />
+    //         <TextField
+    //           label="API Base URL"
+    //           value={form.apiBaseUrl}
+    //           onChange={(v) => update({ apiBaseUrl: v })}
+    //           placeholder="https://api.example.com/industry"
+    //         />
+    //         <div>
+    //           <div className="flex items-center justify-between">
+    //             <label className="block text-sm text-gray-600 mb-1">API Key</label>
+    //             <button
+    //               type="button"
+    //               onClick={() => setRevealKey((s) => !s)}
+    //               className="text-sm text-gray-600 hover:underline inline-flex items-center gap-1"
+    //             >
+    //               {revealKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}{" "}
+    //               {revealKey ? "Hide" : "Show"}
+    //             </button>
+    //           </div>
+    //           <input
+    //             value={revealKey ? form.apiKey : maskedApiKey}
+    //             onChange={(e) => update({ apiKey: e.target.value })}
+    //             placeholder="••••••••••••"
+    //             className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+    //             type={revealKey ? "text" : "text"}
+    //           />
+    //           <p className="text-xs text-gray-500 mt-1">
+    //             Demo only. Store secrets server-side in production.
+    //           </p>
+    //           <div className="mt-3">
+    //             <button
+    //               type="button"
+    //               onClick={testConnection}
+    //               disabled={testing}
+    //               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700 hover:bg-gray-100 disabled:opacity-60"
+    //             >
+    //               <TestTube2 className="w-4 h-4" /> {testing ? "Testing..." : "Test Connection"}
+    //             </button>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </section>
+
+    //     {/* Actions */}
+    //     <div className="flex items-center gap-3">
+    //       <button
+    //         type="submit"
+    //         disabled={saving}
+    //         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110 disabled:opacity-60"
+    //       >
+    //         <Save className="w-4 h-4" /> {saving ? "Saving..." : "Save Settings"}
+    //       </button>
+    //       <button
+    //         type="button"
+    //         onClick={resetDefaults}
+    //         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700 hover:bg-gray-100"
+    //       >
+    //         <RotateCcw className="w-4 h-4" /> Reset to Defaults
+    //       </button>
+    //     </div>
+    //   </form>
+    // </div>
     <div className="space-y-8">
-      <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold">Industry Settings</h1>
-          <p className="text-gray-600 mt-1">
-            Configure spending limits, automation rules, vendor preferences, and alerts.
-          </p>
-        </div>
-      </header>
-
-      <form onSubmit={save} className="space-y-8">
-        {/* Spend & Controls */}
-        <section className="bg-white rounded-2xl shadow p-6">
-          <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <CreditCard className="w-5 h-5 text-emerald-600" /> Spend Controls
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <NumberField
-              label="Monthly Cap (USD)"
-              value={form.monthlyCapUsd}
-              onChange={(v) => update({ monthlyCapUsd: v })}
-            />
-            <NumberField
-              label="Max Order (USD)"
-              value={form.maxOrderUsd}
-              onChange={(v) => update({ maxOrderUsd: v })}
-            />
-            <ToggleField
-              label="Require 2FA for Orders"
-              checked={form.require2FA}
-              onChange={(v) => update({ require2FA: v })}
-              icon={<ShieldCheck className="w-4 h-4 text-emerald-600" />}
-            />
-          </div>
-        </section>
-
-        {/* Auto-purchase */}
-        <section className="bg-white rounded-2xl shadow p-6">
-          <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <ToggleRight className="w-5 h-5 text-emerald-600" /> Auto-Purchase Rules
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <ToggleField
-              label="Enable Auto-Buy"
-              checked={form.autoBuyEnabled}
-              onChange={(v) => update({ autoBuyEnabled: v })}
-            />
-            <NumberField
-              label="Target Tons (tCO₂)"
-              value={form.autoBuyTargetTons}
-              onChange={(v) => update({ autoBuyTargetTons: v })}
-              disabled={!form.autoBuyEnabled}
-            />
-            <NumberField
-              label="Max Price ($/t)"
-              value={form.autoBuyMaxPrice}
-              onChange={(v) => update({ autoBuyMaxPrice: v })}
-              step="0.1"
-              disabled={!form.autoBuyEnabled}
-            />
-            <div>
-              <div className="block text-sm text-gray-600 mb-1">Project Types</div>
-              <div className="flex flex-wrap gap-2">
-                {PROJECT_TYPES.map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    onClick={() => toggleArrayValue("autoBuyProjectTypes", t)}
-                    disabled={!form.autoBuyEnabled}
-                    className={`px-3 py-1 rounded-lg text-sm border ${
-                      form.autoBuyProjectTypes.includes(t)
-                        ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                        : "text-gray-700 hover:bg-gray-100"
-                    } disabled:opacity-50`}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Vendor Preferences */}
-        <section className="bg-white rounded-2xl shadow p-6">
-          <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <Factory className="w-5 h-5 text-emerald-600" /> Vendor Preferences
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <ToggleField
-              label="Verified Vendors Only"
-              checked={form.preferVerifiedOnly}
-              onChange={(v) => update({ preferVerifiedOnly: v })}
-            />
-            <MultiSelect
-              label="Preferred Vendors"
-              options={KNOWN_VENDORS}
-              selected={form.preferredVendors}
-              onToggle={(v) => toggleArrayValue("preferredVendors", v)}
-            />
-            <MultiSelect
-              label="Excluded Vendors"
-              options={KNOWN_VENDORS}
-              selected={form.excludedVendors}
-              onToggle={(v) => toggleArrayValue("excludedVendors", v)}
-            />
-          </div>
-        </section>
-
-        {/* Notifications */}
-        <section className="bg-white rounded-2xl shadow p-6">
-          <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <Bell className="w-5 h-5 text-emerald-600" /> Notifications
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <ToggleField
-              label="Email Alerts"
-              checked={form.emailAlerts}
-              onChange={(v) => update({ emailAlerts: v })}
-            />
-            <ToggleField
-              label="SMS Alerts"
-              checked={form.smsAlerts}
-              onChange={(v) => update({ smsAlerts: v })}
-            />
-            <ToggleField
-              label="Price Alerts"
-              checked={form.priceAlertsEnabled}
-              onChange={(v) => update({ priceAlertsEnabled: v })}
-            />
-            <NumberField
-              label="Alert Below ($/t)"
-              value={form.priceAlertBelow}
-              onChange={(v) => update({ priceAlertBelow: v })}
-              step="0.1"
-              disabled={!form.priceAlertsEnabled}
-            />
-          </div>
-        </section>
-
-        {/* Wallet & API */}
-        <section className="bg-white rounded-2xl shadow p-6">
-          <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <Globe className="w-5 h-5 text-emerald-600" /> Wallet & API
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <TextField
-              label="Wallet Address"
-              value={form.walletAddress}
-              onChange={(v) => update({ walletAddress: v })}
-              placeholder="0x..."
-            />
-            <TextField
-              label="API Base URL"
-              value={form.apiBaseUrl}
-              onChange={(v) => update({ apiBaseUrl: v })}
-              placeholder="https://api.example.com/industry"
-            />
-            <div>
-              <div className="flex items-center justify-between">
-                <label className="block text-sm text-gray-600 mb-1">API Key</label>
-                <button
-                  type="button"
-                  onClick={() => setRevealKey((s) => !s)}
-                  className="text-sm text-gray-600 hover:underline inline-flex items-center gap-1"
-                >
-                  {revealKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}{" "}
-                  {revealKey ? "Hide" : "Show"}
-                </button>
-              </div>
-              <input
-                value={revealKey ? form.apiKey : maskedApiKey}
-                onChange={(e) => update({ apiKey: e.target.value })}
-                placeholder="••••••••••••"
-                className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
-                type={revealKey ? "text" : "text"}
-              />
-              <p className="text-xs text-gray-500 mt-1">
-                Demo only. Store secrets server-side in production.
-              </p>
-              <div className="mt-3">
-                <button
-                  type="button"
-                  onClick={testConnection}
-                  disabled={testing}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700 hover:bg-gray-100 disabled:opacity-60"
-                >
-                  <TestTube2 className="w-4 h-4" /> {testing ? "Testing..." : "Test Connection"}
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Actions */}
-        <div className="flex items-center gap-3">
-          <button
-            type="submit"
-            disabled={saving}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110 disabled:opacity-60"
-          >
-            <Save className="w-4 h-4" /> {saving ? "Saving..." : "Save Settings"}
-          </button>
-          <button
-            type="button"
-            onClick={resetDefaults}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border text-gray-700 hover:bg-gray-100"
-          >
-            <RotateCcw className="w-4 h-4" /> Reset to Defaults
-          </button>
-        </div>
-      </form>
+  <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    <div>
+      <h1 className="text-3xl font-bold text-white">Industry Settings</h1>
+      <p className="text-gray-400 mt-1">
+        Configure spending limits, automation rules, vendor preferences, and alerts.
+      </p>
     </div>
+  </header>
+
+  <form onSubmit={save} className="space-y-8">
+    {/* Spend & Controls */}
+    <section className="bg-[#1a1a1a] rounded-2xl border border-gray-700 shadow p-6 ">
+      <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+        <CreditCard className="w-5 h-5 text-emerald-400" /> Spend Controls
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <NumberField
+          label="Monthly Cap (USD)"
+          value={form.monthlyCapUsd}
+          onChange={(v) => update({ monthlyCapUsd: v })}
+        />
+        <NumberField
+          label="Max Order (USD)"
+          value={form.maxOrderUsd}
+          onChange={(v) => update({ maxOrderUsd: v })}
+        />
+        <ToggleField
+          label="Require 2FA for Orders"
+          checked={form.require2FA}
+          onChange={(v) => update({ require2FA: v })}
+          icon={<ShieldCheck className="w-4 h-4 text-emerald-400" />}
+        />
+      </div>
+    </section>
+
+    {/* Auto-purchase */}
+    <section className="bg-[#1a1a1a] rounded-2xl border border-gray-700 shadow p-6 ">
+      <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+        <ToggleRight className="w-5 h-5 text-emerald-400" /> Auto-Purchase Rules
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <ToggleField
+          label="Enable Auto-Buy"
+          checked={form.autoBuyEnabled}
+          onChange={(v) => update({ autoBuyEnabled: v })}
+        />
+        <NumberField
+          label="Target Tons (tCO₂)"
+          value={form.autoBuyTargetTons}
+          onChange={(v) => update({ autoBuyTargetTons: v })}
+          disabled={!form.autoBuyEnabled}
+        />
+        <NumberField
+          label="Max Price ($/t)"
+          value={form.autoBuyMaxPrice}
+          onChange={(v) => update({ autoBuyMaxPrice: v })}
+          step="0.1"
+          disabled={!form.autoBuyEnabled}
+        />
+        <div>
+          <div className="block text-sm text-gray-400 mb-1">Project Types</div>
+          <div className="flex flex-wrap gap-2">
+            {PROJECT_TYPES.map((t) => (
+              <button
+                key={t}
+                type="button"
+                onClick={() => toggleArrayValue("autoBuyProjectTypes", t)}
+                disabled={!form.autoBuyEnabled}
+                className={`px-3 py-1 rounded-lg text-sm border transition ${
+                  form.autoBuyProjectTypes.includes(t)
+                    ? "bg-emerald-900/30 text-emerald-400 border-emerald-500"
+                    : "text-gray-300 border-gray-600 hover:border-teal-500 hover:shadow-[0px_0px_8px_#14b8a6]"
+                } disabled:opacity-50`}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Vendor Preferences */}
+    <section className="bg-[#1a1a1a] rounded-2xl border border-gray-700 shadow p-6 ">
+      <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+        <Factory className="w-5 h-5 text-emerald-400" /> Vendor Preferences
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <ToggleField
+          label="Verified Vendors Only"
+          checked={form.preferVerifiedOnly}
+          onChange={(v) => update({ preferVerifiedOnly: v })}
+        />
+        <MultiSelect
+          label="Preferred Vendors"
+          options={KNOWN_VENDORS}
+          selected={form.preferredVendors}
+          onToggle={(v) => toggleArrayValue("preferredVendors", v)}
+        />
+        <MultiSelect
+          label="Excluded Vendors"
+          options={KNOWN_VENDORS}
+          selected={form.excludedVendors}
+          onToggle={(v) => toggleArrayValue("excludedVendors", v)}
+        />
+      </div>
+    </section>
+
+    {/* Notifications */}
+    <section className="bg-[#1a1a1a] rounded-2xl border border-gray-700 shadow p-6 ">
+      <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+        <Bell className="w-5 h-5 text-emerald-400" /> Notifications
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <ToggleField
+          label="Email Alerts"
+          checked={form.emailAlerts}
+          onChange={(v) => update({ emailAlerts: v })}
+        />
+        <ToggleField
+          label="SMS Alerts"
+          checked={form.smsAlerts}
+          onChange={(v) => update({ smsAlerts: v })}
+        />
+        <ToggleField
+          label="Price Alerts"
+          checked={form.priceAlertsEnabled}
+          onChange={(v) => update({ priceAlertsEnabled: v })}
+        />
+        <NumberField
+          label="Alert Below ($/t)"
+          value={form.priceAlertBelow}
+          onChange={(v) => update({ priceAlertBelow: v })}
+          step="0.1"
+          disabled={!form.priceAlertsEnabled}
+        />
+      </div>
+    </section>
+
+    {/* Wallet & API */}
+    <section className="bg-[#1a1a1a] rounded-2xl border border-gray-700 shadow p-6 ">
+      <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+        <Globe className="w-5 h-5 text-emerald-400" /> Wallet & API
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <TextField
+          label="Wallet Address"
+          value={form.walletAddress}
+          onChange={(v) => update({ walletAddress: v })}
+          placeholder="0x..."
+        />
+        <TextField
+          label="API Base URL"
+          value={form.apiBaseUrl}
+          onChange={(v) => update({ apiBaseUrl: v })}
+          placeholder="https://api.example.com/industry"
+        />
+        <div>
+          <div className="flex items-center justify-between">
+            <label className="block text-sm text-gray-400 mb-1">API Key</label>
+            <button
+              type="button"
+              onClick={() => setRevealKey((s) => !s)}
+              className="text-sm text-gray-400 hover:text-teal-400 inline-flex items-center gap-1"
+            >
+              {revealKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              {revealKey ? "Hide" : "Show"}
+            </button>
+          </div>
+          <input
+            value={revealKey ? form.apiKey : maskedApiKey}
+            onChange={(e) => update({ apiKey: e.target.value })}
+            placeholder="••••••••••••"
+            className="w-full px-3 py-2 rounded-lg border border-gray-700 bg-[#121212] text-gray-200 focus:ring-2 focus:ring-emerald-500"
+            type={revealKey ? "text" : "text"}
+          />
+          <p className="text-xs text-gray-500 mt-1">
+            Demo only. Store secrets server-side in production.
+          </p>
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={testConnection}
+              disabled={testing}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 text-gray-300 hover:border-teal-500 hover:shadow-[0px_0px_10px_#14b8a6] transition disabled:opacity-60"
+            >
+              <TestTube2 className="w-4 h-4" /> {testing ? "Testing..." : "Test Connection"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Actions */}
+    <div className="flex items-center gap-3">
+      <button
+        type="submit"
+        disabled={saving}
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:brightness-110 disabled:opacity-60"
+      >
+        <Save className="w-4 h-4" /> {saving ? "Saving..." : "Save Settings"}
+      </button>
+      <button
+        type="button"
+        onClick={resetDefaults}
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 text-gray-300 hover:border-teal-500 hover:shadow-[0px_0px_10px_#14b8a6] transition"
+      >
+        <RotateCcw className="w-4 h-4" /> Reset to Defaults
+      </button>
+    </div>
+  </form>
+</div>
+
   );
 }
 
@@ -360,7 +574,8 @@ function NumberField({ label, value, onChange, step = "1", disabled }) {
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         disabled={disabled}
-        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 disabled:opacity-60"
+        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 
+         focus:ring-emerald-500 disabled:opacity-60"
       />
     </div>
   );
@@ -374,7 +589,8 @@ function TextField({ label, value, onChange, placeholder }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500"
+        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 
+         hover:placeholder-emerald-500 hover:placeholder-opacity-80 focus:ring-emerald-500"
       />
     </div>
   );
@@ -382,12 +598,24 @@ function TextField({ label, value, onChange, placeholder }) {
 
 function ToggleField({ label, checked, onChange, icon }) {
   return (
+    // <label className="flex items-center justify-between px-4 py-3 rounded-xl border hover:bg-gray-50 cursor-pointer">
+    //   <span className="text-sm text-gray-700 inline-flex items-center gap-2">
+    //     {icon} {label}
+    //   </span>
+    //   <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} />
+    // </label>
     <label className="flex items-center justify-between px-4 py-3 rounded-xl border hover:bg-gray-50 cursor-pointer">
-      <span className="text-sm text-gray-700 inline-flex items-center gap-2">
-        {icon} {label}
-      </span>
-      <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} />
-    </label>
+  <span className="text-sm text-gray-700 inline-flex items-center gap-2">
+    {icon} {label}
+  </span>
+  <input
+    type="checkbox"
+    checked={checked}
+    onChange={(e) => onChange(e.target.checked)}
+    className="h-5 w-5 accent-emerald-600 rounded-md cursor-pointer"
+  />
+</label>
+
   );
 }
 
