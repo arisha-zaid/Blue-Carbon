@@ -15,10 +15,12 @@ import {
   Activity,
   ExternalLink,
   RefreshCw,
+  ShoppingCart,
 } from "lucide-react";
 
 // Real API integration
 import transactionAPI from "../../services/transactionAPI";
+import PaymentModal from "../../components/PaymentModal";
 
 const TransactionsEnhanced = () => {
   const [transactions, setTransactions] = useState([]);
@@ -38,6 +40,10 @@ const TransactionsEnhanced = () => {
     averagePrice: 0,
     monthlyChange: 0,
   });
+
+  // Payment modal state
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [purchaseData, setPurchaseData] = useState(null);
 
   // Mock data for demo purposes
   const mockData = [
@@ -252,6 +258,33 @@ const TransactionsEnhanced = () => {
     window.URL.revokeObjectURL(url);
   };
 
+  const handleBuyCredits = () => {
+    // For demo purposes, we'll use mock data for the purchase
+    const mockPurchaseData = {
+      project: {
+        id: "BC-144",
+        name: "Mangrove Revival – Bay East",
+        type: "Mangroves",
+        location: "Odisha, IN",
+      },
+      amount: 100,
+      pricePerUnit: 28.9,
+      type: "purchase",
+    };
+
+    setPurchaseData(mockPurchaseData);
+    setShowPaymentModal(true);
+  };
+
+  const handlePaymentSuccess = (paymentResult) => {
+    // Refresh transactions after successful payment
+    fetchTransactions();
+    fetchAnalytics();
+
+    // Show success message (you might want to add a toast notification)
+    console.log("Payment successful:", paymentResult);
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white p-6">
       {/* Analytics Cards */}
@@ -316,6 +349,13 @@ const TransactionsEnhanced = () => {
           </p>
         </div>
         <div className="flex items-center gap-3">
+          <button
+            onClick={handleBuyCredits}
+            className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors font-semibold"
+          >
+            <ShoppingCart className="w-4 h-4" />
+            Buy Credits
+          </button>
           <button
             onClick={fetchTransactions}
             disabled={loading}
@@ -391,6 +431,14 @@ const TransactionsEnhanced = () => {
           )}
         </div>
       </div>
+
+      {/* Payment Modal */}
+      <PaymentModal
+        isOpen={showPaymentModal}
+        onClose={() => setShowPaymentModal(false)}
+        transactionData={purchaseData}
+        onSuccess={handlePaymentSuccess}
+      />
     </div>
   );
 };

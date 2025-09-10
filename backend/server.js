@@ -87,7 +87,10 @@ console.log("⏰ Timestamp:", new Date().toISOString());
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: [
+      process.env.FRONTEND_URL || "http://localhost:5173",
+      "http://localhost:5174",
+    ],
     credentials: true,
   })
 );
@@ -253,6 +256,22 @@ try {
   console.log("✅ Transaction routes loaded");
 } catch (error) {
   console.warn("⚠️ Transaction routes failed to load:", error.message);
+}
+
+try {
+  const paymentRoutes = require("./routes/payments");
+  app.use("/api/payments", paymentRoutes);
+  console.log("✅ Payment routes loaded");
+} catch (error) {
+  console.warn("⚠️ Payment routes failed to load:", error.message);
+}
+
+try {
+  const webhookRoutes = require("./routes/webhooks");
+  app.use("/api/webhooks", webhookRoutes);
+  console.log("✅ Webhook routes loaded");
+} catch (error) {
+  console.warn("⚠️ Webhook routes failed to load:", error.message);
 }
 
 // Error handling middleware
