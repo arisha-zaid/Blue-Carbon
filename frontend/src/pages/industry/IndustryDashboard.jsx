@@ -432,11 +432,11 @@ export default function IndustryDashboard() {
 
 //     </div>
 
-   <div className="min-h-screen bg-[#111] text-gray-200 flex">
+  <div className="space-y-8 px-8 py-6 bg-[#111] min-h-screen text-gray-200">
   {/* Sidebar already exists at w-64, static on the left */}
 
   {/* Main content shifted to the right */}
-  <main className="flex-1 ml-64 p-8 space-y-8">
+  
     {/* Header */}
     <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
       <div>
@@ -661,7 +661,7 @@ export default function IndustryDashboard() {
         </div>
       </div>
     </section>
-  </main>
+  
 </div>
 
 

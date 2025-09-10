@@ -279,7 +279,7 @@ export default function AdminDashboard() {
     //     </div>
     //   </section>
     // </div>
-     <div className="ml-59  p-6 space-y-8 text-gray-100 bg-[#121212] min-h-screen">
+     <div className="space-y-8 px-8 py-6 bg-[#111] min-h-screen text-gray-200">
       {/* Header */}
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
