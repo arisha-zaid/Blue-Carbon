@@ -1,3 +1,29 @@
+// const path = require("path");
+// require("dotenv").config({
+//   path: path.join(__dirname, ".env"),
+//   override: true,
+// });
+// const express = require("express");
+// const http = require("http");
+// const socketIo = require("socket.io");
+// const mongoose = require("mongoose");
+// mongoose.set("strictQuery", true);
+// // Enable Mongoose debug logs in development to trace DB operations
+// if ((process.env.NODE_ENV || "development") !== "production") {
+//   mongoose.set("debug", true);
+// }
+// const cors = require("cors");
+// const helmet = require("helmet");
+// const rateLimit = require("express-rate-limit");
+// const session = require("express-session");
+// const MongoStore = require("connect-mongo");
+// const passport = require("passport");
+
+// // Import passport configuration
+// require("./config/passport");
+
+// // Prefer IPv4 for DNS and handle Mongo URI (local vs Atlas SRV)
+// const dns = require("dns");
 const path = require("path");
 require("dotenv").config({
   path: path.join(__dirname, ".env"),
@@ -5,10 +31,9 @@ require("dotenv").config({
 });
 const express = require("express");
 const http = require("http");
-const socketIo = require("socket.io");
+const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
-// Enable Mongoose debug logs in development to trace DB operations
 if ((process.env.NODE_ENV || "development") !== "production") {
   mongoose.set("debug", true);
 }
@@ -18,12 +43,13 @@ const rateLimit = require("express-rate-limit");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const passport = require("passport");
+const dns = require("dns");
 
 // Import passport configuration
 require("./config/passport");
 
-// Prefer IPv4 for DNS and handle Mongo URI (local vs Atlas SRV)
-const dns = require("dns");
+// Your server setup continues here...
+
 try {
   dns.setDefaultResultOrder("ipv4first");
 } catch (e) {}
@@ -38,7 +64,7 @@ const getMongoUri = () => {
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server, {
+const io = new Server(server, {
   cors: {
     origin: process.env.FRONTEND_URL || "http://localhost:5173",
     methods: ["GET", "POST"],
@@ -59,9 +85,9 @@ const checkPortAvailable = (port) => {
 };
 
 // Enhanced logging
-console.log("🚀 Starting Blue Carbon Backend Server...");
-console.log(`📊 Environment: ${process.env.NODE_ENV || "development"}`);
-console.log(`🔌 Target Port: ${PORT}`);
+console.log(" Starting Blue Carbon Backend Server...");
+console.log(` Environment: ${process.env.NODE_ENV || "development"}`);
+console.log(` Target Port: ${PORT}`);
 console.log(
   `🗄️  MongoDB URI: ${
     process.env.MONGODB_URI
@@ -81,7 +107,7 @@ console.log(
 console.log(
   `🌐 Frontend URL: ${process.env.FRONTEND_URL || "http://localhost:5173"}`
 );
-console.log("⏰ Timestamp:", new Date().toISOString());
+console.log(" Timestamp:", new Date().toISOString());
 
 // Basic middleware
 app.use(helmet());
@@ -178,100 +204,100 @@ app.get("/", (req, res) => {
 
 // Add auth routes
 try {
-  const authRoutes = require("./routes/auth");
+  const authRoutes = require("./routes/auth.js");
   app.use("/api/auth", authRoutes);
-  console.log("✅ Auth routes loaded");
+  console.log(" Auth routes loaded");
 } catch (error) {
-  console.warn("⚠️ Auth routes failed to load:", error.message);
+  console.warn(" Auth routes failed to load:", error.message);
 }
 
 // Add other routes
 try {
-  const userRoutes = require("./routes/users");
+  const userRoutes = require("./routes/users.js");
   app.use("/api/users", userRoutes);
-  console.log("✅ User routes loaded");
+  console.log(" User routes loaded");
 } catch (error) {
-  console.warn("⚠️ User routes failed to load:", error.message);
+  console.warn(" User routes failed to load:", error.message);
 }
 
 try {
-  const complaintRoutes = require("./routes/complaints");
+  const complaintRoutes = require("./routes/complaints.js");
   app.use("/api/complaints", complaintRoutes);
-  console.log("✅ Complaint routes loaded");
+  console.log(" Complaint routes loaded");
 } catch (error) {
-  console.warn("⚠️ Complaint routes failed to load:", error.message);
+  console.warn(" Complaint routes failed to load:", error.message);
 }
 
 try {
-  const projectRoutes = require("./routes/projects");
+  const projectRoutes = require("./routes/projects.js");
   app.use("/api/projects", projectRoutes);
-  console.log("✅ Project routes loaded");
+  console.log(" Project routes loaded");
 } catch (error) {
-  console.warn("⚠️ Project routes failed to load:", error.message);
+  console.warn(" Project routes failed to load:", error.message);
 }
 
 try {
-  const locationRoutes = require("./routes/locations");
+  const locationRoutes = require("./routes/locations.js");
   app.use("/api/locations", locationRoutes);
-  console.log("✅ Location routes loaded");
+  console.log(" Location routes loaded");
 } catch (error) {
-  console.warn("⚠️ Location routes failed to load:", error.message);
+  console.warn(" Location routes failed to load:", error.message);
 }
 
 try {
-  const communityRoutes = require("./routes/community");
+  const communityRoutes = require("./routes/community.js");
   app.use("/api/community", communityRoutes);
-  console.log("✅ Community routes loaded");
+  console.log(" Community routes loaded");
 } catch (error) {
-  console.warn("⚠️ Community routes failed to load:", error.message);
+  console.warn(" Community routes failed to load:", error.message);
 }
 
 try {
-  const adminRoutes = require("./routes/admin");
+  const adminRoutes = require("./routes/admin.js");
   app.use("/api/admin", adminRoutes);
-  console.log("✅ Admin routes loaded");
+  console.log(" Admin routes loaded");
 } catch (error) {
-  console.warn("⚠️ Admin routes failed to load:", error.message);
+  console.warn(" Admin routes failed to load:", error.message);
 }
 
 try {
-  const industryRoutes = require("./routes/industry");
+  const industryRoutes = require("./routes/industry.js");
   app.use("/api/industry", industryRoutes);
-  console.log("✅ Industry routes loaded");
+  console.log(" Industry routes loaded");
 } catch (error) {
-  console.warn("⚠️ Industry routes failed to load:", error.message);
+  console.warn(" Industry routes failed to load:", error.message);
 }
 
 try {
-  const blockchainRoutes = require("./routes/blockchain");
+  const blockchainRoutes = require("./routes/blockchain.js");
   app.use("/api/blockchain", blockchainRoutes);
-  console.log("✅ Blockchain routes loaded");
+  console.log(" Blockchain routes loaded");
 } catch (error) {
-  console.warn("⚠️ Blockchain routes failed to load:", error.message);
+  console.warn(" Blockchain routes failed to load:", error.message);
 }
 
 try {
-  const transactionRoutes = require("./routes/transactions");
+  const transactionRoutes = require("./routes/transactions.js");
   app.use("/api/transactions", transactionRoutes);
-  console.log("✅ Transaction routes loaded");
+  console.log(" Transaction routes loaded");
 } catch (error) {
-  console.warn("⚠️ Transaction routes failed to load:", error.message);
+  console.warn(" Transaction routes failed to load:", error.message);
 }
 
 try {
-  const paymentRoutes = require("./routes/payments");
+  const paymentRoutes = require("./routes/payments.js");
   app.use("/api/payments", paymentRoutes);
-  console.log("✅ Payment routes loaded");
+  console.log(" Payment routes loaded");
 } catch (error) {
-  console.warn("⚠️ Payment routes failed to load:", error.message);
+  console.warn(" Payment routes failed to load:", error.message);
 }
 
 try {
-  const webhookRoutes = require("./routes/webhooks");
+  const webhookRoutes = require("./routes/webhooks.js");
   app.use("/api/webhooks", webhookRoutes);
-  console.log("✅ Webhook routes loaded");
+  console.log(" Webhook routes loaded");
 } catch (error) {
-  console.warn("⚠️ Webhook routes failed to load:", error.message);
+  console.warn(" Webhook routes failed to load:", error.message);
 }
 
 // Error handling middleware
@@ -300,12 +326,12 @@ app.use("*", (req, res) => {
 const startServer = async () => {
   try {
     // Check port availability
-    console.log(`🔍 Checking if port ${PORT} is available...`);
+    console.log(` Checking if port ${PORT} is available...`);
     const isPortAvailable = await checkPortAvailable(PORT);
 
     if (!isPortAvailable) {
-      console.error(`❌ Port ${PORT} is already in use!`);
-      console.log("💡 Try one of these solutions:");
+      console.error(` Port ${PORT} is already in use!`);
+      console.log(" Try one of these solutions:");
       console.log(
         "   1. Stop the process using the port: netstat -ano | findstr :5000"
       );
@@ -314,27 +340,27 @@ const startServer = async () => {
       process.exit(1);
     }
 
-    console.log(`✅ Port ${PORT} is available`);
+    console.log(` Port ${PORT} is available`);
 
     // Connect to MongoDB
-    console.log("🔄 Connecting to MongoDB...");
+    console.log(" Connecting to MongoDB...");
     const mongoUri = getMongoUri();
 
     // Connection event logs
     mongoose.connection.on("connecting", () =>
-      console.log("🟡 MongoDB: connecting...")
+      console.log(" MongoDB: connecting...")
     );
     mongoose.connection.on("connected", () =>
-      console.log("🟢 MongoDB: connected")
+      console.log(" MongoDB: connected")
     );
     mongoose.connection.on("reconnected", () =>
-      console.log("🟢 MongoDB: reconnected")
+      console.log(" MongoDB: reconnected")
     );
     mongoose.connection.on("disconnected", () =>
-      console.log("🛑 MongoDB: disconnected")
+      console.log(" MongoDB: disconnected")
     );
     mongoose.connection.on("error", (err) =>
-      console.error("❌ MongoDB error:", err.message)
+      console.error(" MongoDB error:", err.message)
     );
 
     await mongoose.connect(mongoUri, {
@@ -350,8 +376,8 @@ const startServer = async () => {
       w: "majority",
     });
 
-    console.log("✅ Connected to MongoDB");
-    console.log(`📊 Database: ${mongoose.connection.name}`);
+    console.log(" Connected to MongoDB");
+    console.log(` Database: ${mongoose.connection.name}`);
     console.log(
       `🔗 Connection State: ${
         mongoose.connection.readyState === 1 ? "Connected" : "Disconnected"
@@ -364,9 +390,9 @@ const startServer = async () => {
       const testDoc = { _t: "startup-write-check", ts: new Date() };
       await diagnostics.insertOne(testDoc);
       await diagnostics.deleteOne({ _id: testDoc._id });
-      console.log("🧪 DB write check: OK (insert/delete succeeded)");
+      console.log(" DB write check: OK (insert/delete succeeded)");
     } catch (e) {
-      console.warn("⚠️ DB write check failed:", e && (e.message || e));
+      console.warn(" DB write check failed:", e && (e.message || e));
       console.warn(
         "   ➜ Your MongoDB user may not have write permissions on this database."
       );
@@ -377,7 +403,7 @@ const startServer = async () => {
     }
 
     // Start server
-    console.log(`🔄 Starting server on port ${PORT}...`);
+    console.log(` Starting server on port ${PORT}...`);
     server.listen(PORT, () => {
       console.log("🎉 ================================");
       console.log("🚀 SERVER STARTED SUCCESSFULLY!");
@@ -391,12 +417,12 @@ const startServer = async () => {
     });
 
     server.on("error", (err) => {
-      console.error("❌ Server error:", err);
+      console.error(" Server error:", err);
       process.exit(1);
     });
   } catch (err) {
-    console.error("❌ Failed to start server:", err.message);
-    console.error("💡 Make sure MongoDB is running and accessible");
+    console.error(" Failed to start server:", err.message);
+    console.error(" Make sure MongoDB is running and accessible");
     process.exit(1);
   }
 };
