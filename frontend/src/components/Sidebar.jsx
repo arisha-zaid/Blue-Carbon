@@ -1,5 +1,6 @@
 // src/components/Sidebar.jsx
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import apiService from "../services/api";
 import {
@@ -18,132 +19,133 @@ export default function Sidebar({ role, isOpen, onClose }) {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const { t } = useTranslation('common');
   const links = {
     community: [
-      { name: "Dashboard", path: "/community", icon: <Home size={18} /> },
+      { key: "dashboard", path: "/community", icon: <Home size={18} /> },
       {
-        name: "Community Profile",
+        key: "communityProfile",
         path: "/community/profile",
         icon: <Users size={18} />,
       },
       {
-        name: "Add Project",
+        key: "addProject",
         path: "/add-project",
         icon: <FileText size={18} />,
       },
-      { name: "My Projects", path: "/my-projects", icon: <Users size={18} /> },
+      { key: "myProjects", path: "/my-projects", icon: <Users size={18} /> },
       {
-        name: "Certificates",
+        key: "certificates",
         path: "/certificates",
         icon: <Award size={18} />,
       },
       {
-        name: "Leaderboard",
+        key: "leaderboard",
         path: "/leaderboard",
         icon: <BarChart2 size={18} />,
       },
       {
-        name: "Settings",
+        key: "settings",
         path: "/dashboard/settings",
         icon: <Settings size={18} />,
       },
       {
-        name: "Projects Map",
+        key: "projectsMap",
         path: "/projects/map",
         icon: <BarChart2 size={18} />,
       },
     ],
     industry: [
-      { name: "Dashboard", path: "/industry", icon: <Home size={18} /> },
+      { key: "dashboard", path: "/industry", icon: <Home size={18} /> },
       {
-        name: "Marketplace",
+        key: "marketplace",
         path: "/industry/marketplace",
         icon: <CreditCard size={18} />,
       },
       {
-        name: "Transactions",
+        key: "transactions",
         path: "/industry/transactions",
         icon: <FileText size={18} />,
       },
-      { name: "Wallet", path: "/industry/wallet", icon: <Award size={18} /> },
+      { key: "wallet", path: "/industry/wallet", icon: <Award size={18} /> },
       {
-        name: "Reports",
+        key: "reports",
         path: "/industry/reports",
         icon: <BarChart2 size={18} />,
       },
       {
-        name: "Projects Map",
+        key: "projectsMap",
         path: "/projects/map",
         icon: <BarChart2 size={18} />,
       },
       {
-        name: "Settings",
+        key: "settings",
         path: "/industry/settings",
         icon: <Settings size={18} />,
       },
     ],
     admin: [
-      { name: "Dashboard", path: "/admin", icon: <Home size={18} /> },
+      { key: "dashboard", path: "/admin", icon: <Home size={18} /> },
       {
-        name: "Project Approval",
+        key: "projectApproval",
         path: "/admin/project-approval",
         icon: <FileText size={18} />,
       },
       {
-        name: "Credit Issuance",
+        key: "creditIssuance",
         path: "/admin/credit-issuance",
         icon: <CreditCard size={18} />,
       },
       {
-        name: "User Management",
+        key: "userManagement",
         path: "/admin/user-management",
         icon: <Users size={18} />,
       },
       {
-        name: "Reports",
+        key: "reports",
         path: "/admin/reports",
         icon: <BarChart2 size={18} />,
       },
       {
-        name: "Projects Map",
+        key: "projectsMap",
         path: "/projects/map",
         icon: <BarChart2 size={18} />,
       },
       {
-        name: "Profile",
+        key: "profile",
         path: "/admin/profile",
         icon: <BarChart2 size={18} />,
       },
       {
-        name: "Settings",
+        key: "settings",
         path: "/admin/settings",
         icon: <Settings size={18} />,
       },
     ],
     government: [
-      { name: "Dashboard", path: "/government", icon: <Home size={18} /> },
+      { key: "dashboard", path: "/government", icon: <Home size={18} /> },
       {
-        name: "Reports & Analytics",
+        key: "reportsAnalytics",
         path: "/government/reports",
         icon: <BarChart2 size={18} />,
       },
       {
-        name: "Projects Map",
+        key: "projectsMap",
         path: "/projects/map",
         icon: <BarChart2 size={18} />,
       },
       {
-        name: "Audit Projects",
+        key: "auditProjects",
         path: "/government/audit-projects",
         icon: <FileText size={18} />,
       },
       {
-        name: "Policies",
+        key: "policies",
         path: "/government/policies",
         icon: <Settings size={18} />,
       },
       {
-        name: "Settings",
+        key: "settings",
         path: "/government/settings",
         icon: <Settings size={18} />,
       },
@@ -162,10 +164,10 @@ export default function Sidebar({ role, isOpen, onClose }) {
         <>
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-800">
-            <div className="text-xl font-bold text-teal-400">Blue Carbon</div>
+            <div className="text-xl font-bold text-teal-400">{t('app.brand')}</div>
             <button
               onClick={onClose}
-              aria-label="Close sidebar"
+              aria-label={t('sidebar.close')}
               className="p-2 rounded-md hover:bg-[#1a1a1a]"
             >
               <svg
@@ -204,7 +206,7 @@ export default function Sidebar({ role, isOpen, onClose }) {
                 }}
               >
                 {link.icon}
-                {link.name}
+                {t(`sidebar.links.${link.key}`)}
               </Link>
             ))}
           </nav>
@@ -222,7 +224,7 @@ export default function Sidebar({ role, isOpen, onClose }) {
                 }
               }}
             >
-              <LogOut size={18} /> Logout
+              <LogOut size={18} /> {t('sidebar.logout')}
             </button>
           </div>
         </>

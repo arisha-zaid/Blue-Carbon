@@ -34,10 +34,14 @@ const DEFAULTS = {
   organization: "",
 };
 
+import LanguageSelector from "../../components/LanguageSelector";
+
 const LANGS = [
   { id: "en", label: "English" },
   { id: "hi", label: "हिन्दी (Hindi)" },
-  { id: "es", label: "Español (Spanish)" },
+  { id: "ta", label: "தமிழ் (Tamil)" },
+  { id: "bn", label: "বাংলা (Bengali)" },
+  { id: "ar", label: "العربية (Arabic)" },
 ];
 
 export default function DashboardSettings() {
@@ -353,17 +357,10 @@ export default function DashboardSettings() {
         <label className="block text-sm text-gray-400 mb-1 inline-flex items-center gap-2">
           <Languages className="w-4 h-4" /> Language
         </label>
-        <select
+        <LanguageSelector
           value={form.language}
-          onChange={(e) => update({ language: e.target.value })}
-          className="w-full px-3 py-2 rounded-lg border border-gray-700 bg-[#121110] text-gray-200 focus:ring-2 focus:ring-emerald-500"
-        >
-          {LANGS.map((l) => (
-            <option key={l.id} value={l.id} className="bg-[#1a1a1a] text-gray-200">
-              {l.label}
-            </option>
-          ))}
-        </select>
+          onChange={(lng) => update({ language: lng })}
+        />
       </div>
     </div>
   </section>

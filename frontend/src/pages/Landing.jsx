@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Trophy,
   Leaf,
@@ -28,13 +29,14 @@ import {
 export default function Landing() {
   const [openFAQ, setOpenFAQ] = useState(null);
   const navigate = useNavigate();
+  const { t } = useTranslation('common');
   const toggleFAQ = (index) => setOpenFAQ(openFAQ === index ? null : index);
 
   // Dummy chart data
   const pieData = [
-    { name: "Mangroves", value: 45 },
-    { name: "Seagrass", value: 30 },
-    { name: "Wetlands", value: 25 },
+    { name: t('landing.stats.labels.mangroves'), value: 45 },
+    { name: t('landing.stats.labels.seagrass'), value: 30 },
+    { name: t('landing.stats.labels.wetlands'), value: 25 },
   ];
   const COLORS = ["#22c55e", "#16a34a", "#15803d"];
 
@@ -45,20 +47,10 @@ export default function Landing() {
     { year: "2024", credits: 1200 },
   ];
 
-  const faqs = [
-    {
-      q: "🌊 What is Blue Carbon?",
-      a: "Blue Carbon refers to carbon captured by oceans and coastal ecosystems like mangroves, seagrasses, and wetlands.",
-    },
-    {
-      q: "🔗 How does blockchain help?",
-      a: "Blockchain ensures transparency and immutability in project verification and carbon credit issuance.",
-    },
-    {
-      q: "🤖 What role does AI play?",
-      a: "AI estimates CO₂ absorption based on project size, type, and environmental data.",
-    },
-  ];
+  const faqs = ['q1', 'q2', 'q3'].map((k) => ({
+    q: t(`landing.faq.${k}.q`),
+    a: t(`landing.faq.${k}.a`),
+  }));
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
@@ -78,17 +70,16 @@ export default function Landing() {
 
         <div className="flex-1 text-left relative z-10">
           <h1 className="text-6xl font-extrabold leading-tight">
-            <span className="text-green-700 drop-shadow-md">Blockchain-</span>
+            <span className="text-green-700 drop-shadow-md">{t('landing.hero.titleBlockchain')}</span>
             <br />
-            <span className="text-green-700 drop-shadow-md">Powered</span>
+            <span className="text-green-700 drop-shadow-md">{t('landing.hero.titlePowered')}</span>
             <br />
             <span className="text-gray-900 font-black drop-shadow-lg">
-              Blue Carbon Registry
+              {t('landing.hero.titleRegistry')}
             </span>
           </h1>
           <p className="mt-6 text-xl text-gray-800 max-w-xl font-medium">
-            Transform coastal ecosystems into verified carbon credits. Register,
-            monitor, and trade blue carbon projects with blockchain transparency.
+            {t('landing.hero.subtitle')}
           </p>
 
           {/* ✅ Now it directly navigates to Login page */}
@@ -96,11 +87,11 @@ export default function Landing() {
             onClick={() => navigate("/login")}
             className="px-6 py-3 rounded-lg bg-teal-600 text-white font-semibold shadow-md hover:scale-105 transition"
           >
-            Login / Register
+            {t('landing.hero.loginRegister')}
           </button>
 
           <button className="px-6 py-3 rounded-lg border border-gray-500 text-gray-800 font-medium hover:bg-gray-50 transition ml-4">
-            Watch Demo
+            {t('landing.hero.watchDemo')}
           </button>
         </div>
 
@@ -109,34 +100,34 @@ export default function Landing() {
           <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-extrabold text-gray-900">
-                Live Dashboard
+                {t('landing.live.title')}
               </h3>
-              <span className="text-sm text-green-600 font-bold">● Live</span>
+              <span className="text-sm text-green-600 font-bold">{t('landing.live.indicator')}</span>
             </div>
             <p className="text-sm text-gray-600 mb-1 font-medium">
-              Latest Verification
+              {t('landing.live.latestVerification')}
             </p>
             <p className="text-lg font-black text-gray-900">
-              Mangrove Project #127
+              {t('landing.live.projectName')}
             </p>
-            <p className="text-xs text-gray-500 mb-4">TxID: 0x7f3a9b...</p>
+            <p className="text-xs text-gray-500 mb-4">{t('landing.live.txid', { id: '0x7f3a9b...' })}</p>
 
             <div className="flex items-center justify-between mb-4">
               <div>
                 <p className="text-sm text-gray-600 font-medium">
-                  Credit Value
+                  {t('landing.live.creditValue')}
                 </p>
                 <p className="text-lg font-extrabold text-gray-900">
-                  $24.50/ton
+                  {t('landing.live.pricePerTon', { price: '24.50' })}
                 </p>
                 <p className="text-xs text-green-600 font-semibold">
-                  +12.3% today
+                  {t('landing.live.changeToday', { percent: '12.3' })}
                 </p>
               </div>
             </div>
 
             <p className="text-sm text-gray-600 mb-2 font-medium">
-              Project Verification
+              {t('landing.live.verification')}
             </p>
             <div className="w-full bg-gray-200 rounded-full h-3">
               <div
@@ -165,29 +156,25 @@ export default function Landing() {
       {/* ================= Features Section ================= */}
       <section className="py-16 px-8 bg-white">
         <h2 className="text-3xl font-bold text-green-800 text-center mb-12">
-          🌟 Key Features
+          🌟 {t('landing.features.title')}
         </h2>
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {[
             {
               icon: <Leaf className="mx-auto text-green-600 w-10 h-10" />,
-              title: "AI Estimator",
-              desc: "Predict CO₂ absorption with accuracy.",
+              key: 'aiEstimator',
             },
             {
               icon: <ShieldCheck className="mx-auto text-green-600 w-10 h-10" />,
-              title: "Blockchain Registry",
-              desc: "Immutable verification of carbon credits.",
+              key: 'blockchainRegistry',
             },
             {
               icon: <Award className="mx-auto text-green-600 w-10 h-10" />,
-              title: "Gamification",
-              desc: "Earn badges & rewards for impact.",
+              key: 'gamification',
             },
             {
               icon: <BarChart3 className="mx-auto text-green-600 w-10 h-10" />,
-              title: "Analytics",
-              desc: "Track performance with live data.",
+              key: 'analytics',
             },
           ].map((f, i) => (
             <motion.div
@@ -196,8 +183,8 @@ export default function Landing() {
               className="bg-gray-50 shadow-lg p-6 rounded-2xl text-center"
             >
               {f.icon}
-              <h3 className="mt-4 font-semibold text-lg">{f.title}</h3>
-              <p className="text-sm text-gray-600 mt-2">{f.desc}</p>
+              <h3 className="mt-4 font-semibold text-lg">{t(`landing.features.${f.key}.title`)}</h3>
+              <p className="text-sm text-gray-600 mt-2">{t(`landing.features.${f.key}.desc`)}</p>
             </motion.div>
           ))}
         </div>
@@ -206,13 +193,13 @@ export default function Landing() {
       {/* ================= Stats Section ================= */}
       <section className="py-16 px-8 bg-green-50">
         <h2 className="text-3xl font-bold text-green-800 text-center mb-12">
-          📊 Registry Insights
+          📊 {t('landing.stats.title')}
         </h2>
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Pie Chart */}
           <div className="bg-white p-6 rounded-2xl shadow-lg">
             <h3 className="font-semibold mb-4 text-green-700">
-              Project Distribution
+              {t('landing.stats.projectDistribution')}
             </h3>
             <ResponsiveContainer width="100%" height={250}>
               <PieChart>
@@ -234,7 +221,7 @@ export default function Landing() {
 
           {/* Bar Chart */}
           <div className="bg-white p-6 rounded-2xl shadow-lg">
-            <h3 className="font-semibold mb-4 text-green-700">Yearly Growth</h3>
+            <h3 className="font-semibold mb-4 text-green-700">{t('landing.stats.yearlyGrowth')}</h3>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={barData}>
                 <XAxis dataKey="year" />
@@ -250,7 +237,7 @@ export default function Landing() {
       {/* ================= Top Performers ================= */}
       <section className="py-16 px-8 bg-green-50">
         <h2 className="text-3xl font-bold text-green-800 text-center mb-12">
-          🏆 Top Performers
+          🏆 {t('landing.top.title')}
         </h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[

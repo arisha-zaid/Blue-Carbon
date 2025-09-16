@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Backend API for Carbon SIH project with authentication",
   "main": "server.js",
+  "type": "commonjs",
+
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",

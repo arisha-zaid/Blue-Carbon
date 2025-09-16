@@ -1,0 +1,121 @@
+{
+  "app": {"brand": "Blue Carbon", "brand_compact": "BlueCarbon"},
+  "navbar": {
+    "toggleSidebar": "Toggle sidebar",
+    "adminPortal": "Admin Portal",
+    "registry": "Registry",
+    "searchPlaceholder": "Search projects...",
+    "settingsAria": "Open settings",
+    "welcomeBack": "Welcome back, {{name}}"
+  },
+  "sidebar": {
+    "logout": "Logout",
+    "close": "Close sidebar",
+    "links": {
+      "dashboard": "Dashboard",
+      "communityProfile": "Community Profile",
+      "addProject": "Add Project",
+      "myProjects": "My Projects",
+      "certificates": "Certificates",
+      "leaderboard": "Leaderboard",
+      "settings": "Settings",
+      "projectsMap": "Projects Map",
+      "marketplace": "Marketplace",
+      "transactions": "Transactions",
+      "wallet": "Wallet",
+      "reports": "Reports",
+      "projectApproval": "Project Approval",
+      "creditIssuance": "Credit Issuance",
+      "userManagement": "User Management",
+      "reportsAnalytics": "Reports & Analytics",
+      "auditProjects": "Audit Projects",
+      "policies": "Policies",
+      "profile": "Profile"
+    }
+  },
+  "login": {
+    "notifications": {
+      "success": "Login successful! Welcome back.",
+      "locked": "Account is temporarily locked due to multiple failed attempts. Please try again later.",
+      "deactivated": "Account is deactivated. Please contact support.",
+      "failed": "Login failed. Please try again."
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "passwordRequired": "Password is required",
+      "enterEmailFirst": "Please enter your email first",
+      "resetEmailSent": "Password reset link sent to your email. Please check your inbox.",
+      "resetEmailFailed": "Failed to send password reset email."
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleBlockchain": "Blockchain-",
+      "titlePowered": "Powered",
+      "titleRegistry": "Blue Carbon Registry",
+      "subtitle": "Transform coastal ecosystems into verified carbon credits. Register, monitor, and trade blue carbon projects with blockchain transparency.",
+      "loginRegister": "Login / Register",
+      "watchDemo": "Watch Demo"
+    },
+    "live": {
+      "title": "Live Dashboard",
+      "indicator": "● Live",
+      "latestVerification": "Latest Verification",
+      "projectName": "Mangrove Project #127",
+      "txid": "TxID: {{id}}",
+      "creditValue": "Credit Value",
+      "pricePerTon": "${{price}}/ton",
+      "changeToday": "+{{percent}}% today",
+      "verification": "Project Verification"
+    },
+    "features": {
+      "title": "Key Features",
+      "aiEstimator": {"title": "AI Estimator", "desc": "Predict CO₂ absorption with accuracy."},
+      "blockchainRegistry": {"title": "Blockchain Registry", "desc": "Immutable verification of carbon credits."},
+      "gamification": {"title": "Gamification", "desc": "Earn badges & rewards for impact."},
+      "analytics": {"title": "Analytics", "desc": "Track performance with live data."}
+    },
+    "stats": {
+      "title": "Registry Insights",
+      "projectDistribution": "Project Distribution",
+      "yearlyGrowth": "Yearly Growth",
+      "labels": {
+        "mangroves": "Mangroves",
+        "seagrass": "Seagrass",
+        "wetlands": "Wetlands"
+      }
+    },
+    "top": {
+      "title": "Top Performers",
+      "items": {
+        "guardians": {"name": "Mangrove Guardians", "score": "1200 CO₂ credits", "desc": "Community-led mangrove restoration project."},
+        "protectors": {"name": "Seagrass Protectors", "score": "950 CO₂ credits", "desc": "Youth group conserving seagrass meadows."},
+        "warriors": {"name": "Coastal Green Warriors", "score": "780 CO₂ credits", "desc": "NGO-led initiative for wetland conservation."}
+      }
+    },
+    "stakeholders": {
+      "title": "Our Stakeholders",
+      "communityNGOs": {"title": "Community & NGOs", "desc": "Grassroot organizations driving coastal restoration projects."},
+      "corporates": {"title": "Corporates", "desc": "Companies offsetting carbon footprint via verified credits."},
+      "government": {"title": "Government", "desc": "Authorities ensuring compliance & policy support."},
+      "investors": {"title": "Investors", "desc": "Impact investors funding sustainable blue carbon projects."}
+    },
+    "why": {
+      "title": "Why Choose Us?",
+      "transparency": {"title": "100% Transparency", "desc": "Every credit is backed by blockchain verification."},
+      "aiInsights": {"title": "AI-Driven Insights", "desc": "Accurate CO₂ predictions for reliable impact reporting."},
+      "globalRecognition": {"title": "Global Recognition", "desc": "Trusted by communities, corporates & policymakers worldwide."}
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {"q": "🌊 What is Blue Carbon?", "a": "Blue Carbon refers to carbon captured by oceans and coastal ecosystems like mangroves, seagrasses, and wetlands."},
+      "q2": {"q": "🔗 How does blockchain help?", "a": "Blockchain ensures transparency and immutability in project verification and carbon credit issuance."},
+      "q3": {"q": "🤖 What role does AI play?", "a": "AI estimates CO₂ absorption based on project size, type, and environmental data."}
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Blue Carbon Registry. All rights reserved."
+  }
+}
