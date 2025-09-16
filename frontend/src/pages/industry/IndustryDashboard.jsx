@@ -1,5 +1,6 @@
 // src/pages/industry/IndustryDashboard.jsx
 import React, { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   Wallet,
@@ -55,6 +56,7 @@ const recentTx = [
 ];
 
 export default function IndustryDashboard() {
+  const { t } = useTranslation();
   const [wallet] = useState({
     balanceTons: 1420,
     estValue: 1420 * 31.7,
@@ -64,35 +66,35 @@ export default function IndustryDashboard() {
   const kpis = useMemo(
     () => [
       {
-        title: "Wallet Balance (tCO₂)",
+        title: t("dashboard.kpis.walletBalance"),
         value: wallet.balanceTons.toLocaleString(),
         delta: `${wallet.change7d >= 0 ? "+" : ""}${wallet.change7d}%`,
         icon: <Wallet className="w-5 h-5" />,
         color: "bg-emerald-600",
       },
       {
-        title: "Market Price ($/t)",
+        title: t("dashboard.kpis.marketPrice"),
         value: creditPriceData[creditPriceData.length - 1].p.toFixed(2),
-        delta: "+5.1% MoM",
+        delta: t("dashboard.kpis.delta.mom"),
         icon: <TrendingUp className="w-5 h-5" />,
         color: "bg-blue-600",
       },
       {
-        title: "This Week Purchases",
+        title: t("dashboard.kpis.thisWeekPurchases"),
         value: purchasesData.reduce((s, d) => s + d.t, 0).toLocaleString() + " t",
-        delta: "+12% WoW",
+        delta: t("dashboard.kpis.delta.wow"),
         icon: <ShoppingCart className="w-5 h-5" />,
         color: "bg-violet-600",
       },
       {
-        title: "Vendors Onboarded",
+        title: t("dashboard.kpis.vendorsOnboarded"),
         value: "54",
-        delta: "+6 new",
+        delta: t("dashboard.kpis.delta.new"),
         icon: <Building2 className="w-5 h-5" />,
         color: "bg-amber-600",
       },
     ],
-    [wallet]
+    [wallet, t]
   );
 
   return (
@@ -440,10 +442,9 @@ export default function IndustryDashboard() {
     {/* Header */}
     <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
       <div>
-        <h1 className="text-3xl font-bold text-gray-100">Industry Dashboard</h1>
-        <p className="text-gray-400 mt-1">
-          Buy, manage, and monitor your carbon credits portfolio in real time.
-        </p>
+         
+        <h1 className="text-3xl font-bold text-gray-100">{t("dashboard.title")}</h1>
+        <p className="text-gray-400 mt-1">{t("dashboard.description")}</p>
       </div>
       <div className="flex items-center gap-3">
         <Link
@@ -452,13 +453,13 @@ export default function IndustryDashboard() {
           border border-gray-600 text-gray-300 hover:border-emerald-400 hover:text-emerald-400 transition
             hover:shadow-[0_0_9px_#50C878]"
         >
-          <ShoppingCart className="w-4 h-4" /> Go to Marketplace
+          <ShoppingCart className="w-4 h-4" /> {t("dashboard.goToMarketplace")}
         </Link>
         <Link
           to="/industry/wallet"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_9px_#2DD4BF] transition"
         >
-          <Wallet className="w-4 h-4" /> Open Wallet
+          <Wallet className="w-4 h-4" /> {t("dashboard.openWallet")}
         </Link>
       </div>
     </header>
@@ -501,9 +502,9 @@ export default function IndustryDashboard() {
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-semibold text-gray-100 flex items-center gap-2">
             <BarChart3 className="w-5 h-5 text-emerald-400" />
-            Market Price – Blue Carbon Credits ($/t)
+            {t("dashboard.marketPrice")}
           </h3>
-          <div className="text-sm text-gray-400">Last 12 months</div>
+          <div className="text-sm text-gray-400">{t("dashboard.marketPricePeriod")}</div>
         </div>
         <ResponsiveContainer width="100%" height={280}>
           <LineChart data={creditPriceData}>
@@ -521,8 +522,8 @@ export default function IndustryDashboard() {
       {/* Bar Chart */}
       <div className="rounded-2xl p-6 border border-gray-700 bg-[#1a1a1a] transition-all duration-300 hover:border-yellow-400 hover:shadow-[0_0_12px_#FACC15]">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-semibold text-gray-100">Weekly Purchases (tCO₂)</h3>
-          <div className="text-sm text-gray-400">This week</div>
+          <h3 className="font-semibold text-gray-100">{t("dashboard.weeklyPurchases")}</h3>
+          <div className="text-sm text-gray-400">{t("dashboard.weeklyPurchasesPeriod")}</div>
         </div>
         <ResponsiveContainer width="100%" height={280}>
           <BarChart data={purchasesData}>
@@ -541,12 +542,12 @@ export default function IndustryDashboard() {
     <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Wallet */}
       <div className="rounded-2xl p-6 border border-gray-700 bg-[#1a1a1a] transition-all duration-300 ">
-        <h3 className="font-semibold text-gray-100 mb-4">Wallet Snapshot</h3>
+        <h3 className="font-semibold text-gray-100 mb-4">{t("dashboard.walletSnapshot")}</h3>
         <div className="space-y-3">
-          <Row label="Balance" value={`${wallet.balanceTons.toLocaleString()} tCO₂`} />
-          <Row label="Est. Value" value={`$${wallet.estValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}`} />
+          <Row label={t("dashboard.balance")} value={`${wallet.balanceTons.toLocaleString()} tCO₂`} />
+          <Row label={t("dashboard.estimatedValue")} value={`$${wallet.estValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}`} />
           <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-400">7-day Change</div>
+            <div className="text-sm text-gray-400">{t("dashboard.sevenDayChange")}</div>
             <div className="inline-flex items-center gap-1 text-emerald-400">
               <ArrowUpRight className="w-4 h-4" />
               {wallet.change7d}%
@@ -559,14 +560,14 @@ export default function IndustryDashboard() {
             className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300  hover:text-cyan-400 transition
             hover:border-cyan-400 hover:shadow-[0_0_9px_#2DD4BF]"
           >
-            View Transactions
+            {t("dashboard.viewTransactions")}
           </Link>
           <Link
             to="/industry/marketplace"
             className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300 hover:border-emerald-400 hover:text-emerald-400 transition
             hover:shadow-[0_0_9px_#50C878]"
           >
-            Buy Credits
+            {t("dashboard.buyCredits")}
           </Link>
         </div>
       </div>
@@ -574,8 +575,8 @@ export default function IndustryDashboard() {
       {/* Transactions Table */}
       <div className="rounded-2xl p-6 lg:col-span-2 border border-gray-700 bg-[#1a1a1a] transition-all duration-300 ">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-semibold text-gray-100">Recent Transactions</h3>
-          <Link to="/industry/transactions" className="text-sm text-emerald-400 hover:underline">See all</Link>
+          <h3 className="font-semibold text-gray-100">{t("dashboard.recentTransactions")}</h3>
+          <Link to="/industry/transactions" className="text-sm text-emerald-400 hover:underline">{t("dashboard.seeAll")}</Link>
         </div>
         <div className="overflow-hidden rounded-xl border border-gray-700">
           {/* <table className="w-full text-left">
@@ -618,11 +619,11 @@ export default function IndustryDashboard() {
           <table className="w-full text-left">
   <thead className="bg-[#111] text-gray-400 text-sm">
     <tr>
-      <th className="py-3 px-4">Tx ID</th>
-      <th className="py-3 px-4">Type</th>
-      <th className="py-3 px-4">Amount</th>
-      <th className="py-3 px-4">Price ($/t)</th>
-      <th className="py-3 px-4">Date</th>
+      <th className="py-3 px-4">{t("dashboard.txID")}</th>
+      <th className="py-3 px-4">{t("dashboard.type")}</th>
+      <th className="py-3 px-4">{t("dashboard.amount")}</th>
+      <th className="py-3 px-4">{t("dashboard.pricePerTon")}</th>
+      <th className="py-3 px-4">{t("dashboard.date")}</th>
     </tr>
   </thead>
   <tbody>

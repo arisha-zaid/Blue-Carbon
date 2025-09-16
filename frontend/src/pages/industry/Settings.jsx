@@ -1,6 +1,7 @@
 // src/pages/industry/Settings.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import { useNotification } from "../../context/NotificationContext";
+import LanguageSelector from "../../components/LanguageSelector";
 import {
   Save,
   RotateCcw,
@@ -13,6 +14,7 @@ import {
   Globe,
   Factory,
   ToggleRight,
+  Languages,
 } from "lucide-react";
 
 const DEFAULTS = {
@@ -452,6 +454,24 @@ export default function IndustrySettings() {
           selected={form.excludedVendors}
           onToggle={(v) => toggleArrayValue("excludedVendors", v)}
         />
+      </div>
+    </section>
+
+    {/* Appearance & Language */}
+    <section className="bg-[#1a1a1a] rounded-2xl border border-gray-700 shadow p-6 ">
+      <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+        <Globe className="w-5 h-5 text-emerald-400" /> Appearance & Language
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label className="block text-sm text-gray-400 mb-1 inline-flex items-center gap-2">
+            <Languages className="w-4 h-4" /> Language
+          </label>
+          <LanguageSelector
+            value={form.language}
+            onChange={(lng) => update({ language: lng })}
+          />
+        </div>
       </div>
     </section>
 

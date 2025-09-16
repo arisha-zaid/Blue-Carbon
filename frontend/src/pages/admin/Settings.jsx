@@ -17,7 +17,9 @@ import {
   KeyRound,
   Power,
   Wrench,
+  Languages,
 } from "lucide-react";
+import LanguageSelector from "../../components/LanguageSelector";
 
 const DEFAULTS = {
   // Platform controls
@@ -171,6 +173,21 @@ export default function AdminSettings() {
         </Section>
    
 
+
+        {/* Appearance & Language */}
+        <Section title="Appearance & Language" icon={<Globe className="w-5 h-5 text-emerald-600" />}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm text-gray-400 mb-1 inline-flex items-center gap-2">
+                <Languages className="w-4 h-4" /> Language
+              </label>
+              <LanguageSelector
+                value={form.language}
+                onChange={(lng) => update({ language: lng })}
+              />
+            </div>
+          </div>
+        </Section>
 
         {/* Security */}
         <Section title="Security" icon={<ShieldCheck className="w-5 h-5 text-emerald-600" />}>

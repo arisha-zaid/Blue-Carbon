@@ -50,6 +50,40 @@
       "resetEmailFailed": "கடவுச்சொல் மீட்டமைப்பு மின்னஞ்சல் அனுப்ப முடியவில்லை."
     }
   },
+  "dashboard": {
+    "title": "Industry Dashboard",
+    "description": "Buy, manage, and monitor your carbon credits portfolio in real time.",
+    "marketPrice": "Market Price – Blue Carbon Credits ($/t)",
+    "marketPricePeriod": "Last 12 months",
+    "weeklyPurchases": "Weekly Purchases (tCO₂)",
+    "weeklyPurchasesPeriod": "This week",
+    "walletSnapshot": "Wallet Snapshot",
+    "balance": "Balance",
+    "estimatedValue": "Est. Value",
+    "sevenDayChange": "7-day Change",
+    "viewTransactions": "View Transactions",
+    "buyCredits": "Buy Credits",
+    "recentTransactions": "Recent Transactions",
+    "seeAll": "See all",
+    "txID": "Tx ID",
+    "type": "Type",
+    "amount": "Amount",
+    "pricePerTon": "Price ($/t)",
+    "date": "Date",
+    "goToMarketplace": "Go to Marketplace",
+    "openWallet": "Open Wallet",
+    "kpis": {
+      "walletBalance": "Wallet Balance (tCO₂)",
+      "marketPrice": "Market Price ($/t)",
+      "thisWeekPurchases": "This Week Purchases",
+      "vendorsOnboarded": "Vendors Onboarded",
+      "delta": {
+        "mom": "+5.1% MoM",
+        "wow": "+12% WoW",
+        "new": "+6 new"
+      }
+    }
+  },
   "landing": {
     "hero": {
       "titleBlockchain": "ப்ளாக்செயின்-",

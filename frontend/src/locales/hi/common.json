@@ -50,6 +50,40 @@
       "resetEmailFailed": "पासवर्ड रीसेट ईमेल भेजने में विफल।"
     }
   },
+  "dashboard": {
+    "title": "Industry Dashboard",
+    "description": "Buy, manage, and monitor your carbon credits portfolio in real time.",
+    "marketPrice": "Market Price – Blue Carbon Credits ($/t)",
+    "marketPricePeriod": "Last 12 months",
+    "weeklyPurchases": "Weekly Purchases (tCO₂)",
+    "weeklyPurchasesPeriod": "This week",
+    "walletSnapshot": "Wallet Snapshot",
+    "balance": "Balance",
+    "estimatedValue": "Est. Value",
+    "sevenDayChange": "7-day Change",
+    "viewTransactions": "View Transactions",
+    "buyCredits": "Buy Credits",
+    "recentTransactions": "Recent Transactions",
+    "seeAll": "See all",
+    "txID": "Tx ID",
+    "type": "Type",
+    "amount": "Amount",
+    "pricePerTon": "Price ($/t)",
+    "date": "Date",
+    "goToMarketplace": "Go to Marketplace",
+    "openWallet": "Open Wallet",
+    "kpis": {
+      "walletBalance": "Wallet Balance (tCO₂)",
+      "marketPrice": "Market Price ($/t)",
+      "thisWeekPurchases": "This Week Purchases",
+      "vendorsOnboarded": "Vendors Onboarded",
+      "delta": {
+        "mom": "+5.1% MoM",
+        "wow": "+12% WoW",
+        "new": "+6 new"
+      }
+    }
+  },
   "landing": {
     "hero": {
       "titleBlockchain": "ब्लॉकचेन-",
@@ -87,7 +121,7 @@
       "items": {
         "guardians": {"name": "मैंग्रोव गार्जियंस", "score": "1200 CO₂ क्रेडिट", "desc": "समुदाय-नेतृत्वित मैंग्रोव पुनर्स्थापन परियोजना।"},
         "protectors": {"name": "सीग्रास प्रोटेक्टर्स", "score": "950 CO₂ क्रेडिट", "desc": "सीग्रास घासभूमि संरक्षण करने वाला युवागोष्ठी।"},
-        "warriors": {"name": "कोस्टাল ग्रीन वॉरियर्स", "score": "780 CO₂ क्रेडिट", "desc": "वेटलैंड संरक्षण के लिए एनजीओ पहल।"}
+        "warriors": {"name": "कोस्टल ग्रीन वॉरियर्स", "score": "780 CO₂ क्रेडिट", "desc": "वेटलैंड संरक्षण के लिए एनजीओ पहल।"}
       }
     },
     "stakeholders": {
