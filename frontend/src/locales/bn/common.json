@@ -51,39 +51,39 @@
     }
   },
   "dashboard": {
-    "title": "Industry Dashboard",
-    "description": "Buy, manage, and monitor your carbon credits portfolio in real time.",
-    "marketPrice": "Market Price – Blue Carbon Credits ($/t)",
-    "marketPricePeriod": "Last 12 months",
-    "weeklyPurchases": "Weekly Purchases (tCO₂)",
-    "weeklyPurchasesPeriod": "This week",
-    "walletSnapshot": "Wallet Snapshot",
-    "balance": "Balance",
-    "estimatedValue": "Est. Value",
-    "sevenDayChange": "7-day Change",
-    "viewTransactions": "View Transactions",
-    "buyCredits": "Buy Credits",
-    "recentTransactions": "Recent Transactions",
-    "seeAll": "See all",
-    "txID": "Tx ID",
-    "type": "Type",
-    "amount": "Amount",
-    "pricePerTon": "Price ($/t)",
-    "date": "Date",
-    "goToMarketplace": "Go to Marketplace",
-    "openWallet": "Open Wallet",
-    "kpis": {
-      "walletBalance": "Wallet Balance (tCO₂)",
-      "marketPrice": "Market Price ($/t)",
-      "thisWeekPurchases": "This Week Purchases",
-      "vendorsOnboarded": "Vendors Onboarded",
-      "delta": {
-        "mom": "+5.1% MoM",
-        "wow": "+12% WoW",
-        "new": "+6 new"
-      }
+  "title": "শিল্প ড্যাশবোর্ড",
+  "description": "রিয়েল টাইমে আপনার কার্বন ক্রেডিট পোর্টফোলিও কিনুন, পরিচালনা করুন এবং পর্যবেক্ষণ করুন।",
+  "marketPrice": "বাজার মূল্য – ব্লু কার্বন ক্রেডিটস ($/t)",
+  "marketPricePeriod": "শেষ ১২ মাস",
+  "weeklyPurchases": "সাপ্তাহিক ক্রয় (tCO₂)",
+  "weeklyPurchasesPeriod": "এই সপ্তাহ",
+  "walletSnapshot": "ওয়ালেট স্ন্যাপশট",
+  "balance": "ব্যালেন্স",
+  "estimatedValue": "আনুমানিক মূল্য",
+  "sevenDayChange": "৭ দিনের পরিবর্তন",
+  "viewTransactions": "লেনদেন দেখুন",
+  "buyCredits": "ক্রেডিট কিনুন",
+  "recentTransactions": "সাম্প্রতিক লেনদেন",
+  "seeAll": "সব দেখুন",
+  "txID": "ট্রান্স. আইডি",
+  "type": "ধরন",
+  "amount": "পরিমাণ",
+  "pricePerTon": "মূল্য ($/t)",
+  "date": "তারিখ",
+  "goToMarketplace": "মার্কেটপ্লেসে যান",
+  "openWallet": "ওয়ালেট খুলুন",
+  "kpis": {
+    "walletBalance": "ওয়ালেট ব্যালেন্স (tCO₂)",
+    "marketPrice": "বাজার মূল্য ($/t)",
+    "thisWeekPurchases": "এই সপ্তাহের ক্রয়",
+    "vendorsOnboarded": "বিক্রেতা যুক্ত হয়েছে",
+    "delta": {
+      "mom": "+৫.১% মাসওভারমাস",
+      "wow": "+১২% সপ্তাহওভারসপ্তাহ",
+      "new": "+৬ নতুন"
     }
-  },
+  }
+},
   "landing": {
     "hero": {
       "titleBlockchain": "ব্লকচেইন-",

@@ -50,40 +50,40 @@
       "resetEmailFailed": "கடவுச்சொல் மீட்டமைப்பு மின்னஞ்சல் அனுப்ப முடியவில்லை."
     }
   },
-  "dashboard": {
-    "title": "Industry Dashboard",
-    "description": "Buy, manage, and monitor your carbon credits portfolio in real time.",
-    "marketPrice": "Market Price – Blue Carbon Credits ($/t)",
-    "marketPricePeriod": "Last 12 months",
-    "weeklyPurchases": "Weekly Purchases (tCO₂)",
-    "weeklyPurchasesPeriod": "This week",
-    "walletSnapshot": "Wallet Snapshot",
-    "balance": "Balance",
-    "estimatedValue": "Est. Value",
-    "sevenDayChange": "7-day Change",
-    "viewTransactions": "View Transactions",
-    "buyCredits": "Buy Credits",
-    "recentTransactions": "Recent Transactions",
-    "seeAll": "See all",
-    "txID": "Tx ID",
-    "type": "Type",
-    "amount": "Amount",
-    "pricePerTon": "Price ($/t)",
-    "date": "Date",
-    "goToMarketplace": "Go to Marketplace",
-    "openWallet": "Open Wallet",
-    "kpis": {
-      "walletBalance": "Wallet Balance (tCO₂)",
-      "marketPrice": "Market Price ($/t)",
-      "thisWeekPurchases": "This Week Purchases",
-      "vendorsOnboarded": "Vendors Onboarded",
-      "delta": {
-        "mom": "+5.1% MoM",
-        "wow": "+12% WoW",
-        "new": "+6 new"
-      }
+ "dashboard": {
+  "title": "தொழில் டாஷ்போர்டு",
+  "description": "உங்கள் கார்பன் கிரெடிட்ஸ் போர்ட்ஃபோலியோவை நேரடியாக வாங்கி, நிர்வகித்து, கண்காணிக்கவும்.",
+  "marketPrice": "சந்தை விலை – ப்ளூ கார்பன் கிரெடிட்ஸ் ($/t)",
+  "marketPricePeriod": "கடந்த 12 மாதங்கள்",
+  "weeklyPurchases": "வாராந்திர கொள்முதல் (tCO₂)",
+  "weeklyPurchasesPeriod": "இந்த வாரம்",
+  "walletSnapshot": "வாலெட் ஸ்னாப்ஷாட்",
+  "balance": "இருப்பு",
+  "estimatedValue": "மதிப்பிடப்பட்ட மதிப்பு",
+  "sevenDayChange": "7 நாட்களில் மாற்றம்",
+  "viewTransactions": "பரிவர்த்தனைகளைப் பார்க்கவும்",
+  "buyCredits": "கிரெடிட்ஸ் வாங்கவும்",
+  "recentTransactions": "சமீபத்திய பரிவர்த்தனைகள்",
+  "seeAll": "அனைத்தையும் பார்க்கவும்",
+  "txID": "பரிவர்த்தனை ஐடி",
+  "type": "வகை",
+  "amount": "தொகை",
+  "pricePerTon": "விலை ($/t)",
+  "date": "தேதி",
+  "goToMarketplace": "மார்க்கெட்ப்ளேஸ்க்கு செல்லவும்",
+  "openWallet": "வாலெட்டைத் திறக்கவும்",
+  "kpis": {
+    "walletBalance": "வாலெட் இருப்பு (tCO₂)",
+    "marketPrice": "சந்தை விலை ($/t)",
+    "thisWeekPurchases": "இந்த வார கொள்முதல்",
+    "vendorsOnboarded": "விற்பனையாளர்கள் இணைக்கப்பட்டனர்",
+    "delta": {
+      "mom": "+5.1% மாதத்திற்கு மாதம்",
+      "wow": "+12% வாரத்திற்கு வாரம்",
+      "new": "+6 புதியவை"
     }
-  },
+  }
+},
   "landing": {
     "hero": {
       "titleBlockchain": "ப்ளாக்செயின்-",

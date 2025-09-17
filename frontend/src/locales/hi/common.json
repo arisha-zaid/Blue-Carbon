@@ -51,39 +51,39 @@
     }
   },
   "dashboard": {
-    "title": "Industry Dashboard",
-    "description": "Buy, manage, and monitor your carbon credits portfolio in real time.",
-    "marketPrice": "Market Price – Blue Carbon Credits ($/t)",
-    "marketPricePeriod": "Last 12 months",
-    "weeklyPurchases": "Weekly Purchases (tCO₂)",
-    "weeklyPurchasesPeriod": "This week",
-    "walletSnapshot": "Wallet Snapshot",
-    "balance": "Balance",
-    "estimatedValue": "Est. Value",
-    "sevenDayChange": "7-day Change",
-    "viewTransactions": "View Transactions",
-    "buyCredits": "Buy Credits",
-    "recentTransactions": "Recent Transactions",
-    "seeAll": "See all",
-    "txID": "Tx ID",
-    "type": "Type",
-    "amount": "Amount",
-    "pricePerTon": "Price ($/t)",
-    "date": "Date",
-    "goToMarketplace": "Go to Marketplace",
-    "openWallet": "Open Wallet",
-    "kpis": {
-      "walletBalance": "Wallet Balance (tCO₂)",
-      "marketPrice": "Market Price ($/t)",
-      "thisWeekPurchases": "This Week Purchases",
-      "vendorsOnboarded": "Vendors Onboarded",
-      "delta": {
-        "mom": "+5.1% MoM",
-        "wow": "+12% WoW",
-        "new": "+6 new"
-      }
+  "title": "उद्योग डैशबोर्ड",
+  "description": "रियल टाइम में अपना कार्बन क्रेडिट पोर्टफोलियो खरीदें, प्रबंधित करें और मॉनिटर करें।",
+  "marketPrice": "बाज़ार मूल्य – ब्लू कार्बन क्रेडिट्स ($/t)",
+  "marketPricePeriod": "पिछले 12 महीने",
+  "weeklyPurchases": "साप्ताहिक खरीद (tCO₂)",
+  "weeklyPurchasesPeriod": "इस सप्ताह",
+  "walletSnapshot": "वॉलेट स्नैपशॉट",
+  "balance": "बैलेंस",
+  "estimatedValue": "अनुमानित मूल्य",
+  "sevenDayChange": "7 दिन का बदलाव",
+  "viewTransactions": "लेनदेन देखें",
+  "buyCredits": "क्रेडिट खरीदें",
+  "recentTransactions": "हाल के लेनदेन",
+  "seeAll": "सभी देखें",
+  "txID": "ट्रांजैक्शन आईडी",
+  "type": "प्रकार",
+  "amount": "राशि",
+  "pricePerTon": "कीमत ($/t)",
+  "date": "तारीख",
+  "goToMarketplace": "मार्केटप्लेस पर जाएं",
+  "openWallet": "वॉलेट खोलें",
+  "kpis": {
+    "walletBalance": "वॉलेट बैलेंस (tCO₂)",
+    "marketPrice": "बाज़ार मूल्य ($/t)",
+    "thisWeekPurchases": "इस सप्ताह की खरीद",
+    "vendorsOnboarded": "विक्रेताओं को जोड़ा गया",
+    "delta": {
+      "mom": "+5.1% माह-दर-माह",
+      "wow": "+12% सप्ताह-दर-सप्ताह",
+      "new": "+6 नए"
     }
-  },
+  }
+},
   "landing": {
     "hero": {
       "titleBlockchain": "ब्लॉकचेन-",
