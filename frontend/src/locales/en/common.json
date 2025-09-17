@@ -1,13 +1,4 @@
 {
-  "app": {"brand": "Blue Carbon", "brand_compact": "BlueCarbon"},
-  "navbar": {
-    "toggleSidebar": "Toggle sidebar",
-    "adminPortal": "Admin Portal",
-    "registry": "Registry",
-    "searchPlaceholder": "Search projects...",
-    "settingsAria": "Open settings",
-    "welcomeBack": "Welcome back, {{name}}"
-  },
   "sidebar": {
     "logout": "Logout",
     "close": "Close sidebar",
@@ -33,21 +24,39 @@
       "profile": "Profile"
     }
   },
-  "login": {
-    "notifications": {
-      "success": "Login successful! Welcome back.",
-      "locked": "Account is temporarily locked due to multiple failed attempts. Please try again later.",
-      "deactivated": "Account is deactivated. Please contact support.",
-      "failed": "Login failed. Please try again."
-    },
-    "errors": {
-      "invalidCredentials": "Invalid email or password",
-      "emailRequired": "Email is required",
-      "emailInvalid": "Please enter a valid email",
-      "passwordRequired": "Password is required",
-      "enterEmailFirst": "Please enter your email first",
-      "resetEmailSent": "Password reset link sent to your email. Please check your inbox.",
-      "resetEmailFailed": "Failed to send password reset email."
+ 
+  "dashboard": {
+    "title": "Industry Dashboard",
+    "description": "Buy, manage, and monitor your carbon credits portfolio in real time.",
+    "marketPrice": "Market Price – Blue Carbon Credits ($/t)",
+    "marketPricePeriod": "Last 12 months",
+    "weeklyPurchases": "Weekly Purchases (tCO₂)",
+    "weeklyPurchasesPeriod": "This week",
+    "walletSnapshot": "Wallet Snapshot",
+    "balance": "Balance",
+    "estimatedValue": "Est. Value",
+    "sevenDayChange": "7-day Change",
+    "viewTransactions": "View Transactions",
+    "buyCredits": "Buy Credits",
+    "recentTransactions": "Recent Transactions",
+    "seeAll": "See all",
+    "txID": "Tx ID",
+    "type": "Type",
+    "amount": "Amount",
+    "pricePerTon": "Price ($/t)",
+    "date": "Date",
+    "goToMarketplace": "Go to Marketplace",
+    "openWallet": "Open Wallet",
+    "kpis": {
+      "walletBalance": "Wallet Balance (tCO₂)",
+      "marketPrice": "Market Price ($/t)",
+      "thisWeekPurchases": "This Week Purchases",
+      "vendorsOnboarded": "Vendors Onboarded",
+      "delta": {
+        "mom": "+5.1% MoM",
+        "wow": "+12% WoW",
+        "new": "+6 new"
+      }
     }
   },
   "landing": {
