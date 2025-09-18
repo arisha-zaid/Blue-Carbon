@@ -55,7 +55,7 @@ router.post(
       .isLength({ min: 6 })
       .withMessage("Password must be at least 6 characters long"),
     body("role")
-      .isIn(["community", "industry", "government", "admin"])
+      .isIn(["community", "industry"])
       .withMessage("Invalid role selected"),
     body("organization.name")
       .optional()
@@ -125,11 +125,15 @@ router.post(
     } catch (error) {
       console.error("Registration error:", error);
       // Provide more details in development to help diagnose why writes fail
-      const isProd = (process.env.NODE_ENV || 'development') === 'production';
+      const isProd = (process.env.NODE_ENV || "development") === "production";
       res.status(500).json({
         success: false,
-        message: isProd ? "Server error during registration" : (error.message || "Registration failed"),
-        ...(isProd ? {} : { code: error.code, name: error.name, stack: error.stack })
+        message: isProd
+          ? "Server error during registration"
+          : error.message || "Registration failed",
+        ...(isProd
+          ? {}
+          : { code: error.code, name: error.name, stack: error.stack }),
       });
     }
   }
@@ -271,14 +275,14 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
   router.get("/google", (req, res) => {
     res.status(501).json({
       success: false,
-      message: "Google OAuth is not configured on this server"
+      message: "Google OAuth is not configured on this server",
     });
   });
 
   router.get("/google/callback", (req, res) => {
     res.status(501).json({
       success: false,
-      message: "Google OAuth is not configured on this server"
+      message: "Google OAuth is not configured on this server",
     });
   });
 }

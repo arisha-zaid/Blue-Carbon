@@ -71,19 +71,22 @@ const userSchema = new mongoose.Schema(
       default: true,
     },
 
-    // Organization details
-    organization: {
-      name: String,
-      type: String,
-      website: String,
-      address: {
-        street: String,
-        city: String,
-        state: String,
-        country: String,
-        zipCode: String,
+    // Organization details (explicit sub-schema to avoid "type" ambiguity)
+    organization: new mongoose.Schema(
+      {
+        name: { type: String },
+        type: { type: String },
+        website: { type: String },
+        address: {
+          street: { type: String },
+          city: { type: String },
+          state: { type: String },
+          country: { type: String },
+          zipCode: { type: String },
+        },
       },
-    },
+      { _id: false }
+    ),
 
     // Preferences
     preferences: {

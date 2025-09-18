@@ -43,6 +43,7 @@ export default function AddProject() {
 
   // Step 2: Files
   const [files, setFiles] = useState([]);
+  const [thumbnail, setThumbnail] = useState(null); // base64 preview for My Projects
 
   // Step 3: AI Estimator (mock)
   const predicted = useMemo(() => {
@@ -62,15 +63,87 @@ export default function AddProject() {
     return "Low";
   }, [predicted, files.length]);
 
+  // Helper: create base64 data URL for images
+  const toDataUrl = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
   // drag & drop handlers
-  const onDrop = (e) => {
+  const onDrop = async (e) => {
     e.preventDefault();
     const incoming = Array.from(e.dataTransfer.files || []);
-    if (incoming.length) setFiles((prev) => [...prev, ...incoming]);
+    if (incoming.length) {
+      setFiles((prev) => [...prev, ...incoming]);
+      // Upload first image to backend for persistent URL
+      const firstImage = incoming.find((f) => f.type.startsWith("image/"));
+      if (firstImage && !thumbnail) {
+        try {
+          const form = new FormData();
+          form.append("image", firstImage);
+          const res = await fetch("http://localhost:5000/api/uploads/image", {
+            method: "POST",
+            body: form,
+          });
+          if (res.ok) {
+            const out = await res.json();
+            setThumbnail(out?.data?.url || null);
+          } else {
+            // fallback to base64 if server upload fails
+            const dataUrl = await toDataUrl(firstImage);
+            setThumbnail(dataUrl);
+          }
+        } catch {
+          try {
+            const dataUrl = await toDataUrl(firstImage);
+            setThumbnail(dataUrl);
+          } catch {}
+        }
+      }
+    }
   };
-  const onBrowse = (e) => {
+  const onBrowse = async (e) => {
     const incoming = Array.from(e.target.files || []);
-    if (incoming.length) setFiles((prev) => [...prev, ...incoming]);
+    if (incoming.length) {
+      setFiles((prev) => [...prev, ...incoming]);
+      const firstImage = incoming.find((f) => f.type.startsWith("image/"));
+      if (firstImage && !thumbnail) {
+        try {
+          const form = new FormData();
+          form.append("image", firstImage);
+          const res = await fetch("http://localhost:5000/api/uploads/image", {
+            method: "POST",
+            body: form,
+          });
+          if (res.ok) {
+            const out = await res.json();
+            setThumbnail(out?.data?.url || null);
+          } else {
+            const dataUrl = await toDataUrl(firstImage);
+            setThumbnail(dataUrl);
+          }
+        } catch {
+          try {
+            const dataUrl = await toDataUrl(firstImage);
+            setThumbnail(dataUrl);
+          } catch {}
+        }
+      }
+
+      // Safety: if no thumbnail yet and at least one image exists, set base64 from first
+      if (!thumbnail) {
+        const anyImg = incoming.find((f) => f.type.startsWith("image/"));
+        if (anyImg) {
+          try {
+            const dataUrl = await toDataUrl(anyImg);
+            setThumbnail(dataUrl);
+          } catch {}
+        }
+      }
+    }
   };
 
   const removeFile = (idx) => {
@@ -261,6 +334,8 @@ export default function AddProject() {
       sizeHa: parseFloat(sizeHa),
       description,
       files: files.map((f) => ({ name: f.name, size: f.size })),
+      // Save inline thumbnail for immediate My Projects preview
+      thumb: thumbnail || null,
       predictedCO2: predicted, // tCO2/year (mock)
       riskLevel,
       status: "Pending MRV",
@@ -269,7 +344,7 @@ export default function AddProject() {
     };
     addProject(project);
     addNotification("Project submitted! Status set to Pending MRV.", "success");
-    navigate("/dashboard");
+    navigate("/my-projects");
   };
 
   useEffect(() => {

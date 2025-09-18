@@ -7,17 +7,17 @@ const BLOCKCHAIN_API_URL =
 
 class TransactionAPI {
   constructor() {
-    this.authToken = localStorage.getItem("authToken");
     this.userRole = localStorage.getItem("role");
   }
 
   // Helper method for API requests
   async request(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
+    const token = localStorage.getItem("token");
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${this.authToken}`,
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
         ...options.headers,
       },
       ...options,
@@ -83,7 +83,8 @@ class TransactionAPI {
       const requiredBalance = amount * pricePerUnit;
       const wallet = await this.getWalletBalance();
 
-      if (wallet.balance < requiredBalance) {
+      // Backend tracks availableUsdBalance for spendable funds
+      if (wallet.availableUsdBalance < requiredBalance) {
         throw new Error("Insufficient funds for this transaction");
       }
     }
@@ -131,7 +132,8 @@ class TransactionAPI {
 
   // Get wallet balance
   async getWalletBalance() {
-    return this.request("/industry/wallet/balance");
+    const res = await this.request("/industry/wallet/balance");
+    return res.data;
   }
 
   // Get carbon credit balance

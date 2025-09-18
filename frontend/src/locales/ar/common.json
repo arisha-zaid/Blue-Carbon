@@ -50,6 +50,40 @@
       "resetEmailFailed": "فشل إرسال بريد إعادة تعيين كلمة المرور."
     }
   },
+ "dashboard": {
+  "title": "لوحة تحكم الصناعة",
+  "description": "اشترِ، أدر، وراقب محفظة أرصدة الكربون الخاصة بك في الوقت الفعلي.",
+  "marketPrice": "سعر السوق – أرصدة الكربون الأزرق ($/t)",
+  "marketPricePeriod": "آخر 12 شهرًا",
+  "weeklyPurchases": "المشتريات الأسبوعية (tCO₂)",
+  "weeklyPurchasesPeriod": "هذا الأسبوع",
+  "walletSnapshot": "ملخص المحفظة",
+  "balance": "الرصيد",
+  "estimatedValue": "القيمة التقديرية",
+  "sevenDayChange": "تغير 7 أيام",
+  "viewTransactions": "عرض المعاملات",
+  "buyCredits": "شراء الأرصدة",
+  "recentTransactions": "المعاملات الأخيرة",
+  "seeAll": "عرض الكل",
+  "txID": "معرّف المعاملة",
+  "type": "النوع",
+  "amount": "الكمية",
+  "pricePerTon": "السعر ($/t)",
+  "date": "التاريخ",
+  "goToMarketplace": "اذهب إلى السوق",
+  "openWallet": "افتح المحفظة",
+  "kpis": {
+    "walletBalance": "رصيد المحفظة (tCO₂)",
+    "marketPrice": "سعر السوق ($/t)",
+    "thisWeekPurchases": "مشتريات هذا الأسبوع",
+    "vendorsOnboarded": "الموردون المنضمون",
+    "delta": {
+      "mom": "+5.1% شهرًا بعد شهر",
+      "wow": "+12% أسبوعًا بعد أسبوع",
+      "new": "+6 جديد"
+    }
+  }
+},
   "landing": {
     "hero": {
       "titleBlockchain": "بلوكشين-",

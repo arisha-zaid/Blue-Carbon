@@ -1,7 +1,8 @@
 // src/pages/government/Settings.jsx
 import React, { useEffect, useState } from "react";
 import { useNotification } from "../../context/NotificationContext";
-import { Save, RotateCcw, TestTube2 } from "lucide-react";
+import LanguageSelector from "../../components/LanguageSelector";
+import { Save, RotateCcw, TestTube2, Globe2 as Globe, Languages } from "lucide-react";
 
 const DEFAULTS = {
   mrvThreshold: 80,            // % MRV completeness required
@@ -288,6 +289,24 @@ export default function GovernmentSettings() {
           />
           Auto-approve MRV Complete
         </label>
+      </div>
+    </section>
+
+    {/* Appearance & Language */}
+    <section className="bg-[#1a1a1a] rounded-2xl shadow p-6 border border-gray-700">
+      <h3 className="font-semibold text-gray-200 mb-4 inline-flex items-center gap-2">
+        <Globe className="w-5 h-5 text-teal-500" /> Appearance & Language
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label className="block text-sm text-gray-400 mb-1 inline-flex items-center gap-2">
+            <Languages className="w-4 h-4" /> Language
+          </label>
+          <LanguageSelector
+            value={form.language}
+            onChange={(lng) => setForm((f) => ({ ...f, language: lng }))}
+          />
+        </div>
       </div>
     </section>
 

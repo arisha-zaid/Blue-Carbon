@@ -1,7 +1,10 @@
 // src/store/projects.js
 export function getProjects() {
   try {
-    return JSON.parse(localStorage.getItem("bcr-projects")) || [];
+    const raw = localStorage.getItem("bcr-projects");
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
   }
@@ -24,7 +27,9 @@ export function getProjectById(id) {
 
 export function updateProject(updated) {
   const all = getProjects();
-  const next = all.map((p) => (String(p.id) === String(updated.id) ? updated : p));
+  const next = all.map((p) =>
+    String(p.id) === String(updated.id) ? updated : p
+  );
   saveProjects(next);
   return updated;
 }
@@ -42,7 +47,9 @@ export function anchorProject(id) {
   if (!p) return null;
   // generate mock TxID
   const randomHex = () =>
-    Array.from({ length: 64 }).map(() => "0123456789abcdef"[Math.floor(Math.random() * 16)]).join("");
+    Array.from({ length: 64 })
+      .map(() => "0123456789abcdef"[Math.floor(Math.random() * 16)])
+      .join("");
   const txId = "0x" + randomHex();
   p.txId = txId;
   p.status = "Blockchain Anchored";

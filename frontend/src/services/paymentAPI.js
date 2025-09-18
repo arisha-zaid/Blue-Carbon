@@ -16,7 +16,7 @@ class PaymentAPI {
 
     // Add auth token to requests
     this.api.interceptors.request.use((config) => {
-      const token = localStorage.getItem("authToken");
+      const token = localStorage.getItem("token");
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -29,7 +29,7 @@ class PaymentAPI {
       (error) => {
         if (error.response?.status === 401) {
           console.warn("Authentication failed, clearing stored token");
-          localStorage.removeItem("authToken");
+          localStorage.removeItem("token");
         }
         return Promise.reject(error);
       }

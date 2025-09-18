@@ -79,37 +79,37 @@ export default function Register() {
     // Validate step 1 before proceeding
     if (step === 1) {
       const stepErrors = {};
-      
+
       if (!formData.firstName.trim()) {
         stepErrors.firstName = "First name is required";
       }
-      
+
       if (!formData.lastName.trim()) {
         stepErrors.lastName = "Last name is required";
       }
-      
+
       if (!formData.email.trim()) {
         stepErrors.email = "Email is required";
       } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
         stepErrors.email = "Please enter a valid email";
       }
-      
+
       if (!formData.password) {
         stepErrors.password = "Password is required";
       } else if (formData.password.length < 8) {
         stepErrors.password = "Password must be at least 8 characters";
       }
-      
+
       if (formData.password !== formData.confirmPassword) {
         stepErrors.confirmPassword = "Passwords don't match";
       }
-      
+
       if (Object.keys(stepErrors).length > 0) {
         setErrors(stepErrors);
         return;
       }
     }
-    
+
     setStep(step + 1);
   };
 
@@ -174,16 +174,20 @@ export default function Register() {
         password: formData.password,
         role: formData.role,
       };
-      
+
       // Add optional fields only if they have values
       if (formData.organization?.name?.trim()) {
         cleanFormData.organization = {
           name: formData.organization.name.trim(),
-          ...(formData.organization.type && { type: formData.organization.type }),
-          ...(formData.organization.website && { website: formData.organization.website }),
+          ...(formData.organization.type && {
+            type: formData.organization.type,
+          }),
+          ...(formData.organization.website && {
+            website: formData.organization.website,
+          }),
         };
       }
-      
+
       if (formData.phone?.trim()) {
         cleanFormData.phone = formData.phone.trim();
       }
@@ -212,14 +216,17 @@ export default function Register() {
       }
     } catch (error) {
       console.error("Registration error:", error);
-      
+
       // Handle specific error cases
       if (error.message.includes("already exists")) {
         setErrors({ email: "An account with this email already exists" });
       } else if (error.message.includes("validation")) {
         console.error("Please check your information and try again.");
       } else {
-        console.error("Registration failed:", error.message || "Please try again.");
+        console.error(
+          "Registration failed:",
+          error.message || "Please try again."
+        );
       }
     } finally {
       setLoading(false);
@@ -239,18 +246,6 @@ export default function Register() {
       label: "Industry",
       icon: "🏭",
       description: "Buy carbon credits and offset emissions",
-    },
-    {
-      value: "government",
-      label: "Government",
-      icon: "🏛️",
-      description: "Monitor and verify projects",
-    },
-    {
-      value: "admin",
-      label: "Admin",
-      icon: "👑",
-      description: "System administration and management",
     },
   ];
 
@@ -527,282 +522,287 @@ export default function Register() {
     //   </div>
     // </div>
     <div className="min-h-screen bg-[#121110] flex items-center justify-center p-4">
-  <div className="max-w-2xl w-full space-y-8">
-    {/* Header */}
-    <div className="text-center">
-      <div className="mx-auto h-16 w-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mb-4">
-        <span className="text-2xl font-bold text-white">C</span>
-      </div>
-      <h2 className="text-3xl font-bold text-gray-100">Create Account</h2>
-      <p className="mt-2 text-sm text-gray-400">
-        Join Carbon SIH and start making a difference
-      </p>
-    </div>
-
-    {/* Progress Steps */}
-    <div className="flex items-center justify-center space-x-4">
-      {[1, 2].map((stepNumber) => (
-        <div key={stepNumber} className="flex items-center">
-          <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition ${
-              step >= stepNumber
-                ? "bg-emerald-600 text-white"
-                : "bg-gray-700 text-gray-400"
-            }`}
-          >
-            {step > stepNumber ? (
-              <CheckCircle className="w-5 h-5" />
-            ) : (
-              stepNumber
-            )}
+      <div className="max-w-2xl w-full space-y-8">
+        {/* Header */}
+        <div className="text-center">
+          <div className="mx-auto h-16 w-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mb-4">
+            <span className="text-2xl font-bold text-white">C</span>
           </div>
-          {stepNumber < 2 && (
-            <div
-              className={`w-16 h-1 mx-2 transition ${
-                step > stepNumber ? "bg-emerald-600" : "bg-gray-700"
-              }`}
-            />
-          )}
+          <h2 className="text-3xl font-bold text-gray-100">Create Account</h2>
+          <p className="mt-2 text-sm text-gray-400">
+            Join Carbon SIH and start making a difference
+          </p>
         </div>
-      ))}
-    </div>
 
-    {/* Registration Form */}
-    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-      {step === 1 && (
-        <div className="space-y-4">
-          {/* First Name & Last Name */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                First Name
-              </label>
-              <div className="relative">
-                <User className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-                <input
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className={`block w-full pl-10 pr-3 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
+        {/* Progress Steps */}
+        <div className="flex items-center justify-center space-x-4">
+          {[1, 2].map((stepNumber) => (
+            <div key={stepNumber} className="flex items-center">
+              <div
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition ${
+                  step >= stepNumber
+                    ? "bg-emerald-600 text-white"
+                    : "bg-gray-700 text-gray-400"
+                }`}
+              >
+                {step > stepNumber ? (
+                  <CheckCircle className="w-5 h-5" />
+                ) : (
+                  stepNumber
+                )}
+              </div>
+              {stepNumber < 2 && (
+                <div
+                  className={`w-16 h-1 mx-2 transition ${
+                    step > stepNumber ? "bg-emerald-600" : "bg-gray-700"
+                  }`}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Registration Form */}
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          {step === 1 && (
+            <div className="space-y-4">
+              {/* First Name & Last Name */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    First Name
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+                    <input
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className={`block w-full pl-10 pr-3 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
                     focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500 transition ${
                       errors.firstName ? "border-red-500" : "border-gray-700"
                     }`}
-                  placeholder="Enter your first name"
-                />
-              </div>
-              {errors.firstName && (
-                <div className="text-red-400 text-sm mt-1 flex items-center">
-                  <AlertCircle className="h-4 w-4 mr-1" /> {errors.firstName}
+                      placeholder="Enter your first name"
+                    />
+                  </div>
+                  {errors.firstName && (
+                    <div className="text-red-400 text-sm mt-1 flex items-center">
+                      <AlertCircle className="h-4 w-4 mr-1" />{" "}
+                      {errors.firstName}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Last Name
-              </label>
-              <div className="relative">
-                <User className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-                <input
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  className={`block w-full pl-10 pr-3 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Last Name
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+                    <input
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className={`block w-full pl-10 pr-3 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
                     focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500 transition ${
                       errors.lastName ? "border-red-500" : "border-gray-700"
                     }`}
-                  placeholder="Enter your last name"
-                />
-              </div>
-              {errors.lastName && (
-                <div className="text-red-400 text-sm mt-1 flex items-center">
-                  <AlertCircle className="h-4 w-4 mr-1" /> {errors.lastName}
+                      placeholder="Enter your last name"
+                    />
+                  </div>
+                  {errors.lastName && (
+                    <div className="text-red-400 text-sm mt-1 flex items-center">
+                      <AlertCircle className="h-4 w-4 mr-1" /> {errors.lastName}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
+              </div>
 
-          {/* Email */}
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
-              Email
-            </label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-              <input
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={`block w-full pl-10 pr-3 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Email
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+                  <input
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={`block w-full pl-10 pr-3 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
                   focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500 transition ${
                     errors.email ? "border-red-500" : "border-gray-700"
                   }`}
-                placeholder="Enter your email"
-              />
-            </div>
-            {errors.email && (
-              <div className="text-red-400 text-sm mt-1 flex items-center">
-                <AlertCircle className="h-4 w-4 mr-1" /> {errors.email}
+                    placeholder="Enter your email"
+                  />
+                </div>
+                {errors.email && (
+                  <div className="text-red-400 text-sm mt-1 flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1" /> {errors.email}
+                  </div>
+                )}
               </div>
-            )}
-          </div>
 
-          {/* Password & Confirm */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Password
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-                <input
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  value={formData.password}
-                  onChange={handleChange}
-                  className={`block w-full pl-10 pr-12 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
+              {/* Password & Confirm */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+                    <input
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      value={formData.password}
+                      onChange={handleChange}
+                      className={`block w-full pl-10 pr-12 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
                     focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500 transition ${
                       errors.password ? "border-red-500" : "border-gray-700"
                     }`}
-                  placeholder="Create a password"
-                />
-                <button
-                  type="button"
-                  className="absolute right-3 top-3 text-gray-500 hover:text-gray-300"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <EyeOff /> : <Eye />}
-                </button>
-              </div>
-              {errors.password && (
-                <div className="text-red-400 text-sm mt-1 flex items-center">
-                  <AlertCircle className="h-4 w-4 mr-1" /> {errors.password}
-                </div>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Confirm Password
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-                <input
-                  name="confirmPassword"
-                  type={showConfirmPassword ? "text" : "password"}
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  className={`block w-full pl-10 pr-12 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
-                    focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500 transition ${
-                      errors.confirmPassword ? "border-red-500" : "border-gray-700"
-                    }`}
-                  placeholder="Confirm password"
-                />
-                <button
-                  type="button"
-                  className="absolute right-3 top-3 text-gray-500 hover:text-gray-300"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                >
-                  {showConfirmPassword ? <EyeOff /> : <Eye />}
-                </button>
-              </div>
-              {errors.confirmPassword && (
-                <div className="text-red-400 text-sm mt-1 flex items-center">
-                  <AlertCircle className="h-4 w-4 mr-1" /> {errors.confirmPassword}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {step === 2 && (
-        <div className="space-y-6">
-          {/* Role Selection */}
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-4">
-              Select Your Role
-            </label>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {roleOptions.map((role) => (
-                <div
-                  key={role.value}
-                  className={`p-4 rounded-lg cursor-pointer transition border-2 ${
-                    formData.role === role.value
-                      ? "border-teal-500 bg-[#1a1a1a]/50"
-                      : "border-gray-700 bg-[#1a1a1a]"
-                  }`}
-                  onClick={() =>
-                    setFormData((prev) => ({ ...prev, role: role.value }))
-                  }
-                >
-                  <div className="flex items-center justify-between text-gray-200">
-                    <span>
-                      {role.icon} {role.label}
-                    </span>
-                    {formData.role === role.value && (
-                      <CheckCircle className="w-5 h-5 text-teal-400" />
-                    )}
+                      placeholder="Create a password"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-3 text-gray-500 hover:text-gray-300"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? <EyeOff /> : <Eye />}
+                    </button>
                   </div>
-                  <p className="text-sm text-gray-400 mt-1">
-                    {role.description}
-                  </p>
+                  {errors.password && (
+                    <div className="text-red-400 text-sm mt-1 flex items-center">
+                      <AlertCircle className="h-4 w-4 mr-1" /> {errors.password}
+                    </div>
+                  )}
                 </div>
-              ))}
-            </div>
-            {errors.role && (
-              <div className="text-red-400 text-sm mt-2 flex items-center">
-                <AlertCircle className="h-4 w-4 mr-1" /> {errors.role}
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Confirm Password
+                  </label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+                    <input
+                      name="confirmPassword"
+                      type={showConfirmPassword ? "text" : "password"}
+                      value={formData.confirmPassword}
+                      onChange={handleChange}
+                      className={`block w-full pl-10 pr-12 py-3 rounded-lg shadow-sm bg-[#1a1a1a] text-gray-200 placeholder-gray-500 
+                    focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500 transition ${
+                      errors.confirmPassword
+                        ? "border-red-500"
+                        : "border-gray-700"
+                    }`}
+                      placeholder="Confirm password"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-3 text-gray-500 hover:text-gray-300"
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
+                    >
+                      {showConfirmPassword ? <EyeOff /> : <Eye />}
+                    </button>
+                  </div>
+                  {errors.confirmPassword && (
+                    <div className="text-red-400 text-sm mt-1 flex items-center">
+                      <AlertCircle className="h-4 w-4 mr-1" />{" "}
+                      {errors.confirmPassword}
+                    </div>
+                  )}
+                </div>
               </div>
+            </div>
+          )}
+
+          {step === 2 && (
+            <div className="space-y-6">
+              {/* Role Selection */}
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-4">
+                  Select Your Role
+                </label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {roleOptions.map((role) => (
+                    <div
+                      key={role.value}
+                      className={`p-4 rounded-lg cursor-pointer transition border-2 ${
+                        formData.role === role.value
+                          ? "border-teal-500 bg-[#1a1a1a]/50"
+                          : "border-gray-700 bg-[#1a1a1a]"
+                      }`}
+                      onClick={() =>
+                        setFormData((prev) => ({ ...prev, role: role.value }))
+                      }
+                    >
+                      <div className="flex items-center justify-between text-gray-200">
+                        <span>
+                          {role.icon} {role.label}
+                        </span>
+                        {formData.role === role.value && (
+                          <CheckCircle className="w-5 h-5 text-teal-400" />
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-400 mt-1">
+                        {role.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                {errors.role && (
+                  <div className="text-red-400 text-sm mt-2 flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1" /> {errors.role}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Buttons */}
+          <div className="flex justify-between">
+            {step > 1 && (
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="px-6 py-3 border border-gray-700 rounded-lg text-gray-300 hover:bg-[#1a1a1a]"
+              >
+                Previous
+              </button>
+            )}
+            {step < 2 ? (
+              <button
+                type="button"
+                onClick={handleNext}
+                className="px-6 py-3 rounded-lg text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transition"
+              >
+                Next
+              </button>
+            ) : (
+              <button
+                type="submit"
+                disabled={loading}
+                className="px-8 py-3 rounded-lg text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 disabled:opacity-50"
+              >
+                {loading ? "Redirecting..." : "Create Account"}
+              </button>
             )}
           </div>
+        </form>
+
+        {/* Sign In */}
+        <div className="text-center">
+          <p className="text-sm text-gray-400">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="text-teal-400 hover:text-teal-300 font-medium"
+            >
+              Sign in here
+            </Link>
+          </p>
         </div>
-      )}
-
-      {/* Buttons */}
-      <div className="flex justify-between">
-        {step > 1 && (
-          <button
-            type="button"
-            onClick={handlePrevious}
-            className="px-6 py-3 border border-gray-700 rounded-lg text-gray-300 hover:bg-[#1a1a1a]"
-          >
-            Previous
-          </button>
-        )}
-        {step < 2 ? (
-          <button
-            type="button"
-            onClick={handleNext}
-            className="px-6 py-3 rounded-lg text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transition"
-          >
-            Next
-          </button>
-        ) : (
-          <button
-            type="submit"
-            disabled={loading}
-            className="px-8 py-3 rounded-lg text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 disabled:opacity-50"
-          >
-            {loading ? "Redirecting..." : "Create Account"}
-          </button>
-        )}
       </div>
-    </form>
-
-    {/* Sign In */}
-    <div className="text-center">
-      <p className="text-sm text-gray-400">
-        Already have an account?{" "}
-        <Link
-          to="/login"
-          className="text-teal-400 hover:text-teal-300 font-medium"
-        >
-          Sign in here
-        </Link>
-      </p>
     </div>
-  </div>
-</div>
-
   );
 }

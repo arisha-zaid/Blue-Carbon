@@ -12,12 +12,14 @@ import {
 } from "../store/projects";
 import { QRCodeCanvas } from "qrcode.react";
 import { useNotification } from "../context/NotificationContext";
+import { useUser } from "../context/UserContext";
 
 export default function ProjectDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const { addNotification } = useNotification();
+  const { role } = useUser();
 
   useEffect(() => {
     const p = getProjectById(id);
@@ -166,7 +168,8 @@ export default function ProjectDetails() {
 
             {/* Actions */}
             <div className="mt-6 flex gap-3">
-              {project.status === "Pending MRV" && (
+              {/* Only government can perform verification workflow */}
+              {project.status === "Pending MRV" && role === "government" && (
                 <button
                   onClick={handleMarkMRV}
                   className="px-4 py-2 rounded-xl bg-[#1D4ED8] text-white"
@@ -174,7 +177,7 @@ export default function ProjectDetails() {
                   Mark MRV Complete
                 </button>
               )}
-              {project.status === "MRV Complete" && (
+              {project.status === "MRV Complete" && role === "government" && (
                 <button
                   onClick={handleApprove}
                   className="px-4 py-2 rounded-xl bg-[#16A34A] text-white"
@@ -182,7 +185,7 @@ export default function ProjectDetails() {
                   Approve Project
                 </button>
               )}
-              {project.status === "Approved" && (
+              {project.status === "Approved" && role === "government" && (
                 <button
                   onClick={handleAnchor}
                   className="px-4 py-2 rounded-xl bg-amber-500 text-white"
@@ -190,14 +193,17 @@ export default function ProjectDetails() {
                   Anchor to Blockchain
                 </button>
               )}
-              {project.status === "Blockchain Anchored" && (
-                <button
-                  onClick={handleIssueCertificate}
-                  className="px-4 py-2 rounded-xl bg-purple-700 text-white"
-                >
-                  Issue Certificate
-                </button>
-              )}
+              {project.status === "Blockchain Anchored" &&
+                role === "government" && (
+                  <button
+                    onClick={handleIssueCertificate}
+                    className="px-4 py-2 rounded-xl bg-purple-700 text-white"
+                  >
+                    Issue Certificate
+                  </button>
+                )}
+
+              {/* Community role can only view certificate on Certificates page */}
 
               <Link
                 to="/dashboard"
