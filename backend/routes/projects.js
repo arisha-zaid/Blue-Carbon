@@ -309,37 +309,44 @@ router.post(
         lastModifiedBy: req.user._id,
       };
 
-      const project = new Project(projectData);
-      await project.save();
+      // Add IPFS metadata if upload succeeds
+      let ipfsHash = null;
 
       // Upload project metadata to IPFS
       try {
         const projectMetadata = {
-          projectId: project._id,
           name,
           type,
           description: shortDescription || description.substring(0, 500),
-          location: location.address,
-          fundingGoal: funding.goal,
-          estimatedCarbonReduction: carbonImpact.estimatedReduction || 0,
+          location: location?.address || "",
+          fundingGoal: funding?.goal || 0,
+          estimatedCarbonReduction: carbonImpact?.estimatedReduction || 0,
           owner: req.user._id,
-          createdAt: project.createdAt,
+          createdAt: new Date(),
           documentCount: documentList.length,
         };
 
         const metadataResult = await ipfsService.uploadJSON(
           projectMetadata,
-          `project_${project._id}_metadata.json`
+          `project_metadata.json`
         );
 
-        project.blockchain.ipfsHash = metadataResult.hash;
-        await project.save();
+        ipfsHash = metadataResult.hash;
       } catch (error) {
         logger.warn(
           "Failed to upload project metadata to IPFS:",
           error.message
         );
       }
+
+      // Add blockchain data to project data
+      projectData.blockchain = {
+        ...projectData.blockchain,
+        ipfsHash,
+      };
+
+      const project = new Project(projectData);
+      await project.save();
 
       logger.api.request("POST", "/api/projects", req.user._id, {
         projectId: project._id,
