@@ -1,7 +1,8 @@
 // src/pages/industry/Marketplace.jsx
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useNotification } from "../../context/NotificationContext";
 import transactionAPI from "../../services/transactionAPI";
+import { getProjects } from "../../store/projects";
 import {
   Search,
   SlidersHorizontal,
@@ -12,7 +13,52 @@ import {
   MapPin,
   Leaf,
   X,
+  Maximize2,
+  Minimize2,
 } from "lucide-react";
+
+// Map modal (Leaflet) imports
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Fix default marker icons for Vite/ESM
+const iconRetinaUrl = new URL(
+  "leaflet/dist/images/marker-icon-2x.png",
+  import.meta.url
+).toString();
+const iconUrl = new URL(
+  "leaflet/dist/images/marker-icon.png",
+  import.meta.url
+).toString();
+const shadowUrl = new URL(
+  "leaflet/dist/images/marker-shadow.png",
+  import.meta.url
+).toString();
+L.Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl });
+
+// Helper: invalidate map size after open/fullscreen changes so it fills container
+function MapInvalidator({ fullscreen, open }) {
+  const map = useMap();
+  React.useEffect(() => {
+    const t = setTimeout(() => {
+      map.invalidateSize();
+    }, 360); // match transition duration
+    return () => clearTimeout(t);
+  }, [fullscreen, open, map]);
+  return null;
+}
+
+// Helper: re-center map to given lat/lng when item changes
+function MapRecenter({ lat, lng }) {
+  const map = useMap();
+  React.useEffect(() => {
+    if (Number.isFinite(lat) && Number.isFinite(lng)) {
+      map.setView([lat, lng]);
+    }
+  }, [lat, lng, map]);
+  return null;
+}
 
 const MOCK_LISTINGS = [
   {
@@ -65,7 +111,13 @@ const MOCK_LISTINGS = [
   },
 ];
 
-const TYPES = ["All", "Mangroves", "Seagrass", "Wetlands"];
+// Mark mock listings so Buy button can be disabled for them
+const MOCK_LISTINGS_WITH_SOURCE = MOCK_LISTINGS.map((l) => ({
+  ...l,
+  source: "mock",
+}));
+
+const TYPES = ["All", "Mangroves", "Seagrass", "Wetlands", "Agroforestry"];
 const SORTS = [
   { id: "pop", label: "Popularity", fn: (a, b) => b.rating - a.rating },
   {
@@ -92,19 +144,123 @@ export default function Marketplace() {
   const [verifiedOnly, setVerifiedOnly] = useState(false);
   const [sortId, setSortId] = useState("pop");
   const [buy, setBuy] = useState({ open: false, item: null, tons: "" });
+  const [backendProjects, setBackendProjects] = useState([]);
+  const [loadingProjects, setLoadingProjects] = useState(false);
+
+  // Map modal state
+  const [mapModal, setMapModal] = useState({
+    open: false,
+    item: null,
+    fullscreen: false,
+  });
+
+  // Fetch real projects from backend so purchases have valid ObjectIds
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoadingProjects(true);
+        const res = await fetch(
+          `${
+            import.meta.env.VITE_API_URL || "http://localhost:5000/api"
+          }/projects`
+        );
+        const data = await res.json();
+        if (data?.success && Array.isArray(data.data)) {
+          const mapped = data.data.map((p) => ({
+            id: p._id, // MongoDB ObjectId
+            name: p.name,
+            type: p.type,
+            location: p.location?.city || p.location?.country || "",
+            price: p.creditPrice || 25 + Math.random() * 6, // fallback pricing
+            rating: 4.3, // placeholder
+            verified: !!p.verification?.isVerified,
+            tonsAvailable: p.availableCredits ?? 1000, // fallback
+            thumbnail:
+              (Array.isArray(p.images) && p.images[0]) ||
+              "https://images.unsplash.com/photo-1529112431328-88da9f2e2ea8?q=80&w=1600&auto=format&fit=crop",
+            source: "backend",
+            // pass coordinates for map
+            coordinates: {
+              latitude:
+                p.location?.coordinates?.latitude ?? p.location?.lat ?? null,
+              longitude:
+                p.location?.coordinates?.longitude ?? p.location?.lng ?? null,
+            },
+          }));
+          setBackendProjects(mapped);
+        }
+      } catch (e) {
+        console.warn("Failed to load backend projects", e);
+      } finally {
+        setLoadingProjects(false);
+      }
+    };
+    fetchProjects();
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    let list = MOCK_LISTINGS.filter((l) => {
-      const matchesQ =
-        !q ||
-        l.name.toLowerCase().includes(q) ||
-        l.location.toLowerCase().includes(q) ||
-        l.id.toLowerCase().includes(q);
-      const matchesType = type === "All" ? true : l.type === type;
-      const matchesVerified = verifiedOnly ? l.verified : true;
-      return matchesQ && matchesType && matchesVerified;
-    });
+
+    // Map user-added projects into marketplace items
+    const userProjects = (getProjects() || [])
+      .filter((p) =>
+        [
+          "Pending MRV",
+          "MRV Complete",
+          "Approved",
+          "Blockchain Anchored",
+          "Certificate Issued",
+        ].includes(p.status)
+      )
+      .map((p) => {
+        // Normalize thumbnail: fix relative uploads to absolute
+        let thumbnail = p.thumb;
+        if (
+          thumbnail &&
+          typeof thumbnail === "string" &&
+          thumbnail.startsWith("/uploads/")
+        ) {
+          thumbnail = `${window.location.protocol}//${window.location.hostname}:5000${thumbnail}`;
+        }
+        return {
+          id: String(p.id),
+          name: p.name || "Untitled Project",
+          type: p.type || "Mangroves",
+          location: p.location || "",
+          price: 25 + Math.random() * 6, // mock price band
+          rating: 4 + Math.random() * 1, // mock rating
+          verified:
+            p.status === "Blockchain Anchored" ||
+            p.status === "Certificate Issued",
+          tonsAvailable: Math.max(100, Math.round((p.predictedCO2 || 300) * 3)),
+          thumbnail:
+            thumbnail ||
+            "https://images.unsplash.com/photo-1529112431328-88da9f2e2ea8?q=80&w=1600&auto=format&fit=crop",
+          // normalized coordinates (from client-side created projects)
+          coordinates: p.coordinates
+            ? {
+                latitude: p.coordinates.latitude,
+                longitude: p.coordinates.longitude,
+              }
+            : p.lat && p.lng
+            ? { latitude: p.lat, longitude: p.lng }
+            : null,
+        };
+      });
+
+    let list = [...backendProjects, ...userProjects, ...MOCK_LISTINGS].filter(
+      (l) => {
+        const matchesQ =
+          !q ||
+          l.name.toLowerCase().includes(q) ||
+          (l.location || "").toLowerCase().includes(q) ||
+          String(l.id).toLowerCase().includes(q);
+        const matchesType = type === "All" ? true : l.type === type;
+        const matchesVerified = verifiedOnly ? l.verified : true;
+        return matchesQ && matchesType && matchesVerified;
+      }
+    );
+
     const sorter = SORTS.find((s) => s.id === sortId) || SORTS[0];
     return list.sort(sorter.fn);
   }, [query, type, verifiedOnly, sortId]);
@@ -123,10 +279,21 @@ export default function Marketplace() {
       return;
     }
 
+    // Validate project ID format (must be a MongoDB ObjectId)
+    const projectId = String(buy.item.id || "");
+    const isValidObjectId = /^[a-fA-F0-9]{24}$/i.test(projectId);
+    if (!isValidObjectId) {
+      addNotification(
+        "This listing is demo-only and cannot be purchased. Please select a real project with a valid ID.",
+        "error"
+      );
+      return;
+    }
+
     try {
       // Create a real transaction using the API
       const transactionData = {
-        projectId: buy.item.id,
+        projectId,
         amount: tons,
         type: "purchase",
         pricePerUnit: buy.item.price,
@@ -387,6 +554,7 @@ export default function Marketplace() {
               key={l.id}
               item={l}
               onBuy={() => openBuy(l)}
+              onShowLocation={() => setMapModal({ open: true, item: l })}
               className="bg-[#1a1a1a] hover:shadow-[0_0_8px_#14b8a6] transition-all duration-300"
             />
           ))
@@ -467,62 +635,113 @@ export default function Marketplace() {
           </div>
         </div>
       )}
+
+      {/* Map Modal */}
+      {mapModal.open && mapModal.item && (
+        <div className="fixed inset-0 z-[10050] bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+          <div
+            className={`bg-[#1a1a1a] rounded-2xl border border-gray-800 overflow-hidden text-gray-200 transition-all duration-300 ${
+              mapModal.fullscreen ? "w-[98vw] h-[92vh]" : "w-[520px] h-[420px]"
+            }`}
+          >
+            <div className="flex items-center justify-between p-4 border-b border-gray-800">
+              <div>
+                <h3 className="font-semibold text-white">Project Location</h3>
+                <p className="text-xs text-gray-400">{mapModal.item.name}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() =>
+                    setMapModal((m) => ({ ...m, fullscreen: !m.fullscreen }))
+                  }
+                  className="p-2 text-gray-400 hover:text-white"
+                  title={
+                    mapModal.fullscreen
+                      ? "Exit full screen"
+                      : "View full screen"
+                  }
+                >
+                  {mapModal.fullscreen ? (
+                    <Minimize2 className="w-5 h-5" />
+                  ) : (
+                    <Maximize2 className="w-5 h-5" />
+                  )}
+                </button>
+                <button
+                  onClick={() =>
+                    setMapModal({ open: false, item: null, fullscreen: false })
+                  }
+                  className="p-2 text-gray-400 hover:text-white"
+                  title="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+            <div className="h-[calc(100%-64px)]">
+              {(() => {
+                const latRaw = mapModal.item.coordinates?.latitude ?? 20;
+                const lngRaw = mapModal.item.coordinates?.longitude ?? 77;
+                const lat =
+                  typeof latRaw === "string" ? parseFloat(latRaw) : latRaw;
+                const lng =
+                  typeof lngRaw === "string" ? parseFloat(lngRaw) : lngRaw;
+                const hasCoords =
+                  mapModal.item.coordinates &&
+                  mapModal.item.coordinates.latitude != null &&
+                  mapModal.item.coordinates.longitude != null;
+                return (
+                  <MapContainer
+                    key={`${mapModal.item?.id ?? mapModal.item?.name}-${
+                      mapModal.fullscreen
+                    }`}
+                    center={[Number(lat), Number(lng)]}
+                    zoom={hasCoords ? 9 : 4}
+                    scrollWheelZoom={true}
+                    style={{ height: "100%", width: "100%" }}
+                  >
+                    <MapInvalidator
+                      fullscreen={mapModal.fullscreen}
+                      open={mapModal.open}
+                    />
+                    <MapRecenter lat={Number(lat)} lng={Number(lng)} />
+                    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                    {hasCoords && (
+                      <Marker position={[Number(lat), Number(lng)]}>
+                        <Popup>
+                          <div className="text-sm">
+                            <div className="font-semibold">
+                              {mapModal.item.name}
+                            </div>
+                            <div className="text-gray-600">
+                              {mapModal.item.location}
+                            </div>
+                          </div>
+                        </Popup>
+                      </Marker>
+                    )}
+                  </MapContainer>
+                );
+              })()}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-function ListingCard({ item, onBuy }) {
+function ListingCard({ item, onBuy, onShowLocation, className = "" }) {
+  const hasCoords = !!(
+    item?.coordinates &&
+    item.coordinates.latitude != null &&
+    item.coordinates.longitude != null
+  );
+
   return (
-    // <div className="bg-white rounded-2xl shadow overflow-hidden group">
-    //   <div className="relative h-44">
-    //     <img
-    //       src={item.thumbnail}
-    //       alt={item.name}
-    //       className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform"
-    //     />
-    //     <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-black/60 text-white text-xs">
-    //       <Leaf className="w-3 h-3" /> {item.type}
-    //     </div>
-    //     {item.verified && (
-    //       <div className="absolute top-3 right-3 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-600 text-white text-xs">
-    //         <ShieldCheck className="w-3 h-3" /> Verified
-    //       </div>
-    //     )}
-    //   </div>
-
-    //   <div className="p-4 space-y-3">
-    //     <div className="text-xs text-gray-500">{item.id}</div>
-    //     <div className="font-semibold text-gray-900">{item.name}</div>
-    //     <div className="text-sm text-gray-600 flex items-center gap-2">
-    //       <MapPin className="w-4 h-4" /> {item.location}
-    //     </div>
-
-    //     <div className="grid grid-cols-3 gap-3 text-sm">
-    //       <div>
-    //         <div className="text-xs text-gray-500">Price</div>
-    //         <div className="font-semibold">${item.price.toFixed(2)}/t</div>
-    //       </div>
-    //       <div>
-    //         <div className="text-xs text-gray-500">Available</div>
-    //         <div className="font-semibold">{item.tonsAvailable.toLocaleString()} t</div>
-    //       </div>
-    //       <div>
-    //         <div className="text-xs text-gray-500">Rating</div>
-    //         <div className="font-semibold">{item.rating}★</div>
-    //       </div>
-    //     </div>
-
-    //     <div className="flex items-center justify-end">
-    //       <button
-    //         onClick={onBuy}
-    //         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white hover:opacity-90"
-    //       >
-    //         <ShoppingCart className="w-4 h-4" /> Buy Credits
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden group hover:shadow-[0_0_12px_#14b8a6] transition-shadow duration-300">
+    <div
+      className={`bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden group hover:shadow-[0_0_12px_#14b8a6] transition-shadow duration-300 ${className}`}
+    >
       {/* Image */}
       <div className="relative h-44">
         <img
@@ -568,8 +787,20 @@ function ListingCard({ item, onBuy }) {
           </div>
         </div>
 
-        {/* Buy button */}
-        <div className="flex items-center justify-end">
+        {/* Actions */}
+        <div className="flex items-center justify-between gap-3">
+          <button
+            onClick={() => onShowLocation?.()}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 text-gray-200 hover:bg-gray-800 transition-all duration-200"
+            title={
+              hasCoords
+                ? "Show location on map"
+                : "Open map (no coordinates, centered on default)"
+            }
+          >
+            <MapPin className="w-4 h-4" /> Show location
+          </button>
+
           <button
             onClick={onBuy}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-600 text-white hover:brightness-110 transition-all duration-200"

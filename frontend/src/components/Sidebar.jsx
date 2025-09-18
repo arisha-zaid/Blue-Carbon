@@ -74,23 +74,32 @@ export default function Sidebar({ role, isOpen, onClose }) {
         icon: <BarChart2 size={18} />,
       },
       {
+<<<<<<< HEAD
         key: "projectsMap",
         path: "/projects/map",
         icon: <BarChart2 size={18} />,
       },
       {
         key: "settings",
+=======
+        name: "Settings",
+>>>>>>> cfdbe2b (Added the admin and govt email and password as hardcoded and removed it from the register page)
         path: "/industry/settings",
         icon: <Settings size={18} />,
       },
     ],
     admin: [
+<<<<<<< HEAD
       { key: "dashboard", path: "/admin", icon: <Home size={18} /> },
       {
         key: "projectApproval",
         path: "/admin/project-approval",
         icon: <FileText size={18} />,
       },
+=======
+      { name: "Dashboard", path: "/admin", icon: <Home size={18} /> },
+
+>>>>>>> cfdbe2b (Added the admin and govt email and password as hardcoded and removed it from the register page)
       {
         key: "creditIssuance",
         path: "/admin/credit-issuance",

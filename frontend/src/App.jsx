@@ -12,6 +12,7 @@ import OAuthCallback from "./pages/OAuthCallback";
 
 // Dashboards
 import Dashboard from "./pages/dashboard/DashboardHome";
+import MyProjects from "./pages/dashboard/MyProjects";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import IndustryDashboard from "./pages/industry/IndustryDashboard";
 import GovernmentDashboard from "./pages/government/GovernmentDashboard";
@@ -85,14 +86,7 @@ export default function App() {
               </Layout>
             }
           />
-          <Route
-            path="/admin/project-approval"
-            element={
-              <Layout showSidebar={true}>
-                <ProjectApproval />
-              </Layout>
-            }
-          />
+
           <Route
             path="/admin/credit-issuance"
             element={
@@ -250,7 +244,7 @@ export default function App() {
             path="/my-projects"
             element={
               <Layout showSidebar={true}>
-                <Dashboard />
+                <MyProjects />
               </Layout>
             }
           />

@@ -133,6 +133,12 @@ router.post("/transactions", isAuthenticated, async (req, res) => {
     }
 
     // Verify project exists
+    if (!mongoose.Types.ObjectId.isValid(projectId)) {
+      return res.status(400).json({
+        success: false,
+        error: "Invalid projectId format",
+      });
+    }
     const project = await Project.findById(projectId);
     if (!project) {
       return res.status(404).json({
