@@ -567,7 +567,7 @@ export default function DashboardHome() {
                       className="relative border-t border-gray-700 hover:bg-[#222] group transition duration-200"
                     >
                       <td colSpan={5}>
-                        <div className="absolute inset-0 border border-teal-400 opacity-0 group-hover:opacity-100 rounded-lg shadow-[0_0_10px_#2dd4bf] pointer-events-none transition duration-300"></div>
+                        <div className="absolute inset-0  opacity-0 group-hover:opacity-100 rounded-lg  pointer-events-none transition duration-300"></div>
                         <div className="relative grid grid-cols-5 gap-4 py-3 px-4">
                           <div>
                             <Link

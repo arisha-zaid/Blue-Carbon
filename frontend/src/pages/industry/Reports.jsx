@@ -157,7 +157,7 @@ export default function IndustryReports() {
   ].map((kpi, index) => (
     <div
         key={index}
-  className="bg-[#121212] rounded-2xl p-6 transition-all duration-300"
+  className="bg-[#1a1a1a] rounded-2xl p-6 transition-all duration-300"
   onMouseEnter={(e) => {
     e.currentTarget.style.border = `1px solid ${COLORS[index]}`;
     e.currentTarget.style.boxShadow = `0 0 15px ${COLORS[index]}`;

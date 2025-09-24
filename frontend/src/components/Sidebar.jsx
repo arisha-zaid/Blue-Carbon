@@ -49,11 +49,7 @@ export default function Sidebar({ role, isOpen, onClose }) {
         path: "/dashboard/settings",
         icon: <Settings size={18} />,
       },
-      {
-        key: "projectsMap",
-        path: "/projects/map",
-        icon: <BarChart2 size={18} />,
-      },
+      
     ],
     industry: [
       { key: "dashboard", path: "/industry", icon: <Home size={18} /> },
@@ -74,32 +70,14 @@ export default function Sidebar({ role, isOpen, onClose }) {
         icon: <BarChart2 size={18} />,
       },
       {
-<<<<<<< HEAD
-        key: "projectsMap",
-        path: "/projects/map",
-        icon: <BarChart2 size={18} />,
-      },
-      {
-        key: "settings",
-=======
         name: "Settings",
->>>>>>> cfdbe2b (Added the admin and govt email and password as hardcoded and removed it from the register page)
         path: "/industry/settings",
         icon: <Settings size={18} />,
       },
     ],
     admin: [
-<<<<<<< HEAD
-      { key: "dashboard", path: "/admin", icon: <Home size={18} /> },
-      {
-        key: "projectApproval",
-        path: "/admin/project-approval",
-        icon: <FileText size={18} />,
-      },
-=======
       { name: "Dashboard", path: "/admin", icon: <Home size={18} /> },
 
->>>>>>> cfdbe2b (Added the admin and govt email and password as hardcoded and removed it from the register page)
       {
         key: "creditIssuance",
         path: "/admin/credit-issuance",
@@ -115,11 +93,11 @@ export default function Sidebar({ role, isOpen, onClose }) {
         path: "/admin/reports",
         icon: <BarChart2 size={18} />,
       },
-      {
-        key: "projectsMap",
-        path: "/projects/map",
-        icon: <BarChart2 size={18} />,
-      },
+      // {
+      //   key: "projectsMap",
+      //   path: "/projects/map",
+      //   icon: <BarChart2 size={18} />,
+      // },
       {
         key: "profile",
         path: "/admin/profile",
@@ -136,11 +114,6 @@ export default function Sidebar({ role, isOpen, onClose }) {
       {
         key: "reportsAnalytics",
         path: "/government/reports",
-        icon: <BarChart2 size={18} />,
-      },
-      {
-        key: "projectsMap",
-        path: "/projects/map",
         icon: <BarChart2 size={18} />,
       },
       {
@@ -173,7 +146,7 @@ export default function Sidebar({ role, isOpen, onClose }) {
         <>
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-800">
-            <div className="text-xl font-bold text-teal-400">{t('app.brand')}</div>
+            <div className="text-xl font-bold text-teal-400">{t('BlueMRV')}</div>
             <button
               onClick={onClose}
               aria-label={t('sidebar.close')}
@@ -204,8 +177,8 @@ export default function Sidebar({ role, isOpen, onClose }) {
                 className={`flex items-center gap-3 px-4 py-2 rounded-md font-medium bg-[#1a1a1a] text-gray-300 transition-all duration-300
               ${
                 location.pathname === link.path
-                  ? "border border-teal-500 text-teal-400 shadow-[0_0_6px_#14b8a6]"
-                  : "hover:border hover:border-teal-500 hover:shadow-[0_0_6px_#14b8a6]"
+                  ? "border border-teal-800 text-teal-600 shadow-[0_0_6px_#14b8a6]"
+                  : "hover:border hover:border-teal-800 hover:shadow-[0_0_6px_#14b8a6]"
               }`}
                 onClick={() => {
                   // Only close sidebar on mobile screens

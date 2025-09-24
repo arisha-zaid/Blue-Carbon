@@ -268,7 +268,7 @@ export default function MyProjects() {
 
 function ProjectCard({ p, idx }) {
   return (
-    <div className="group rounded-2xl border border-gray-700 bg-[#1a1a1a] hover:border-emerald-500 hover:shadow-[0_0_10px_#10b981] transition overflow-hidden">
+    <div className="group rounded-2xl border border-gray-700 bg-[#1a1a1a] hover:border-teal-800  transition overflow-hidden">
       {/* Image */}
       <div className="relative h-44 overflow-hidden">
         <img

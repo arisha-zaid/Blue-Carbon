@@ -162,7 +162,7 @@ export default function IndustryDashboard() {
     {/* Charts */}
     <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Line Chart */}
-      <div className="rounded-2xl p-6 lg:col-span-2 border border-gray-700 bg-[#1a1a1a] transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_12px_#2DD4BF]">
+      <div className="rounded-2xl p-6 lg:col-span-2 border border-gray-700 bg-[#1a1a1a] transition-all duration-300 ">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-semibold text-gray-100 flex items-center gap-2">
             <BarChart3 className="w-5 h-5 text-emerald-400" />
@@ -184,7 +184,7 @@ export default function IndustryDashboard() {
       </div>
 
       {/* Bar Chart */}
-      <div className="rounded-2xl p-6 border border-gray-700 bg-[#1a1a1a] transition-all duration-300 hover:border-yellow-400 hover:shadow-[0_0_12px_#FACC15]">
+      <div className="rounded-2xl p-6 border border-gray-700 bg-[#1a1a1a] transition-all duration-300 ">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-semibold text-gray-100">{t("dashboard.weeklyPurchases")}</h3>
           <div className="text-sm text-gray-400">{t("dashboard.weeklyPurchasesPeriod")}</div>
@@ -258,8 +258,7 @@ export default function IndustryDashboard() {
       <tr
         key={t.id}
         className="border-t border-gray-700 transition 
-                   hover:bg-[#222] 
-                   hover:border-emerald-400 hover:shadow-[0_0_10px_#50C878]"
+                   hover:bg-[#222] "
       >
         <td className="py-3 px-4 text-gray-100 font-medium">{t.id}</td>
         <td className="py-3 px-4">
