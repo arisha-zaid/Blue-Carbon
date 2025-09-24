@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Creation Debug Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        button { padding: 10px 15px; margin: 5px; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Project Creation Debug Test</h1>
+    
+    <div class="test-section">
+        <h2>1. Authentication Check</h2>
+        <button onclick="checkAuth()">Check Authentication</button>
+        <div id="auth-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Create Test Project</h2>
+        <button onclick="createTestProject()">Create Test Project</button>
+        <div id="create-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. List Projects</h2>
+        <button onclick="listProjects()">List All Projects</button>
+        <div id="list-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Network Debug</h2>
+        <button onclick="debugNetwork()">Debug Network Requests</button>
+        <div id="network-result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+        
+        // Enable detailed logging
+        const originalFetch = window.fetch;
+        window.fetch = function(...args) {
+            console.log('🌐 Fetch Request:', args[0], args[1]);
+            return originalFetch.apply(this, args)
+                .then(response => {
+                    console.log('📥 Fetch Response:', response.status, response.statusText);
+                    return response;
+                })
+                .catch(error => {
+                    console.error('❌ Fetch Error:', error);
+                    throw error;
+                });
+        };
+
+        async function makeRequest(url, options = {}) {
+            try {
+                const response = await fetch(`${API_BASE}${url}`, {
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers
+                    },
+                    ...options
+                });
+
+                const data = await response.json();
+                console.log('Response data:', data);
+                
+                return {
+                    ok: response.ok,
+                    status: response.status,
+                    data: data
+                };
+            } catch (error) {
+                console.error('Request failed:', error);
+                return {
+                    ok: false,
+                    error: error.message
+                };
+            }
+        }
+
+        async function checkAuth() {
+            const result = document.getElementById('auth-result');
+            result.innerHTML = '<div class="info">Checking authentication...</div>';
+            
+            const response = await makeRequest('/auth/me');
+            
+            if (response.ok && response.data.success) {
+                result.innerHTML = `
+                    <div class="success">✅ Authenticated as: ${response.data.data.email}</div>
+                    <pre>${JSON.stringify(response.data.data, null, 2)}</pre>
+                `;
+            } else {
+                result.innerHTML = `
+                    <div class="error">❌ Not authenticated</div>
+                    <pre>${JSON.stringify(response, null, 2)}</pre>
+                    <div class="info">Please login first at: <a href="http://localhost:3000/login" target="_blank">http://localhost:3000/login</a></div>
+                `;
+            }
+        }
+
+        async function createTestProject() {
+            const result = document.getElementById('create-result');
+            result.innerHTML = '<div class="info">Creating test project...</div>';
+            
+            const projectData = {
+                name: "Debug Test Project " + new Date().toISOString(),
+                description: "This is a test project created for debugging purposes. It contains all required fields to test the project creation API endpoint.",
+                shortDescription: "Debug test project for API testing",
+                type: "reforestation",
+                location: {
+                    address: "Test Location, Test City",
+                    coordinates: {
+                        latitude: 40.7128,
+                        longitude: -74.0060
+                    },
+                    country: "Test Country"
+                },
+                endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+                funding: {
+                    goal: 10000,
+                    currency: "USD"
+                },
+                carbonImpact: {
+                    estimatedReduction: 500
+                },
+                area: 10.5,
+                phase: "planning",
+                status: "pending_review",
+                settings: {
+                    isPublic: true,
+                    allowPublicFunding: true
+                }
+            };
+
+            console.log('Sending project data:', projectData);
+            
+            const response = await makeRequest('/projects', {
+                method: 'POST',
+                body: JSON.stringify(projectData)
+            });
+            
+            if (response.ok && response.data.success) {
+                result.innerHTML = `
+                    <div class="success">✅ Project created successfully!</div>
+                    <div class="info">Project ID: ${response.data.data._id}</div>
+                    <pre>${JSON.stringify(response.data.data, null, 2)}</pre>
+                `;
+            } else {
+                result.innerHTML = `
+                    <div class="error">❌ Failed to create project</div>
+                    <pre>${JSON.stringify(response, null, 2)}</pre>
+                `;
+            }
+        }
+
+        async function listProjects() {
+            const result = document.getElementById('list-result');
+            result.innerHTML = '<div class="info">Loading projects...</div>';
+            
+            const response = await makeRequest('/projects');
+            
+            if (response.ok && response.data.success) {
+                const projects = response.data.data;
+                result.innerHTML = `
+                    <div class="success">✅ Found ${projects.length} projects</div>
+                    <pre>${JSON.stringify(projects, null, 2)}</pre>
+                `;
+            } else {
+                result.innerHTML = `
+                    <div class="error">❌ Failed to load projects</div>
+                    <pre>${JSON.stringify(response, null, 2)}</pre>
+                `;
+            }
+        }
+
+        async function debugNetwork() {
+            const result = document.getElementById('network-result');
+            result.innerHTML = '<div class="info">Running network diagnostics...</div>';
+            
+            let diagnostics = [];
+            
+            // Test 1: Basic connectivity
+            try {
+                const response = await fetch('http://localhost:5000/api/health');
+                diagnostics.push(`✅ Backend connectivity: ${response.status}`);
+            } catch (error) {
+                diagnostics.push(`❌ Backend connectivity failed: ${error.message}`);
+            }
+            
+            // Test 2: CORS headers
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/me', {
+                    credentials: 'include'
+                });
+                const corsHeaders = {
+                    'Access-Control-Allow-Origin': response.headers.get('Access-Control-Allow-Origin'),
+                    'Access-Control-Allow-Credentials': response.headers.get('Access-Control-Allow-Credentials')
+                };
+                diagnostics.push(`✅ CORS headers: ${JSON.stringify(corsHeaders)}`);
+            } catch (error) {
+                diagnostics.push(`❌ CORS check failed: ${error.message}`);
+            }
+            
+            // Test 3: Session cookies
+            const cookies = document.cookie;
+            diagnostics.push(`📋 Cookies: ${cookies || 'None'}`);
+            
+            result.innerHTML = `
+                <div class="info">Network Diagnostics:</div>
+                <pre>${diagnostics.join('\n')}</pre>
+            `;
+        }
+
+        // Auto-run auth check on load
+        window.onload = function() {
+            checkAuth();
+        };
+    </script>
+</body>
+</html>

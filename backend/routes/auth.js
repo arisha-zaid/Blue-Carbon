@@ -114,12 +114,19 @@ router.post(
       // Generate JWT token
       const token = generateToken(user);
 
+      // Store user in session for session-based auth
+      req.login(user, (err) => {
+        if (err) {
+          console.error("Session login error:", err);
+        }
+      });
+
       res.status(201).json({
         success: true,
         message: "User registered successfully",
         data: {
           user: user.getPublicProfile(),
-          token,
+          token, // Still provide token for backward compatibility
         },
       });
     } catch (error) {
@@ -216,12 +223,19 @@ router.post(
       // Generate JWT token
       const token = generateToken(user);
 
+      // Store user in session for session-based auth
+      req.login(user, (err) => {
+        if (err) {
+          console.error("Session login error:", err);
+        }
+      });
+
       res.json({
         success: true,
         message: "Login successful",
         data: {
           user: user.getPublicProfile(),
-          token,
+          token, // Still provide token for backward compatibility
         },
       });
     } catch (error) {

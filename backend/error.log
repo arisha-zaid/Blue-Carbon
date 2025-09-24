@@ -1,0 +1,16 @@
+IPFS client not available, using fallback implementation
+(node:9860) [MONGOOSE] Warning: Duplicate schema index on {"email":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9860) [MONGOOSE] Warning: Duplicate schema index on {"googleId":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(node:9860) [MONGOOSE] Warning: Duplicate schema index on {"complaintNumber":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(node:9860) [MONGOOSE] Warning: Duplicate schema index on {"userId":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(node:9860) [MONGOOSE] Warning: Duplicate schema index on {"blockchainHash":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(node:9860) [MONGOOSE] Warning: Duplicate schema index on {"user":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+💥 Unhandled Rejection: Cannot read properties of undefined (reading '_id')
+📍 Stack: TypeError: Cannot read properties of undefined (reading '_id')
+    at G:\bluecarbon\backend\routes\projects.js:364:65
+    at Layer.handle [as handle_request] (G:\bluecarbon\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (G:\bluecarbon\backend\node_modules\express\lib\router\route.js:149:13)
+    at middleware (G:\bluecarbon\backend\node_modules\express-validator\lib\middlewares\check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+⏰ Time: 2025-09-24T15:34:19.111Z

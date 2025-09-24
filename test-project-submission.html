@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Project Submission</title>
+</head>
+<body>
+    <h1>Test Project Submission</h1>
+    <button onclick="testProjectSubmission()">Test Submit Project</button>
+    
+    <script>
+        async function testProjectSubmission() {
+            const projectData = {
+                name: "Test Mangroves Project",
+                location: {
+                    address: "Test Mangrove Location",
+                    coordinates: {
+                        latitude: 10.123,
+                        longitude: 76.456
+                    }
+                },
+                type: "mangroves",
+                area: 5.5,
+                description: "This is a test mangrove restoration project to validate the frontend-backend API integration flow.",
+                carbonImpact: {
+                    estimatedReduction: 150
+                },
+                frontendData: {
+                    files: [],
+                    thumb: null,
+                    riskLevel: "Low"
+                },
+                status: "Pending MRV"
+            };
+            
+            console.log("Sending project data:", projectData);
+            
+            try {
+                const response = await fetch("http://localhost:5000/api/projects", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        name: projectData.name,
+                        description: projectData.description,
+                        type: "biodiversity_conservation", // Direct backend enum
+                        location: {
+                            address: projectData.location.address,
+                            country: "India"
+                        },
+                        area: projectData.area,
+                        carbonImpact: projectData.carbonImpact,
+                        endDate: "2025-12-31T00:00:00.000Z",
+                        funding: {
+                            goal: 1000,
+                            currency: "USD"
+                        },
+                        status: "draft"
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log("✅ Success:", result);
+                    alert("Project created successfully!");
+                } else {
+                    const error = await response.json();
+                    console.error("❌ Error:", error);
+                    alert("Error: " + JSON.stringify(error));
+                }
+            } catch (error) {
+                console.error("❌ Network error:", error);
+                alert("Network error: " + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

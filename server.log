@@ -1,0 +1,42 @@
+GOOGLE_CLIENT_ID: 499398044266-vq3dl20ikeh2bqk9uc3ol59jot1rlv3b.apps.googleusercontent.com
+🚀 Starting Blue Carbon Backend Server...
+📊 Environment: development
+🔌 Target Port: 5000
+🗄️  MongoDB URI: Atlas SRV (configured)
+🔗 Effective Mongo URI: mongodb+srv://<hidden>@<cluster>/<db>
+🌐 Frontend URL: http://localhost:5173
+⏰ Timestamp: 2025-09-24T15:26:24.592Z
+✅ Auth routes loaded
+✅ User routes loaded
+2025-09-24 20:56:24:5624 [[33m[33mwarn[33m[39m]: [33m[33mIPFS client not available, running in fallback mode[33m[39m 
+✅ Complaint routes loaded
+✅ Project routes loaded
+✅ Upload routes loaded
+✅ Location routes loaded
+✅ Community routes loaded
+✅ Admin routes loaded
+✅ Industry routes loaded
+✅ Blockchain routes loaded
+✅ Transaction routes loaded
+✅ Payment routes loaded
+✅ Webhook routes loaded
+🔍 Checking if port 5000 is available...
+✅ Port 5000 is available
+🔄 Connecting to MongoDB...
+🟡 MongoDB: connecting...
+🟢 MongoDB: connected
+✅ Connected to MongoDB
+📊 Database: blue-carbon
+🔗 Connection State: Connected
+🧪 DB write check: skipped (DB_STARTUP_WRITE_CHECK=false)
+🌱 Seeding default users: skipped (SEED_DEFAULT_USERS=false)
+🔄 Starting server on port 5000...
+🎉 ================================
+🚀 SERVER STARTED SUCCESSFULLY!
+🎉 ================================
+📍 Server URL: http://localhost:5000
+📱 Health Check: http://localhost:5000/api/health
+🌍 Environment: development
+⏰ Started at: 2025-09-24T15:26:26.805Z
+🔧 Process ID: 21688
+🎉 ================================

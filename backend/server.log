@@ -1,0 +1,123 @@
+GOOGLE_CLIENT_ID: 499398044266-vq3dl20ikeh2bqk9uc3ol59jot1rlv3b.apps.googleusercontent.com
+🚀 Starting Blue Carbon Backend Server...
+📊 Environment: development
+🔌 Target Port: 5000
+🗄️  MongoDB URI: Atlas SRV (configured)
+🔗 Effective Mongo URI: mongodb+srv://<hidden>@<cluster>/<db>
+🌐 Frontend URL: http://localhost:5173
+⏰ Timestamp: 2025-09-24T15:34:12.573Z
+✅ Auth routes loaded
+✅ User routes loaded
+2025-09-24 21:04:12:412 [[33m[33mwarn[33m[39m]: [33m[33mIPFS client not available, running in fallback mode[33m[39m 
+✅ Complaint routes loaded
+✅ Project routes loaded
+✅ Upload routes loaded
+✅ Location routes loaded
+✅ Community routes loaded
+✅ Admin routes loaded
+✅ Industry routes loaded
+✅ Blockchain routes loaded
+✅ Transaction routes loaded
+✅ Payment routes loaded
+✅ Webhook routes loaded
+🔍 Checking if port 5000 is available...
+✅ Port 5000 is available
+🔄 Connecting to MongoDB...
+🟡 MongoDB: connecting...
+🟢 MongoDB: connected
+✅ Connected to MongoDB
+📊 Database: blue-carbon
+🔗 Connection State: Connected
+🧪 DB write check: skipped (DB_STARTUP_WRITE_CHECK=false)
+🌱 Seeding default users: skipped (SEED_DEFAULT_USERS=false)
+🔄 Starting server on port 5000...
+🎉 ================================
+🚀 SERVER STARTED SUCCESSFULLY!
+🎉 ================================
+📍 Server URL: http://localhost:5000
+📱 Health Check: http://localhost:5000/api/health
+🌍 Environment: development
+⏰ Started at: 2025-09-24T15:34:14.975Z
+🔧 Process ID: 9860
+🎉 ================================
+2025-09-24 21:04:19:419 [[31m[31merror[31m[39m]: [31m[31munhandledRejection: Cannot read properties of undefined (reading '_id')[31m[39m
+[31m[31mTypeError: Cannot read properties of undefined (reading '_id')[31m[39m
+[31m[31m    at G:\bluecarbon\backend\routes\projects.js:364:65[31m[39m
+[31m[31m    at Layer.handle [as handle_request] (G:\bluecarbon\backend\node_modules\express\lib\router\layer.js:95:5)[31m[39m
+[31m[31m    at next (G:\bluecarbon\backend\node_modules\express\lib\router\route.js:149:13)[31m[39m
+[31m[31m    at middleware (G:\bluecarbon\backend\node_modules\express-validator\lib\middlewares\check.js:16:13)[31m[39m
+[31m[31m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[31m[39m {
+  "error": {},
+  "stack": "TypeError: Cannot read properties of undefined (reading '_id')\n    at G:\\bluecarbon\\backend\\routes\\projects.js:364:65\n    at Layer.handle [as handle_request] (G:\\bluecarbon\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (G:\\bluecarbon\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at middleware (G:\\bluecarbon\\backend\\node_modules\\express-validator\\lib\\middlewares\\check.js:16:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "rejection": true,
+  "date": "Wed Sep 24 2025 21:04:19 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 9860,
+    "uid": null,
+    "gid": null,
+    "cwd": "G:\\bluecarbon\\backend",
+    "execPath": "C:\\DevTools\\NodeJS\\node.exe",
+    "version": "v22.14.0",
+    "argv": [
+      "C:\\DevTools\\NodeJS\\node.exe",
+      "G:\\bluecarbon\\backend\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 153620480,
+      "heapTotal": 109010944,
+      "heapUsed": 82083456,
+      "external": 22068762,
+      "arrayBuffers": 18514162
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 12329.296
+  },
+  "trace": [
+    {
+      "column": 65,
+      "file": "G:\\bluecarbon\\backend\\routes\\projects.js",
+      "function": null,
+      "line": 364,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "G:\\bluecarbon\\backend\\node_modules\\express\\lib\\router\\layer.js",
+      "function": "Layer.handle [as handle_request]",
+      "line": 95,
+      "method": "handle [as handle_request]",
+      "native": false
+    },
+    {
+      "column": 13,
+      "file": "G:\\bluecarbon\\backend\\node_modules\\express\\lib\\router\\route.js",
+      "function": "next",
+      "line": 149,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 13,
+      "file": "G:\\bluecarbon\\backend\\node_modules\\express-validator\\lib\\middlewares\\check.js",
+      "function": "middleware",
+      "line": 16,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "node:internal/process/task_queues",
+      "function": "process.processTicksAndRejections",
+      "line": 105,
+      "method": "processTicksAndRejections",
+      "native": false
+    }
+  ]
+}
