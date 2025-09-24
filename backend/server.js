@@ -8,9 +8,11 @@ const http = require("http");
 const socketIo = require("socket.io");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
-// Enable Mongoose debug logs in development to trace DB operations
-if ((process.env.NODE_ENV || "development") !== "production") {
+// Controlled Mongoose debug logs (set MONGOOSE_DEBUG=true to enable)
+if ((process.env.MONGOOSE_DEBUG || "false").toLowerCase() === "true") {
   mongoose.set("debug", true);
+} else {
+  mongoose.set("debug", false);
 }
 const cors = require("cors");
 const helmet = require("helmet");
@@ -32,8 +34,12 @@ const getMongoUri = () => {
   const envUri = (process.env.MONGODB_URI || "").trim();
   // If Atlas/local URI is provided, use it exactly as-is
   if (envUri) return envUri;
+  // Also accept MONGODB_DB and MONGODB_HOST style overrides
+  const dbName = (process.env.MONGODB_DB || "blue_carbon").trim();
+  const host = (process.env.MONGODB_HOST || "127.0.0.1").trim();
+  const port = (process.env.MONGODB_PORT || "27017").trim();
   // Fallback to local default only when no env var is set
-  return DEFAULT_LOCAL_MONGO;
+  return `mongodb://${host}:${port}/${dbName}`;
 };
 
 const app = express();
@@ -188,6 +194,31 @@ io.on("connection", (socket) => {
 // Make io accessible to routes
 app.set("io", io);
 
+// Response formatter middleware for consistent API responses
+app.use((req, res, next) => {
+  // Store original json method
+  const originalJson = res.json;
+  
+  // Override json method to ensure consistent format
+  res.json = function(data) {
+    // If data already has success field, use as is
+    if (data && typeof data === 'object' && 'success' in data) {
+      return originalJson.call(this, data);
+    }
+    
+    // Format response consistently
+    const formattedResponse = {
+      success: res.statusCode < 400,
+      ...(data && { data }),
+      timestamp: new Date().toISOString()
+    };
+    
+    return originalJson.call(this, formattedResponse);
+  };
+  
+  next();
+});
+
 // Health check endpoint
 app.get("/api/health", (req, res) => {
   res.json({
@@ -198,6 +229,48 @@ app.get("/api/health", (req, res) => {
     database:
       mongoose.connection.readyState === 1 ? "connected" : "disconnected",
   });
+});
+
+// Detailed DB health endpoint
+app.get("/api/health/db", async (req, res) => {
+  try {
+    const stateNames = [
+      "disconnected",
+      "connected",
+      "connecting",
+      "disconnecting",
+      "uninitialized",
+    ];
+    const state = mongoose.connection.readyState;
+    const dbName = mongoose.connection.name;
+    const host = Array.isArray(mongoose.connection.hosts)
+      ? mongoose.connection.hosts.map((h) => h.host).join(",")
+      : mongoose.connection.host || "unknown";
+
+    // lightweight write test (safe even with limited perms)
+    let canWrite = false;
+    try {
+      const col = mongoose.connection.db.collection("diagnostics_health");
+      const { insertedId } = await col.insertOne({ _t: "db-health", ts: new Date() });
+      await col.deleteOne({ _id: insertedId });
+      canWrite = true;
+    } catch (e) {}
+
+    res.json({
+      success: true,
+      data: {
+        state: stateNames[state] || `${state}`,
+        dbName,
+        host,
+        canWrite,
+        effectiveUri: getMongoUri().startsWith("mongodb+srv://")
+          ? "mongodb+srv://<hidden>@<cluster>/<db>"
+          : getMongoUri(),
+      },
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
 });
 
 // Basic routes
@@ -315,25 +388,60 @@ try {
   console.warn("⚠️ Webhook routes failed to load:", error.message);
 }
 
-// Error handling middleware
+// Client-friendly error handling middleware
 app.use((err, req, res, next) => {
   console.error("Error:", err);
-  const status = err.status || 500;
+  
+  // Handle specific error types
+  let status = err.status || err.statusCode || 500;
+  let message = err.message || "Something went wrong";
+  
+  // JWT errors
+  if (err.name === 'JsonWebTokenError') {
+    status = 401;
+    message = "Invalid token";
+  } else if (err.name === 'TokenExpiredError') {
+    status = 401;
+    message = "Token expired";
+  }
+  // Validation errors
+  else if (err.name === 'ValidationError') {
+    status = 400;
+    message = Object.values(err.errors).map(e => e.message).join(', ');
+  }
+  // MongoDB duplicate key errors
+  else if (err.code === 11000) {
+    status = 400;
+    const field = Object.keys(err.keyPattern)[0];
+    message = `${field} already exists`;
+  }
+  // Cast errors (invalid ObjectId)
+  else if (err.name === 'CastError') {
+    status = 400;
+    message = "Invalid ID format";
+  }
+
   res.status(status).json({
     success: false,
-    error: "Internal server error",
-    message:
-      process.env.NODE_ENV === "development"
-        ? err.message
-        : "Something went wrong",
+    message: process.env.NODE_ENV === "development" ? message : "Something went wrong",
+    ...(process.env.NODE_ENV === "development" && { stack: err.stack })
   });
 });
 
-// 404 handler
+// Client-friendly 404 handler
 app.use("*", (req, res) => {
   res.status(404).json({
-    error: "Not found",
-    message: `Route ${req.originalUrl} not found`,
+    success: false,
+    message: `API endpoint ${req.originalUrl} not found`,
+    availableEndpoints: [
+      "GET /api/health",
+      "POST /api/auth/login",
+      "POST /api/auth/register",
+      "GET /api/projects",
+      "POST /api/projects",
+      "GET /api/transactions",
+      "POST /api/payments/stripe/create-intent"
+    ]
   });
 });
 
@@ -399,107 +507,115 @@ const startServer = async () => {
       }`
     );
 
-    // Quick write check to detect permission issues early
-    try {
-      const diagnostics = mongoose.connection.db.collection("diagnostics");
-      const testDoc = { _t: "startup-write-check", ts: new Date() };
-      await diagnostics.insertOne(testDoc);
-      await diagnostics.deleteOne({ _id: testDoc._id });
-      console.log("🧪 DB write check: OK (insert/delete succeeded)");
-    } catch (e) {
-      console.warn("⚠️ DB write check failed:", e && (e.message || e));
-      console.warn(
-        "   ➜ Your MongoDB user may not have write permissions on this database."
-      );
-      console.warn(
-        '   ➜ Ensure the user has at least the "readWrite" role on the target DB:',
-        mongoose.connection.name
-      );
+    // Optional: DB write check (disabled by default)
+    if ((process.env.DB_STARTUP_WRITE_CHECK || "false").toLowerCase() === "true") {
+      try {
+        const diagnostics = mongoose.connection.db.collection("diagnostics");
+        const testDoc = { _t: "startup-write-check", ts: new Date() };
+        const { insertedId } = await diagnostics.insertOne(testDoc);
+        await diagnostics.deleteOne({ _id: insertedId });
+        console.log("🧪 DB write check: OK (insert/delete succeeded)");
+      } catch (e) {
+        console.warn("⚠️ DB write check failed:", e && (e.message || e));
+        console.warn(
+          "   ➜ Your MongoDB user may not have write permissions on this database."
+        );
+        console.warn(
+          '   ➜ Ensure the user has at least the "readWrite" role on the target DB:',
+          mongoose.connection.name
+        );
+      }
+    } else {
+      console.log("🧪 DB write check: skipped (DB_STARTUP_WRITE_CHECK=false)");
     }
 
-    // Ensure default admin and government users exist
-    try {
-      const User = require("./models/User");
-      const adminEmail =
-        process.env.DEFAULT_ADMIN_EMAIL || "admin@bluecarbon.org";
-      const adminPassword = process.env.DEFAULT_ADMIN_PASSWORD || "admin123";
-      const govEmail = process.env.DEFAULT_GOV_EMAIL || "gov@environmental.org";
-      const govPassword = process.env.DEFAULT_GOV_PASSWORD || "gov123";
+    // Optional: Seed default users (disabled by default)
+    if ((process.env.SEED_DEFAULT_USERS || "false").toLowerCase() === "true") {
+      try {
+        const User = require("./models/User");
+        const adminEmail =
+          process.env.DEFAULT_ADMIN_EMAIL || "admin@bluecarbon.org";
+        const adminPassword = process.env.DEFAULT_ADMIN_PASSWORD || "admin123";
+        const govEmail = process.env.DEFAULT_GOV_EMAIL || "gov@environmental.org";
+        const govPassword = process.env.DEFAULT_GOV_PASSWORD || "gov123";
 
-      const ensureUser = async (
-        email,
-        password,
-        role,
-        firstName,
-        lastName,
-        org
-      ) => {
-        const existing = await User.findOne({ email });
-        if (!existing) {
-          const u = new User({
-            firstName,
-            lastName,
-            email,
-            password, // hashed by pre-save hook
-            role,
-            isVerified: true,
-            organization: org || undefined,
-          });
-          await u.save();
-          console.log(`👤 Created default ${role} user: ${email}`);
-        } else {
-          let changed = false;
-          if (existing.role !== role) {
-            existing.role = role;
-            changed = true;
+        const ensureUser = async (
+          email,
+          password,
+          role,
+          firstName,
+          lastName,
+          org
+        ) => {
+          const existing = await User.findOne({ email });
+          if (!existing) {
+            const u = new User({
+              firstName,
+              lastName,
+              email,
+              password, // hashed by pre-save hook
+              role,
+              isVerified: true,
+              organization: org || undefined,
+            });
+            await u.save();
+            console.log(`👤 Created default ${role} user: ${email}`);
+          } else {
+            let changed = false;
+            if (existing.role !== role) {
+              existing.role = role;
+              changed = true;
+            }
+            if (!existing.isVerified) {
+              existing.isVerified = true;
+              changed = true;
+            }
+            if (existing.isActive === false) {
+              existing.isActive = true;
+              changed = true;
+            }
+            if (
+              (process.env.RESET_DEFAULT_PASSWORDS || "false").toLowerCase() ===
+              "true"
+            ) {
+              existing.password = password; // will be re-hashed by pre-save hook
+              // Clear any previous lock or attempts when resetting password
+              existing.lockUntil = undefined;
+              existing.loginAttempts = 0;
+              changed = true;
+            }
+            if (changed) {
+              await existing.save();
+              console.log(`🔁 Updated default ${role} user: ${email}`);
+            }
           }
-          if (!existing.isVerified) {
-            existing.isVerified = true;
-            changed = true;
-          }
-          if (existing.isActive === false) {
-            existing.isActive = true;
-            changed = true;
-          }
-          if (
-            (process.env.RESET_DEFAULT_PASSWORDS || "false").toLowerCase() ===
-            "true"
-          ) {
-            existing.password = password; // will be re-hashed by pre-save hook
-            // Clear any previous lock or attempts when resetting password
-            existing.lockUntil = undefined;
-            existing.loginAttempts = 0;
-            changed = true;
-          }
-          if (changed) {
-            await existing.save();
-            console.log(`🔁 Updated default ${role} user: ${email}`);
-          }
-        }
-      };
+        };
 
-      await ensureUser(
-        adminEmail,
-        adminPassword,
-        "admin",
-        "System",
-        "Administrator",
-        { name: "Blue Carbon Foundation", type: "ngo" }
-      );
+        await ensureUser(
+          adminEmail,
+          adminPassword,
+          "admin",
+          "System",
+          "Administrator",
+          { name: "Blue Carbon Foundation", type: "ngo" }
+        );
 
-      await ensureUser(
-        govEmail,
-        govPassword,
-        "government",
-        "Environmental",
-        "Officer",
-        { name: "Department of Environment", type: "government" }
-      );
-    } catch (e) {
-      console.warn(
-        "⚠️ Failed to ensure default admin/government users:",
-        e && (e.message || e)
-      );
+        await ensureUser(
+          govEmail,
+          govPassword,
+          "government",
+          "Environmental",
+          "Officer",
+          { name: "Department of Environment", type: "government" }
+        );
+      } catch (e) {
+        console.warn(
+          "⚠️ Failed to ensure default admin/government users:",
+          e && (e.message || e)
+        );
+      }
+    } else {
+      console.log("🌱 Seeding default users: skipped (SEED_DEFAULT_USERS=false)");
     }
 
     // Start server

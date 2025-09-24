@@ -1,68 +1,95 @@
 // src/store/projects.js
-export function getProjects() {
-  try {
-    const raw = localStorage.getItem("bcr-projects");
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
+import apiService from "../services/api";
+
+// Fetch projects from backend
+export async function getProjects(params = {}) {
+  const res = await apiService.getProjects(params);
+  if (res && res.success) {
+    const items = Array.isArray(res.data) ? res.data : res.data?.projects || [];
+    return (items || []).map((p) => normalizeProjectFromBackend(p));
   }
+  return [];
 }
 
-export function saveProjects(projects) {
-  localStorage.setItem("bcr-projects", JSON.stringify(projects));
+// Create a new project via backend
+export async function addProject(projectData) {
+  const res = await apiService.createProject(projectData);
+  if (res && res.success) {
+    return normalizeProjectFromBackend(res.data);
+  }
+  throw new Error(res?.message || "Failed to create project");
 }
 
-export function addProject(project) {
-  const all = getProjects();
-  all.unshift(project); // newest first
-  saveProjects(all);
+// Get single project by id via backend
+export async function getProjectById(id) {
+  const res = await apiService.getProjectById(id);
+  if (res && res.success) {
+    return normalizeProjectFromBackend(res.data);
+  }
+  return null;
 }
 
-export function getProjectById(id) {
-  const all = getProjects();
-  return all.find((p) => String(p.id) === String(id));
+// Update project via backend
+export async function updateProject(projectId, data) {
+  const res = await apiService.updateProject(projectId, data);
+  if (res && res.success) {
+    return normalizeProjectFromBackend(res.data);
+  }
+  throw new Error(res?.message || "Failed to update project");
 }
 
-export function updateProject(updated) {
-  const all = getProjects();
-  const next = all.map((p) =>
-    String(p.id) === String(updated.id) ? updated : p
-  );
-  saveProjects(next);
-  return updated;
+// Anchor project (if backend supports). Kept for compatibility; no-op otherwise
+export async function anchorProject(projectId) {
+  const res = await apiService.request(`/projects/${projectId}/anchor`, { method: "POST" });
+  if (res && res.success) {
+    return normalizeProjectFromBackend(res.data);
+  }
+  throw new Error(res?.message || "Failed to anchor project");
 }
 
-export function updateProjectStatus(id, newStatus) {
-  const p = getProjectById(id);
-  if (!p) return null;
-  p.status = newStatus;
-  updateProject(p);
-  return p;
+// Issue certificate (if backend supports)
+export async function issueCertificate(projectId) {
+  const res = await apiService.request(`/projects/${projectId}/certificate`, { method: "POST" });
+  if (res && res.success) {
+    return normalizeProjectFromBackend(res.data);
+  }
+  throw new Error(res?.message || "Failed to issue certificate");
 }
 
-export function anchorProject(id) {
-  const p = getProjectById(id);
-  if (!p) return null;
-  // generate mock TxID
-  const randomHex = () =>
-    Array.from({ length: 64 })
-      .map(() => "0123456789abcdef"[Math.floor(Math.random() * 16)])
-      .join("");
-  const txId = "0x" + randomHex();
-  p.txId = txId;
-  p.status = "Blockchain Anchored";
-  updateProject(p);
-  return p;
-}
+// Legacy localStorage helpers retained only if referenced elsewhere
+export function saveProjects() {}
+export function updateProjectStatus() { return null; }
 
-export function issueCertificate(id) {
-  const p = getProjectById(id);
-  if (!p) return null;
-  p.status = "Certificate Issued";
-  p.certificateIssued = true;
-  p.certificateAt = new Date().toISOString();
-  updateProject(p);
-  return p;
+// Helper: normalize backend project to frontend shape used by UI
+function normalizeProjectFromBackend(p) {
+  const id = p._id || p.id;
+  const createdAt = p.createdAt || new Date().toISOString();
+  // Derive thumbnail
+  let thumb = p.thumb || p.imageUrl || p.image || (p.documents && p.documents[0]?.url) || "";
+  if (typeof thumb === "string") {
+    let t = thumb.replace(/\\/g, "/");
+    if (t && !t.startsWith("http") && !t.startsWith("data:")) {
+      if (t.startsWith("uploads/")) t = "/" + t;
+      if (t.startsWith("/uploads/")) {
+        thumb = `${window.location.protocol}//${window.location.hostname}:5000${t}`;
+      } else {
+        thumb = t;
+      }
+    } else {
+      thumb = t;
+    }
+  }
+
+  return {
+    id,
+    backendId: id,
+    name: p.name || p.title || "Untitled",
+    type: p.type || p.projectType || "Other",
+    location: p.location?.address || p.location || "Unknown",
+    sizeHa: p.area || p.sizeHa || 0,
+    predictedCO2: p.carbonImpact?.estimatedReduction || p.predictedCO2 || 0,
+    status: p.status || "Pending MRV",
+    createdAt,
+    thumb: thumb || "https://images.unsplash.com/photo-1529112431328-88da9f2e2ea8?q=80&w=1600&auto=format&fit=crop",
+  };
 }

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Carbon API Client Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .response {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .success {
+            border-color: #28a745;
+            background-color: #d4edda;
+        }
+        .error {
+            border-color: #dc3545;
+            background-color: #f8d7da;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌊 Blue Carbon API Client Example</h1>
+    
+    <!-- Server Status -->
+    <div class="container">
+        <h2>Server Status</h2>
+        <button onclick="checkHealth()">Check Server Health</button>
+        <div id="healthResponse" class="response hidden"></div>
+    </div>
+
+    <!-- Authentication -->
+    <div class="container">
+        <h2>Authentication</h2>
+        
+        <h3>Register</h3>
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" id="registerName" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="registerEmail" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" id="registerPassword" placeholder="password123">
+        </div>
+        <button onclick="register()">Register</button>
+        <div id="registerResponse" class="response hidden"></div>
+
+        <h3>Login</h3>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="loginEmail" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" id="loginPassword" placeholder="password123">
+        </div>
+        <button onclick="login()">Login</button>
+        <button onclick="logout()">Logout</button>
+        <div id="loginResponse" class="response hidden"></div>
+    </div>
+
+    <!-- Projects -->
+    <div class="container">
+        <h2>Projects</h2>
+        
+        <button onclick="getProjects()">Get All Projects</button>
+        <div id="projectsResponse" class="response hidden"></div>
+
+        <h3>Create Project</h3>
+        <div class="form-group">
+            <label>Title:</label>
+            <input type="text" id="projectTitle" placeholder="Ocean Cleanup Initiative">
+        </div>
+        <div class="form-group">
+            <label>Description:</label>
+            <textarea id="projectDescription" placeholder="Cleaning plastic waste from oceans"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Category:</label>
+            <select id="projectCategory">
+                <option value="reforestation">Reforestation</option>
+                <option value="ocean-conservation">Ocean Conservation</option>
+                <option value="renewable-energy">Renewable Energy</option>
+                <option value="waste-management">Waste Management</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Target Amount ($):</label>
+            <input type="number" id="projectAmount" placeholder="50000">
+        </div>
+        <div class="form-group">
+            <label>Country:</label>
+            <input type="text" id="projectCountry" placeholder="India">
+        </div>
+        <div class="form-group">
+            <label>State:</label>
+            <input type="text" id="projectState" placeholder="Maharashtra">
+        </div>
+        <div class="form-group">
+            <label>City:</label>
+            <input type="text" id="projectCity" placeholder="Mumbai">
+        </div>
+        <button onclick="createProject()">Create Project</button>
+        <div id="createProjectResponse" class="response hidden"></div>
+    </div>
+
+    <!-- Transactions -->
+    <div class="container">
+        <h2>Transactions</h2>
+        <button onclick="getTransactions()">Get My Transactions</button>
+        <div id="transactionsResponse" class="response hidden"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+        let authToken = localStorage.getItem('authToken');
+
+        // Update UI based on auth status
+        function updateAuthStatus() {
+            const isLoggedIn = !!authToken;
+            console.log('Auth status:', isLoggedIn ? 'Logged in' : 'Not logged in');
+        }
+
+        // Generic API request function
+        async function apiRequest(endpoint, options = {}) {
+            const url = `${API_BASE}${endpoint}`;
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...options.headers
+                },
+                ...options
+            };
+
+            if (authToken) {
+                config.headers.Authorization = `Bearer ${authToken}`;
+            }
+
+            try {
+                const response = await fetch(url, config);
+                const data = await response.json();
+                
+                return {
+                    success: response.ok,
+                    status: response.status,
+                    data: data
+                };
+            } catch (error) {
+                return {
+                    success: false,
+                    status: 0,
+                    data: { message: error.message }
+                };
+            }
+        }
+
+        // Display response in UI
+        function displayResponse(elementId, response) {
+            const element = document.getElementById(elementId);
+            element.className = `response ${response.success ? 'success' : 'error'}`;
+            element.textContent = JSON.stringify(response, null, 2);
+            element.classList.remove('hidden');
+        }
+
+        // Health check
+        async function checkHealth() {
+            const response = await apiRequest('/health');
+            displayResponse('healthResponse', response);
+        }
+
+        // Register
+        async function register() {
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+
+            if (!name || !email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            const response = await apiRequest('/auth/register', {
+                method: 'POST',
+                body: JSON.stringify({ name, email, password })
+            });
+
+            displayResponse('registerResponse', response);
+        }
+
+        // Login
+        async function login() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (!email || !password) {
+                alert('Please fill in email and password');
+                return;
+            }
+
+            const response = await apiRequest('/auth/login', {
+                method: 'POST',
+                body: JSON.stringify({ email, password })
+            });
+
+            if (response.success && response.data.data && response.data.data.token) {
+                authToken = response.data.data.token;
+                localStorage.setItem('authToken', authToken);
+                updateAuthStatus();
+            }
+
+            displayResponse('loginResponse', response);
+        }
+
+        // Logout
+        async function logout() {
+            const response = await apiRequest('/auth/logout', {
+                method: 'POST'
+            });
+
+            authToken = null;
+            localStorage.removeItem('authToken');
+            updateAuthStatus();
+
+            displayResponse('loginResponse', response);
+        }
+
+        // Get projects
+        async function getProjects() {
+            const response = await apiRequest('/projects');
+            displayResponse('projectsResponse', response);
+        }
+
+        // Create project
+        async function createProject() {
+            if (!authToken) {
+                alert('Please login first');
+                return;
+            }
+
+            const title = document.getElementById('projectTitle').value;
+            const description = document.getElementById('projectDescription').value;
+            const category = document.getElementById('projectCategory').value;
+            const targetAmount = document.getElementById('projectAmount').value;
+            const country = document.getElementById('projectCountry').value;
+            const state = document.getElementById('projectState').value;
+            const city = document.getElementById('projectCity').value;
+
+            if (!title || !description || !targetAmount) {
+                alert('Please fill in required fields');
+                return;
+            }
+
+            const projectData = {
+                title,
+                description,
+                category,
+                targetAmount: parseInt(targetAmount),
+                location: {
+                    country,
+                    state,
+                    city
+                },
+                duration: 12,
+                carbonCreditsExpected: Math.floor(targetAmount / 100),
+                organization: {
+                    name: "Test Organization",
+                    type: "ngo",
+                    registrationNumber: "TEST123"
+                }
+            };
+
+            const response = await apiRequest('/projects', {
+                method: 'POST',
+                body: JSON.stringify(projectData)
+            });
+
+            displayResponse('createProjectResponse', response);
+        }
+
+        // Get transactions
+        async function getTransactions() {
+            if (!authToken) {
+                alert('Please login first');
+                return;
+            }
+
+            const response = await apiRequest('/transactions');
+            displayResponse('transactionsResponse', response);
+        }
+
+        // Initialize
+        updateAuthStatus();
+        
+        // Auto-check health on load
+        window.addEventListener('load', () => {
+            checkHealth();
+        });
+    </script>
+</body>
+</html>

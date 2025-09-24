@@ -1,12 +1,7 @@
 // src/pages/dashboard/MyProjects.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  getProjects,
-  saveProjects,
-  updateProjectStatus,
-  anchorProject,
-} from "../../store/projects";
+import { getProjects } from "../../store/projects";
 import { useNotification } from "../../context/NotificationContext";
 import {
   Search,
@@ -28,139 +23,34 @@ const STATUSES = [
   "Blockchain Anchored",
 ];
 
-// Projects saved from AddProject are stored in localStorage (bcr-projects)
-// We'll merge them with a small curated set for demo
-const DEFAULT_PROJECTS = [
-  {
-    id: "PRJ-127",
-    name: "Mangrove Revival – Delta",
-    type: "Mangroves",
-    location: "Odisha, IN",
-    sizeHa: 210,
-    predictedCO2: 650,
-    status: "Blockchain Anchored",
-    createdAt: "2025-08-10",
-    thumb:
-      "https://images.unsplash.com/photo-1544551763-7ef420f2d07d?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "PRJ-131",
-    name: "Seagrass Bloom – West",
-    type: "Seagrass",
-    location: "Goa, IN",
-    sizeHa: 120,
-    predictedCO2: 310,
-    status: "Approved",
-    createdAt: "2025-08-05",
-    thumb:
-      "https://images.unsplash.com/photo-1526666923127-b2970f64b422?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "PRJ-140",
-    name: "Wetland Horizon – Estuary",
-    type: "Wetlands",
-    location: "Kerala, IN",
-    sizeHa: 330,
-    predictedCO2: 720,
-    status: "MRV Complete",
-    createdAt: "2025-07-29",
-    thumb:
-      "https://images.unsplash.com/photo-1529112431328-88da9f2e2ea8?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "PRJ-144",
-    name: "Mangrove Shield – Delta North",
-    type: "Mangroves",
-    location: "Gujarat, IN",
-    sizeHa: 180,
-    predictedCO2: 560,
-    status: "Pending MRV",
-    createdAt: "2025-07-21",
-    thumb:
-      "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?q=80&w=1600&auto=format&fit=crop",
-  },
-];
-
 export default function MyProjects() {
   const [query, setQuery] = useState("");
   const [ptype, setPtype] = useState("All");
   const [pstatus, setPstatus] = useState("All");
   const [sortId, setSortId] = useState("date_desc"); // date_desc | co2_desc | size_desc
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { addNotification } = useNotification();
 
-  // Load projects: combine saved (AddProject) + defaults
+  // Load projects from backend
   useEffect(() => {
-    try {
-      const stored = getProjects();
-      // Normalize missing fields for new projects
-      const normalized = stored.map((p) => {
-        // Normalize various thumbnail formats from backend or local input
-        let thumb = p.thumb || p.image || "";
-        if (typeof thumb === "string") {
-          let t = thumb.replace(/\\/g, "/"); // handle Windows-style slashes
-          if (t.startsWith("data:") || t.startsWith("http")) {
-            thumb = t;
-          } else {
-            if (t.startsWith("uploads/")) t = "/" + t;
-            if (t.startsWith("/uploads/")) {
-              thumb = `${window.location.protocol}//${window.location.hostname}:5000${t}`;
-            } else {
-              thumb = t;
-            }
-          }
-        }
-        return {
-          ...p,
-          thumb:
-            thumb ||
-            "https://images.unsplash.com/photo-1529112431328-88da9f2e2ea8?q=80&w=1600&auto=format&fit=crop",
-        };
-      });
-      const merged = [...normalized, ...DEFAULT_PROJECTS];
-      setProjects(merged);
-    } catch {
-      setProjects(DEFAULT_PROJECTS);
-    }
-  }, []);
-
-  // Button actions
-  const advanceStatus = (proj) => {
-    const order = [
-      "Pending MRV",
-      "MRV Complete",
-      "Approved",
-      "Blockchain Anchored",
-    ];
-    const idx = order.indexOf(proj.status);
-    const nextStatus =
-      order[Math.min(order.length - 1, idx + 1)] || "Pending MRV";
-    updateProjectStatus(proj.id, nextStatus);
-    addNotification(`Status updated to ${nextStatus}`, "success");
-    // Refresh local state
-    const refreshed = getProjects();
-    setProjects([...refreshed, ...DEFAULT_PROJECTS]);
-  };
-
-  const anchorOnChain = (proj) => {
-    const res = anchorProject(proj.id);
-    if (res) {
-      addNotification({
-        message: "Anchored on blockchain (mock)",
-        type: "success",
-      });
-      const refreshed = getProjects();
-      setProjects([...refreshed, ...DEFAULT_PROJECTS]);
-    }
-  };
-
-  const deleteProject = (proj) => {
-    const all = getProjects().filter((p) => String(p.id) !== String(proj.id));
-    saveProjects(all);
-    addNotification("Project deleted", "success");
-    const refreshed = getProjects();
-    setProjects([...refreshed, ...DEFAULT_PROJECTS]);
-  };
+    let mounted = true;
+    (async () => {
+      setLoading(true);
+      try {
+        const list = await getProjects();
+        if (mounted) setProjects(list);
+      } catch (e) {
+        console.error("Failed to load projects:", e);
+        addNotification("Failed to load projects from server.", "error");
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, [addNotification]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -253,8 +143,12 @@ export default function MyProjects() {
       </div>
 
       {/* Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {filtered.length === 0 ? (
+      <section className="grid grid-cols-1 md:grid-cols-2 xl-grid-cols-3 gap-6">
+        {loading ? (
+          <div className="col-span-full text-center text-gray-500 py-16">
+            Loading projects...
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="col-span-full text-center text-gray-500 py-16">
             No projects found.
           </div>
@@ -268,7 +162,7 @@ export default function MyProjects() {
 
 function ProjectCard({ p, idx }) {
   return (
-    <div className="group rounded-2xl border border-gray-700 bg-[#1a1a1a] hover:border-emerald-500 hover:shadow-[0_0_10px_#10b981] transition overflow-hidden">
+    <div className="group rounded-2xl border border-gray-700 bg-[#1a1a1a] hover:border-teal-800  transition overflow-hidden">
       {/* Image */}
       <div className="relative h-44 overflow-hidden">
         <img
@@ -324,8 +218,7 @@ function ProjectCard({ p, idx }) {
 
         <div className="flex items-center justify-between text-xs text-gray-400">
           <div className="inline-flex items-center gap-1">
-            <CalendarDays className="w-4 h-4" />{" "}
-            {new Date(p.createdAt).toLocaleDateString()}
+            <CalendarDays className="w-4 h-4" /> {new Date(p.createdAt).toLocaleDateString()}
           </div>
           <Link
             to={`/project/${p.id}`}
@@ -350,10 +243,7 @@ function ProjectCard({ p, idx }) {
                 : "bg-violet-500"
             }`}
             style={{
-              width: `${Math.min(
-                100,
-                Math.round((p.predictedCO2 / 800) * 100)
-              )}%`,
+              width: `${Math.min(100, Math.round((p.predictedCO2 / 800) * 100))}%`,
             }}
           />
         </div>

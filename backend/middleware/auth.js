@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 // Middleware to check if user is authenticated
-const isAuthenticated = (req, res, next) => {
+const isAuthenticated = async (req, res, next) => {
   try {
     // Check if user is authenticated via session (Passport)
     if (req.isAuthenticated()) {
@@ -21,7 +21,25 @@ const isAuthenticated = (req, res, next) => {
 
     // Verify JWT token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
+    
+    // Fetch the full user data from database to ensure we have the latest info
+    const user = await User.findById(decoded._id).select('-password');
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "User not found. Please login again.",
+      });
+    }
+
+    // Check if user is still active
+    if (!user.isActive) {
+      return res.status(403).json({
+        success: false,
+        message: "Account is deactivated. Please contact support.",
+      });
+    }
+
+    req.user = user;
     next();
   } catch (error) {
     if (error.name === "TokenExpiredError") {

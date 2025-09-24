@@ -413,7 +413,7 @@ export default function Policies() {
           </tr>
         ) : (
           filtered.map((p) => (
-            <tr key={p.id} className="border border-gray-700 hover:border-teal-500 hover:shadow-[0px_0px_10px_#14b8a6] transition duration-300"
+            <tr key={p.id} className="border border-gray-700  transition duration-300 hover:bg-[#222]"
 >
               <td className="py-3 px-4">
                 <div className="font-semibold text-white">{p.title}</div>

@@ -291,13 +291,13 @@ export default function AdminDashboard() {
         <div className="flex items-center gap-3">
           <Link
             to="/admin/project-approval"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-emerald-600 transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_12px_#10b981] hover:text-emerald-400"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-emerald-600 transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_10px_#10b981] hover:text-emerald-400"
           >
             <ClipboardList className="w-4 h-4" /> Review Approvals
           </Link>
           <Link
             to="/admin/reports"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-600 transition-all duration-300 hover:border-cyan-500 hover:shadow-[0_0_12px_#22d3ee] hover:text-cyan-400"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-600 transition-all duration-300 hover:border-cyan-500 hover:shadow-[0_0_10px_#22d3ee] hover:text-cyan-400"
           >
             <BarChart3 className="w-4 h-4" /> View Reports
           </Link>
@@ -310,7 +310,7 @@ export default function AdminDashboard() {
   {kpis.map((k) => (
     <div
       key={k.title}
-      className={`bg-[#1a1a1a] rounded-2xl shadow-md p-6 border border-transparent transition-all duration-300 hover:shadow-[0_0_15px_currentColor] ${k.textColor}`}
+      className={`bg-[#1a1a1a] rounded-2xl shadow-md p-6 border border-transparent transition-all duration-300 hover:shadow-[0_0_10px_currentColor] ${k.textColor}`}
       onMouseEnter={(e) => {
         e.currentTarget.style.borderColor = "currentColor";
       }}
@@ -339,7 +339,7 @@ export default function AdminDashboard() {
       {/* Health + Trends */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* System health card */}
-        <div className="bg-[#1a1a1a] rounded-2xl shadow-md p-6 border border-transparent transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_15px_#10b981]">
+        <div className="bg-[#1a1a1a] rounded-2xl shadow-md p-6 border border-transparent transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_10px_#10b981]">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold flex items-center gap-2 text-gray-100">
               <Activity className="w-5 h-5 text-emerald-400" />
@@ -367,7 +367,7 @@ export default function AdminDashboard() {
           <div className="mt-5 flex items-center gap-3">
             <Link
               to="/admin/settings"
-              className="px-4 py-2 rounded-lg border border-gray-700 text-white transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_12px_#10b981] hover:text-emerald-400"
+              className="px-4 py-2 rounded-lg border border-gray-700 text-white transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_10px_#10b981] hover:text-emerald-400"
             >
               <Cog className="inline w-4 h-4 mr-2" />
               Settings
@@ -382,7 +382,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* New users line chart */}
-        <div className="bg-[#1a1a1a] rounded-2xl shadow-md p-6 border border-transparent hover:border-cyan-500 hover:shadow-[0_0_15px_#22d3ee] transition-all duration-300">
+        <div className="bg-[#1a1a1a] rounded-2xl shadow-md p-6 border border-transparent hover:border-cyan-500 hover:shadow-[0_0_10px_#22d3ee] transition-all duration-300">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-gray-100">New Users (7d)</h3>
             <span className="text-sm text-gray-400">Daily signups</span>

@@ -353,8 +353,8 @@ export default function IndustryWallet() {
           </thead>
           <tbody>
             {MOCK_ACTIVITY.map((a) => (
-              <tr key={a.id} className="border border-gray-700 hover:border-teal-500 
-             hover:shadow-[0px_0px_8px_#2DD4BF] transition">
+              <tr key={a.id} className="border border-gray-700 hover:bg-[#222]
+             transition">
                 <td className="py-3 px-4 font-medium">{a.id}</td>
                 <td className="py-3 px-4">
                   <Tag type={a.type} />

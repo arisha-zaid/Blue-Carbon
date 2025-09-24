@@ -273,15 +273,33 @@ const projectSchema = new mongoose.Schema({
     ecosystemServices: [String]
   },
   socialImpact: {
-    beneficiaries: Number,
-    communities: [String],
+    beneficiaries: {
+      type: Number,
+      default: 0
+    },
+    communities: {
+      type: [String],
+      default: []
+    },
     jobs: {
-      created: Number,
-      type: [String]
+      created: {
+        type: Number,
+        default: 0
+      },
+      type: {
+        type: [String],
+        default: []
+      }
     },
     capacity: {
-      training: Number,
-      skills: [String]
+      training: {
+        type: Number,
+        default: 0
+      },
+      skills: {
+        type: [String],
+        default: []
+      }
     }
   },
   
