@@ -387,7 +387,7 @@ export default function AdminReports() {
         {filtered.map((d) => (
           <tr
             key={d.m}
-            className="border-t border-gray-700 hover:border-teal-500 hover:shadow-[0_0_10px_#14b8a6] transition"
+            className="border-t border-gray-700 hover:bg-[#222] transition"
           >
             <td className="py-3 px-4 text-gray-300">{d.m}</td>
             <td className="py-3 px-4 text-gray-300">{d.newUsers.toLocaleString()}</td>

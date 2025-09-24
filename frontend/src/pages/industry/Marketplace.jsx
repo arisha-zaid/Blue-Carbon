@@ -555,7 +555,8 @@ export default function Marketplace() {
               item={l}
               onBuy={() => openBuy(l)}
               onShowLocation={() => setMapModal({ open: true, item: l })}
-              className="bg-[#1a1a1a] hover:shadow-[0_0_8px_#14b8a6] transition-all duration-300"
+              className="bg-[#1a1a1a] text-gray-200 border border-gray-700 hover:border-teal-500 transition-colors duration-300 hover:shadow-[0_0_2px_#14b8a6]"
+
             />
           ))
         )}
@@ -740,7 +741,7 @@ function ListingCard({ item, onBuy, onShowLocation, className = "" }) {
 
   return (
     <div
-      className={`bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden group hover:shadow-[0_0_12px_#14b8a6] transition-shadow duration-300 ${className}`}
+      className={`bg-[#1a1a1a] rounded-2xl  hover:border-teal-600 group overflow-hidden  ${className}`}
     >
       {/* Image */}
       <div className="relative h-44">
