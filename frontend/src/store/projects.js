@@ -90,6 +90,17 @@ function normalizeProjectFromBackend(p) {
     predictedCO2: p.carbonImpact?.estimatedReduction || p.predictedCO2 || 0,
     status: p.status || "Pending MRV",
     createdAt,
-    thumb: thumb || "https://images.unsplash.com/photo-1529112431328-88da9f2e2ea8?q=80&w=1600&auto=format&fit=crop",
+    thumb:
+      thumb ||
+      "https://images.unsplash.com/photo-1529112431328-88da9f2e2ea8?q=80&w=1600&auto=format&fit=crop",
+
+    // Surface blockchain-related fields for UI components
+    txId: (p.blockchain && p.blockchain.txHash) || p.txId || "",
+    isOnChain: !!(p.blockchain && p.blockchain.isOnChain),
+    blockchainHash: (p.blockchain && p.blockchain.txHash) || "",
+    certificateTokenId:
+      (p.blockchain && p.blockchain.certificateTokenId) ||
+      p.certificateTokenId ||
+      "",
   };
 }

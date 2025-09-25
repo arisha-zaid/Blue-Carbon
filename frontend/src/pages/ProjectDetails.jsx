@@ -9,6 +9,7 @@ import {
   anchorProject,
   issueCertificate,
 } from "../store/projects";
+import apiService from "../services/api";
 import { QRCodeCanvas } from "qrcode.react";
 import { useNotification } from "../context/NotificationContext";
 import { useUser } from "../context/UserContext";
@@ -69,11 +70,43 @@ export default function ProjectDetails() {
 
   const approveProject = async () => {
     try {
-      const updated = await updateProject(project.id, { status: "Approved" });
+      // 1) Verify project on backend (required before approval)
+      await apiService.verifyProject(project.id, {
+        organization: "Government Carbon Authority",
+      });
+
+      // 2) Mark as Approved
+      let updated = await updateProject(project.id, { status: "Approved" });
       setProject(updated);
       addNotification("Project Approved ✅", "success");
+
+      // 3) Auto-progress: Anchor to Blockchain
+      try {
+        updated = await anchorProject(project.id);
+        setProject(updated);
+        addNotification(
+          `Anchored to blockchain ⛓️${updated.txId ? ` (TxID: ${updated.txId})` : ""}`,
+          "success"
+        );
+      } catch (anchorErr) {
+        // Stop auto-flow if anchoring fails, keep Approved state visible
+        addNotification(anchorErr?.message || "Failed to anchor project", "error");
+        return;
+      }
+
+      // 4) Auto-progress: Issue Certificate
+      try {
+        updated = await issueCertificate(project.id);
+        setProject(updated);
+        addNotification("Certificate Issued 🪪", "success");
+      } catch (certErr) {
+        addNotification(
+          certErr?.message || "Failed to issue certificate",
+          "error"
+        );
+      }
     } catch (e) {
-      addNotification("Failed to approve project", "error");
+      addNotification(e?.message || "Failed to approve project", "error");
     }
   };
 

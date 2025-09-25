@@ -21,7 +21,7 @@ const Certificate = ({ project, onDownload }) => {
     issuer: "Government Carbon Authority",
     status: "Certified Blue Carbon Project",
   };
-
+// 
   return (
     <div className="max-w-4xl mx-auto bg-gradient-to-br from-teal-50 to-blue-50 border-2 border-teal-200 rounded-2xl p-8 relative overflow-hidden">
       {/* Background Pattern */}
