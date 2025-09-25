@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
 
 import Layout from "./components/Layout";
-import Landing from "./pages/Landing";
+import Landing from "./pages/landing/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import OtpVerification from "./pages/OtpVerification";
