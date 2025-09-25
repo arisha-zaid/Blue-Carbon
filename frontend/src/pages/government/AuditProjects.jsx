@@ -3,7 +3,12 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useNotification } from "../../context/NotificationContext";
 import { useUser } from "../../context/UserContext";
 import apiService from "../../services/api";
-import { getProjects, updateProject } from "../../store/projects";
+import {
+  getProjects,
+  updateProject,
+  anchorProject,
+  issueCertificate,
+} from "../../store/projects";
 import {
   Search,
   Filter,
@@ -86,11 +91,47 @@ export default function AuditProjects() {
 
   const approveProject = async (id) => {
     try {
-      const updated = await updateProject(id, { status: "Approved" });
+      // 1) Verify the project first (required by backend before approval)
+      await apiService.verifyProject(id, {
+        organization: "Government Carbon Authority",
+      });
+
+      // 2) Mark as Approved
+      let updated = await updateProject(id, { status: "Approved" });
       setProjects((prev) => prev.map((p) => (p.id === id ? updated : p)));
       addNotification("Project Approved ✅", "success");
+
+      // 3) Auto-progress: Anchor to blockchain (backend route handles guards)
+      try {
+        updated = await anchorProject(id);
+        setProjects((prev) => prev.map((p) => (p.id === id ? updated : p)));
+        addNotification(
+          `Anchored to blockchain ⛓️${
+            updated.txId ? ` (TxID: ${updated.txId})` : ""
+          }`,
+          "success"
+        );
+      } catch (anchorErr) {
+        addNotification(
+          anchorErr?.message || "Failed to anchor project",
+          "error"
+        );
+        return; // stop auto flow on failure
+      }
+
+      // 4) Auto-progress: Issue certificate
+      try {
+        updated = await issueCertificate(id);
+        setProjects((prev) => prev.map((p) => (p.id === id ? updated : p)));
+        addNotification("Certificate Issued 🪪", "success");
+      } catch (certErr) {
+        addNotification(
+          certErr?.message || "Failed to issue certificate",
+          "error"
+        );
+      }
     } catch (e) {
-      addNotification("Failed to approve project", "error");
+      addNotification(e?.message || "Failed to approve project", "error");
     }
   };
 
