@@ -11,34 +11,52 @@ export default function Certificates() {
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    // Filter projects to only show those with a certificate
-    setProjects(
-      getProjects().filter(
-        (p) => p.status === "Certificate Issued" || p.certificateIssued
-      )
-    );
+    let isMounted = true;
 
-    // Get signed-in user's name
-    // 1) Try localStorage (set during login via api service)
-    const userData = api.getUserData?.() || null;
-    if (userData?.fullName || (userData?.firstName && userData?.lastName)) {
-      setUserName(
-        userData.fullName || `${userData.firstName} ${userData.lastName}`
-      );
-    } else {
-      // 2) Fallback: call /auth/me
-      api
-        .getCurrentUser?.()
-        .then((res) => {
+    (async () => {
+      try {
+        // Fetch projects and filter to those with issued certificates
+        const all = await getProjects();
+        if (isMounted) {
+          setProjects(
+            (all || []).filter(
+              (p) => p.status === "Certificate Issued" || p.certificateIssued
+            )
+          );
+        }
+      } catch (e) {
+        console.error("Failed to load projects for certificates:", e);
+        if (isMounted) setProjects([]);
+      }
+
+      // Get signed-in user's name
+      const userData = api.getUserData?.() || null;
+      if (userData?.fullName || (userData?.firstName && userData?.lastName)) {
+        if (isMounted) {
+          setUserName(
+            userData.fullName || `${userData.firstName} ${userData.lastName}`
+          );
+        }
+      } else {
+        try {
+          const res = await api.getCurrentUser?.();
           if (res?.success && res.data) {
             const u = res.data;
-            setUserName(
-              u.fullName || `${u.firstName || ""} ${u.lastName || ""}`.trim()
-            );
+            if (isMounted) {
+              setUserName(
+                u.fullName || `${u.firstName || ""} ${u.lastName || ""}`.trim()
+              );
+            }
           }
-        })
-        .catch(() => {});
-    }
+        } catch (err) {
+          // ignore; optional enhancement
+        }
+      }
+    })();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const generatePDF = async (project) => {

@@ -37,12 +37,24 @@ export default function Register() {
   const navigate = useNavigate();
   const { setRole } = useUser();
 
-  // Check if user is already logged in
+  // Check if user is already logged in (await async checks; ignore unauthenticated)
   useEffect(() => {
-    if (apiService.isAuthenticated()) {
-      const role = apiService.getUserRole();
-      navigate(`/${role === "ngo" ? "government" : role}`);
-    }
+    let mounted = true;
+    (async () => {
+      try {
+        const authed = await apiService.isAuthenticated();
+        if (!mounted || !authed) return;
+        const role = await apiService.getUserRole();
+        const resolvedRole =
+          role === "ngo" ? "government" : role || "dashboard";
+        navigate(`/${resolvedRole}`);
+      } catch (_) {
+        // stay on register if unauthenticated or error
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
   }, [navigate]);
 
   // Handle form input changes

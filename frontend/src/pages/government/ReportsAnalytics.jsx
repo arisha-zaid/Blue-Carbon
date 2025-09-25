@@ -14,7 +14,14 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const COLORS = ["#16a34a", "#22c55e", "#15803d", "#65a30d", "#0ea5e9", "#f97316"];
+const COLORS = [
+  "#16a34a",
+  "#22c55e",
+  "#15803d",
+  "#65a30d",
+  "#0ea5e9",
+  "#f97316",
+];
 
 const STATUS_ORDER = [
   "Pending",
@@ -30,8 +37,20 @@ export default function ReportsAnalytics() {
   const [typeFilter, setTypeFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
 
+  // Load projects asynchronously to avoid setting a Promise into state
   useEffect(() => {
-    setProjects(getProjects());
+    let mounted = true;
+    (async () => {
+      try {
+        const data = await getProjects();
+        if (mounted) setProjects(Array.isArray(data) ? data : []);
+      } catch (err) {
+        if (mounted) setProjects([]);
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const allTypes = useMemo(() => {
@@ -50,7 +69,8 @@ export default function ReportsAnalytics() {
   const filtered = useMemo(() => {
     return projects.filter((p) => {
       const matchType = typeFilter === "All" ? true : p.type === typeFilter;
-      const matchStatus = statusFilter === "All" ? true : (p.status || "") === statusFilter;
+      const matchStatus =
+        statusFilter === "All" ? true : (p.status || "") === statusFilter;
       return matchType && matchStatus;
     });
   }, [projects, typeFilter, statusFilter]);
@@ -59,8 +79,13 @@ export default function ReportsAnalytics() {
   const totals = useMemo(() => {
     const total = filtered.length;
     const approved = filtered.filter((p) => p.status === "Approved").length;
-    const anchored = filtered.filter((p) => (p.status || "").includes("Blockchain")).length;
-    const totalCO2 = filtered.reduce((acc, p) => acc + (p.predictedCO2 || 0), 0);
+    const anchored = filtered.filter((p) =>
+      (p.status || "").includes("Blockchain")
+    ).length;
+    const totalCO2 = filtered.reduce(
+      (acc, p) => acc + (p.predictedCO2 || 0),
+      0
+    );
     return { total, approved, anchored, totalCO2 };
   }, [filtered]);
 
@@ -257,173 +282,173 @@ export default function ReportsAnalytics() {
     // </div>
 
     <div className="space-y-6">
-  {/* Header */}
-  <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div>
-      <h1 className="text-3xl font-bold text-white">Reports & Analytics</h1>
-      <p className="text-gray-400 mt-1">
-        Project insights, distributions, and registry performance.
-      </p>
-    </div>
-    <div className="flex items-center gap-3">
-      <button
-        onClick={exportCSV}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#121212] text-gray-200 border border-gray-700
+      {/* Header */}
+      <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-bold text-white">Reports & Analytics</h1>
+          <p className="text-gray-400 mt-1">
+            Project insights, distributions, and registry performance.
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={exportCSV}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#121212] text-gray-200 border border-gray-700
           hover:border-teal-500 hover:shadow-[0px_0px_10px_#14b8a6]"
-      >
-        <Download className="w-4 h-4" /> Export CSV
-      </button>
-    </div>
-  </header>
-
-  {/* Filters */}
-  <div className="flex flex-col md:flex-row md:items-center gap-3">
-    <div className="flex items-center gap-2">
-      <Filter className="w-4 h-4 text-gray-400" />
-      <select
-        value={typeFilter}
-        onChange={(e) => setTypeFilter(e.target.value)}
-        className="py-2 px-3 rounded-lg border border-gray-700 bg-[#121212] text-gray-200
-          focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:shadow-[0px_0px_10px_#14b8a6]"
-      >
-        {allTypes.map((t) => (
-          <option key={t} value={t}>
-            {t}
-          </option>
-        ))}
-      </select>
-    </div>
-    <div className="flex items-center gap-2">
-      <Filter className="w-4 h-4 text-gray-400" />
-      <select
-        value={statusFilter}
-        onChange={(e) => setStatusFilter(e.target.value)}
-        className="py-2 px-3 rounded-lg border border-gray-700 bg-[#121212] text-gray-200
-          focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:shadow-[0px_0px_10px_#14b8a6]"
-      >
-        {allStatuses.map((s) => (
-          <option key={s} value={s}>
-            {s}
-          </option>
-        ))}
-      </select>
-    </div>
-  </div>
-
-  {/* KPIs */}
-  <section className="grid grid-cols-1 md:grid-cols-4 gap-6">
-    <KPI title="Total Projects" value={totals.total} />
-    <KPI title="Total Pred. CO₂ (t/yr)" value={totals.totalCO2} />
-    <KPI title="Approved" value={totals.approved} />
-    <KPI title="Anchored On-Chain" value={totals.anchored} />
-  </section>
-
-  {/* Charts */}
-  <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-    <div className="bg-[#1a1a1a] rounded-2xl border border-gray-700 p-6 hover:border-teal-500 hover:shadow-[0px_0px_12px_#14b8a6] transition">
-      <h3 className="font-semibold text-gray-200 mb-4">Project Types</h3>
-      <ResponsiveContainer width="100%" height={280}>
-        <PieChart>
-          <Pie
-            data={typeDistribution}
-            cx="50%"
-            cy="50%"
-            outerRadius={90}
-            dataKey="value"
-            label
           >
-            {typeDistribution.map((_, i) => (
-              <Cell key={i} fill={COLORS[i % COLORS.length]} />
+            <Download className="w-4 h-4" /> Export CSV
+          </button>
+        </div>
+      </header>
+
+      {/* Filters */}
+      <div className="flex flex-col md:flex-row md:items-center gap-3">
+        <div className="flex items-center gap-2">
+          <Filter className="w-4 h-4 text-gray-400" />
+          <select
+            value={typeFilter}
+            onChange={(e) => setTypeFilter(e.target.value)}
+            className="py-2 px-3 rounded-lg border border-gray-700 bg-[#121212] text-gray-200
+          focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:shadow-[0px_0px_10px_#14b8a6]"
+          >
+            {allTypes.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
             ))}
-          </Pie>
-          <Tooltip
-            contentStyle={{
-              backgroundColor: "#121212",
-              border: "1px solid #14b8a6",
-              color: "#fff",
-            }}
-          />
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
+          </select>
+        </div>
+        <div className="flex items-center gap-2">
+          <Filter className="w-4 h-4 text-gray-400" />
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="py-2 px-3 rounded-lg border border-gray-700 bg-[#121212] text-gray-200
+          focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:shadow-[0px_0px_10px_#14b8a6]"
+          >
+            {allStatuses.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
 
-    <div className="bg-[#1a1a1a] rounded-2xl border border-gray-700 p-6 hover:border-teal-500 hover:shadow-[0px_0px_12px_#14b8a6] transition">
-      <h3 className="font-semibold text-gray-200 mb-4">Project Status</h3>
-      <ResponsiveContainer width="100%" height={280}>
-        <BarChart data={statusDistribution}>
-          <XAxis dataKey="name" stroke="#9ca3af" />
-          <YAxis allowDecimals={false} stroke="#9ca3af" />
-          <Tooltip
-            contentStyle={{
-              backgroundColor: "#121212",
-              border: "1px solid #14b8a6",
-              color: "#fff",
-            }}
-          />
-          <Bar dataKey="value" fill="#14b8a6" />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  </section>
+      {/* KPIs */}
+      <section className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <KPI title="Total Projects" value={totals.total} />
+        <KPI title="Total Pred. CO₂ (t/yr)" value={totals.totalCO2} />
+        <KPI title="Approved" value={totals.approved} />
+        <KPI title="Anchored On-Chain" value={totals.anchored} />
+      </section>
 
-  {/* Table */}
-  <div className="bg-[#1a1a1a] rounded-2xl border border-gray-700 overflow-hidden">
-    <table className="w-full text-left text-gray-200">
-      <thead className="bg-[#121212] text-gray-400 text-sm">
-        <tr>
-          <th className="py-3 px-4">Project</th>
-          <th className="py-3 px-4">Type</th>
-          <th className="py-3 px-4">Location</th>
-          <th className="py-3 px-4">Pred. CO₂ (t/yr)</th>
-          <th className="py-3 px-4">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {filtered.length === 0 ? (
-          <tr>
-            <td colSpan={5} className="py-10 text-center text-gray-500">
-              No data for selected filters.
-            </td>
-          </tr>
-        ) : (
-          filtered.map((p) => (
-            <tr
-              key={p.id}
-              className="border-t border-gray-700 hover:bg-[#222222] transition"
-            >
-              <td className="py-3 px-4">
-                <div className="font-semibold text-white">{p.name}</div>
-                <div className="text-xs text-gray-500">{p.id}</div>
-              </td>
-              <td className="py-3 px-4">{p.type}</td>
-              <td className="py-3 px-4">{p.location}</td>
-              <td className="py-3 px-4">{p.predictedCO2 ?? "-"}</td>
-              <td className="py-3 px-4">
-                <span className="px-2 py-1 rounded-full bg-[#093b37] text-teal-400 text-xs border border-teal-500">
-                  {p.status}
-                </span>
-              </td>
+      {/* Charts */}
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-[#1a1a1a] rounded-2xl border border-gray-700 p-6 hover:border-teal-500 hover:shadow-[0px_0px_12px_#14b8a6] transition">
+          <h3 className="font-semibold text-gray-200 mb-4">Project Types</h3>
+          <ResponsiveContainer width="100%" height={280}>
+            <PieChart>
+              <Pie
+                data={typeDistribution}
+                cx="50%"
+                cy="50%"
+                outerRadius={90}
+                dataKey="value"
+                label
+              >
+                {typeDistribution.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#121212",
+                  border: "1px solid #14b8a6",
+                  color: "#fff",
+                }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="bg-[#1a1a1a] rounded-2xl border border-gray-700 p-6 hover:border-teal-500 hover:shadow-[0px_0px_12px_#14b8a6] transition">
+          <h3 className="font-semibold text-gray-200 mb-4">Project Status</h3>
+          <ResponsiveContainer width="100%" height={280}>
+            <BarChart data={statusDistribution}>
+              <XAxis dataKey="name" stroke="#9ca3af" />
+              <YAxis allowDecimals={false} stroke="#9ca3af" />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#121212",
+                  border: "1px solid #14b8a6",
+                  color: "#fff",
+                }}
+              />
+              <Bar dataKey="value" fill="#14b8a6" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </section>
+
+      {/* Table */}
+      <div className="bg-[#1a1a1a] rounded-2xl border border-gray-700 overflow-hidden">
+        <table className="w-full text-left text-gray-200">
+          <thead className="bg-[#121212] text-gray-400 text-sm">
+            <tr>
+              <th className="py-3 px-4">Project</th>
+              <th className="py-3 px-4">Type</th>
+              <th className="py-3 px-4">Location</th>
+              <th className="py-3 px-4">Pred. CO₂ (t/yr)</th>
+              <th className="py-3 px-4">Status</th>
             </tr>
-          ))
-        )}
-      </tbody>
-    </table>
-  </div>
-</div>
-
+          </thead>
+          <tbody>
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan={5} className="py-10 text-center text-gray-500">
+                  No data for selected filters.
+                </td>
+              </tr>
+            ) : (
+              filtered.map((p) => (
+                <tr
+                  key={p.id}
+                  className="border-t border-gray-700 hover:bg-[#222222] transition"
+                >
+                  <td className="py-3 px-4">
+                    <div className="font-semibold text-white">{p.name}</div>
+                    <div className="text-xs text-gray-500">{p.id}</div>
+                  </td>
+                  <td className="py-3 px-4">{p.type}</td>
+                  <td className="py-3 px-4">{p.location}</td>
+                  <td className="py-3 px-4">{p.predictedCO2 ?? "-"}</td>
+                  <td className="py-3 px-4">
+                    <span className="px-2 py-1 rounded-full bg-[#093b37] text-teal-400 text-xs border border-teal-500">
+                      {p.status}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
 
 function KPI({ title, value }) {
   return (
-    <div className="bg-[#1a1a1a] rounded-2xl border border-gray-700 shadow p-6 
-     hover:border-teal-500 hover:shadow-[0px_0px_12px_#14b8a6] transition">
-  <div className="text-sm text-gray-400">{title}</div>
-  <div className="mt-1 text-3xl font-bold text-white">
-    {typeof value === "number" ? value.toLocaleString() : value}
-  </div>
-</div>
-
+    <div
+      className="bg-[#1a1a1a] rounded-2xl border border-gray-700 shadow p-6 
+     hover:border-teal-500 hover:shadow-[0px_0px_12px_#14b8a6] transition"
+    >
+      <div className="text-sm text-gray-400">{title}</div>
+      <div className="mt-1 text-3xl font-bold text-white">
+        {typeof value === "number" ? value.toLocaleString() : value}
+      </div>
+    </div>
   );
 }
 

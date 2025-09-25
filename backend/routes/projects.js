@@ -241,7 +241,10 @@ router.post(
           },
         ],
         organization: {
-          name: organization?.name || req.user?.organization?.name || "Test Organization",
+          name:
+            organization?.name ||
+            req.user?.organization?.name ||
+            "Test Organization",
           type: organization?.type,
           website: organization?.website,
           contact: organization?.contact,
@@ -349,12 +352,17 @@ router.post(
       const project = new Project(projectData);
       await project.save();
 
-      logger.api.request("POST", "/api/projects", req.user?._id || 'test-user', {
-        projectId: project._id,
-        name,
-        type,
-        fundingGoal: funding.goal,
-      });
+      logger.api.request(
+        "POST",
+        "/api/projects",
+        req.user?._id || "test-user",
+        {
+          projectId: project._id,
+          name,
+          type,
+          fundingGoal: funding.goal,
+        }
+      );
 
       res.status(201).json({
         success: true,
@@ -362,7 +370,12 @@ router.post(
         data: project.getPublicData(),
       });
     } catch (error) {
-      logger.api.error("POST", "/api/projects", error, req.user?._id || 'test-user');
+      logger.api.error(
+        "POST",
+        "/api/projects",
+        error,
+        req.user?._id || "test-user"
+      );
       res.status(500).json({
         success: false,
         message: "Failed to create project",
@@ -984,7 +997,7 @@ router.put(
         "MRV Complete",
         "Approved",
         "Blockchain Anchored",
-        "Certificate Issued"
+        "Certificate Issued",
       ])
       .withMessage("Invalid project status"),
     body("location.coordinates.latitude")
@@ -1028,13 +1041,58 @@ router.put(
       const isTeamMember = project.team.some(
         (member) => member.user.toString() === req.user._id.toString()
       );
-      const isAdmin = req.user.role === "admin" || req.user.role === "government";
+      const isAdmin =
+        req.user.role === "admin" || req.user.role === "government";
 
       if (!isOwner && !isTeamMember && !isAdmin) {
         return res.status(403).json({
           success: false,
           message: "Not authorized to update this project",
         });
+      }
+
+      // Restrict approval-related status changes to Government only
+      if (req.body.status !== undefined) {
+        const requestedStatus = req.body.status;
+        const approvalStatuses = [
+          "Pending MRV",
+          "Approved",
+          "MRV Complete",
+          "Blockchain Anchored",
+          "Certificate Issued",
+          // support lowercase variants used elsewhere
+          "pending mrv",
+          "approved",
+          "mrv complete",
+          "blockchain anchored",
+          "certificate issued",
+        ];
+        const normalized = String(requestedStatus).toLowerCase();
+        const isApprovalRelated = approvalStatuses
+          .map((s) => s.toLowerCase())
+          .includes(normalized);
+
+        if (isApprovalRelated) {
+          // Allow government@example.com to access government features regardless of role
+          if (
+            req.user.role !== "government" &&
+            req.user.email !== "government@example.com"
+          ) {
+            return res.status(403).json({
+              success: false,
+              message: "Only government can change approval-related status",
+            });
+          }
+          // Require verification before approval
+          if (normalized === "approved") {
+            if (!(project.verification && project.verification.isVerified)) {
+              return res.status(400).json({
+                success: false,
+                message: "Project must be verified before approval",
+              });
+            }
+          }
+        }
       }
 
       // Capture state before modification for audit trail
@@ -1065,7 +1123,7 @@ router.put(
         "blockchain",
         "txId",
         "certificateIssued",
-        "certificateAt"
+        "certificateAt",
       ];
 
       allowedUpdates.forEach((field) => {
@@ -1074,43 +1132,43 @@ router.put(
             // Handle nested location object
             project.location = {
               ...project.location.toObject(),
-              ...req.body[field]
+              ...req.body[field],
             };
           } else if (field === "funding" && req.body[field]) {
             // Handle nested funding object
             project.funding = {
               ...project.funding.toObject(),
-              ...req.body[field]
+              ...req.body[field],
             };
           } else if (field === "carbonImpact" && req.body[field]) {
             // Handle nested carbonImpact object
             project.carbonImpact = {
               ...project.carbonImpact.toObject(),
-              ...req.body[field]
+              ...req.body[field],
             };
           } else if (field === "biodiversityImpact" && req.body[field]) {
             // Handle nested biodiversityImpact object
             project.biodiversityImpact = {
               ...project.biodiversityImpact.toObject(),
-              ...req.body[field]
+              ...req.body[field],
             };
           } else if (field === "socialImpact" && req.body[field]) {
             // Handle nested socialImpact object
             project.socialImpact = {
               ...project.socialImpact.toObject(),
-              ...req.body[field]
+              ...req.body[field],
             };
           } else if (field === "blockchain" && req.body[field]) {
             // Handle nested blockchain object
             project.blockchain = {
               ...project.blockchain.toObject(),
-              ...req.body[field]
+              ...req.body[field],
             };
           } else if (field === "settings" && req.body[field]) {
             // Handle nested settings object
             project.settings = {
               ...project.settings.toObject(),
-              ...req.body[field]
+              ...req.body[field],
             };
           } else {
             project[field] = req.body[field];
@@ -1141,10 +1199,15 @@ router.put(
         logger.warn("Failed to record audit log for project update", e);
       }
 
-      logger.api.request("PUT", `/api/projects/${req.params.id}`, req.user._id, {
-        projectId: project._id,
-        updatedFields: Object.keys(req.body),
-      });
+      logger.api.request(
+        "PUT",
+        `/api/projects/${req.params.id}`,
+        req.user._id,
+        {
+          projectId: project._id,
+          updatedFields: Object.keys(req.body),
+        }
+      );
 
       res.json({
         success: true,
@@ -1175,78 +1238,79 @@ router.put(
  * @desc    Delete a project
  * @access  Private (Project owner or admin)
  */
-router.delete(
-  "/:id",
-  auth,
-  async (req, res) => {
-    try {
-      const project = await Project.findById(req.params.id);
-      if (!project) {
-        return res.status(404).json({
-          success: false,
-          message: "Project not found",
-        });
-      }
-
-      // Check if user has permission to delete this project
-      const isOwner = project.owner.toString() === req.user._id.toString();
-      const isAdmin = req.user.role === "admin";
-
-      if (!isOwner && !isAdmin) {
-        return res.status(403).json({
-          success: false,
-          message: "Not authorized to delete this project",
-        });
-      }
-
-      // Capture state before deletion for audit trail
-      const beforeDeletion = JSON.parse(JSON.stringify(project.toObject()));
-
-      await Project.findByIdAndDelete(req.params.id);
-
-      // Audit log
-      try {
-        await AuditLog.record({
-          actor: req.user._id,
-          action: "project.deleted",
-          resourceType: "Project",
-          resourceId: req.params.id,
-          before: beforeDeletion,
-          after: null,
-          ip: req.ip,
-          userAgent: req.get("user-agent"),
-          meta: { endpoint: "DELETE /api/projects/:id" },
-        });
-      } catch (e) {
-        // Non-blocking
-        logger.warn("Failed to record audit log for project deletion", e);
-      }
-
-      logger.api.request("DELETE", `/api/projects/${req.params.id}`, req.user._id, {
-        projectId: req.params.id,
-      });
-
-      res.json({
-        success: true,
-        message: "Project deleted successfully",
-      });
-    } catch (error) {
-      logger.api.error(
-        "DELETE",
-        `/api/projects/${req.params.id}`,
-        error,
-        req.user._id
-      );
-      res.status(500).json({
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id);
+    if (!project) {
+      return res.status(404).json({
         success: false,
-        message: "Failed to delete project",
-        error:
-          process.env.NODE_ENV === "development"
-            ? error.message
-            : "Internal server error",
+        message: "Project not found",
       });
     }
+
+    // Check if user has permission to delete this project
+    const isOwner = project.owner.toString() === req.user._id.toString();
+    const isAdmin = req.user.role === "admin";
+
+    if (!isOwner && !isAdmin) {
+      return res.status(403).json({
+        success: false,
+        message: "Not authorized to delete this project",
+      });
+    }
+
+    // Capture state before deletion for audit trail
+    const beforeDeletion = JSON.parse(JSON.stringify(project.toObject()));
+
+    await Project.findByIdAndDelete(req.params.id);
+
+    // Audit log
+    try {
+      await AuditLog.record({
+        actor: req.user._id,
+        action: "project.deleted",
+        resourceType: "Project",
+        resourceId: req.params.id,
+        before: beforeDeletion,
+        after: null,
+        ip: req.ip,
+        userAgent: req.get("user-agent"),
+        meta: { endpoint: "DELETE /api/projects/:id" },
+      });
+    } catch (e) {
+      // Non-blocking
+      logger.warn("Failed to record audit log for project deletion", e);
+    }
+
+    logger.api.request(
+      "DELETE",
+      `/api/projects/${req.params.id}`,
+      req.user._id,
+      {
+        projectId: req.params.id,
+      }
+    );
+
+    res.json({
+      success: true,
+      message: "Project deleted successfully",
+    });
+  } catch (error) {
+    logger.api.error(
+      "DELETE",
+      `/api/projects/${req.params.id}`,
+      error,
+      req.user._id
+    );
+    res.status(500).json({
+      success: false,
+      message: "Failed to delete project",
+      error:
+        process.env.NODE_ENV === "development"
+          ? error.message
+          : "Internal server error",
+    });
   }
-);
+});
 
 module.exports = router;

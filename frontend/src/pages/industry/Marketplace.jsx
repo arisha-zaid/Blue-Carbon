@@ -2,6 +2,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useNotification } from "../../context/NotificationContext";
 import transactionAPI from "../../services/transactionAPI";
+import api from "../../services/api";
 import { getProjects } from "../../store/projects";
 import {
   Search,
@@ -60,63 +61,6 @@ function MapRecenter({ lat, lng }) {
   return null;
 }
 
-const MOCK_LISTINGS = [
-  {
-    id: "BC-101",
-    name: "Mangrove Shield – Delta North",
-    type: "Mangroves",
-    location: "Gujarat, IN",
-    price: 27.8,
-    rating: 4.7,
-    verified: true,
-    tonsAvailable: 1800,
-    thumbnail:
-      "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "BC-128",
-    name: "Seagrass Bloom – West Coast",
-    type: "Seagrass",
-    location: "Goa, IN",
-    price: 26.2,
-    rating: 4.4,
-    verified: true,
-    tonsAvailable: 950,
-    thumbnail:
-      "https://images.unsplash.com/photo-1585343525945-7201a72e6ce9?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "BC-139",
-    name: "Wetland Horizon – Estuary",
-    type: "Wetlands",
-    location: "Kerala, IN",
-    price: 24.9,
-    rating: 4.1,
-    verified: false,
-    tonsAvailable: 2200,
-    thumbnail:
-      "https://images.unsplash.com/photo-1526676037777-05a232554f77?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "BC-144",
-    name: "Mangrove Revival – Bay East",
-    type: "Mangroves",
-    location: "Odisha, IN",
-    price: 28.9,
-    rating: 4.8,
-    verified: true,
-    tonsAvailable: 640,
-    thumbnail:
-      "https://images.unsplash.com/photo-1603449279430-6f6f7b9b7f68?q=80&w=1600&auto=format&fit=crop",
-  },
-];
-
-// Mark mock listings so Buy button can be disabled for them
-const MOCK_LISTINGS_WITH_SOURCE = MOCK_LISTINGS.map((l) => ({
-  ...l,
-  source: "mock",
-}));
-
 const TYPES = ["All", "Mangroves", "Seagrass", "Wetlands", "Agroforestry"];
 const SORTS = [
   { id: "pop", label: "Popularity", fn: (a, b) => b.rating - a.rating },
@@ -146,6 +90,11 @@ export default function Marketplace() {
   const [buy, setBuy] = useState({ open: false, item: null, tons: "" });
   const [backendProjects, setBackendProjects] = useState([]);
   const [loadingProjects, setLoadingProjects] = useState(false);
+  const [userProjectsRaw, setUserProjectsRaw] = useState([]);
+
+  // Marketplace listings from backend
+  const [marketplace, setMarketplace] = useState([]);
+  const [loadingListings, setLoadingListings] = useState(false);
 
   // Map modal state
   const [mapModal, setMapModal] = useState({
@@ -156,16 +105,12 @@ export default function Marketplace() {
 
   // Fetch real projects from backend so purchases have valid ObjectIds
   useEffect(() => {
+    let mounted = true;
     const fetchProjects = async () => {
       try {
         setLoadingProjects(true);
-        const res = await fetch(
-          `${
-            import.meta.env.VITE_API_URL || "http://localhost:5000/api"
-          }/projects`
-        );
-        const data = await res.json();
-        if (data?.success && Array.isArray(data.data)) {
+        const data = await api.getProjects();
+        if (mounted && data?.success && Array.isArray(data.data)) {
           const mapped = data.data.map((p) => ({
             id: p._id, // MongoDB ObjectId
             name: p.name,
@@ -192,17 +137,75 @@ export default function Marketplace() {
       } catch (e) {
         console.warn("Failed to load backend projects", e);
       } finally {
-        setLoadingProjects(false);
+        if (mounted) setLoadingProjects(false);
       }
     };
     fetchProjects();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  // Load user projects (async) once
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        const projects = await getProjects();
+        if (mounted) setUserProjectsRaw(projects || []);
+      } catch (err) {
+        console.warn("Failed to load user projects", err);
+        if (mounted) setUserProjectsRaw([]);
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  // Load marketplace listings from backend (active only)
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        setLoadingListings(true);
+        const res = await api.request(
+          "/marketplace/listings?status=active&limit=50",
+          { method: "GET" }
+        );
+        const items = res?.data?.items || [];
+        const mapped = items.map((l) => ({
+          id: l._id,
+          name: l.title,
+          type: "Marketplace",
+          location: "",
+          price: l.price,
+          rating: 4.2,
+          verified: l.status === "active",
+          tonsAvailable: l.credits,
+          thumbnail:
+            "https://images.unsplash.com/photo-1529112431328-88da9f2e2ea8?q=80&w=1600&auto=format&fit=crop",
+          source: "marketplace",
+          coordinates: null,
+        }));
+        if (mounted) setMarketplace(mapped);
+      } catch (err) {
+        console.warn("Failed to load marketplace listings", err);
+        if (mounted) setMarketplace([]);
+      } finally {
+        if (mounted) setLoadingListings(false);
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
 
     // Map user-added projects into marketplace items
-    const userProjects = (getProjects() || [])
+    const userProjects = (userProjectsRaw || [])
       .filter((p) =>
         [
           "Pending MRV",
@@ -248,7 +251,7 @@ export default function Marketplace() {
         };
       });
 
-    let list = [...backendProjects, ...userProjects, ...MOCK_LISTINGS].filter(
+    let list = [...backendProjects, ...marketplace, ...userProjects].filter(
       (l) => {
         const matchesQ =
           !q ||
@@ -263,7 +266,7 @@ export default function Marketplace() {
 
     const sorter = SORTS.find((s) => s.id === sortId) || SORTS[0];
     return list.sort(sorter.fn);
-  }, [query, type, verifiedOnly, sortId]);
+  }, [query, type, verifiedOnly, sortId, backendProjects, userProjectsRaw]);
 
   const openBuy = (item) => setBuy({ open: true, item, tons: "" });
   const closeBuy = () => setBuy({ open: false, item: null, tons: "" });
@@ -556,7 +559,6 @@ export default function Marketplace() {
               onBuy={() => openBuy(l)}
               onShowLocation={() => setMapModal({ open: true, item: l })}
               className="bg-[#1a1a1a] text-gray-200 border border-gray-700 hover:border-teal-500 transition-colors duration-300 hover:shadow-[0_0_2px_#14b8a6]"
-
             />
           ))
         )}

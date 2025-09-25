@@ -8,7 +8,7 @@ class ApiService {
       userData: null,
       role: null,
       isAuthenticated: false,
-      lastFetch: null
+      lastFetch: null,
     };
     this._cacheTimeout = 5 * 60 * 1000; // 5 minutes cache timeout
   }
@@ -48,9 +48,11 @@ class ApiService {
   async getUserData() {
     // Check if cache is valid and not expired
     const now = Date.now();
-    if (this._userCache.userData && 
-        this._userCache.lastFetch && 
-        (now - this._userCache.lastFetch) < this._cacheTimeout) {
+    if (
+      this._userCache.userData &&
+      this._userCache.lastFetch &&
+      now - this._userCache.lastFetch < this._cacheTimeout
+    ) {
       return this._userCache.userData;
     }
 
@@ -68,7 +70,7 @@ class ApiService {
       // If fetch fails, user is likely not authenticated
       this.clearAuthData();
     }
-    
+
     return null;
   }
 
@@ -90,7 +92,7 @@ class ApiService {
       userData: null,
       role: null,
       isAuthenticated: false,
-      lastFetch: null
+      lastFetch: null,
     };
   }
 
@@ -106,7 +108,7 @@ class ApiService {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
         ...options.headers,
       },
-      credentials: 'include', // Include session cookies for authentication
+      credentials: "include", // Include session cookies for authentication
       ...options,
     };
 
@@ -156,13 +158,21 @@ class ApiService {
     if (!frontendType) return "other";
     const t = String(frontendType).toLowerCase();
     console.log("🔄 Lowercase type:", t);
-    
+
     // Map common UI categories to backend enums
-    if (t.includes("mangrove") || t.includes("seagrass") || t.includes("wetland")) {
+    if (
+      t.includes("mangrove") ||
+      t.includes("seagrass") ||
+      t.includes("wetland")
+    ) {
       console.log("✅ Mapped to biodiversity_conservation");
       return "biodiversity_conservation";
     }
-    if (t.includes("agroforestry") || t.includes("agri") || t.includes("farm")) {
+    if (
+      t.includes("agroforestry") ||
+      t.includes("agri") ||
+      t.includes("farm")
+    ) {
       console.log("✅ Mapped to sustainable_agriculture");
       return "sustainable_agriculture";
     }
@@ -170,7 +180,7 @@ class ApiService {
       console.log("✅ Mapped to reforestation");
       return "reforestation";
     }
-    
+
     // Add more mappings here as your UI grows
     const validTypes = [
       "reforestation",
@@ -183,7 +193,7 @@ class ApiService {
       "green_technology",
       "other",
     ];
-    
+
     const result = validTypes.includes(t) ? t : "other";
     console.log("✅ Final mapped type:", result);
     return result;
@@ -193,33 +203,49 @@ class ApiService {
   _normalizeProjectPayload(data) {
     const payload = { ...(data || {}) };
 
-    // Description: backend requires 50-5000 chars when not draft
-    let description = String(payload.description || payload.shortDescription || "").trim();
-    if (description.length < 50) {
-      const pad = " More details will be provided in subsequent updates.";
-      while (description.length < 50) description += pad;
-      description = description.slice(0, 5000);
+    // Description: backend requires 50-5000 chars when not draft (only normalize if description exists)
+    if (payload.description || payload.shortDescription) {
+      let description = String(
+        payload.description || payload.shortDescription || ""
+      ).trim();
+      if (description.length < 50) {
+        const pad = " More details will be provided in subsequent updates.";
+        while (description.length < 50) description += pad;
+        description = description.slice(0, 5000);
+      }
+      payload.description = description;
     }
-    payload.description = description;
 
-    // Type mapping to backend enum
-    payload.type = this._mapFrontendTypeToBackend(payload.type || payload.projectType);
+    // Type mapping to backend enum (only if type field exists)
+    if (payload.type || payload.projectType) {
+      payload.type = this._mapFrontendTypeToBackend(
+        payload.type || payload.projectType
+      );
+    }
 
-    // Location normalization
-    if (typeof payload.location === "string") {
-      payload.location = { address: payload.location };
-    }
-    payload.location = payload.location || {};
-    if (!payload.location.address || String(payload.location.address).trim() === "") {
-      // Fallback to a generic address if missing
-      payload.location.address = "Unknown";
-    }
-    if (!payload.location.country || String(payload.location.country).trim() === "") {
-      payload.location.country = "Unknown";
+    // Location normalization (only if location field exists)
+    if (payload.location) {
+      if (typeof payload.location === "string") {
+        payload.location = { address: payload.location };
+      }
+      payload.location = payload.location || {};
+      if (
+        !payload.location.address ||
+        String(payload.location.address).trim() === ""
+      ) {
+        // Fallback to a generic address if missing
+        payload.location.address = "Unknown";
+      }
+      if (
+        !payload.location.country ||
+        String(payload.location.country).trim() === ""
+      ) {
+        payload.location.country = "Unknown";
+      }
     }
 
     // Coordinates validation coercion (optional fields)
-    if (payload.location.coordinates) {
+    if (payload.location && payload.location.coordinates) {
       const { latitude, longitude } = payload.location.coordinates;
       if (latitude === undefined || longitude === undefined) {
         delete payload.location.coordinates;
@@ -228,7 +254,10 @@ class ApiService {
 
     // Funding goal (>= 100 when not draft)
     payload.funding = payload.funding || {};
-    if (typeof payload.funding.goal !== "number" || payload.funding.goal < 100) {
+    if (
+      typeof payload.funding.goal !== "number" ||
+      payload.funding.goal < 100
+    ) {
       payload.funding.goal = 100;
     }
     if (!payload.funding.currency) payload.funding.currency = "USD";
@@ -236,7 +265,8 @@ class ApiService {
     // Carbon impact
     payload.carbonImpact = payload.carbonImpact || {};
     const est = Number(payload.carbonImpact.estimatedReduction || 0);
-    payload.carbonImpact.estimatedReduction = Number.isFinite(est) && est >= 0 ? Math.floor(est) : 0;
+    payload.carbonImpact.estimatedReduction =
+      Number.isFinite(est) && est >= 0 ? Math.floor(est) : 0;
 
     // Area (optional, non-negative)
     if (payload.area !== undefined) {
@@ -481,9 +511,11 @@ class ApiService {
   // Checks session validity by verifying cached data or making server request
   async isAuthenticated() {
     // Check memory cache first
-    if (this._userCache.isAuthenticated && 
-        this._userCache.lastFetch && 
-        (Date.now() - this._userCache.lastFetch) < this._cacheTimeout) {
+    if (
+      this._userCache.isAuthenticated &&
+      this._userCache.lastFetch &&
+      Date.now() - this._userCache.lastFetch < this._cacheTimeout
+    ) {
       return true;
     }
 
@@ -498,15 +530,14 @@ class ApiService {
 
   // Synchronous version for immediate checks (uses cache only)
   isAuthenticatedSync() {
-    return this._userCache.isAuthenticated && 
-           this._userCache.userData !== null;
+    return this._userCache.isAuthenticated && this._userCache.userData !== null;
   }
 
   // Check if user has specific role
   async hasRole(role) {
     const userRole = await this.getUserRole();
     if (!userRole) return false;
-    
+
     if (Array.isArray(role)) {
       return role.includes(userRole);
     }
@@ -517,7 +548,7 @@ class ApiService {
   hasRoleSync(role) {
     const userRole = this._userCache.role;
     if (!userRole) return false;
-    
+
     if (Array.isArray(role)) {
       return role.includes(userRole);
     }
