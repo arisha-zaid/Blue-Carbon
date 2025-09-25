@@ -198,24 +198,24 @@ app.set("io", io);
 app.use((req, res, next) => {
   // Store original json method
   const originalJson = res.json;
-  
+
   // Override json method to ensure consistent format
-  res.json = function(data) {
+  res.json = function (data) {
     // If data already has success field, use as is
-    if (data && typeof data === 'object' && 'success' in data) {
+    if (data && typeof data === "object" && "success" in data) {
       return originalJson.call(this, data);
     }
-    
+
     // Format response consistently
     const formattedResponse = {
       success: res.statusCode < 400,
       ...(data && { data }),
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
-    
+
     return originalJson.call(this, formattedResponse);
   };
-  
+
   next();
 });
 
@@ -251,7 +251,10 @@ app.get("/api/health/db", async (req, res) => {
     let canWrite = false;
     try {
       const col = mongoose.connection.db.collection("diagnostics_health");
-      const { insertedId } = await col.insertOne({ _t: "db-health", ts: new Date() });
+      const { insertedId } = await col.insertOne({
+        _t: "db-health",
+        ts: new Date(),
+      });
       await col.deleteOne({ _id: insertedId });
       canWrite = true;
     } catch (e) {}
@@ -373,6 +376,14 @@ try {
 }
 
 try {
+  const marketplaceRoutes = require("./routes/marketplace");
+  app.use("/api/marketplace", marketplaceRoutes);
+  console.log("✅ Marketplace routes loaded");
+} catch (error) {
+  console.warn("⚠️ Marketplace routes failed to load:", error.message);
+}
+
+try {
   const paymentRoutes = require("./routes/payments");
   app.use("/api/payments", paymentRoutes);
   console.log("✅ Payment routes loaded");
@@ -391,23 +402,25 @@ try {
 // Client-friendly error handling middleware
 app.use((err, req, res, next) => {
   console.error("Error:", err);
-  
+
   // Handle specific error types
   let status = err.status || err.statusCode || 500;
   let message = err.message || "Something went wrong";
-  
+
   // JWT errors
-  if (err.name === 'JsonWebTokenError') {
+  if (err.name === "JsonWebTokenError") {
     status = 401;
     message = "Invalid token";
-  } else if (err.name === 'TokenExpiredError') {
+  } else if (err.name === "TokenExpiredError") {
     status = 401;
     message = "Token expired";
   }
   // Validation errors
-  else if (err.name === 'ValidationError') {
+  else if (err.name === "ValidationError") {
     status = 400;
-    message = Object.values(err.errors).map(e => e.message).join(', ');
+    message = Object.values(err.errors)
+      .map((e) => e.message)
+      .join(", ");
   }
   // MongoDB duplicate key errors
   else if (err.code === 11000) {
@@ -416,15 +429,16 @@ app.use((err, req, res, next) => {
     message = `${field} already exists`;
   }
   // Cast errors (invalid ObjectId)
-  else if (err.name === 'CastError') {
+  else if (err.name === "CastError") {
     status = 400;
     message = "Invalid ID format";
   }
 
   res.status(status).json({
     success: false,
-    message: process.env.NODE_ENV === "development" ? message : "Something went wrong",
-    ...(process.env.NODE_ENV === "development" && { stack: err.stack })
+    message:
+      process.env.NODE_ENV === "development" ? message : "Something went wrong",
+    ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
   });
 });
 
@@ -440,8 +454,8 @@ app.use("*", (req, res) => {
       "GET /api/projects",
       "POST /api/projects",
       "GET /api/transactions",
-      "POST /api/payments/stripe/create-intent"
-    ]
+      "POST /api/payments/stripe/create-intent",
+    ],
   });
 });
 
@@ -508,7 +522,9 @@ const startServer = async () => {
     );
 
     // Optional: DB write check (disabled by default)
-    if ((process.env.DB_STARTUP_WRITE_CHECK || "false").toLowerCase() === "true") {
+    if (
+      (process.env.DB_STARTUP_WRITE_CHECK || "false").toLowerCase() === "true"
+    ) {
       try {
         const diagnostics = mongoose.connection.db.collection("diagnostics");
         const testDoc = { _t: "startup-write-check", ts: new Date() };
@@ -536,7 +552,8 @@ const startServer = async () => {
         const adminEmail =
           process.env.DEFAULT_ADMIN_EMAIL || "admin@bluecarbon.org";
         const adminPassword = process.env.DEFAULT_ADMIN_PASSWORD || "admin123";
-        const govEmail = process.env.DEFAULT_GOV_EMAIL || "gov@environmental.org";
+        const govEmail =
+          process.env.DEFAULT_GOV_EMAIL || "gov@environmental.org";
         const govPassword = process.env.DEFAULT_GOV_PASSWORD || "gov123";
 
         const ensureUser = async (
@@ -615,7 +632,9 @@ const startServer = async () => {
         );
       }
     } else {
-      console.log("🌱 Seeding default users: skipped (SEED_DEFAULT_USERS=false)");
+      console.log(
+        "🌱 Seeding default users: skipped (SEED_DEFAULT_USERS=false)"
+      );
     }
 
     // Start server
